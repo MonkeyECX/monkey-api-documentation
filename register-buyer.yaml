@@ -1,0 +1,2671 @@
+---
+openapi: "3.0.1"
+info:
+  title: "Monkey API"
+  version: "1.0"
+servers:
+- url: "https://hmg-zuul.monkeyecx.com"
+  description: "Staging Server"
+- url: "https://zuul.monkey.exchange"
+  description: "Production Server"
+paths:
+  /v2/buyers/{governmentId}/steps/picture:
+    get:
+      tags:
+      - "Image Registration."
+      summary: "Detail"
+      description: ""
+      operationId: "legalbuyersteppictureweb/findOneBuyerStepPictureContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelBuyerStepPicture"
+              example:
+                createdAt: "2009-11-09T16:36:49.364+0000"
+                createUserId: "monkey_tester@monkey.com"
+                createUserIp: "10.0.0.1"
+                updatedAt: "2009-11-09T16:36:49.364+0000"
+                lastUserId: "monkey_tester@monkey.com"
+                lastUserIp: "10.0.0.1"
+                pictureURL: "/test/picture.png"
+                _links:
+                  self:
+                    href: "http://localhost/v2/buyers/64343229000101/steps/picture"
+                    type: "GET"
+                  previous-step:
+                    href: "http://localhost/v2/buyers/64343229000101/steps/legal-responsible"
+                    type: "GET"
+    put:
+      tags:
+      - "Image Registration."
+      summary: "Update"
+      description: ""
+      operationId: "legalbuyersteppictureweb/putBuyerStepPictureContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/registerV2BuyerStepPicture"
+            example:
+              pictureURL: "//img/monkey.png"
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelBuyerStepPicture"
+              example:
+                createdAt: "2009-11-09T16:36:49.364+0000"
+                createUserId: "monkey_tester@monkey.com"
+                createUserIp: "10.0.0.1"
+                updatedAt: "2009-11-09T16:36:49.364+0000"
+                lastUserId: "monkey_tester@monkey.com"
+                lastUserIp: "10.0.0.1"
+                pictureURL: "/test/picture.png"
+                _links:
+                  self:
+                    href: "http://localhost/v2/buyers/64343229000101/steps/picture"
+                    type: "GET"
+                  previous-step:
+                    href: "http://localhost/v2/buyers/64343229000101/steps/legal-responsible"
+                    type: "GET"
+    post:
+      tags:
+      - "Image Registration."
+      summary: "Insert"
+      description: ""
+      operationId: "legalbuyersteppictureweb/createBuyerStepPictureContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/registerV2BuyerStepPicture"
+            example:
+              pictureURL: "//img/monkey.png"
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        201:
+          description: "Created"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelBuyerStepPicture"
+              example:
+                createdAt: "2009-11-09T16:36:49.364+0000"
+                createUserId: "monkey_tester@monkey.com"
+                createUserIp: "10.0.0.1"
+                updatedAt: "2009-11-09T16:36:49.364+0000"
+                lastUserId: "monkey_tester@monkey.com"
+                lastUserIp: "10.0.0.1"
+                pictureURL: "//img/monkey.png"
+                _links:
+                  self:
+                    href: "http://localhost/v2/buyers/64343229000101/steps/picture"
+                    type: "GET"
+                  previous-step:
+                    href: "http://localhost/v2/buyers/64343229000101/steps/legal-responsible"
+                    type: "GET"
+  /v2/buyers/{governmentId}/steps/phone:
+    get:
+      tags:
+      - "Phone Data Registration."
+      summary: "Detail"
+      description: ""
+      operationId: "legalbuyerstepphoneweb/findOneBuyerStepPhoneContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelBuyerStepPhone"
+              example:
+                createdAt: "2022-03-03T13:29:13Z"
+                createUserId: "anonymousUser"
+                createUserIp: "127.0.0.1"
+                updatedAt: "2022-03-03T13:29:13Z"
+                lastUserId: "anonymousUser"
+                lastUserIp: "127.0.0.1"
+                mainPhone: "1199999999"
+                phone: "1123452345"
+                _links:
+                  self:
+                    href: "http://localhost/v2/buyers/31690688000102/steps/phone"
+                    type: "GET"
+                  update:
+                    href: "http://localhost/v2/buyers/31690688000102/steps/phone"
+                    type: "PUT"
+                  previous-step:
+                    href: "http://localhost/v2/buyers/31690688000102/steps/address"
+                    type: "GET"
+                  next-step:
+                    href: "http://localhost/v2/buyers/31690688000102/steps/legal-responsible"
+                    type: "GET"
+    put:
+      tags:
+      - "Phone Data Registration."
+      summary: "Update"
+      description: ""
+      operationId: "legalbuyerstepphoneweb/putBuyerStepPhoneContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/registerV2BuyerStepPhone"
+            example:
+              mainPhone: "1199999999"
+              phone: "1123452345"
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelBuyerStepPhone"
+              example:
+                createdAt: "2022-03-03T13:29:13Z"
+                createUserId: "anonymousUser"
+                createUserIp: "127.0.0.1"
+                updatedAt: "2022-03-03T13:29:13Z"
+                lastUserId: "anonymousUser"
+                lastUserIp: "127.0.0.1"
+                mainPhone: "1199999999"
+                phone: "1123452345"
+                _links:
+                  self:
+                    href: "http://localhost/v2/buyers/64343229000101/steps/phone"
+                    type: "GET"
+                  update:
+                    href: "http://localhost/v2/buyers/64343229000101/steps/phone"
+                    type: "PUT"
+                  previous-step:
+                    href: "http://localhost/v2/buyers/64343229000101/steps/address"
+                    type: "GET"
+                  next-step:
+                    href: "http://localhost/v2/buyers/64343229000101/steps/legal-responsible"
+                    type: "POST"
+    post:
+      tags:
+      - "Phone Data Registration."
+      summary: "Insert"
+      description: ""
+      operationId: "legalbuyerstepphoneweb/createBuyerStepPhoneContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/registerV2BuyerStepPhone"
+            example:
+              mainPhone: "1199999999"
+              phone: "1123452345"
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        201:
+          description: "Created"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelBuyerStepPhone"
+              example:
+                createdAt: "2022-03-03T13:29:13Z"
+                createUserId: "anonymousUser"
+                createUserIp: "127.0.0.1"
+                updatedAt: "2022-03-03T13:29:13Z"
+                lastUserId: "anonymousUser"
+                lastUserIp: "127.0.0.1"
+                mainPhone: "1199999999"
+                phone: "1123452345"
+                _links:
+                  self:
+                    href: "http://localhost/v2/buyers/64343229000101/steps/phone"
+                    type: "GET"
+                  update:
+                    href: "http://localhost/v2/buyers/64343229000101/steps/phone"
+                    type: "PUT"
+                  previous-step:
+                    href: "http://localhost/v2/buyers/64343229000101/steps/address"
+                    type: "GET"
+                  next-step:
+                    href: "http://localhost/v2/buyers/64343229000101/steps/legal-responsible"
+                    type: "POST"
+  /v2/buyers/{governmentId}/steps/legal-responsible:
+    get:
+      tags:
+      - "Legal Responsible Registration."
+      summary: "Detail"
+      description: ""
+      operationId: "legalbuyersteplegalresponsiblesweb/findOneBuyerStepLegalResponsiblesContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelBuyerStepLegalResponsibles"
+              example:
+                createdAt: "2022-03-04T18:59:25Z"
+                createUserId: "anonymousUser"
+                createUserIp: "127.0.0.1"
+                updatedAt: "2022-03-04T18:59:26Z"
+                lastUserId: "anonymousUser"
+                lastUserIp: "127.0.0.1"
+                legalResponsibles:
+                - createdAt: "2022-03-04T18:59:26Z"
+                  createUserId: "anonymousUser"
+                  createUserIp: "127.0.0.1"
+                  updatedAt: "2022-03-04T18:59:26Z"
+                  lastUserId: "anonymousUser"
+                  lastUserIp: "127.0.0.1"
+                  name: "Severino Gustavo Sales"
+                  governmentId: "55180857023"
+                  birthdayDate: "1986-04-26"
+                  email: "severinogustavosales_@teste.com"
+                  type: "PARTNER"
+                _links:
+                  self:
+                    href: "http://localhost/v2/buyers/31690688000102/steps/legal-responsible"
+                    type: "GET"
+                  update:
+                    href: "http://localhost/v2/buyers/31690688000102/steps/legal-responsible"
+                    type: "PUT"
+                  previous-step:
+                    href: "http://localhost/v2/buyers/31690688000102/steps/phone"
+                    type: "GET"
+                  next-step:
+                    href: "http://localhost/v2/buyers/31690688000102/steps/picture"
+                    type: "GET"
+    put:
+      tags:
+      - "Legal Responsible Registration."
+      summary: "Update"
+      description: ""
+      operationId: "legalbuyersteplegalresponsiblesweb/putBuyerStepLegalResponsiblesContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/registerV2BuyerStepLegalResponsibles"
+            example:
+              legalResponsibles:
+              - name: "Severino Gustavo Sales"
+                governmentId: "55180857023"
+                birthdayDate: "1986-04-26"
+                email: "severinogustavosales_@teste.com"
+                type: "PARTNER"
+              - name: "Vinicius Felipe da Silva"
+                governmentId: "69073663040"
+                birthdayDate: "1985-07-28"
+                email: "mateusjoaoenzomoura@teste.com"
+                type: "PARTNER"
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelBuyerStepLegalResponsibles"
+              example:
+                createdAt: "2022-03-04T18:59:25Z"
+                createUserId: "anonymousUser"
+                createUserIp: "127.0.0.1"
+                updatedAt: "2022-03-04T18:59:26Z"
+                lastUserId: "anonymousUser"
+                lastUserIp: "127.0.0.1"
+                legalResponsibles:
+                - createdAt: "2022-03-04T18:59:26Z"
+                  createUserId: "anonymousUser"
+                  createUserIp: "127.0.0.1"
+                  updatedAt: "2022-03-04T18:59:26Z"
+                  lastUserId: "anonymousUser"
+                  lastUserIp: "127.0.0.1"
+                  name: "Severino Gustavo Sales"
+                  governmentId: "55180857023"
+                  birthdayDate: "1986-04-26"
+                  email: "severinogustavosales_@teste.com"
+                  type: "PARTNER"
+                _links:
+                  self:
+                    href: "http://localhost/v2/buyers/64343229000101/steps/legal-responsible"
+                    type: "GET"
+                  update:
+                    href: "http://localhost/v2/buyers/64343229000101/steps/legal-responsible"
+                    type: "PUT"
+                  previous-step:
+                    href: "http://localhost/v2/buyers/64343229000101/steps/phone"
+                    type: "GET"
+                  next-step:
+                    href: "http://localhost/v2/buyers/64343229000101/steps/picture"
+                    type: "POST"
+    post:
+      tags:
+      - "Legal Responsible Registration."
+      summary: "Insert"
+      description: ""
+      operationId: "legalbuyersteplegalresponsiblesweb/createBuyerStepLegalResponsiblesContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/registerV2BuyerStepLegalResponsibles"
+            example:
+              legalResponsibles:
+              - name: "Severino Gustavo Sales"
+                governmentId: "55180857023"
+                birthdayDate: "1986-04-26"
+                email: "severinogustavosales_@teste.com"
+                type: "PARTNER"
+              - name: "Vinicius Felipe da Silva"
+                governmentId: "69073663040"
+                birthdayDate: "1985-07-28"
+                email: "mateusjoaoenzomoura@teste.com"
+                type: "PARTNER"
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        201:
+          description: "Created"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelBuyerStepLegalResponsibles"
+              example:
+                createdAt: "2022-03-04T18:59:25Z"
+                createUserId: "anonymousUser"
+                createUserIp: "127.0.0.1"
+                updatedAt: "2022-03-04T18:59:26Z"
+                lastUserId: "anonymousUser"
+                lastUserIp: "127.0.0.1"
+                legalResponsibles:
+                - createdAt: "2022-03-04T18:59:26Z"
+                  createUserId: "anonymousUser"
+                  createUserIp: "127.0.0.1"
+                  updatedAt: "2022-03-04T18:59:26Z"
+                  lastUserId: "anonymousUser"
+                  lastUserIp: "127.0.0.1"
+                  name: "Severino Gustavo Sales"
+                  governmentId: "55180857023"
+                  birthdayDate: "1986-04-26"
+                  email: "severinogustavosales_@teste.com"
+                  type: "PARTNER"
+                _links:
+                  self:
+                    href: "http://localhost/v2/buyers/64343229000101/steps/legal-responsible"
+                    type: "GET"
+                  update:
+                    href: "http://localhost/v2/buyers/64343229000101/steps/legal-responsible"
+                    type: "PUT"
+                  previous-step:
+                    href: "http://localhost/v2/buyers/64343229000101/steps/phone"
+                    type: "GET"
+                  next-step:
+                    href: "http://localhost/v2/buyers/64343229000101/steps/picture"
+                    type: "POST"
+  /v2/buyers/{governmentId}/steps/company:
+    get:
+      tags:
+      - "Company Registration."
+      summary: "Detail"
+      description: ""
+      operationId: "legalbuyerstepcompanyweb/findOneBuyerStepCompanyContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelBuyerStepCompany"
+              example:
+                createdAt: "2022-02-24T18:18:14Z"
+                createUserId: "anonymousUser"
+                createUserIp: "127.0.0.1"
+                updatedAt: "2022-02-24T18:18:14Z"
+                lastUserId: "anonymousUser"
+                lastUserIp: "127.0.0.1"
+                governmentId: "31690688000102"
+                name: "Company Name"
+                fantasyName: "Fanstasy Company Name"
+                activityCode: "6300/01"
+                calculationType: "SIMPLE_INTEREST"
+                legalNature: "LTDA"
+                _links:
+                  self:
+                    href: "http://localhost/v2/buyers/31690688000102/steps/company"
+                    type: "GET"
+                  update:
+                    href: "http://localhost/v2/buyers/31690688000102/steps/company"
+                    type: "PUT"
+                  next-step:
+                    href: "http://localhost/v2/buyers/31690688000102/steps/address"
+                    type: "GET"
+    put:
+      tags:
+      - "Company Registration."
+      summary: "Update"
+      description: ""
+      operationId: "legalbuyerstepcompanyweb/putBuyerStepCompanyContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/registerV2BuyerStepCompany"
+            example:
+              name: "Company Name"
+              fantasyName: "Fanstasy Company Name"
+              activityCode: "6300/01"
+              calculationType: "COMPOUND_INTEREST"
+              legalNature: "OTHER"
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelBuyerStepCompany"
+              example:
+                createdAt: "2022-02-24T18:18:14Z"
+                createUserId: "anonymousUser"
+                createUserIp: "127.0.0.1"
+                updatedAt: "2022-02-24T18:18:14Z"
+                lastUserId: "anonymousUser"
+                lastUserIp: "127.0.0.1"
+                governmentId: "64343229000101"
+                name: "Company Name"
+                fantasyName: "Fanstasy Company Name"
+                activityCode: "6300/01"
+                calculationType: "COMPOUND_INTEREST"
+                legalNature: "OTHER"
+                _links:
+                  self:
+                    href: "http://localhost/v2/buyers/64343229000101/steps/company"
+                    type: "GET"
+                  update:
+                    href: "http://localhost/v2/buyers/64343229000101/steps/company"
+                    type: "PUT"
+                  next-step:
+                    href: "http://localhost/v2/buyers/64343229000101/steps/address"
+                    type: "POST"
+    post:
+      tags:
+      - "Company Registration."
+      summary: "Insert"
+      description: ""
+      operationId: "legalbuyerstepcompanyweb/createBuyerStepCompanyContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/registerV2BuyerStepCompany"
+            example:
+              name: "Company Name"
+              fantasyName: "Fanstasy Company Name"
+              activityCode: "6300/01"
+              calculationType: "SIMPLE_INTEREST"
+              legalNature: "LTDA"
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        201:
+          description: "Created"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelBuyerStepCompany"
+              example:
+                createdAt: "2022-02-24T18:18:14Z"
+                createUserId: "anonymousUser"
+                createUserIp: "127.0.0.1"
+                updatedAt: "2022-02-24T18:18:14Z"
+                lastUserId: "anonymousUser"
+                lastUserIp: "127.0.0.1"
+                governmentId: "64343229000101"
+                name: "Company Name"
+                fantasyName: "Fanstasy Company Name"
+                activityCode: "6300/01"
+                calculationType: "SIMPLE_INTEREST"
+                legalNature: "LTDA"
+                _links:
+                  self:
+                    href: "http://localhost/v2/buyers/64343229000101/steps/company"
+                    type: "GET"
+                  update:
+                    href: "http://localhost/v2/buyers/64343229000101/steps/company"
+                    type: "PUT"
+                  next-step:
+                    href: "http://localhost/v2/buyers/64343229000101/steps/address"
+                    type: "POST"
+  /v2/buyers/{governmentId}/steps/address:
+    get:
+      tags:
+      - "Address Registration."
+      summary: "Detail"
+      description: ""
+      operationId: "legalbuyerstepaddressweb/findOneBuyerStepAddressContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelBuyerStepAddress"
+              example:
+                createdAt: "2022-02-26T17:26:46Z"
+                createUserId: "anonymousUserv"
+                createUserIp: "127.0.0.1"
+                updatedAt: "2022-02-26T17:26:46Z"
+                lastUserId: "anonymousUser"
+                lastUserIp: "127.0.0.1"
+                governmentId: "31690688000102"
+                zipCode: "06670480"
+                address: "Estrada Granja Amazonas"
+                addressNumber: "1290"
+                addressComplement: "AP 1"
+                neighborhood: "Jardim Alfa"
+                city: "Guarulhos"
+                state: "SP"
+                country: "Brasil"
+                _links:
+                  self:
+                    href: "http://localhost/v2/buyers/31690688000102/steps/address"
+                    type: "GET"
+                  update:
+                    href: "http://localhost/v2/buyers/31690688000102/steps/address"
+                    type: "PUT"
+                  previous-step:
+                    href: "http://localhost/v2/buyers/31690688000102/steps/company"
+                    type: "GET"
+                  next-step:
+                    href: "http://localhost/v2/buyers/31690688000102/steps/phone"
+                    type: "GET"
+    put:
+      tags:
+      - "Address Registration."
+      summary: "Update"
+      description: ""
+      operationId: "legalbuyerstepaddressweb/putBuyerStepAddressContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/registerV2BuyerStepAddress"
+            example:
+              zipCode: "06670480"
+              address: "Estrada Granja Amazonas"
+              addressNumber: "1290"
+              addressComplement: "AP 1"
+              neighborhood: "Jardim Alfa"
+              city: "Guarulhos"
+              state: "SP"
+              country: "Brasil"
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelBuyerStepAddress"
+              example:
+                createdAt: "2022-02-26T17:26:46Z"
+                createUserId: "anonymousUserv"
+                createUserIp: "127.0.0.1"
+                updatedAt: "2022-02-26T17:26:46Z"
+                lastUserId: "anonymousUser"
+                lastUserIp: "127.0.0.1"
+                governmentId: "64343229000101"
+                zipCode: "06670480"
+                address: "Estrada Granja Amazonas"
+                addressNumber: "1290"
+                addressComplement: "AP 1"
+                neighborhood: "Jardim Alfa"
+                city: "Guarulhos"
+                state: "SP"
+                country: "Brasil"
+                _links:
+                  self:
+                    href: "http://localhost/v2/buyers/64343229000101/steps/address"
+                    type: "GET"
+                  update:
+                    href: "http://localhost/v2/buyers/64343229000101/steps/address"
+                    type: "PUT"
+                  previous-step:
+                    href: "http://localhost/v2/buyers/64343229000101/steps/company"
+                    type: "GET"
+                  next-step:
+                    href: "http://localhost/v2/buyers/64343229000101/steps/phone"
+                    type: "POST"
+    post:
+      tags:
+      - "Address Registration."
+      summary: "Insert"
+      description: ""
+      operationId: "legalbuyerstepaddressweb/createBuyerStepAddressContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/registerV2BuyerStepAddress"
+            example:
+              zipCode: "06670480"
+              address: "Estrada Granja Amazonas"
+              addressNumber: "1290"
+              addressComplement: "AP 1"
+              neighborhood: "Jardim Alfa"
+              city: "Guarulhos"
+              state: "SP"
+              country: "Brasil"
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        201:
+          description: "Created"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelBuyerStepAddress"
+              example:
+                createdAt: "2022-02-26T17:26:46Z"
+                createUserId: "anonymousUserv"
+                createUserIp: "127.0.0.1"
+                updatedAt: "2022-02-26T17:26:46Z"
+                lastUserId: "anonymousUser"
+                lastUserIp: "127.0.0.1"
+                governmentId: "64343229000101"
+                zipCode: "06670480"
+                address: "Estrada Granja Amazonas"
+                addressNumber: "1290"
+                addressComplement: "AP 1"
+                neighborhood: "Jardim Alfa"
+                city: "Guarulhos"
+                state: "SP"
+                country: "Brasil"
+                _links:
+                  self:
+                    href: "http://localhost/v2/buyers/64343229000101/steps/address"
+                    type: "GET"
+                  update:
+                    href: "http://localhost/v2/buyers/64343229000101/steps/address"
+                    type: "PUT"
+                  previous-step:
+                    href: "http://localhost/v2/buyers/64343229000101/steps/company"
+                    type: "GET"
+                  next-step:
+                    href: "http://localhost/v2/buyers/64343229000101/steps/phone"
+                    type: "POST"
+  /v2/buyers/{governmentId}/steps/{program}:
+    post:
+      tags:
+      - "Registration Steps."
+      summary: "Migrate To Another Program"
+      description: ""
+      operationId: "buyerstepsweb/migrateBuyerStepsContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      - name: "program"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        202:
+          description: "Accepted"
+  /v2/buyers/{governmentId}/documents/{documentType}:
+    get:
+      tags:
+      - "Document Upload"
+      summary: "Download"
+      description: ""
+      operationId: "downloadDocumentFile"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      - name: "documentType"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+          enum:
+          - "COMPANY_IMAGES_SPONSOR"
+          - "COMPANY_IMAGES_SELLER"
+          - "COMPANY_IMAGES_BUYER"
+          - "SPONSOR_SOCIAL_CONTRACT"
+          - "SPONSOR_REVENUE_RATIO"
+          - "SPONSOR_FINANCIAL_STATEMENTS"
+          - "SPONSOR_BANK_BORROWING"
+          - "NATURAL_SELLER_NATIONAL_REGISTRATION"
+          - "SELLER_SOCIAL_CONTRACT"
+          - "SELLER_BOARD_MINUTES"
+          - "SELLER_PROCURATION"
+          - "NATURAL_SPONSOR_NATIONAL_REGISTRATION"
+          - "BUYER_SOCIAL_CONTRACT"
+          - "BUYER_PROCURATION"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        200:
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+                format: "binary"
+    post:
+      tags:
+      - "Document Upload"
+      summary: "Upload"
+      description: ""
+      operationId: "buyerdocumentweb/UploadDocumentFile.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      - name: "documentType"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+          enum:
+          - "COMPANY_IMAGES_SPONSOR"
+          - "COMPANY_IMAGES_SELLER"
+          - "COMPANY_IMAGES_BUYER"
+          - "SPONSOR_SOCIAL_CONTRACT"
+          - "SPONSOR_REVENUE_RATIO"
+          - "SPONSOR_FINANCIAL_STATEMENTS"
+          - "SPONSOR_BANK_BORROWING"
+          - "NATURAL_SELLER_NATIONAL_REGISTRATION"
+          - "SELLER_SOCIAL_CONTRACT"
+          - "SELLER_BOARD_MINUTES"
+          - "SELLER_PROCURATION"
+          - "NATURAL_SPONSOR_NATIONAL_REGISTRATION"
+          - "BUYER_SOCIAL_CONTRACT"
+          - "BUYER_PROCURATION"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              required:
+              - "document"
+              type: "object"
+              properties:
+                document:
+                  type: "string"
+                  format: "binary"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        201:
+          description: "Created"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelDocumentFile"
+              example:
+                _links:
+                  self:
+                    href: "http://localhost/v2/buyers/57648355000109/documents/BUYER_PROCURATION"
+                    type: "GET"
+                  seller:
+                    href: "http://localhost/v2/buyers/57648355000109"
+                    type: "GET"
+    delete:
+      tags:
+      - "Document Upload"
+      summary: "Delete"
+      description: ""
+      operationId: "buyerdocumentweb/DeleteDocumentFile.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      - name: "documentType"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+          enum:
+          - "COMPANY_IMAGES_SPONSOR"
+          - "COMPANY_IMAGES_SELLER"
+          - "COMPANY_IMAGES_BUYER"
+          - "SPONSOR_SOCIAL_CONTRACT"
+          - "SPONSOR_REVENUE_RATIO"
+          - "SPONSOR_FINANCIAL_STATEMENTS"
+          - "SPONSOR_BANK_BORROWING"
+          - "NATURAL_SELLER_NATIONAL_REGISTRATION"
+          - "SELLER_SOCIAL_CONTRACT"
+          - "SELLER_BOARD_MINUTES"
+          - "SELLER_PROCURATION"
+          - "NATURAL_SPONSOR_NATIONAL_REGISTRATION"
+          - "BUYER_SOCIAL_CONTRACT"
+          - "BUYER_PROCURATION"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        204:
+          description: "No Content"
+  /v2/buyers/{governmentId}/steps:
+    get:
+      tags:
+      - "Registration Steps."
+      summary: "Detail"
+      description: ""
+      operationId: "buyerstepsweb/findOneBuyerStepsContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelBuyerStepsDTO"
+              example:
+                stepCompany:
+                  createdAt: "2022-03-16T20:44:21Z"
+                  createUserId: "anonymousUser"
+                  createUserIp: "127.0.0.1"
+                  updatedAt: "2022-03-18T22:56:02Z"
+                  lastUserId: "anonymousUser"
+                  lastUserIp: "127.0.0.1"
+                  governmentId: "31690688000102"
+                  name: "Company Name"
+                  fantasyName: "Fanstasy Company Name"
+                  activityCode: "6300/01"
+                  legalNature: "LTDA"
+                  calculationType: "SIMPLE_INTEREST"
+                  _links:
+                    self:
+                      href: "http://localhost/v2/buyers/31690688000102/steps/company"
+                      type: "GET"
+                stepAddress:
+                  createdAt: "2022-02-26T17:26:46Z"
+                  createUserId: "anonymousUser"
+                  createUserIp: "127.0.0.1"
+                  updatedAt: "2022-03-21T10:30:27Z"
+                  lastUserId: "anonymousUser"
+                  lastUserIp: "127.0.0.1"
+                  zipCode: "06670480"
+                  address: "Estrada Granja Amazonas"
+                  addressNumber: "2700"
+                  neighborhood: "Jardim Alfa"
+                  city: "Guarulhos"
+                  state: "SP"
+                  country: "Brasil"
+                  _links:
+                    self:
+                      href: "http://localhost/v2/buyers/31690688000102/steps/address"
+                      type: "GET"
+                stepPhone:
+                  createdAt: "2022-03-04T18:38:45Z"
+                  createUserId: "anonymousUser"
+                  createUserIp: "127.0.0.1"
+                  updatedAt: "2022-03-21T18:29:35Z"
+                  lastUserId: "anonymousUser"
+                  lastUserIp: "127.0.0.1"
+                  mainPhone: "1199999988"
+                  phone: "1145674567"
+                  _links:
+                    self:
+                      href: "http://localhost/v2/buyers/31690688000102/steps/phone"
+                      type: "GET"
+                stepLegalResponsible:
+                  createdAt: "2022-03-21T19:20:09Z"
+                  createUserId: "anonymousUser"
+                  createUserIp: "127.0.0.1"
+                  updatedAt: "2022-03-21T19:20:10Z"
+                  lastUserId: "anonymousUser"
+                  lastUserIp: "127.0.0.1"
+                  legalResponsibles:
+                  - createdAt: "2022-03-21T19:21:52Z"
+                    createUserId: "anonymousUser"
+                    createUserIp: "127.0.0.1"
+                    updatedAt: "2022-03-21T19:21:52Z"
+                    lastUserId: "anonymousUser"
+                    lastUserIp: "127.0.0.1"
+                    name: "Iran Alyf Albino"
+                    governmentId: "55180857023"
+                    birthdayDate: "1986-04-26"
+                    email: "iranalyf@teste.com"
+                    type: "Socio"
+                  _links:
+                    self:
+                      href: "http://localhost/v2/buyers/31690688000102/steps/legal-responsible"
+                      type: "GET"
+                stepPicture:
+                  createdAt: "2022-03-16T21:34:41Z"
+                  createUserId: "anonymousUser"
+                  createUserIp: "127.0.0.1"
+                  updatedAt: "2022-03-21T22:18:02Z"
+                  lastUserId: "anonymousUser"
+                  lastUserIp: "127.0.0.1"
+                  pictureURL: "http://picture.jpeg"
+                  _links:
+                    self:
+                      href: "http://localhost/v2/buyers/31690688000102/steps/picture"
+                      type: "GET"
+                _links:
+                  self:
+                    href: "http://localhost/v2/buyers/31690688000102/steps"
+                    type: "GET"
+                  delete:
+                    href: "http://localhost/v2/buyers/31690688000102/steps"
+                    type: "DELETE"
+    delete:
+      tags:
+      - "Registration Steps."
+      summary: "Delete"
+      description: ""
+      operationId: "buyerstepsweb/deleteBuyerStepsContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/registerV2AbstractPassNumberResourceObject"
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        204:
+          description: "No Content"
+components:
+  schemas:
+    registerV2Message:
+      type: "object"
+      properties:
+        type:
+          type: "string"
+          enum:
+          - "Invalid_Token"
+          - "Mult_Status_Error"
+          - "No_Content_Error"
+          - "Conflict_Error"
+          - "Parameter_Error"
+          - "Bad_Request_Error"
+          - "Business_Logic_Error"
+          - "Resource_Not_Found"
+          - "Internal_Architecture_Error"
+          - "List_Not_Found"
+          - "Method_Not_Allowed"
+          - "Unsupported_Media_Type"
+          - "Access_Denied"
+          - "mfa_required"
+          - "Integration_Error"
+        description:
+          type: "string"
+        notifications:
+          type: "array"
+          items:
+            type: "string"
+    registerV2BuyerStepPicture:
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          format: "date-time"
+        createUserId:
+          type: "string"
+        createUserIp:
+          type: "string"
+        updatedAt:
+          type: "string"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+        lastUserIp:
+          type: "string"
+        governmentId:
+          type: "string"
+        pictureURL:
+          type: "string"
+    registerV2EntityModelBuyerStepPicture:
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          format: "date-time"
+        createUserId:
+          type: "string"
+        createUserIp:
+          type: "string"
+        updatedAt:
+          type: "string"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+        lastUserIp:
+          type: "string"
+        governmentId:
+          type: "string"
+        pictureURL:
+          type: "string"
+        _links:
+          $ref: "#/components/schemas/registerV2Links"
+    registerV2Links:
+      type: "object"
+      additionalProperties:
+        $ref: "#/components/schemas/registerV2Link"
+    registerV2BuyerStepPhone:
+      required:
+      - "mainPhone"
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          format: "date-time"
+        createUserId:
+          type: "string"
+        createUserIp:
+          type: "string"
+        updatedAt:
+          type: "string"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+        lastUserIp:
+          type: "string"
+        mainPhone:
+          type: "string"
+        phone:
+          type: "string"
+    registerV2EntityModelBuyerStepPhone:
+      required:
+      - "mainPhone"
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          format: "date-time"
+        createUserId:
+          type: "string"
+        createUserIp:
+          type: "string"
+        updatedAt:
+          type: "string"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+        lastUserIp:
+          type: "string"
+        mainPhone:
+          type: "string"
+        phone:
+          type: "string"
+        _links:
+          $ref: "#/components/schemas/registerV2Links"
+    registerV2BuyerStepLegalResponsible:
+      required:
+      - "birthdayDate"
+      - "email"
+      - "governmentId"
+      - "name"
+      - "type"
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          format: "date-time"
+        createUserId:
+          type: "string"
+        createUserIp:
+          type: "string"
+        updatedAt:
+          type: "string"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+        lastUserIp:
+          type: "string"
+        id:
+          type: "string"
+        name:
+          type: "string"
+        governmentId:
+          type: "string"
+        type:
+          type: "string"
+          enum:
+          - "PARTNER"
+          - "SHAREHOLDER"
+          - "ADMINISTRATOR"
+          - "DIRECTOR"
+          - "CONSULTANT"
+        birthdayDate:
+          type: "string"
+          format: "date"
+        email:
+          type: "string"
+    registerV2BuyerStepLegalResponsibles:
+      required:
+      - "legalResponsibles"
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          format: "date-time"
+        createUserId:
+          type: "string"
+        createUserIp:
+          type: "string"
+        updatedAt:
+          type: "string"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+        lastUserIp:
+          type: "string"
+        legalResponsibles:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/registerV2BuyerStepLegalResponsible"
+    registerV2EntityModelBuyerStepLegalResponsibles:
+      required:
+      - "legalResponsibles"
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          format: "date-time"
+        createUserId:
+          type: "string"
+        createUserIp:
+          type: "string"
+        updatedAt:
+          type: "string"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+        lastUserIp:
+          type: "string"
+        legalResponsibles:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/registerV2BuyerStepLegalResponsible"
+        _links:
+          $ref: "#/components/schemas/registerV2Links"
+    registerV2BuyerStepCompany:
+      required:
+      - "activityCode"
+      - "calculationType"
+      - "fantasyName"
+      - "legalNature"
+      - "name"
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          format: "date-time"
+        createUserId:
+          type: "string"
+        createUserIp:
+          type: "string"
+        updatedAt:
+          type: "string"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+        lastUserIp:
+          type: "string"
+        governmentId:
+          type: "string"
+        name:
+          type: "string"
+        fantasyName:
+          type: "string"
+        activityCode:
+          type: "string"
+        legalNature:
+          type: "string"
+          enum:
+          - "LTDA"
+          - "SA"
+          - "OTHER"
+        calculationType:
+          type: "string"
+          enum:
+          - "SIMPLE_INTEREST"
+          - "COMPOUND_INTEREST"
+    registerV2EntityModelBuyerStepCompany:
+      required:
+      - "activityCode"
+      - "calculationType"
+      - "fantasyName"
+      - "legalNature"
+      - "name"
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          format: "date-time"
+        createUserId:
+          type: "string"
+        createUserIp:
+          type: "string"
+        updatedAt:
+          type: "string"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+        lastUserIp:
+          type: "string"
+        governmentId:
+          type: "string"
+        name:
+          type: "string"
+        fantasyName:
+          type: "string"
+        activityCode:
+          type: "string"
+        legalNature:
+          type: "string"
+          enum:
+          - "LTDA"
+          - "SA"
+          - "OTHER"
+        calculationType:
+          type: "string"
+          enum:
+          - "SIMPLE_INTEREST"
+          - "COMPOUND_INTEREST"
+        _links:
+          $ref: "#/components/schemas/registerV2Links"
+    registerV2BuyerStepAddress:
+      required:
+      - "address"
+      - "addressNumber"
+      - "city"
+      - "country"
+      - "neighborhood"
+      - "state"
+      - "zipCode"
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          format: "date-time"
+        createUserId:
+          type: "string"
+        createUserIp:
+          type: "string"
+        updatedAt:
+          type: "string"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+        lastUserIp:
+          type: "string"
+        governmentId:
+          type: "string"
+        zipCode:
+          type: "string"
+        address:
+          type: "string"
+        addressNumber:
+          type: "string"
+        addressComplement:
+          type: "string"
+        neighborhood:
+          type: "string"
+        city:
+          type: "string"
+        state:
+          type: "string"
+        country:
+          type: "string"
+    registerV2EntityModelBuyerStepAddress:
+      required:
+      - "address"
+      - "addressNumber"
+      - "city"
+      - "country"
+      - "neighborhood"
+      - "state"
+      - "zipCode"
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          format: "date-time"
+        createUserId:
+          type: "string"
+        createUserIp:
+          type: "string"
+        updatedAt:
+          type: "string"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+        lastUserIp:
+          type: "string"
+        governmentId:
+          type: "string"
+        zipCode:
+          type: "string"
+        address:
+          type: "string"
+        addressNumber:
+          type: "string"
+        addressComplement:
+          type: "string"
+        neighborhood:
+          type: "string"
+        city:
+          type: "string"
+        state:
+          type: "string"
+        country:
+          type: "string"
+        _links:
+          $ref: "#/components/schemas/registerV2Links"
+    registerV2EntityModelDocumentFile:
+      type: "object"
+      properties:
+        filename:
+          type: "string"
+        url:
+          type: "string"
+          writeOnly: true
+        _links:
+          $ref: "#/components/schemas/registerV2Links"
+    registerV2EntityModelBuyerStepsDTO:
+      type: "object"
+      properties:
+        governmentId:
+          type: "string"
+        stepCompany:
+          $ref: "#/components/schemas/registerV2EntityModelBuyerStepCompany"
+        stepAddress:
+          $ref: "#/components/schemas/registerV2EntityModelBuyerStepAddress"
+        stepPhone:
+          $ref: "#/components/schemas/registerV2EntityModelBuyerStepPhone"
+        stepLegalResponsible:
+          $ref: "#/components/schemas/registerV2EntityModelBuyerStepLegalResponsibles"
+        stepPicture:
+          $ref: "#/components/schemas/registerV2EntityModelBuyerStepPicture"
+        _links:
+          $ref: "#/components/schemas/registerV2Links"
+    registerV2AbstractPassNumberResourceObject:
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          format: "date-time"
+        createUserId:
+          type: "string"
+        createUserIp:
+          type: "string"
+        updatedAt:
+          type: "string"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+        lastUserIp:
+          type: "string"
+        passNumber1:
+          type: "string"
+        passNumber2:
+          type: "string"
+        passNumber3:
+          type: "string"
+        passNumber4:
+          type: "string"
+        _links:
+          $ref: "#/components/schemas/registerV2Links"
+    registerV2Link:
+      type: "object"
+      properties:
+        href:
+          type: "string"
+        hreflang:
+          type: "string"
+        title:
+          type: "string"
+        type:
+          type: "string"
+        deprecation:
+          type: "string"
+        profile:
+          type: "string"
+        name:
+          type: "string"
+        templated:
+          type: "boolean"

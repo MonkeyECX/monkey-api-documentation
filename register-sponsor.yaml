@@ -1,0 +1,4705 @@
+---
+openapi: "3.0.1"
+info:
+  title: "Monkey API"
+  version: "1.0"
+servers:
+- url: "https://hmg-zuul.monkeyecx.com"
+  description: "Staging Server"
+- url: "https://zuul.monkey.exchange"
+  description: "Production Server"
+paths:
+  /v2/sponsors/{governmentId}/steps/picture:
+    get:
+      tags:
+      - "Legal Entity - Image Registration."
+      summary: "Detail"
+      description: ""
+      operationId: "legalsponsorsteppictureweb/findOneSponsorStepPictureContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelSponsorStepPicture"
+              example:
+                createdAt: "2009-11-09T16:36:49.364+0000"
+                createUserId: "monkey_tester@monkey.com"
+                createUserIp: "10.0.0.1"
+                updatedAt: "2009-11-09T16:36:49.364+0000"
+                lastUserId: "monkey_tester@monkey.com"
+                lastUserIp: "10.0.0.1"
+                pictureURL: "/test/picture.png"
+                _links:
+                  self:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/picture"
+                    type: "GET"
+                  update:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/picture"
+                    type: "PUT"
+                  previous-step:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/legal-responsible"
+                    type: "GET"
+    put:
+      tags:
+      - "Legal Entity - Image Registration."
+      summary: "Update"
+      description: ""
+      operationId: "legalsponsorsteppictureweb/putSponsorStepPictureContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/registerV2SponsorStepPicture"
+            example:
+              pictureURL: "//img/monkey.png"
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelSponsorStepPicture"
+              example:
+                createdAt: "2009-11-09T16:36:49.364+0000"
+                createUserId: "monkey_tester@monkey.com"
+                createUserIp: "10.0.0.1"
+                updatedAt: "2009-11-09T16:36:49.364+0000"
+                lastUserId: "monkey_tester@monkey.com"
+                lastUserIp: "10.0.0.1"
+                pictureURL: "/test/picture.png"
+                _links:
+                  self:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/picture"
+                    type: "GET"
+                  update:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/picture"
+                    type: "PUT"
+                  previous-step:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/legal-responsible"
+                    type: "GET"
+    post:
+      tags:
+      - "Legal Entity - Image Registration."
+      summary: "Insert"
+      description: ""
+      operationId: "legalsponsorsteppictureweb/createSponsorStepPictureContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/registerV2SponsorStepPicture"
+            example:
+              pictureURL: "//img/monkey.png"
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        201:
+          description: "Created"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelSponsorStepPicture"
+              example:
+                createdAt: "2009-11-09T16:36:49.364+0000"
+                createUserId: "monkey_tester@monkey.com"
+                createUserIp: "10.0.0.1"
+                updatedAt: "2009-11-09T16:36:49.364+0000"
+                lastUserId: "monkey_tester@monkey.com"
+                lastUserIp: "10.0.0.1"
+                pictureURL: "//img/monkey.png"
+                _links:
+                  self:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/picture"
+                    type: "GET"
+                  update:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/picture"
+                    type: "PUT"
+                  previous-step:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/legal-responsible"
+                    type: "GET"
+  /v2/sponsors/{governmentId}/steps/legal-responsible:
+    get:
+      tags:
+      - "Legal Entity - Legal Responsible Registration."
+      summary: "Detail"
+      description: ""
+      operationId: "legalsponsorsteplegalresponsibleweb/findOneSponsorStepLegalResponsibleContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelSponsorStepLegalResponsibles"
+              example:
+                createdAt: "2009-11-09T16:36:49.364+0000"
+                createUserId: "monkey_tester@monkey.com"
+                createUserIp: "10.0.0.1"
+                updatedAt: "2009-11-09T16:36:49.364+0000"
+                lastUserId: "monkey_tester@monkey.com"
+                lastUserIp: "10.0.0.1"
+                legalResponsibles:
+                - createdAt: "2009-11-09T16:36:49.364+0000"
+                  createUserId: "monkey_tester@monkey.com"
+                  createUserIp: "10.0.0.1"
+                  updatedAt: "2009-11-09T16:36:49.364+0000"
+                  lastUserId: "monkey_tester@monkey.com"
+                  lastUserIp: "10.0.0.1"
+                  name: "Carlos Alberto"
+                  governmentId: "82456625000127"
+                  type: "PARTNER"
+                  birthdayDate: "1980-10-09T16:36:49.364+0000"
+                  phone: "19-9132-5591"
+                  companyPhone: "19-9132-5591"
+                  email: "teste@monkey.com.br"
+                  nationalRegistrationDocument:
+                    createdAt: "2009-11-09T16:36:49.364+0000"
+                    createUserId: "monkey_tester@monkey.com"
+                    createUserIp: "10.0.0.1"
+                    updatedAt: "2009-11-09T16:36:49.364+0000"
+                    lastUserId: "monkey_tester@monkey.com"
+                    lastUserIp: "10.0.0.1"
+                    fileName: "1.jpeg"
+                    url: "http://1.jpeg"
+                _links:
+                  self:
+                    href: "http://localhost/v2/sponsors/31690688000102/steps/legal-responsible"
+                    type: "GET"
+                  update:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/legal-responsible"
+                    type: "PUT"
+                  previous-step:
+                    href: "http://localhost/v2/sponsors/31690688000102/steps/address"
+                    type: "GET"
+                  next-step:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/document"
+                    type: "GET"
+    put:
+      tags:
+      - "Legal Entity - Legal Responsible Registration."
+      summary: "Update"
+      description: ""
+      operationId: "legalsponsorsteplegalresponsibleweb/putSponsorStepLegalResponsibleContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/registerV2SponsorStepLegalResponsibles"
+            example:
+              legalResponsibles:
+              - name: "Carlos Alberto"
+                governmentId: "08317139689"
+                type: "PARTNER"
+                birthdayDate: "1980-10-09"
+                phone: "+551991325591"
+                companyPhone: "+551991325591"
+                email: "teste@monkey.com.br"
+                nationalRegistrationDocument:
+                  fileName: "1.jpeg"
+                  url: "http://1.jpeg"
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelSponsorStepLegalResponsibles"
+              example:
+                createdAt: "2022-03-04T18:59:25Z"
+                createUserId: "anonymousUser"
+                createUserIp: "127.0.0.1"
+                updatedAt: "2022-03-04T18:59:26Z"
+                lastUserId: "anonymousUser"
+                lastUserIp: "127.0.0.1"
+                legalResponsibles:
+                - createdAt: "2009-11-09T16:36:49.364+0000"
+                  createUserId: "monkey_tester@monkey.com"
+                  createUserIp: "10.0.0.1"
+                  updatedAt: "2009-11-09T16:36:49.364+0000"
+                  lastUserId: "monkey_tester@monkey.com"
+                  lastUserIp: "10.0.0.1"
+                  name: "Carlos Alberto"
+                  governmentId: "82456625000127"
+                  type: "DIRECTOR"
+                  birthdayDate: "1980-10-09T16:36:49.364+0000"
+                  phone: "19-9132-5591"
+                  companyPhone: "19-9132-5591"
+                  email: "teste@monkey.com.br"
+                  nationalRegistrationDocument:
+                    createdAt: "2009-11-09T16:36:49.364+0000"
+                    createUserId: "monkey_tester@monkey.com"
+                    createUserIp: "10.0.0.1"
+                    updatedAt: "2009-11-09T16:36:49.364+0000"
+                    lastUserId: "monkey_tester@monkey.com"
+                    lastUserIp: "10.0.0.1"
+                    fileName: "1.jpeg"
+                    url: "http://1.jpeg"
+                _links:
+                  self:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/legal-responsible"
+                    type: "GET"
+                  update:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/legal-responsible"
+                    type: "PUT"
+                  previous-step:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/address"
+                    type: "GET"
+                  next-step:
+                    href: "http://localhost/v2/sponsors/31690688000102/steps/document"
+                    type: "POST"
+    post:
+      tags:
+      - "Legal Entity - Legal Responsible Registration."
+      summary: "Insert"
+      description: ""
+      operationId: "legalsponsorsteplegalresponsibleweb/createSponsorStepLegalResponsibleContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/registerV2SponsorStepLegalResponsibles"
+            example:
+              legalResponsibles:
+              - name: "Carlos Alberto"
+                governmentId: "08317139689"
+                type: "PARTNER"
+                birthdayDate: "1980-10-09"
+                phone: "+551991325591"
+                companyPhone: "+551991325591"
+                email: "teste@monkey.com.br"
+                nationalRegistrationDocument:
+                  fileName: "1.jpeg"
+                  url: "http://1.jpeg"
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        201:
+          description: "Created"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelSponsorStepLegalResponsibles"
+              example:
+                createdAt: "2009-11-09T16:36:49.364+0000"
+                createUserId: "monkey_tester@monkey.com"
+                createUserIp: "10.0.0.1"
+                updatedAt: "2009-11-09T16:36:49.364+0000"
+                lastUserId: "monkey_tester@monkey.com"
+                lastUserIp: "10.0.0.1"
+                legalResponsibles:
+                - createdAt: "2009-11-09T16:36:49.364+0000"
+                  createUserId: "monkey_tester@monkey.com"
+                  createUserIp: "10.0.0.1"
+                  updatedAt: "2009-11-09T16:36:49.364+0000"
+                  lastUserId: "monkey_tester@monkey.com"
+                  lastUserIp: "10.0.0.1"
+                  name: "Carlos Alberto"
+                  governmentId: "82456625000127"
+                  type: "PARTNER"
+                  birthdayDate: "1980-10-09T16:36:49.364+0000"
+                  phone: "1991325591"
+                  companyPhone: "1991325591"
+                  email: "teste@monkey.com.br"
+                  nationalRegistrationDocument:
+                    createdAt: "2009-11-09T16:36:49.364+0000"
+                    createUserId: "monkey_tester@monkey.com"
+                    createUserIp: "10.0.0.1"
+                    updatedAt: "2009-11-09T16:36:49.364+0000"
+                    lastUserId: "monkey_tester@monkey.com"
+                    lastUserIp: "10.0.0.1"
+                    fileName: "1.jpeg"
+                    url: "http://1.jpeg"
+                _links:
+                  self:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/legal-responsible"
+                    type: "GET"
+                  update:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/legal-responsible"
+                    type: "PUT"
+                  previous-step:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/address"
+                    type: "GET"
+                  next-step:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/document"
+                    type: "POST"
+  /v2/sponsors/{governmentId}/steps/document:
+    get:
+      tags:
+      - "Legal Entity - Document Registration."
+      summary: "Detail"
+      description: ""
+      operationId: "legalsponsorstepdocumentweb/findOneSponsorStepDocumentContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelSponsorStepDocuments"
+              example:
+                createdAt: "2009-11-09T16:36:49.364+0000"
+                createUserId: "monkey_tester@monkey.com"
+                createUserIp: "10.0.0.1"
+                updatedAt: "2009-11-09T16:36:49.364+0000"
+                lastUserId: "monkey_tester@monkey.com"
+                lastUserIp: "10.0.0.1"
+                socialContractDocument:
+                  createdAt: "2009-11-09T16:36:49.364+0000"
+                  createUserId: "monkey_tester@monkey.com"
+                  createUserIp: "10.0.0.1"
+                  updatedAt: "2009-11-09T16:36:49.364+0000"
+                  lastUserId: "monkey_tester@monkey.com"
+                  lastUserIp: "10.0.0.1"
+                  fileName: "1.jpeg"
+                  url: "http://1.jpeg"
+                revenueRatio:
+                  createdAt: "2009-11-09T16:36:49.364+0000"
+                  createUserId: "monkey_tester@monkey.com"
+                  createUserIp: "10.0.0.1"
+                  updatedAt: "2009-11-09T16:36:49.364+0000"
+                  lastUserId: "monkey_tester@monkey.com"
+                  lastUserIp: "10.0.0.1"
+                  fileName: "2.jpeg"
+                  url: "http://2.jpeg"
+                financialStatements:
+                  createdAt: "2009-11-09T16:36:49.364+0000"
+                  createUserId: "monkey_tester@monkey.com"
+                  createUserIp: "10.0.0.1"
+                  updatedAt: "2009-11-09T16:36:49.364+0000"
+                  lastUserId: "monkey_tester@monkey.com"
+                  lastUserIp: "10.0.0.1"
+                  fileName: "3.jpeg"
+                  url: "http://3.jpeg"
+                _links:
+                  self:
+                    href: "http://localhost/v2/sponsors/31690688000102/steps/document"
+                    type: "GET"
+                  update:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/document"
+                    type: "PUT"
+                  previous-step:
+                    href: "http://localhost/v2/sponsors/31690688000102/steps/legal-responsible"
+                    type: "GET"
+                  next-step:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/picture"
+                    type: "GET"
+    put:
+      tags:
+      - "Legal Entity - Document Registration."
+      summary: "Update"
+      description: ""
+      operationId: "legalsponsorstepdocumentweb/putSponsorStepDocumentContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/registerV2SponsorStepDocuments"
+            example:
+              socialContractDocument:
+                fileName: "1.jpeg"
+                url: "http://1.jpeg"
+              revenueRatio:
+                fileName: "2.jpeg"
+                url: "http://2.jpeg"
+              financialStatements:
+                fileName: "3.jpeg"
+                url: "http://3.jpeg"
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelSponsorStepDocuments"
+              example:
+                createdAt: "2009-11-09T16:36:49.364+0000"
+                createUserId: "monkey_tester@monkey.com"
+                createUserIp: "10.0.0.1"
+                updatedAt: "2009-11-09T16:36:49.364+0000"
+                lastUserId: "monkey_tester@monkey.com"
+                lastUserIp: "10.0.0.1"
+                socialContractDocument:
+                  createdAt: "2009-11-09T16:36:49.364+0000"
+                  createUserId: "monkey_tester@monkey.com"
+                  createUserIp: "10.0.0.1"
+                  updatedAt: "2009-11-09T16:36:49.364+0000"
+                  lastUserId: "monkey_tester@monkey.com"
+                  lastUserIp: "10.0.0.1"
+                  fileName: "1.jpeg"
+                  url: "http://1.jpeg"
+                revenueRatio:
+                  createdAt: "2009-11-09T16:36:49.364+0000"
+                  createUserId: "monkey_tester@monkey.com"
+                  createUserIp: "10.0.0.1"
+                  updatedAt: "2009-11-09T16:36:49.364+0000"
+                  lastUserId: "monkey_tester@monkey.com"
+                  lastUserIp: "10.0.0.1"
+                  fileName: "2.jpeg"
+                  url: "http://2.jpeg"
+                financialStatements:
+                  createdAt: "2009-11-09T16:36:49.364+0000"
+                  createUserId: "monkey_tester@monkey.com"
+                  createUserIp: "10.0.0.1"
+                  updatedAt: "2009-11-09T16:36:49.364+0000"
+                  lastUserId: "monkey_tester@monkey.com"
+                  lastUserIp: "10.0.0.1"
+                  fileName: "3.jpeg"
+                  url: "http://3.jpeg"
+                _links:
+                  self:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/document"
+                    type: "GET"
+                  update:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/document"
+                    type: "PUT"
+                  previous-step:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/legal-responsible"
+                    type: "GET"
+                  next-step:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/picture"
+                    type: "POST"
+    post:
+      tags:
+      - "Legal Entity - Document Registration."
+      summary: "Insert"
+      description: ""
+      operationId: "legalsponsorstepdocumentweb/createSponsorStepDocumentContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/registerV2SponsorStepDocuments"
+            example:
+              socialContractDocument:
+                fileName: "1.jpeg"
+                url: "http://1.jpeg"
+              revenueRatio:
+                fileName: "2.jpeg"
+                url: "http://2.jpeg"
+              financialStatements:
+                fileName: "3.jpeg"
+                url: "http://3.jpeg"
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        201:
+          description: "Created"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelSponsorStepDocuments"
+              example:
+                createdAt: "2009-11-09T16:36:49.364+0000"
+                createUserId: "monkey_tester@monkey.com"
+                createUserIp: "10.0.0.1"
+                updatedAt: "2009-11-09T16:36:49.364+0000"
+                lastUserId: "monkey_tester@monkey.com"
+                lastUserIp: "10.0.0.1"
+                socialContractDocument:
+                  createdAt: "2009-11-09T16:36:49.364+0000"
+                  createUserId: "monkey_tester@monkey.com"
+                  createUserIp: "10.0.0.1"
+                  updatedAt: "2009-11-09T16:36:49.364+0000"
+                  lastUserId: "monkey_tester@monkey.com"
+                  lastUserIp: "10.0.0.1"
+                  fileName: "1.jpeg"
+                  url: "http://1.jpeg"
+                revenueRatio:
+                  createdAt: "2009-11-09T16:36:49.364+0000"
+                  createUserId: "monkey_tester@monkey.com"
+                  createUserIp: "10.0.0.1"
+                  updatedAt: "2009-11-09T16:36:49.364+0000"
+                  lastUserId: "monkey_tester@monkey.com"
+                  lastUserIp: "10.0.0.1"
+                  fileName: "2.jpeg"
+                  url: "http://2.jpeg"
+                financialStatements:
+                  createdAt: "2009-11-09T16:36:49.364+0000"
+                  createUserId: "monkey_tester@monkey.com"
+                  createUserIp: "10.0.0.1"
+                  updatedAt: "2009-11-09T16:36:49.364+0000"
+                  lastUserId: "monkey_tester@monkey.com"
+                  lastUserIp: "10.0.0.1"
+                  fileName: "3.jpeg"
+                  url: "http://3.jpeg"
+                _links:
+                  self:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/document"
+                    type: "GET"
+                  update:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/document"
+                    type: "PUT"
+                  previous-step:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/legal-responsible"
+                    type: "GET"
+                  next-step:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/picture"
+                    type: "POST"
+  /v2/sponsors/{governmentId}/steps/company:
+    get:
+      tags:
+      - "Legal Entity - Company Registration."
+      summary: "Detail"
+      description: ""
+      operationId: "legalsponsorstepcompanyweb/findOneSponsorStepCompanyContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelSponsorStepCompany"
+              example:
+                createdAt: "2009-11-09T16:36:49.364+0000"
+                createUserId: "monkey_tester@monkey.com"
+                createUserIp: "10.0.0.1"
+                updatedAt: "2009-11-09T16:36:49.364+0000"
+                lastUserId: "monkey_tester@monkey.com"
+                lastUserIp: "10.0.0.1"
+                name: "Test Company"
+                fantasyName: "Test Company Fantasy"
+                foundationDate: "2015-11-09T16:36:49.364+0000"
+                activityCode: "0113-0/00"
+                _links:
+                  self:
+                    href: "http://localhost/v2/sponsors/31690688000102/steps/company"
+                    type: "GET"
+                  update:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/company"
+                    type: "PUT"
+                  next-step:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/address"
+                    type: "GET"
+    put:
+      tags:
+      - "Legal Entity - Company Registration."
+      summary: "Update"
+      description: ""
+      operationId: "legalsponsorstepcompanyweb/putSponsorStepCompanyContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/registerV2SponsorStepCompany"
+            example:
+              name: "Test Company"
+              fantasyName: "Test Company Fantasy"
+              foundationDate: "2015-11-09"
+              activityCode: "0113-0/00"
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelSponsorStepCompany"
+              example:
+                createdAt: "2022-02-24T18:18:14Z"
+                createUserId: "anonymousUser"
+                createUserIp: "127.0.0.1"
+                updatedAt: "2022-02-24T18:18:14Z"
+                lastUserId: "anonymousUser"
+                lastUserIp: "127.0.0.1"
+                governmentId: "64343229000101"
+                name: "Company Name Other"
+                fantasyName: "Fanstasy Company Test"
+                foundationDate: "1986-11-02"
+                activityCode: "1111/01"
+                _links:
+                  self:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/company"
+                    type: "GET"
+                  update:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/company"
+                    type: "PUT"
+                  next-step:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/address"
+                    type: "POST"
+    post:
+      tags:
+      - "Legal Entity - Company Registration."
+      summary: "Insert"
+      description: ""
+      operationId: "legalsponsorstepcompanyweb/createSponsorStepCompanyContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/registerV2SponsorStepCompany"
+            example:
+              name: "Test Company"
+              fantasyName: "Test Company Fantasy"
+              foundationDate: "2015-11-09"
+              activityCode: "0113-0/00"
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        201:
+          description: "Created"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelSponsorStepCompany"
+              example:
+                createdAt: "2009-11-09T16:36:49.364+0000"
+                createUserId: "monkey_tester@monkey.com"
+                createUserIp: "10.0.0.1"
+                updatedAt: "2009-11-09T16:36:49.364+0000"
+                lastUserId: "monkey_tester@monkey.com"
+                lastUserIp: "10.0.0.1"
+                name: "Test Company"
+                fantasyName: "Test Company Fantasy"
+                foundationDate: "2015-11-09T16:36:49.364+0000"
+                activityCode: "0113-0/00"
+                _links:
+                  self:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/company"
+                    type: "GET"
+                  update:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/company"
+                    type: "PUT"
+                  next-step:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/address"
+                    type: "POST"
+  /v2/sponsors/{governmentId}/steps/address:
+    get:
+      tags:
+      - "Legal Entity - Address Registration."
+      summary: "Detail"
+      description: ""
+      operationId: "legalsponsorstepaddressweb/findOneSponsorStepAddressContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelSponsorStepAddress"
+              example:
+                createdAt: "2009-11-09T16:36:49.364+0000"
+                createUserId: "monkey_tester@monkey.com"
+                createUserIp: "10.0.0.1"
+                updatedAt: "2009-11-09T16:36:49.364+0000"
+                lastUserId: "monkey_tester@monkey.com"
+                lastUserIp: "10.0.0.1"
+                zipCode: "04090011"
+                address: "Rua B"
+                addressNumber: "100 A"
+                addressComplement: "AP 15"
+                neighborhood: "Bela Vista"
+                city: "Catanduva"
+                state: "PR"
+                country: "EUA"
+                _links:
+                  self:
+                    href: "http://localhost/v2/sponsors/31690688000102/steps/address"
+                    type: "GET"
+                  update:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/address"
+                    type: "PUT"
+                  previous-step:
+                    href: "http://localhost/v2/sponsors/31690688000102/steps/company"
+                    type: "GET"
+                  next-step:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/legal-responsible"
+                    type: "GET"
+    put:
+      tags:
+      - "Legal Entity - Address Registration."
+      summary: "Update"
+      description: ""
+      operationId: "legalsponsorstepaddressweb/putSponsorStepAddressContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/registerV2SponsorStepAddress"
+            example:
+              zipCode: "04090011"
+              address: "Rua B"
+              addressNumber: "100 A"
+              addressComplement: "AP 15"
+              neighborhood: "Bela Vista"
+              city: "Catanduva"
+              state: "PR"
+              country: "EUA"
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelSponsorStepAddress"
+              example:
+                createdAt: "2022-02-26T17:26:46Z"
+                createUserId: "anonymousUserv"
+                createUserIp: "127.0.0.1"
+                updatedAt: "2022-02-26T17:26:46Z"
+                lastUserId: "anonymousUser"
+                lastUserIp: "127.0.0.1"
+                zipCode: "38701627"
+                address: "Rua Maria Abadia Martins Ferreira"
+                addressNumber: "99"
+                addressComplement: "AP 01"
+                neighborhood: "Nossa Senhora de Fátima"
+                city: "Patos de Minas"
+                state: "MG"
+                country: "Brasil"
+                _links:
+                  self:
+                    href: "http://localhost/v2/sponsors/31690688000102/steps/address"
+                    type: "GET"
+                  update:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/address"
+                    type: "PUT"
+                  previous-step:
+                    href: "http://localhost/v2/sponsors/31690688000102/steps/company"
+                    type: "GET"
+                  next-step:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/legal-responsible"
+                    type: "POST"
+    post:
+      tags:
+      - "Legal Entity - Address Registration."
+      summary: "Insert"
+      description: ""
+      operationId: "legalsponsorstepaddressweb/createSponsorStepAddressContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/registerV2SponsorStepAddress"
+            example:
+              zipCode: "04090011"
+              address: "Rua B"
+              addressNumber: "100 A"
+              addressComplement: "AP 15"
+              neighborhood: "Bela Vista"
+              city: "Catanduva"
+              state: "PR"
+              country: "EUA"
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        201:
+          description: "Created"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelSponsorStepAddress"
+              example:
+                createdAt: "2009-11-09T16:36:49.364+0000"
+                createUserId: "monkey_tester@monkey.com"
+                createUserIp: "10.0.0.1"
+                updatedAt: "2009-11-09T16:36:49.364+0000"
+                lastUserId: "monkey_tester@monkey.com"
+                lastUserIp: "10.0.0.1"
+                zipCode: "04090011"
+                address: "Rua B"
+                addressNumber: "100 A"
+                addressComplement: "AP 15"
+                neighborhood: "Bela Vista"
+                city: "Catanduva"
+                state: "PR"
+                country: "EUA"
+                _links:
+                  self:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/address"
+                    type: "GET"
+                  update:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/address"
+                    type: "PUT"
+                  previous-step:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/company"
+                    type: "GET"
+                  next-step:
+                    href: "http://localhost/v2/sponsors/64343229000101/steps/legal-responsible"
+                    type: "POST"
+  /v2/sponsors/{governmentId}/steps/person:
+    get:
+      tags:
+      - "Individual - Person Registration."
+      summary: "Detail"
+      description: ""
+      operationId: "naturalsponsorsteppersonweb/findOneSponsorStepPersonContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelNaturalSponsorStepPerson"
+              example:
+                createdAt: "2022-02-26T17:26:46Z"
+                createUserId: "anonymousUserv"
+                createUserIp: "127.0.0.1"
+                updatedAt: "2022-02-26T17:26:46Z"
+                lastUserId: "anonymousUser"
+                lastUserIp: "127.0.0.1"
+                name: "38701627"
+                email: "felipe@monkey.exchange"
+                birthdayDate: "1989-09-30"
+                mobilePhone: "+5511988637566"
+                landlinePhone: "+5511988637566"
+                _links:
+                  self:
+                    href: "http://localhost/v2/sponsors/93442934000/steps/person"
+                    type: "GET"
+                  update:
+                    href: "http://localhost/v2/sponsors/93442934000/steps/person"
+                    type: "PUT"
+                  next-step:
+                    href: "http://localhost/v2/sponsors/93442934000/steps/person-address"
+                    type: "GET"
+    put:
+      tags:
+      - "Individual - Person Registration."
+      summary: "Update"
+      description: ""
+      operationId: "naturalsponsorsteppersonweb/putSponsorStepPersonContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/registerV2NaturalSponsorStepPerson"
+            example:
+              name: "Felipe Adorno"
+              email: "felipe@monkey.exchange"
+              birthdayDate: "1989-09-30"
+              mobilePhone: "+5511988637566"
+              landlinePhone: "+5511988637566"
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelNaturalSponsorStepPerson"
+              example:
+                createdAt: "2022-02-26T17:26:46Z"
+                createUserId: "anonymousUserv"
+                createUserIp: "127.0.0.1"
+                updatedAt: "2022-02-26T17:26:46Z"
+                lastUserId: "anonymousUser"
+                lastUserIp: "127.0.0.1"
+                name: "38701627"
+                email: "felipe@monkey.exchange"
+                birthdayDate: "1989-09-30"
+                mobilePhone: "+5511988637566"
+                landlinePhone: "+5511988637566"
+                _links:
+                  self:
+                    href: "http://localhost/v2/sponsors/93442934000/steps/person"
+                    type: "GET"
+                  update:
+                    href: "http://localhost/v2/sponsors/93442934000/steps/person"
+                    type: "PUT"
+                  next-step:
+                    href: "http://localhost/v2/sponsors/93442934000/steps/person-address"
+                    type: "POST"
+    post:
+      tags:
+      - "Individual - Person Registration."
+      summary: "Insert"
+      description: ""
+      operationId: "naturalsponsorsteppersonweb/createSponsorStepPersonContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/registerV2NaturalSponsorStepPerson"
+            example:
+              name: "Felipe Adorno"
+              email: "felipe@monkey.exchange"
+              birthdayDate: "1989-09-30"
+              mobilePhone: "+5511988637566"
+              landlinePhone: "+5511988637566"
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        201:
+          description: "Created"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelNaturalSponsorStepPerson"
+              example:
+                createdAt: "2022-02-26T17:26:46Z"
+                createUserId: "anonymousUserv"
+                createUserIp: "127.0.0.1"
+                updatedAt: "2022-02-26T17:26:46Z"
+                lastUserId: "anonymousUser"
+                lastUserIp: "127.0.0.1"
+                name: "38701627"
+                email: "felipe@monkey.exchange"
+                birthdayDate: "1989-09-30"
+                mobilePhone: "+5511988637566"
+                landlinePhone: "+5511988637566"
+                _links:
+                  self:
+                    href: "http://localhost/v2/sponsors/93442934000/steps/person"
+                    type: "GET"
+                  update:
+                    href: "http://localhost/v2/sponsors/93442934000/steps/person"
+                    type: "PUT"
+                  next-step:
+                    href: "http://localhost/v2/sponsors/93442934000/steps/person-address"
+                    type: "POST"
+  /v2/sponsors/{governmentId}/steps/person-picture:
+    get:
+      tags:
+      - "Individual - Image Registration."
+      summary: "Detail"
+      description: ""
+      operationId: "naturalsponsorsteppictureweb/findOneSponsorStepPictureContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelNaturalSponsorStepPicture"
+              example:
+                createdAt: "2009-11-09T16:36:49.364+0000"
+                createUserId: "monkey_tester@monkey.com"
+                createUserIp: "10.0.0.1"
+                updatedAt: "2009-11-09T16:36:49.364+0000"
+                lastUserId: "monkey_tester@monkey.com"
+                lastUserIp: "10.0.0.1"
+                pictureURL: "/test/picture.png"
+                _links:
+                  self:
+                    href: "http://localhost/v2/sponsors/93442934000/steps/person-picture"
+                    type: "GET"
+                  update:
+                    href: "http://localhost/v2/sponsors/93442934000/steps/person-picture"
+                    type: "PUT"
+                  previous-step:
+                    href: "http://localhost/v2/sponsors/93442934000/steps/person-document"
+                    type: "GET"
+    put:
+      tags:
+      - "Individual - Image Registration."
+      summary: "Update"
+      description: ""
+      operationId: "naturalsponsorsteppictureweb/putSponsorStepPictureContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/registerV2NaturalSponsorStepPicture"
+            example:
+              pictureURL: "//img/monkey.png"
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelNaturalSponsorStepPicture"
+              example:
+                createdAt: "2009-11-09T16:36:49.364+0000"
+                createUserId: "monkey_tester@monkey.com"
+                createUserIp: "10.0.0.1"
+                updatedAt: "2009-11-09T16:36:49.364+0000"
+                lastUserId: "monkey_tester@monkey.com"
+                lastUserIp: "10.0.0.1"
+                pictureURL: "/test/picture.png"
+                _links:
+                  self:
+                    href: "http://localhost/v2/sponsors/93442934000/steps/person-picture"
+                    type: "GET"
+                  update:
+                    href: "http://localhost/v2/sponsors/93442934000/steps/person-picture"
+                    type: "PUT"
+                  previous-step:
+                    href: "http://localhost/v2/sponsors/93442934000/steps/person-document"
+                    type: "GET"
+    post:
+      tags:
+      - "Individual - Image Registration."
+      summary: "Insert"
+      description: ""
+      operationId: "naturalsponsorsteppictureweb/createSponsorStepPictureContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/registerV2NaturalSponsorStepPicture"
+            example:
+              pictureURL: "//img/monkey.png"
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        201:
+          description: "Created"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelNaturalSponsorStepPicture"
+              example:
+                createdAt: "2009-11-09T16:36:49.364+0000"
+                createUserId: "monkey_tester@monkey.com"
+                createUserIp: "10.0.0.1"
+                updatedAt: "2009-11-09T16:36:49.364+0000"
+                lastUserId: "monkey_tester@monkey.com"
+                lastUserIp: "10.0.0.1"
+                pictureURL: "//img/monkey.png"
+                _links:
+                  self:
+                    href: "http://localhost/v2/sponsors/93442934000/steps/person-picture"
+                    type: "GET"
+                  update:
+                    href: "http://localhost/v2/sponsors/93442934000/steps/person-picture"
+                    type: "PUT"
+                  previous-step:
+                    href: "http://localhost/v2/sponsors/93442934000/steps/person-document"
+                    type: "GET"
+  /v2/sponsors/{governmentId}/steps/person-document:
+    get:
+      tags:
+      - "Individual - Document Registration."
+      summary: "Detail"
+      description: ""
+      operationId: "naturalsponsorstepdocumentweb/findOneSponsorStepDocumentContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelNaturalSponsorStepDocuments"
+              example:
+                createdAt: "2009-11-09T16:36:49.364+0000"
+                createUserId: "monkey_tester@monkey.com"
+                createUserIp: "10.0.0.1"
+                updatedAt: "2009-11-09T16:36:49.364+0000"
+                lastUserId: "monkey_tester@monkey.com"
+                lastUserIp: "10.0.0.1"
+                nationalRegistrationDocument:
+                  createdAt: "2009-11-09T16:36:49.364+0000"
+                  createUserId: "monkey_tester@monkey.com"
+                  createUserIp: "10.0.0.1"
+                  updatedAt: "2009-11-09T16:36:49.364+0000"
+                  lastUserId: "monkey_tester@monkey.com"
+                  lastUserIp: "10.0.0.1"
+                  fileName: "1.jpeg"
+                  url: "http://1.jpeg"
+                _links:
+                  self:
+                    href: "http://localhost/v2/sponsors/93442934000/steps/person-document"
+                    type: "GET"
+                  update:
+                    href: "http://localhost/v2/sponsors/93442934000/steps/person-document"
+                    type: "PUT"
+                  previous-step:
+                    href: "http://localhost/v2/sponsors/93442934000/steps/person-address"
+                    type: "GET"
+                  next-step:
+                    href: "http://localhost/v2/sponsors/93442934000/steps/person-picture"
+                    type: "GET"
+    put:
+      tags:
+      - "Individual - Document Registration."
+      summary: "Update"
+      description: ""
+      operationId: "naturalsponsorstepdocumentweb/putSponsorStepDocumentContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/registerV2NaturalSponsorStepDocuments"
+            example:
+              nationalRegistrationDocument:
+                fileName: "1.jpeg"
+                url: "http://1.jpeg"
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelNaturalSponsorStepDocuments"
+              example:
+                createdAt: "2009-11-09T16:36:49.364+0000"
+                createUserId: "monkey_tester@monkey.com"
+                createUserIp: "10.0.0.1"
+                updatedAt: "2009-11-09T16:36:49.364+0000"
+                lastUserId: "monkey_tester@monkey.com"
+                lastUserIp: "10.0.0.1"
+                nationalRegistrationDocument:
+                  createdAt: "2009-11-09T16:36:49.364+0000"
+                  createUserId: "monkey_tester@monkey.com"
+                  createUserIp: "10.0.0.1"
+                  updatedAt: "2009-11-09T16:36:49.364+0000"
+                  lastUserId: "monkey_tester@monkey.com"
+                  lastUserIp: "10.0.0.1"
+                  fileName: "1.jpeg"
+                  url: "http://1.jpeg"
+                _links:
+                  self:
+                    href: "http://localhost/v2/sponsors/93442934000/steps/person-document"
+                    type: "GET"
+                  update:
+                    href: "http://localhost/v2/sponsors/93442934000/steps/person-document"
+                    type: "PUT"
+                  previous-step:
+                    href: "http://localhost/v2/sponsors/93442934000/steps/person-address"
+                    type: "GET"
+                  next-step:
+                    href: "http://localhost/v2/sponsors/93442934000/steps/person-picture"
+                    type: "POST"
+    post:
+      tags:
+      - "Individual - Document Registration."
+      summary: "Insert"
+      description: ""
+      operationId: "naturalsponsorstepdocumentweb/createSponsorStepDocumentContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/registerV2NaturalSponsorStepDocuments"
+            example:
+              nationalRegistrationDocument:
+                fileName: "1.jpeg"
+                url: "http://1.jpeg"
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        201:
+          description: "Created"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelNaturalSponsorStepDocuments"
+              example:
+                createdAt: "2009-11-09T16:36:49.364+0000"
+                createUserId: "monkey_tester@monkey.com"
+                createUserIp: "10.0.0.1"
+                updatedAt: "2009-11-09T16:36:49.364+0000"
+                lastUserId: "monkey_tester@monkey.com"
+                lastUserIp: "10.0.0.1"
+                nationalRegistrationDocument:
+                  createdAt: "2009-11-09T16:36:49.364+0000"
+                  createUserId: "monkey_tester@monkey.com"
+                  createUserIp: "10.0.0.1"
+                  updatedAt: "2009-11-09T16:36:49.364+0000"
+                  lastUserId: "monkey_tester@monkey.com"
+                  lastUserIp: "10.0.0.1"
+                  fileName: "1.jpeg"
+                  url: "http://1.jpeg"
+                _links:
+                  self:
+                    href: "http://localhost/v2/sponsors/93442934000/steps/person-document"
+                    type: "GET"
+                  update:
+                    href: "http://localhost/v2/sponsors/93442934000/steps/person-document"
+                    type: "PUT"
+                  previous-step:
+                    href: "http://localhost/v2/sponsors/93442934000/steps/person-address"
+                    type: "GET"
+                  next-step:
+                    href: "http://localhost/v2/sponsors/93442934000/steps/person-picture"
+                    type: "POST"
+  /v2/sponsors/{governmentId}/steps/person-address:
+    get:
+      tags:
+      - "Individual - Address Registration."
+      summary: "Detail"
+      description: ""
+      operationId: "naturalsponsorstepaddressweb/findOneSponsorStepAddressContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelNaturalSponsorStepAddress"
+              example:
+                createdAt: "2009-11-09T16:36:49.364+0000"
+                createUserId: "monkey_tester@monkey.com"
+                createUserIp: "10.0.0.1"
+                updatedAt: "2009-11-09T16:36:49.364+0000"
+                lastUserId: "monkey_tester@monkey.com"
+                lastUserIp: "10.0.0.1"
+                zipCode: "04090011"
+                address: "Rua B"
+                addressNumber: "100 A"
+                addressComplement: "AP 15"
+                neighborhood: "Bela Vista"
+                city: "Catanduva"
+                state: "PR"
+                country: "EUA"
+                _links:
+                  self:
+                    href: "http://localhost/v2/sponsors/93442934000/steps/person-address"
+                    type: "GET"
+                  update:
+                    href: "http://localhost/v2/sponsors/93442934000/steps/person-address"
+                    type: "PUT"
+                  previous-step:
+                    href: "http://localhost/v2/sponsors/93442934000/steps/person"
+                    type: "GET"
+                  next-step:
+                    href: "http://localhost/v2/sponsors/93442934000/steps/person-document"
+                    type: "GET"
+    put:
+      tags:
+      - "Individual - Address Registration."
+      summary: "Update"
+      description: ""
+      operationId: "naturalsponsorstepaddressweb/putSponsorStepAddressContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/registerV2NaturalSponsorStepAddress"
+            example:
+              zipCode: "04090011"
+              address: "Rua B"
+              addressNumber: "100 A"
+              addressComplement: "AP 15"
+              neighborhood: "Bela Vista"
+              city: "Catanduva"
+              state: "PR"
+              country: "EUA"
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelNaturalSponsorStepAddress"
+              example:
+                createdAt: "2022-02-26T17:26:46Z"
+                createUserId: "anonymousUserv"
+                createUserIp: "127.0.0.1"
+                updatedAt: "2022-02-26T17:26:46Z"
+                lastUserId: "anonymousUser"
+                lastUserIp: "127.0.0.1"
+                zipCode: "38701627"
+                address: "Rua Maria Abadia Martins Ferreira"
+                addressNumber: "99"
+                addressComplement: "AP 01"
+                neighborhood: "Nossa Senhora de Fátima"
+                city: "Patos de Minas"
+                state: "MG"
+                country: "Brasil"
+                _links:
+                  self:
+                    href: "http://localhost/v2/sponsors/93442934000/steps/person-address"
+                    type: "GET"
+                  update:
+                    href: "http://localhost/v2/sponsors/93442934000/steps/person-address"
+                    type: "PUT"
+                  previous-step:
+                    href: "http://localhost/v2/sponsors/93442934000/steps/person"
+                    type: "GET"
+                  next-step:
+                    href: "http://localhost/v2/sponsors/93442934000/steps/person-document"
+                    type: "POST"
+    post:
+      tags:
+      - "Individual - Address Registration."
+      summary: "Insert"
+      description: ""
+      operationId: "naturalsponsorstepaddressweb/createSponsorStepAddressContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/registerV2NaturalSponsorStepAddress"
+            example:
+              zipCode: "04090011"
+              address: "Rua B"
+              addressNumber: "100 A"
+              addressComplement: "AP 15"
+              neighborhood: "Bela Vista"
+              city: "Catanduva"
+              state: "PR"
+              country: "EUA"
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        201:
+          description: "Created"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelNaturalSponsorStepAddress"
+              example:
+                createdAt: "2009-11-09T16:36:49.364+0000"
+                createUserId: "monkey_tester@monkey.com"
+                createUserIp: "10.0.0.1"
+                updatedAt: "2009-11-09T16:36:49.364+0000"
+                lastUserId: "monkey_tester@monkey.com"
+                lastUserIp: "10.0.0.1"
+                zipCode: "04090011"
+                address: "Rua B"
+                addressNumber: "100 A"
+                addressComplement: "AP 15"
+                neighborhood: "Bela Vista"
+                city: "Catanduva"
+                state: "PR"
+                country: "EUA"
+                _links:
+                  self:
+                    href: "http://localhost/v2/sponsors/93442934000/steps/person-address"
+                    type: "GET"
+                  update:
+                    href: "http://localhost/v2/sponsors/93442934000/steps/person-address"
+                    type: "PUT"
+                  previous-step:
+                    href: "http://localhost/v2/sponsors/93442934000/steps/person"
+                    type: "GET"
+                  next-step:
+                    href: "http://localhost/v2/sponsors/93442934000/steps/person-document"
+                    type: "POST"
+  /v2/sponsors/{governmentId}/steps/{program}:
+    post:
+      tags:
+      - "Registration Steps."
+      summary: "Migrate To Another Program"
+      description: ""
+      operationId: "sponsorstepsweb/migrateSponsorStepsContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      - name: "program"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        202:
+          description: "Accepted"
+  /v2/sponsors/{governmentId}/documents/{documentType}:
+    get:
+      tags:
+      - "Document Upload"
+      summary: "Download"
+      description: ""
+      operationId: "downloadDocumentFile"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      - name: "documentType"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+          enum:
+          - "COMPANY_IMAGES_SPONSOR"
+          - "COMPANY_IMAGES_SELLER"
+          - "COMPANY_IMAGES_BUYER"
+          - "SPONSOR_SOCIAL_CONTRACT"
+          - "SPONSOR_REVENUE_RATIO"
+          - "SPONSOR_FINANCIAL_STATEMENTS"
+          - "SPONSOR_BANK_BORROWING"
+          - "NATURAL_SELLER_NATIONAL_REGISTRATION"
+          - "SELLER_SOCIAL_CONTRACT"
+          - "SELLER_BOARD_MINUTES"
+          - "SELLER_PROCURATION"
+          - "NATURAL_SPONSOR_NATIONAL_REGISTRATION"
+          - "BUYER_SOCIAL_CONTRACT"
+          - "BUYER_PROCURATION"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        200:
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+                format: "binary"
+    post:
+      tags:
+      - "Document Upload"
+      summary: "Upload"
+      description: ""
+      operationId: "sponsordocumentweb/UploadDocumentFile.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      - name: "documentType"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+          enum:
+          - "COMPANY_IMAGES_SPONSOR"
+          - "COMPANY_IMAGES_SELLER"
+          - "COMPANY_IMAGES_BUYER"
+          - "SPONSOR_SOCIAL_CONTRACT"
+          - "SPONSOR_REVENUE_RATIO"
+          - "SPONSOR_FINANCIAL_STATEMENTS"
+          - "SPONSOR_BANK_BORROWING"
+          - "NATURAL_SELLER_NATIONAL_REGISTRATION"
+          - "SELLER_SOCIAL_CONTRACT"
+          - "SELLER_BOARD_MINUTES"
+          - "SELLER_PROCURATION"
+          - "NATURAL_SPONSOR_NATIONAL_REGISTRATION"
+          - "BUYER_SOCIAL_CONTRACT"
+          - "BUYER_PROCURATION"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              required:
+              - "document"
+              type: "object"
+              properties:
+                document:
+                  type: "string"
+                  format: "binary"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        201:
+          description: "Created"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelDocumentFile"
+              example:
+                _links:
+                  self:
+                    href: "http://localhost/v2/sponsors/57648355000109/documents/SELLER_SOCIAL_CONTRACT"
+                    type: "GET"
+                  seller:
+                    href: "http://localhost/v2/sponsors/57648355000109"
+                    type: "GET"
+    delete:
+      tags:
+      - "Document Upload"
+      summary: "Delete"
+      description: ""
+      operationId: "sponsordocumentweb/DeleteDocumentFile.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      - name: "documentType"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+          enum:
+          - "COMPANY_IMAGES_SPONSOR"
+          - "COMPANY_IMAGES_SELLER"
+          - "COMPANY_IMAGES_BUYER"
+          - "SPONSOR_SOCIAL_CONTRACT"
+          - "SPONSOR_REVENUE_RATIO"
+          - "SPONSOR_FINANCIAL_STATEMENTS"
+          - "SPONSOR_BANK_BORROWING"
+          - "NATURAL_SELLER_NATIONAL_REGISTRATION"
+          - "SELLER_SOCIAL_CONTRACT"
+          - "SELLER_BOARD_MINUTES"
+          - "SELLER_PROCURATION"
+          - "NATURAL_SPONSOR_NATIONAL_REGISTRATION"
+          - "BUYER_SOCIAL_CONTRACT"
+          - "BUYER_PROCURATION"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        204:
+          description: "No Content"
+  /v2/sponsors/{governmentId}/documents/{documentType}/legal-responsibles/{id}:
+    get:
+      tags:
+      - "Legal Responsible Document Upload"
+      summary: "Download"
+      description: ""
+      operationId: "downloadDocumentFileLegalResponsible"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      - name: "id"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      - name: "documentType"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+          enum:
+          - "SELLER_NATIONAL_REGISTRATION"
+          - "SPONSOR_NATIONAL_REGISTRATION"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        200:
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+                format: "binary"
+    post:
+      tags:
+      - "Legal Responsible Document Upload"
+      summary: "Upload"
+      description: ""
+      operationId: "sponsorlegalresponsibledocumentweb/UploadDocumentFile.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      - name: "id"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      - name: "documentType"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+          enum:
+          - "SELLER_NATIONAL_REGISTRATION"
+          - "SPONSOR_NATIONAL_REGISTRATION"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              required:
+              - "document"
+              type: "object"
+              properties:
+                document:
+                  type: "string"
+                  format: "binary"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        201:
+          description: "Created"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelDocumentFile"
+              example:
+                _links:
+                  self:
+                    href: "http://localhost/v2/sponsors/57648355000109/documents/SPONSOR_NATIONAL_REGISTRATION/legal-responsibles/41215830000113"
+                    type: "GET"
+                  seller:
+                    href: "http://localhost/v2/sponsors/57648355000109"
+                    type: "GET"
+    delete:
+      tags:
+      - "Legal Responsible Document Upload"
+      summary: "Delete"
+      description: ""
+      operationId: "sponsorlegalresponsibledocumentweb/DeleteDocumentFile.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      - name: "id"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      - name: "documentType"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+          enum:
+          - "SELLER_NATIONAL_REGISTRATION"
+          - "SPONSOR_NATIONAL_REGISTRATION"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        204:
+          description: "No Content"
+  /v2/sponsors/{governmentId}/steps:
+    get:
+      tags:
+      - "Registration Steps."
+      summary: "Detail"
+      description: ""
+      operationId: "SponsorSteps"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/registerV2EntityModelStepsDTO"
+              examples:
+                x-Legal-Person:
+                  value:
+                    stepCompany:
+                      createdAt: "2022-03-16T20:44:21Z"
+                      createUserId: "anonymousUser"
+                      createUserIp: "127.0.0.1"
+                      updatedAt: "2022-03-18T22:56:02Z"
+                      lastUserId: "anonymousUser"
+                      lastUserIp: "127.0.0.1"
+                      governmentId: "31690688000102"
+                      name: "Company Name"
+                      fantasyName: "Fanstasy Company Name"
+                      activityCode: "6300/01"
+                      foundationDate: "1994-10-04"
+                      _links:
+                        self:
+                          href: "http://localhost/v2/sponsors/31690688000102/steps/company"
+                          type: "GET"
+                    stepAddress:
+                      createdAt: "2022-02-26T17:26:46Z"
+                      createUserId: "anonymousUser"
+                      createUserIp: "127.0.0.1"
+                      updatedAt: "2022-03-21T10:30:27Z"
+                      lastUserId: "anonymousUser"
+                      lastUserIp: "127.0.0.1"
+                      zipCode: "06670480"
+                      address: "Estrada Granja Amazonas"
+                      addressNumber: "2700"
+                      addressComplement: "Complemento"
+                      neighborhood: "Jardim Alfa"
+                      city: "Guarulhos"
+                      state: "SP"
+                      country: "Brasil"
+                      _links:
+                        self:
+                          href: "http://localhost/v2/sponsors/31690688000102/steps/address"
+                          type: "GET"
+                    stepLegalResponsible:
+                      createdAt: "2022-03-21T19:20:09Z"
+                      createUserId: "anonymousUser"
+                      createUserIp: "127.0.0.1"
+                      updatedAt: "2022-03-21T19:20:10Z"
+                      lastUserId: "anonymousUser"
+                      lastUserIp: "127.0.0.1"
+                      legalResponsibles:
+                      - createdAt: "2022-03-21T19:21:52Z"
+                        createUserId: "anonymousUser"
+                        createUserIp: "127.0.0.1"
+                        updatedAt: "2022-03-21T19:21:52Z"
+                        lastUserId: "anonymousUser"
+                        lastUserIp: "127.0.0.1"
+                        name: "Iran Alyf Albino"
+                        governmentId: "55180857023"
+                        type: "PARTNER"
+                        phone: "+5511988657567"
+                        companyPhone: "+5511988657567"
+                        birthdayDate: "1986-04-26"
+                        email: "iranalyf@teste.com"
+                        nationalRegistrationDocument:
+                          createdAt: "2022-03-21T20:21:24Z"
+                          createUserId: "anonymousUser"
+                          createUserIp: "127.0.0.1"
+                          updatedAt: "2022-03-21T20:21:24Z"
+                          lastUserId: "anonymousUser"
+                          lastUserIp: "127.0.0.1"
+                          fileName: "doc3.docx"
+                          url: "http://doc3.docx"
+                      _links:
+                        self:
+                          href: "http://localhost/v2/sponsors/31690688000102/steps/legal-responsible"
+                          type: "GET"
+                    stepDocument:
+                      createdAt: "2022-03-21T20:20:28Z"
+                      createUserId: "anonymousUser"
+                      createUserIp: "127.0.0.1"
+                      updatedAt: "2022-03-21T20:21:24Z"
+                      lastUserId: "anonymousUser"
+                      lastUserIp: "127.0.0.1"
+                      socialContractDocument:
+                        createdAt: "2022-03-21T20:21:24Z"
+                        createUserId: "anonymousUser"
+                        createUserIp: "127.0.0.1"
+                        updatedAt: "2022-03-21T20:21:24Z"
+                        lastUserId: "anonymousUser"
+                        lastUserIp: "127.0.0.1"
+                        fileName: "doc3.docx"
+                        url: "http://doc3.docx"
+                      revenueRatio:
+                        createdAt: "2022-03-21T20:21:24Z"
+                        createUserId: "anonymousUser"
+                        createUserIp: "127.0.0.1"
+                        updatedAt: "2022-03-21T20:21:24Z"
+                        lastUserId: "anonymousUser"
+                        lastUserIp: "127.0.0.1"
+                        fileName: "doc4.docx"
+                        url: "http://doc4.docx"
+                      financialStatements:
+                        createdAt: "2022-03-21T20:21:24Z"
+                        createUserId: "anonymousUser"
+                        createUserIp: "127.0.0.1"
+                        updatedAt: "2022-03-21T20:21:24Z"
+                        lastUserId: "anonymousUser"
+                        lastUserIp: "127.0.0.1"
+                        fileName: "doc5.docx"
+                        url: "http://doc5.docx"
+                      _links:
+                        self:
+                          href: "http://localhost/v2/sponsors/31690688000102/steps/document"
+                          type: "GET"
+                    stepPicture:
+                      createdAt: "2022-03-16T21:34:41Z"
+                      createUserId: "anonymousUser"
+                      createUserIp: "127.0.0.1"
+                      updatedAt: "2022-03-21T22:18:02Z"
+                      lastUserId: "anonymousUser"
+                      lastUserIp: "127.0.0.1"
+                      pictureURL: "http://picture.jpeg"
+                      _links:
+                        self:
+                          href: "http://localhost/v2/sponsors/31690688000102/steps/picture"
+                          type: "GET"
+                    _links:
+                      self:
+                        href: "http://localhost/v2/sponsors/31690688000102/steps"
+                        type: "GET"
+                      delete:
+                        href: "http://localhost/v2/sponsors/31690688000102/steps"
+                        type: "DELETE"
+                x-Natural-Person:
+                  value:
+                    stepPerson:
+                      createdAt: "2022-03-16T20:44:21Z"
+                      createUserId: "anonymousUser"
+                      createUserIp: "127.0.0.1"
+                      updatedAt: "2022-03-18T22:56:02Z"
+                      lastUserId: "anonymousUser"
+                      lastUserIp: "127.0.0.1"
+                      governmentId: "93442934000"
+                      name: "Felipe Adorno"
+                      email: "felipe@monkey.exchange"
+                      birthdayDate: "1989-09-30"
+                      mobilePhone: "+5511988637566"
+                      landlinePhone: "+5511988637566"
+                      _links:
+                        self:
+                          href: "http://localhost/v2/sponsors/93442934000/steps/person"
+                          type: "GET"
+                    stepAddress:
+                      createdAt: "2022-02-26T17:26:46Z"
+                      createUserId: "anonymousUser"
+                      createUserIp: "127.0.0.1"
+                      updatedAt: "2022-03-21T10:30:27Z"
+                      lastUserId: "anonymousUser"
+                      lastUserIp: "127.0.0.1"
+                      zipCode: "06670480"
+                      address: "Estrada Granja Amazonas"
+                      addressComplement: "Complemento"
+                      addressNumber: "2700"
+                      neighborhood: "Jardim Alfa"
+                      city: "Guarulhos"
+                      state: "SP"
+                      country: "Brasil"
+                      _links:
+                        self:
+                          href: "http://localhost/v2/sponsors/93442934000/steps/person-address"
+                          type: "GET"
+                    stepDocument:
+                      createdAt: "2022-03-21T20:20:28Z"
+                      createUserId: "anonymousUser"
+                      createUserIp: "127.0.0.1"
+                      updatedAt: "2022-03-21T20:21:24Z"
+                      lastUserId: "anonymousUser"
+                      lastUserIp: "127.0.0.1"
+                      nationalRegistrationDocument:
+                        createdAt: "2022-03-21T20:21:24Z"
+                        createUserId: "anonymousUser"
+                        createUserIp: "127.0.0.1"
+                        updatedAt: "2022-03-21T20:21:24Z"
+                        lastUserId: "anonymousUser"
+                        lastUserIp: "127.0.0.1"
+                        fileName: "doc3.docx"
+                        url: "http://doc3.docx"
+                      _links:
+                        self:
+                          href: "http://localhost/v2/sponsors/93442934000/steps/person-document"
+                          type: "GET"
+                    stepPicture:
+                      createdAt: "2022-03-16T21:34:41Z"
+                      createUserId: "anonymousUser"
+                      createUserIp: "127.0.0.1"
+                      updatedAt: "2022-03-21T22:18:02Z"
+                      lastUserId: "anonymousUser"
+                      lastUserIp: "127.0.0.1"
+                      pictureURL: "http://picture.jpeg"
+                      _links:
+                        self:
+                          href: "http://localhost/v2/sponsors/93442934000/steps/person-picture"
+                          type: "GET"
+                    _links:
+                      self:
+                        href: "http://localhost/v2/sponsors/93442934000/steps"
+                        type: "GET"
+                      delete:
+                        href: "http://localhost/v2/sponsors/93442934000/steps"
+                        type: "DELETE"
+      x-Legal-Person: "sponsorstepsweb/findOneLegalSponsorStepsContract.json"
+      x-Natural-Person: "sponsorstepsweb/findOneNaturalSponsorStepsContract.json"
+    delete:
+      tags:
+      - "Registration Steps."
+      summary: "Delete"
+      description: ""
+      operationId: "sponsorstepsweb/deleteSponsorStepsContract.json"
+      parameters:
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/registerV2AbstractPassNumberResourceObject"
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/registerV2Message"
+        204:
+          description: "No Content"
+components:
+  schemas:
+    registerV2Message:
+      type: "object"
+      properties:
+        type:
+          type: "string"
+          enum:
+          - "Invalid_Token"
+          - "Mult_Status_Error"
+          - "No_Content_Error"
+          - "Conflict_Error"
+          - "Parameter_Error"
+          - "Bad_Request_Error"
+          - "Business_Logic_Error"
+          - "Resource_Not_Found"
+          - "Internal_Architecture_Error"
+          - "List_Not_Found"
+          - "Method_Not_Allowed"
+          - "Unsupported_Media_Type"
+          - "Access_Denied"
+          - "mfa_required"
+          - "Integration_Error"
+        description:
+          type: "string"
+        notifications:
+          type: "array"
+          items:
+            type: "string"
+    registerV2SponsorStepPicture:
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          format: "date-time"
+        createUserId:
+          type: "string"
+        createUserIp:
+          type: "string"
+        updatedAt:
+          type: "string"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+        lastUserIp:
+          type: "string"
+        governmentId:
+          type: "string"
+        pictureURL:
+          type: "string"
+    registerV2EntityModelSponsorStepPicture:
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          format: "date-time"
+        createUserId:
+          type: "string"
+        createUserIp:
+          type: "string"
+        updatedAt:
+          type: "string"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+        lastUserIp:
+          type: "string"
+        governmentId:
+          type: "string"
+        pictureURL:
+          type: "string"
+        _links:
+          $ref: "#/components/schemas/registerV2Links"
+    registerV2Links:
+      type: "object"
+      additionalProperties:
+        $ref: "#/components/schemas/registerV2Link"
+    registerV2SponsorStepDocument:
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          format: "date-time"
+        createUserId:
+          type: "string"
+        createUserIp:
+          type: "string"
+        updatedAt:
+          type: "string"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+        lastUserIp:
+          type: "string"
+        fileName:
+          type: "string"
+        url:
+          type: "string"
+    registerV2SponsorStepLegalResponsible:
+      required:
+      - "email"
+      - "governmentId"
+      - "phone"
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          format: "date-time"
+        createUserId:
+          type: "string"
+        createUserIp:
+          type: "string"
+        updatedAt:
+          type: "string"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+        lastUserIp:
+          type: "string"
+        id:
+          type: "string"
+        name:
+          type: "string"
+        governmentId:
+          type: "string"
+        phone:
+          type: "string"
+        companyPhone:
+          type: "string"
+        type:
+          type: "string"
+          enum:
+          - "PARTNER"
+          - "SHAREHOLDER"
+          - "ADMINISTRATOR"
+          - "DIRECTOR"
+          - "CONSULTANT"
+        email:
+          type: "string"
+        birthdayDate:
+          type: "string"
+          format: "date"
+        nationalRegistrationDocument:
+          $ref: "#/components/schemas/registerV2SponsorStepDocument"
+    registerV2SponsorStepLegalResponsibles:
+      required:
+      - "legalResponsibles"
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          format: "date-time"
+        createUserId:
+          type: "string"
+        createUserIp:
+          type: "string"
+        updatedAt:
+          type: "string"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+        lastUserIp:
+          type: "string"
+        governmentId:
+          type: "string"
+        legalResponsibles:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/registerV2SponsorStepLegalResponsible"
+    registerV2EntityModelSponsorStepLegalResponsibles:
+      required:
+      - "legalResponsibles"
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          format: "date-time"
+        createUserId:
+          type: "string"
+        createUserIp:
+          type: "string"
+        updatedAt:
+          type: "string"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+        lastUserIp:
+          type: "string"
+        governmentId:
+          type: "string"
+        legalResponsibles:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/registerV2SponsorStepLegalResponsible"
+        _links:
+          $ref: "#/components/schemas/registerV2Links"
+    registerV2SponsorStepDocuments:
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          format: "date-time"
+        createUserId:
+          type: "string"
+        createUserIp:
+          type: "string"
+        updatedAt:
+          type: "string"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+        lastUserIp:
+          type: "string"
+        governmentId:
+          type: "string"
+        socialContractDocument:
+          $ref: "#/components/schemas/registerV2SponsorStepDocument"
+        revenueRatio:
+          $ref: "#/components/schemas/registerV2SponsorStepDocument"
+        financialStatements:
+          $ref: "#/components/schemas/registerV2SponsorStepDocument"
+    registerV2EntityModelSponsorStepDocuments:
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          format: "date-time"
+        createUserId:
+          type: "string"
+        createUserIp:
+          type: "string"
+        updatedAt:
+          type: "string"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+        lastUserIp:
+          type: "string"
+        governmentId:
+          type: "string"
+        socialContractDocument:
+          $ref: "#/components/schemas/registerV2SponsorStepDocument"
+        revenueRatio:
+          $ref: "#/components/schemas/registerV2SponsorStepDocument"
+        financialStatements:
+          $ref: "#/components/schemas/registerV2SponsorStepDocument"
+        _links:
+          $ref: "#/components/schemas/registerV2Links"
+    registerV2SponsorStepCompany:
+      required:
+      - "activityCode"
+      - "fantasyName"
+      - "foundationDate"
+      - "name"
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          format: "date-time"
+        createUserId:
+          type: "string"
+        createUserIp:
+          type: "string"
+        updatedAt:
+          type: "string"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+        lastUserIp:
+          type: "string"
+        governmentId:
+          type: "string"
+        name:
+          type: "string"
+        fantasyName:
+          type: "string"
+        foundationDate:
+          type: "string"
+          format: "date"
+        activityCode:
+          type: "string"
+    registerV2EntityModelSponsorStepCompany:
+      required:
+      - "activityCode"
+      - "fantasyName"
+      - "foundationDate"
+      - "name"
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          format: "date-time"
+        createUserId:
+          type: "string"
+        createUserIp:
+          type: "string"
+        updatedAt:
+          type: "string"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+        lastUserIp:
+          type: "string"
+        governmentId:
+          type: "string"
+        name:
+          type: "string"
+        fantasyName:
+          type: "string"
+        foundationDate:
+          type: "string"
+          format: "date"
+        activityCode:
+          type: "string"
+        _links:
+          $ref: "#/components/schemas/registerV2Links"
+    registerV2SponsorStepAddress:
+      required:
+      - "address"
+      - "city"
+      - "country"
+      - "neighborhood"
+      - "state"
+      - "zipCode"
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          format: "date-time"
+        createUserId:
+          type: "string"
+        createUserIp:
+          type: "string"
+        updatedAt:
+          type: "string"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+        lastUserIp:
+          type: "string"
+        zipCode:
+          type: "string"
+        address:
+          type: "string"
+        addressNumber:
+          type: "string"
+        addressComplement:
+          type: "string"
+        neighborhood:
+          type: "string"
+        city:
+          type: "string"
+        state:
+          type: "string"
+        country:
+          type: "string"
+    registerV2EntityModelSponsorStepAddress:
+      required:
+      - "address"
+      - "city"
+      - "country"
+      - "neighborhood"
+      - "state"
+      - "zipCode"
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          format: "date-time"
+        createUserId:
+          type: "string"
+        createUserIp:
+          type: "string"
+        updatedAt:
+          type: "string"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+        lastUserIp:
+          type: "string"
+        zipCode:
+          type: "string"
+        address:
+          type: "string"
+        addressNumber:
+          type: "string"
+        addressComplement:
+          type: "string"
+        neighborhood:
+          type: "string"
+        city:
+          type: "string"
+        state:
+          type: "string"
+        country:
+          type: "string"
+        _links:
+          $ref: "#/components/schemas/registerV2Links"
+    registerV2NaturalSponsorStepPerson:
+      required:
+      - "birthdayDate"
+      - "email"
+      - "mobilePhone"
+      - "name"
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          format: "date-time"
+        createUserId:
+          type: "string"
+        createUserIp:
+          type: "string"
+        updatedAt:
+          type: "string"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+        lastUserIp:
+          type: "string"
+        governmentId:
+          type: "string"
+        name:
+          type: "string"
+        email:
+          type: "string"
+        birthdayDate:
+          type: "string"
+          format: "date"
+        mobilePhone:
+          type: "string"
+        landlinePhone:
+          type: "string"
+    registerV2EntityModelNaturalSponsorStepPerson:
+      required:
+      - "birthdayDate"
+      - "email"
+      - "mobilePhone"
+      - "name"
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          format: "date-time"
+        createUserId:
+          type: "string"
+        createUserIp:
+          type: "string"
+        updatedAt:
+          type: "string"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+        lastUserIp:
+          type: "string"
+        governmentId:
+          type: "string"
+        name:
+          type: "string"
+        email:
+          type: "string"
+        birthdayDate:
+          type: "string"
+          format: "date"
+        mobilePhone:
+          type: "string"
+        landlinePhone:
+          type: "string"
+        _links:
+          $ref: "#/components/schemas/registerV2Links"
+    registerV2NaturalSponsorStepPicture:
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          format: "date-time"
+        createUserId:
+          type: "string"
+        createUserIp:
+          type: "string"
+        updatedAt:
+          type: "string"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+        lastUserIp:
+          type: "string"
+        governmentId:
+          type: "string"
+        pictureURL:
+          type: "string"
+    registerV2EntityModelNaturalSponsorStepPicture:
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          format: "date-time"
+        createUserId:
+          type: "string"
+        createUserIp:
+          type: "string"
+        updatedAt:
+          type: "string"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+        lastUserIp:
+          type: "string"
+        governmentId:
+          type: "string"
+        pictureURL:
+          type: "string"
+        _links:
+          $ref: "#/components/schemas/registerV2Links"
+    registerV2NaturalSponsorStepDocument:
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          format: "date-time"
+        createUserId:
+          type: "string"
+        createUserIp:
+          type: "string"
+        updatedAt:
+          type: "string"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+        lastUserIp:
+          type: "string"
+        fileName:
+          type: "string"
+        url:
+          type: "string"
+    registerV2NaturalSponsorStepDocuments:
+      required:
+      - "nationalRegistrationDocument"
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          format: "date-time"
+        createUserId:
+          type: "string"
+        createUserIp:
+          type: "string"
+        updatedAt:
+          type: "string"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+        lastUserIp:
+          type: "string"
+        nationalRegistrationDocument:
+          $ref: "#/components/schemas/registerV2NaturalSponsorStepDocument"
+    registerV2EntityModelNaturalSponsorStepDocuments:
+      required:
+      - "nationalRegistrationDocument"
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          format: "date-time"
+        createUserId:
+          type: "string"
+        createUserIp:
+          type: "string"
+        updatedAt:
+          type: "string"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+        lastUserIp:
+          type: "string"
+        nationalRegistrationDocument:
+          $ref: "#/components/schemas/registerV2NaturalSponsorStepDocument"
+        _links:
+          $ref: "#/components/schemas/registerV2Links"
+    registerV2NaturalSponsorStepAddress:
+      required:
+      - "address"
+      - "city"
+      - "country"
+      - "neighborhood"
+      - "state"
+      - "zipCode"
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          format: "date-time"
+        createUserId:
+          type: "string"
+        createUserIp:
+          type: "string"
+        updatedAt:
+          type: "string"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+        lastUserIp:
+          type: "string"
+        zipCode:
+          type: "string"
+        address:
+          type: "string"
+        addressNumber:
+          type: "string"
+        addressComplement:
+          type: "string"
+        neighborhood:
+          type: "string"
+        city:
+          type: "string"
+        state:
+          type: "string"
+        country:
+          type: "string"
+    registerV2EntityModelNaturalSponsorStepAddress:
+      required:
+      - "address"
+      - "city"
+      - "country"
+      - "neighborhood"
+      - "state"
+      - "zipCode"
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          format: "date-time"
+        createUserId:
+          type: "string"
+        createUserIp:
+          type: "string"
+        updatedAt:
+          type: "string"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+        lastUserIp:
+          type: "string"
+        zipCode:
+          type: "string"
+        address:
+          type: "string"
+        addressNumber:
+          type: "string"
+        addressComplement:
+          type: "string"
+        neighborhood:
+          type: "string"
+        city:
+          type: "string"
+        state:
+          type: "string"
+        country:
+          type: "string"
+        _links:
+          $ref: "#/components/schemas/registerV2Links"
+    registerV2EntityModelDocumentFile:
+      type: "object"
+      properties:
+        filename:
+          type: "string"
+        url:
+          type: "string"
+          writeOnly: true
+        _links:
+          $ref: "#/components/schemas/registerV2Links"
+    registerV2EntityModelStepsDTO:
+      type: "object"
+      properties:
+        _links:
+          $ref: "#/components/schemas/registerV2Links"
+    registerV2AbstractPassNumberResourceObject:
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          format: "date-time"
+        createUserId:
+          type: "string"
+        createUserIp:
+          type: "string"
+        updatedAt:
+          type: "string"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+        lastUserIp:
+          type: "string"
+        passNumber1:
+          type: "string"
+        passNumber2:
+          type: "string"
+        passNumber3:
+          type: "string"
+        passNumber4:
+          type: "string"
+        _links:
+          $ref: "#/components/schemas/registerV2Links"
+    registerV2Link:
+      type: "object"
+      properties:
+        href:
+          type: "string"
+        hreflang:
+          type: "string"
+        title:
+          type: "string"
+        type:
+          type: "string"
+        deprecation:
+          type: "string"
+        profile:
+          type: "string"
+        name:
+          type: "string"
+        templated:
+          type: "boolean"

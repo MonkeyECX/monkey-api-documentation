@@ -1,0 +1,4358 @@
+---
+openapi: "3.0.1"
+info:
+  title: "Monkey API"
+  version: "1.0"
+servers:
+- url: "https://hmg-zuul.monkeyecx.com"
+  description: "Staging Server"
+- url: "https://zuul.monkey.exchange"
+  description: "Production Server"
+paths:
+  /v2/bank-accounts/{token}/unconfirmed:
+    post:
+      tags:
+      - "Bank Account Change Validation"
+      summary: "Reject Change"
+      description: ""
+      operationId: "bankaccountconfirmationweb/unconfirmedBankAccountContract.json"
+      parameters:
+      - name: "token"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sellerMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sellerMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sellerMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sellerMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sellerMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sellerMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sellerMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sellerMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sellerMessage"
+        204:
+          description: "No Content"
+  /v2/bank-accounts/{token}/confirmed:
+    post:
+      tags:
+      - "Bank Account Change Validation"
+      summary: "Approve Change"
+      description: ""
+      operationId: "bankaccountconfirmationweb/confirmedBankAccountContract.json"
+      parameters:
+      - name: "token"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sellerMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sellerMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sellerMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sellerMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sellerMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sellerMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sellerMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sellerMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sellerMessage"
+        204:
+          description: "No Content"
+  /v2/programs/{program}/program-adhesion-term-configurations:
+    get:
+      tags:
+      - "Adhesion Term Signer Configurations"
+      summary: "List Signer Configurations"
+      description: ""
+      operationId: "programadhesiontermconfigurationweb/ProgramConfigurationAdhesionTermFindOne.json"
+      parameters:
+      - name: "program"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/externalSignMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/externalSignMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/externalSignMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/externalSignMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/externalSignMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/externalSignMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/externalSignMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/externalSignMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/externalSignMessage"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/externalSignEntityModelProgramAdhesionTermConfiguration"
+              example:
+                createdAt: "2018-12-04T19:30:24Z"
+                createUserId: "UNKNOWN"
+                createUserIp: "UNKNOWN"
+                updatedAt: "2018-12-04T19:30:24Z"
+                lastUserId: "UNKNOWN"
+                lastUserIp: "UNKNOWN"
+                signers:
+                - email: "felipe@monkey.exchange"
+                  name: "Felipe Monkey"
+                  governmentId: "92800245077"
+                - email: "felipeadsc@gmail.com"
+                  name: "Felipe Gmail"
+                  governmentId: "43635925080"
+                _links:
+                  self:
+                    href: "http://localhost/v2/programs/intercement/program-adhesion-term-configurations"
+                    type: "GET"
+                  program-configuration:
+                    href: "http://localhost/v2/programs/intercement/configurations"
+                    type: "GET"
+    put:
+      tags:
+      - "Adhesion Term Signer Configurations"
+      summary: "Update Signer Configurations"
+      description: ""
+      operationId: "programadhesiontermconfigurationweb/ProgramConfigurationAdhesionTermUpdate.json"
+      parameters:
+      - name: "program"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/externalSignProgramAdhesionTermConfiguration"
+            example:
+              signers:
+              - email: "felipe@monkey.exchange"
+                name: "Felipe Monkey"
+                governmentId: "08317139689"
+              - email: "felipeadsc@gmail.com"
+                name: "Felipe Personal"
+                governmentId: "08317139689"
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/externalSignMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/externalSignMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/externalSignMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/externalSignMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/externalSignMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/externalSignMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/externalSignMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/externalSignMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/externalSignMessage"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/externalSignEntityModelProgramAdhesionTermConfiguration"
+              example:
+                createdAt: "2018-12-04T19:30:24Z"
+                createUserId: "UNKNOWN"
+                createUserIp: "UNKNOWN"
+                updatedAt: "2018-12-04T19:30:24Z"
+                lastUserId: "UNKNOWN"
+                lastUserIp: "UNKNOWN"
+                signers:
+                - email: "felipe@monkey.exchange"
+                  name: "Felipe Monkey"
+                  governmentId: "92800245077"
+                - email: "felipeadsc@gmail.com"
+                  name: "Felipe Gmail"
+                  governmentId: "43635925080"
+                _links:
+                  self:
+                    href: "http://localhost/v2/programs/intercement/program-adhesion-term-configurations"
+                    type: "GET"
+                  program-configuration:
+                    href: "http://localhost/v2/programs/intercement/configurations"
+                    type: "GET"
+    post:
+      tags:
+      - "Adhesion Term Signer Configurations"
+      summary: "Create Signer Configurations"
+      description: ""
+      operationId: "programadhesiontermconfigurationweb/ProgramConfigurationAdhesionTermCreate.json"
+      parameters:
+      - name: "program"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/externalSignProgramAdhesionTermConfiguration"
+            example:
+              signers:
+              - email: "felipe@monkey.exchange"
+                name: "Felipe Monkey"
+                governmentId: "08317139689"
+              - email: "felipeadsc@gmail.com"
+                name: "Felipe Personal"
+                governmentId: "08317139689"
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/externalSignMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/externalSignMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/externalSignMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/externalSignMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/externalSignMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/externalSignMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/externalSignMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/externalSignMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/externalSignMessage"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/externalSignEntityModelProgramAdhesionTermConfiguration"
+              example:
+                createdAt: "2018-12-04T19:30:24Z"
+                createUserId: "UNKNOWN"
+                createUserIp: "UNKNOWN"
+                updatedAt: "2018-12-04T19:30:24Z"
+                lastUserId: "UNKNOWN"
+                lastUserIp: "UNKNOWN"
+                signers:
+                - email: "felipe@monkey.exchange"
+                  name: "Felipe Monkey"
+                  governmentId: "92800245077"
+                - email: "felipeadsc@gmail.com"
+                  name: "Felipe Gmail"
+                  governmentId: "43635925080"
+                _links:
+                  self:
+                    href: "http://localhost/v2/programs/intercement/program-adhesion-term-configurations"
+                    type: "GET"
+                  program-configuration:
+                    href: "http://localhost/v2/programs/intercement/configurations"
+                    type: "GET"
+    delete:
+      tags:
+      - "Adhesion Term Signer Configurations"
+      summary: "Delete Signer Configurations"
+      description: ""
+      operationId: "programadhesiontermconfigurationweb/ProgramConfigurationAdhesionTermDelete.json"
+      parameters:
+      - name: "program"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/externalSignMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/externalSignMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/externalSignMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/externalSignMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/externalSignMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/externalSignMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/externalSignMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/externalSignMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/externalSignMessage"
+        200:
+          description: "OK"
+  /v1/programs/{name}/configurations:
+    get:
+      tags:
+      - "Program Configurations"
+      summary: "Detail"
+      description: ""
+      operationId: "programconfigurationweb/ProgramConfigurationFindOne.json"
+      parameters:
+      - name: "name"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ssoEntityModelProgramConfiguration"
+              example:
+                createdAt: "2018-12-04T19:30:24Z"
+                createUserId: "UNKNOWN"
+                createUserIp: "UNKNOWN"
+                updatedAt: "2018-12-04T19:30:24Z"
+                lastUserId: "UNKNOWN"
+                lastUserIp: "UNKNOWN"
+                resetPayablesDaily: "true"
+                resetPayablesOnWeekend: "true"
+                openMarket: "8"
+                closeMarket: "18"
+                supplierApprovedByDefault: "false"
+                supplierAutomatedOfferByDefault: "false"
+                supplierConfigureAutomatedOffer: "false"
+                minimumDaysToOffer: "8"
+                sponsorDefaultFileOutput: "false"
+                multipleSignatureEnabled: "false"
+                sellerAutoApprove: "false"
+                sponsorDefaultTax: "1.67"
+                purchaseRegistration: "false"
+                _links:
+                  self:
+                    href: "http://localhost/v1/programs/jallesmachado/configurations"
+                    type: "GET"
+    put:
+      tags:
+      - "Program Configurations"
+      summary: "Update"
+      description: ""
+      operationId: "programconfigurationweb/ProgramConfigurationUpdate.json"
+      parameters:
+      - name: "name"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ssoProgramConfiguration"
+            example:
+              resetPayablesDaily: true
+              resetPayablesOnWeekend: true
+              openMarket: 8
+              closeMarket: 18
+              supplierApprovedByDefault: false
+              supplierAutomatedOfferByDefault: false
+              supplierConfigureAutomatedOffer: false
+              minimumDaysToOffer: 7
+              sponsorDefaultFileOutput: false
+              multipleSignatureEnabled: false
+              sellerAutoApprove: false
+              sponsorDefaultTax: 1.67
+              purchaseRegistration: false
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ssoEntityModelProgramConfiguration"
+              example:
+                createdAt: "2018-12-04T19:30:24Z"
+                createUserId: "UNKNOWN"
+                createUserIp: "UNKNOWN"
+                updatedAt: "2018-12-04T19:30:24Z"
+                lastUserId: "UNKNOWN"
+                lastUserIp: "UNKNOWN"
+                resetPayablesDaily: "true"
+                resetPayablesOnWeekend: "true"
+                openMarket: "8"
+                closeMarket: "18"
+                supplierApprovedByDefault: "false"
+                supplierAutomatedOfferByDefault: "false"
+                supplierConfigureAutomatedOffer: "false"
+                minimumDaysToOffer: "8"
+                sponsorDefaultFileOutput: "false"
+                multipleSignatureEnabled: "false"
+                sellerAutoApprove: "false"
+                sponsorDefaultTax: "1.67"
+                purchaseRegistration: "false"
+                _links:
+                  self:
+                    href: "http://localhost/v1/programs/jallesmachado/configurations"
+                    type: "GET"
+  /users:
+    put:
+      tags:
+      - "User"
+      summary: "Update"
+      description: ""
+      operationId: "userweb/UserUpdate.json"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ssoUpdateUserResource"
+            example:
+              name: "teste api v2"
+              cellPhone: "+5511981884455"
+              nickname: "monkey"
+              smsNotification: true
+              newsletter: true
+              others: "Other1"
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ssoEntityModelUpdateUserResource"
+              example:
+                name: "Felipe Adorno"
+                nickname: "monkey"
+                cellPhone: "+5511981884455"
+                smsNotification: "true"
+                newsletter: "true"
+                others: "Other1"
+                _links:
+                  self:
+                    href: "http://localhost/me"
+                    type: "GET"
+                  enable-mfa:
+                    href: "http://localhost/v2/mfa/enable"
+                    type: "POST"
+                  change-password:
+                    href: "http://localhost/change-password"
+                    type: "POST"
+    post:
+      tags:
+      - "User"
+      summary: "Create"
+      description: ""
+      operationId: "userweb/UserCreate.json"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ssoUser"
+            example:
+              name: "teste api v2"
+              password: "{^8h<EWc"
+              passNumber: "1234"
+              email: "monkeyexchange01@gmail.com"
+              nickname: "monkey"
+              cellPhone: "+5511981884455"
+              smsNotification: true
+              useTerms: true
+              privacyPolicy: true
+              others: "Other1"
+              newsletter: true
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        201:
+          description: "Created"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ssoEntityModelUser"
+              example:
+                name: "Felipe Adorno"
+                email: "monkeyexchange01@gmail.com"
+                nickname: "monkey"
+                cellPhone: "+5511981884455"
+                smsNotification: "true"
+                useTerms: "true"
+                privacyPolicy: "true"
+                others: "Other1"
+                newsletter: "true"
+                _links:
+                  self:
+                    href: "http://localhost/me"
+                    type: "GET"
+                  update:
+                    href: "http://localhost/users"
+                    type: "PUT"
+                  enable-mfa:
+                    href: "http://localhost/v2/mfa/enable"
+                    type: "POST"
+                  change-password:
+                    href: "http://localhost/change-password"
+                    type: "POST"
+    delete:
+      tags:
+      - "User"
+      summary: "Delete"
+      description: ""
+      operationId: "userweb/UserDelete.json"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        204:
+          description: "No Content"
+  /{username}/events/{id}/recognize:
+    post:
+      tags:
+      - "User"
+      summary: ""
+      description: ""
+      operationId: "userweb/UserEventRecognized.json"
+      parameters:
+      - name: "username"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      - name: "id"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        202:
+          description: "Accepted"
+  /{username}/activate:
+    post:
+      tags:
+      - "User"
+      summary: "Confirm User Email"
+      description: ""
+      operationId: "userweb/UserActivate.json"
+      parameters:
+      - name: "username"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ssoUserActivationResource"
+            example:
+              token: "358978"
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        200:
+          description: "OK"
+  /v2/mfa/verify/{code}:
+    post:
+      tags:
+      - "MFA"
+      summary: "Verify MFA Token"
+      description: ""
+      operationId: "mfaweb/MFAVerifySoftwareToken.json"
+      parameters:
+      - name: "code"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        200:
+          description: "OK"
+  /v2/mfa/enable:
+    post:
+      tags:
+      - "MFA"
+      summary: "Enable MFA"
+      description: ""
+      operationId: "mfaweb/MFAAssociateSoftwareToken.json"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ssoMFASecretResource"
+              example:
+                secretCode: "KB4XO4GMUMRTR5KIKTA7LD7WYRUSZWIOGWX5SXGFORJUBMG6SONQ"
+  /user-pictures:
+    post:
+      tags:
+      - "User"
+      summary: "Upload User Picture"
+      description: ""
+      operationId: "pictureweb/changeUserPicture.json"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              required:
+              - "picture"
+              type: "object"
+              properties:
+                picture:
+                  type: "string"
+                  format: "binary"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        201:
+          description: "Created"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ssoEntityModelUserPicture"
+              example:
+                filename: "profile.png"
+                _links:
+                  update:
+                    href: "http://localhost/users"
+                    type: "PUT"
+                  picture:
+                    href: "http://localhost/user/profile.png"
+  /resend-mail:
+    post:
+      tags:
+      - "User"
+      summary: "Resend Confirmation Email"
+      description: ""
+      operationId: "userweb/UserResendActivationCode.json"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ssoUserActivationResendResource"
+            example:
+              email: "felipe@monkey.exchange"
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        202:
+          description: "Accepted"
+  /oauth/token:
+    post:
+      tags:
+      - "Token"
+      summary: ""
+      description: ""
+      operationId: "Token"
+      parameters:
+      - name: "request"
+        in: "query"
+        required: true
+        schema:
+          $ref: "#/components/schemas/ssoTokenRequest"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ssoTokenResponse"
+              examples:
+                x-FirstAccess:
+                  value:
+                    scope: "server"
+                    access_token: "PANC3e3T2TpMulb8WGlZwwVLD7YgiqIobs0B0bhjSxGpKT2ywpQqcRL351whiMn6yPcmVYpQ8pLV9mW1"
+                    token_type: "Bearer"
+                    refresh_token: "eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.S0ZCA7SIowCj77eNiQza5f-R9Ppx3WHeV-WENzvf62d6dcupZptS6Im75QsGZaK6ilOCRIWeZuEER05jK0rXUcvTvyIc5M4wSS7ZxCwDcadg06Q4022LayIYEM2aCZKueOsDSdvTXs5TYZq84SzK-eBxxtLUhT8w90PeqjVqilL-TLpeoKLBo7urmvbcqP11s64AGAKCegWTxbmZHGGvfFVs1vAG6o6a8-3gHmKchV5qzSOdUjJ5IX-QCgqXFmIyZlYKtE_7hjQZoZI3Dtihl2RRye53GD2UvXN_CFXEgcWbVq0gNYbsFCnYQm2C4W96E4s2dOygcT6ZNam9FPCK6g.mp6BIR5i2GQxlW2q.ERw-yZEe8KH7mEM4LEzZUjvS9E2792NLt9hG_vYXMczRVNm7s6mOOCDvK_5P5hwmFXKENnA3XO72Qx33aJDEQsNHZ3fUFr9Nx0Tx0dhbrXuccIPwZ74T1gFCAZyOq6vtpthT1fFXj4_XwFQw9RffTZnEiFNS2qKOVBKqnGLFnuHiSHhzzPqoN1etLR1t3ITbjFNBRbAKGip-28UV6PRiGCd7GQcpj6lqBUoj5385lJavWewQIJiwHdIy3TSENAYhqerS_hP6hdfO1rvCqitlb-SpyHw12hawgegvCVT-fNhwVSv11WBxqUR3eiymke9lwCE9hewguPul0331vY2eugQcZ5U-hX-KCq2kYropWVuTDI4dL0zAmAt3i-hEt0Dn9tQ5KLBjiB0olOf7xwklpoIBJ9hFM0MGUJkWqI8zz5bKEWCamKe4HSiUn94-07OaUmsW07IHREVuikm6dq4Sn-ho-QBNcFUIdjtqJOpBf0SMh7R-W-Iphz-fhIwVNogzWQFOOhoWXtYmjHGNRBf54ISSZonBvBygZ7OQ-sDrZApZv_NJ4Jnh7-B9XHDs5-XA9Kag0qMn-7odYSw6nJPSx7s3rZ0IYinF4ddvNokuHTAhSa1-egq5IcD5rf_Rj_0vlVlW8qQmnCrcyL0AJSzs1j_vqJgn35Uzv_Gh4DvFYBZrvEwFvRBLoQ2sF5eaUA0Iap5Ekq0NWtnzT4pigglJxSDJjIxoOZsebKKfN4gVRxgdskDWFSAAfNYYh9udlAf2Epi7gMoFp9fR29WU51seRpf11L50ugdJD55EyrnYoJeHhmFx7OqG2a4Zkyuv5uP3JmOqGJ-_VSIx4QvWN9t58NLuzOZ02988VOtPq81SkNHOdMHXsfrtxqRplNGyqH5Pz4SUlKSSjXToIWWB1wR4Byb3As74AKgtYsr-XmxDUr1DlFYk9MJ3ZT9g-gP3PUsTLBNc-g8Jb51grLKwEbs_gdn7h11baCR2xmMeclOi-Um8GiFuHmxeO35yetMPbFAvpiDZ4zVRarBsYGQGEXLPsIUEarRBPfym9hWyppXtQ6HHL3BdZs6eeAQvjTDAHegPBQtDR63vfGMOq1tDjGWNKJ8ZSUkJx73_Th5wD4OZ0cQ6GyAVfIUBUG1RKWLrricb9W5aBjw0Bo697Z14z4ZMo_Byc65joHSPVh1TcRJSmjWhc4Gme-tifDyU6D-XYtth4dtYyitQrJqtSCjK1cqLkVst03hNUf4J6S-8bGa2sBGYTrf_yk2T4cGsEr2ndb8LUOj02-3LAOGMbecBTeQElkA9CzA10AVsZj0aa0h_jwrJGM1PFgs_sjiWzw.JbHbEtqaO2KOP2wNw3b3FQ"
+                    expires_in: "43200"
+                x-MFAChallenge:
+                  value:
+                    scope: "server"
+                    access_token: "PANC3e3T2TpMulb8WGlZwwVLD7YgiqIobs0B0bhjSxGpKT2ywpQqcRL351whiMn6yPcmVYpQ8pLV9mW1"
+                    token_type: "Bearer"
+                    refresh_token: "eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.S0ZCA7SIowCj77eNiQza5f-R9Ppx3WHeV-WENzvf62d6dcupZptS6Im75QsGZaK6ilOCRIWeZuEER05jK0rXUcvTvyIc5M4wSS7ZxCwDcadg06Q4022LayIYEM2aCZKueOsDSdvTXs5TYZq84SzK-eBxxtLUhT8w90PeqjVqilL-TLpeoKLBo7urmvbcqP11s64AGAKCegWTxbmZHGGvfFVs1vAG6o6a8-3gHmKchV5qzSOdUjJ5IX-QCgqXFmIyZlYKtE_7hjQZoZI3Dtihl2RRye53GD2UvXN_CFXEgcWbVq0gNYbsFCnYQm2C4W96E4s2dOygcT6ZNam9FPCK6g.mp6BIR5i2GQxlW2q.ERw-yZEe8KH7mEM4LEzZUjvS9E2792NLt9hG_vYXMczRVNm7s6mOOCDvK_5P5hwmFXKENnA3XO72Qx33aJDEQsNHZ3fUFr9Nx0Tx0dhbrXuccIPwZ74T1gFCAZyOq6vtpthT1fFXj4_XwFQw9RffTZnEiFNS2qKOVBKqnGLFnuHiSHhzzPqoN1etLR1t3ITbjFNBRbAKGip-28UV6PRiGCd7GQcpj6lqBUoj5385lJavWewQIJiwHdIy3TSENAYhqerS_hP6hdfO1rvCqitlb-SpyHw12hawgegvCVT-fNhwVSv11WBxqUR3eiymke9lwCE9hewguPul0331vY2eugQcZ5U-hX-KCq2kYropWVuTDI4dL0zAmAt3i-hEt0Dn9tQ5KLBjiB0olOf7xwklpoIBJ9hFM0MGUJkWqI8zz5bKEWCamKe4HSiUn94-07OaUmsW07IHREVuikm6dq4Sn-ho-QBNcFUIdjtqJOpBf0SMh7R-W-Iphz-fhIwVNogzWQFOOhoWXtYmjHGNRBf54ISSZonBvBygZ7OQ-sDrZApZv_NJ4Jnh7-B9XHDs5-XA9Kag0qMn-7odYSw6nJPSx7s3rZ0IYinF4ddvNokuHTAhSa1-egq5IcD5rf_Rj_0vlVlW8qQmnCrcyL0AJSzs1j_vqJgn35Uzv_Gh4DvFYBZrvEwFvRBLoQ2sF5eaUA0Iap5Ekq0NWtnzT4pigglJxSDJjIxoOZsebKKfN4gVRxgdskDWFSAAfNYYh9udlAf2Epi7gMoFp9fR29WU51seRpf11L50ugdJD55EyrnYoJeHhmFx7OqG2a4Zkyuv5uP3JmOqGJ-_VSIx4QvWN9t58NLuzOZ02988VOtPq81SkNHOdMHXsfrtxqRplNGyqH5Pz4SUlKSSjXToIWWB1wR4Byb3As74AKgtYsr-XmxDUr1DlFYk9MJ3ZT9g-gP3PUsTLBNc-g8Jb51grLKwEbs_gdn7h11baCR2xmMeclOi-Um8GiFuHmxeO35yetMPbFAvpiDZ4zVRarBsYGQGEXLPsIUEarRBPfym9hWyppXtQ6HHL3BdZs6eeAQvjTDAHegPBQtDR63vfGMOq1tDjGWNKJ8ZSUkJx73_Th5wD4OZ0cQ6GyAVfIUBUG1RKWLrricb9W5aBjw0Bo697Z14z4ZMo_Byc65joHSPVh1TcRJSmjWhc4Gme-tifDyU6D-XYtth4dtYyitQrJqtSCjK1cqLkVst03hNUf4J6S-8bGa2sBGYTrf_yk2T4cGsEr2ndb8LUOj02-3LAOGMbecBTeQElkA9CzA10AVsZj0aa0h_jwrJGM1PFgs_sjiWzw.JbHbEtqaO2KOP2wNw3b3FQ"
+                    expires_in: "43200"
+                x-RefreshToken:
+                  value:
+                    scope: "server"
+                    access_token: "PANC3e3T2TpMulb8WGlZwwVLD7YgiqIobs0B0bhjSxGpKT2ywpQqcRL351whiMn6yPcmVYpQ8pLV9mW1"
+                    token_type: "Bearer"
+                    refresh_token: "eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.S0ZCA7SIowCj77eNiQza5f-R9Ppx3WHeV-WENzvf62d6dcupZptS6Im75QsGZaK6ilOCRIWeZuEER05jK0rXUcvTvyIc5M4wSS7ZxCwDcadg06Q4022LayIYEM2aCZKueOsDSdvTXs5TYZq84SzK-eBxxtLUhT8w90PeqjVqilL-TLpeoKLBo7urmvbcqP11s64AGAKCegWTxbmZHGGvfFVs1vAG6o6a8-3gHmKchV5qzSOdUjJ5IX-QCgqXFmIyZlYKtE_7hjQZoZI3Dtihl2RRye53GD2UvXN_CFXEgcWbVq0gNYbsFCnYQm2C4W96E4s2dOygcT6ZNam9FPCK6g.mp6BIR5i2GQxlW2q.ERw-yZEe8KH7mEM4LEzZUjvS9E2792NLt9hG_vYXMczRVNm7s6mOOCDvK_5P5hwmFXKENnA3XO72Qx33aJDEQsNHZ3fUFr9Nx0Tx0dhbrXuccIPwZ74T1gFCAZyOq6vtpthT1fFXj4_XwFQw9RffTZnEiFNS2qKOVBKqnGLFnuHiSHhzzPqoN1etLR1t3ITbjFNBRbAKGip-28UV6PRiGCd7GQcpj6lqBUoj5385lJavWewQIJiwHdIy3TSENAYhqerS_hP6hdfO1rvCqitlb-SpyHw12hawgegvCVT-fNhwVSv11WBxqUR3eiymke9lwCE9hewguPul0331vY2eugQcZ5U-hX-KCq2kYropWVuTDI4dL0zAmAt3i-hEt0Dn9tQ5KLBjiB0olOf7xwklpoIBJ9hFM0MGUJkWqI8zz5bKEWCamKe4HSiUn94-07OaUmsW07IHREVuikm6dq4Sn-ho-QBNcFUIdjtqJOpBf0SMh7R-W-Iphz-fhIwVNogzWQFOOhoWXtYmjHGNRBf54ISSZonBvBygZ7OQ-sDrZApZv_NJ4Jnh7-B9XHDs5-XA9Kag0qMn-7odYSw6nJPSx7s3rZ0IYinF4ddvNokuHTAhSa1-egq5IcD5rf_Rj_0vlVlW8qQmnCrcyL0AJSzs1j_vqJgn35Uzv_Gh4DvFYBZrvEwFvRBLoQ2sF5eaUA0Iap5Ekq0NWtnzT4pigglJxSDJjIxoOZsebKKfN4gVRxgdskDWFSAAfNYYh9udlAf2Epi7gMoFp9fR29WU51seRpf11L50ugdJD55EyrnYoJeHhmFx7OqG2a4Zkyuv5uP3JmOqGJ-_VSIx4QvWN9t58NLuzOZ02988VOtPq81SkNHOdMHXsfrtxqRplNGyqH5Pz4SUlKSSjXToIWWB1wR4Byb3As74AKgtYsr-XmxDUr1DlFYk9MJ3ZT9g-gP3PUsTLBNc-g8Jb51grLKwEbs_gdn7h11baCR2xmMeclOi-Um8GiFuHmxeO35yetMPbFAvpiDZ4zVRarBsYGQGEXLPsIUEarRBPfym9hWyppXtQ6HHL3BdZs6eeAQvjTDAHegPBQtDR63vfGMOq1tDjGWNKJ8ZSUkJx73_Th5wD4OZ0cQ6GyAVfIUBUG1RKWLrricb9W5aBjw0Bo697Z14z4ZMo_Byc65joHSPVh1TcRJSmjWhc4Gme-tifDyU6D-XYtth4dtYyitQrJqtSCjK1cqLkVst03hNUf4J6S-8bGa2sBGYTrf_yk2T4cGsEr2ndb8LUOj02-3LAOGMbecBTeQElkA9CzA10AVsZj0aa0h_jwrJGM1PFgs_sjiWzw.JbHbEtqaO2KOP2wNw3b3FQ"
+                    expires_in: "43200"
+                x-AuthorizationCode:
+                  value:
+                    scope: "server"
+                    access_token: "PANC3e3T2TpMulb8WGlZwwVLD7YgiqIobs0B0bhjSxGpKT2ywpQqcRL351whiMn6yPcmVYpQ8pLV9mW1"
+                    token_type: "Bearer"
+                    refresh_token: "eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.S0ZCA7SIowCj77eNiQza5f-R9Ppx3WHeV-WENzvf62d6dcupZptS6Im75QsGZaK6ilOCRIWeZuEER05jK0rXUcvTvyIc5M4wSS7ZxCwDcadg06Q4022LayIYEM2aCZKueOsDSdvTXs5TYZq84SzK-eBxxtLUhT8w90PeqjVqilL-TLpeoKLBo7urmvbcqP11s64AGAKCegWTxbmZHGGvfFVs1vAG6o6a8-3gHmKchV5qzSOdUjJ5IX-QCgqXFmIyZlYKtE_7hjQZoZI3Dtihl2RRye53GD2UvXN_CFXEgcWbVq0gNYbsFCnYQm2C4W96E4s2dOygcT6ZNam9FPCK6g.mp6BIR5i2GQxlW2q.ERw-yZEe8KH7mEM4LEzZUjvS9E2792NLt9hG_vYXMczRVNm7s6mOOCDvK_5P5hwmFXKENnA3XO72Qx33aJDEQsNHZ3fUFr9Nx0Tx0dhbrXuccIPwZ74T1gFCAZyOq6vtpthT1fFXj4_XwFQw9RffTZnEiFNS2qKOVBKqnGLFnuHiSHhzzPqoN1etLR1t3ITbjFNBRbAKGip-28UV6PRiGCd7GQcpj6lqBUoj5385lJavWewQIJiwHdIy3TSENAYhqerS_hP6hdfO1rvCqitlb-SpyHw12hawgegvCVT-fNhwVSv11WBxqUR3eiymke9lwCE9hewguPul0331vY2eugQcZ5U-hX-KCq2kYropWVuTDI4dL0zAmAt3i-hEt0Dn9tQ5KLBjiB0olOf7xwklpoIBJ9hFM0MGUJkWqI8zz5bKEWCamKe4HSiUn94-07OaUmsW07IHREVuikm6dq4Sn-ho-QBNcFUIdjtqJOpBf0SMh7R-W-Iphz-fhIwVNogzWQFOOhoWXtYmjHGNRBf54ISSZonBvBygZ7OQ-sDrZApZv_NJ4Jnh7-B9XHDs5-XA9Kag0qMn-7odYSw6nJPSx7s3rZ0IYinF4ddvNokuHTAhSa1-egq5IcD5rf_Rj_0vlVlW8qQmnCrcyL0AJSzs1j_vqJgn35Uzv_Gh4DvFYBZrvEwFvRBLoQ2sF5eaUA0Iap5Ekq0NWtnzT4pigglJxSDJjIxoOZsebKKfN4gVRxgdskDWFSAAfNYYh9udlAf2Epi7gMoFp9fR29WU51seRpf11L50ugdJD55EyrnYoJeHhmFx7OqG2a4Zkyuv5uP3JmOqGJ-_VSIx4QvWN9t58NLuzOZ02988VOtPq81SkNHOdMHXsfrtxqRplNGyqH5Pz4SUlKSSjXToIWWB1wR4Byb3As74AKgtYsr-XmxDUr1DlFYk9MJ3ZT9g-gP3PUsTLBNc-g8Jb51grLKwEbs_gdn7h11baCR2xmMeclOi-Um8GiFuHmxeO35yetMPbFAvpiDZ4zVRarBsYGQGEXLPsIUEarRBPfym9hWyppXtQ6HHL3BdZs6eeAQvjTDAHegPBQtDR63vfGMOq1tDjGWNKJ8ZSUkJx73_Th5wD4OZ0cQ6GyAVfIUBUG1RKWLrricb9W5aBjw0Bo697Z14z4ZMo_Byc65joHSPVh1TcRJSmjWhc4Gme-tifDyU6D-XYtth4dtYyitQrJqtSCjK1cqLkVst03hNUf4J6S-8bGa2sBGYTrf_yk2T4cGsEr2ndb8LUOj02-3LAOGMbecBTeQElkA9CzA10AVsZj0aa0h_jwrJGM1PFgs_sjiWzw.JbHbEtqaO2KOP2wNw3b3FQ"
+                    expires_in: "43200"
+                x-SignIn:
+                  value:
+                    scope: "server"
+                    access_token: "PANC3e3T2TpMulb8WGlZwwVLD7YgiqIobs0B0bhjSxGpKT2ywpQqcRL351whiMn6yPcmVYpQ8pLV9mW1"
+                    token_type: "Bearer"
+                    refresh_token: "eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.S0ZCA7SIowCj77eNiQza5f-R9Ppx3WHeV-WENzvf62d6dcupZptS6Im75QsGZaK6ilOCRIWeZuEER05jK0rXUcvTvyIc5M4wSS7ZxCwDcadg06Q4022LayIYEM2aCZKueOsDSdvTXs5TYZq84SzK-eBxxtLUhT8w90PeqjVqilL-TLpeoKLBo7urmvbcqP11s64AGAKCegWTxbmZHGGvfFVs1vAG6o6a8-3gHmKchV5qzSOdUjJ5IX-QCgqXFmIyZlYKtE_7hjQZoZI3Dtihl2RRye53GD2UvXN_CFXEgcWbVq0gNYbsFCnYQm2C4W96E4s2dOygcT6ZNam9FPCK6g.mp6BIR5i2GQxlW2q.ERw-yZEe8KH7mEM4LEzZUjvS9E2792NLt9hG_vYXMczRVNm7s6mOOCDvK_5P5hwmFXKENnA3XO72Qx33aJDEQsNHZ3fUFr9Nx0Tx0dhbrXuccIPwZ74T1gFCAZyOq6vtpthT1fFXj4_XwFQw9RffTZnEiFNS2qKOVBKqnGLFnuHiSHhzzPqoN1etLR1t3ITbjFNBRbAKGip-28UV6PRiGCd7GQcpj6lqBUoj5385lJavWewQIJiwHdIy3TSENAYhqerS_hP6hdfO1rvCqitlb-SpyHw12hawgegvCVT-fNhwVSv11WBxqUR3eiymke9lwCE9hewguPul0331vY2eugQcZ5U-hX-KCq2kYropWVuTDI4dL0zAmAt3i-hEt0Dn9tQ5KLBjiB0olOf7xwklpoIBJ9hFM0MGUJkWqI8zz5bKEWCamKe4HSiUn94-07OaUmsW07IHREVuikm6dq4Sn-ho-QBNcFUIdjtqJOpBf0SMh7R-W-Iphz-fhIwVNogzWQFOOhoWXtYmjHGNRBf54ISSZonBvBygZ7OQ-sDrZApZv_NJ4Jnh7-B9XHDs5-XA9Kag0qMn-7odYSw6nJPSx7s3rZ0IYinF4ddvNokuHTAhSa1-egq5IcD5rf_Rj_0vlVlW8qQmnCrcyL0AJSzs1j_vqJgn35Uzv_Gh4DvFYBZrvEwFvRBLoQ2sF5eaUA0Iap5Ekq0NWtnzT4pigglJxSDJjIxoOZsebKKfN4gVRxgdskDWFSAAfNYYh9udlAf2Epi7gMoFp9fR29WU51seRpf11L50ugdJD55EyrnYoJeHhmFx7OqG2a4Zkyuv5uP3JmOqGJ-_VSIx4QvWN9t58NLuzOZ02988VOtPq81SkNHOdMHXsfrtxqRplNGyqH5Pz4SUlKSSjXToIWWB1wR4Byb3As74AKgtYsr-XmxDUr1DlFYk9MJ3ZT9g-gP3PUsTLBNc-g8Jb51grLKwEbs_gdn7h11baCR2xmMeclOi-Um8GiFuHmxeO35yetMPbFAvpiDZ4zVRarBsYGQGEXLPsIUEarRBPfym9hWyppXtQ6HHL3BdZs6eeAQvjTDAHegPBQtDR63vfGMOq1tDjGWNKJ8ZSUkJx73_Th5wD4OZ0cQ6GyAVfIUBUG1RKWLrricb9W5aBjw0Bo697Z14z4ZMo_Byc65joHSPVh1TcRJSmjWhc4Gme-tifDyU6D-XYtth4dtYyitQrJqtSCjK1cqLkVst03hNUf4J6S-8bGa2sBGYTrf_yk2T4cGsEr2ndb8LUOj02-3LAOGMbecBTeQElkA9CzA10AVsZj0aa0h_jwrJGM1PFgs_sjiWzw.JbHbEtqaO2KOP2wNw3b3FQ"
+                    expires_in: "43200"
+      x-FirstAccess: "tokenweb/TokenRespondToNewPasswordAuthChallenge.json"
+      x-MFAChallenge: "tokenweb/TokenRespondToAuthChallenge.json"
+      x-RefreshToken: "tokenweb/TokenRefresh.json"
+      x-AuthorizationCode: "tokenweb/TokenAuthorizationCode.json"
+      x-SignIn: "tokenweb/TokenSignIn.json"
+  /forgot-password:
+    post:
+      tags:
+      - "Password"
+      summary: "Send Password Reset Email"
+      description: ""
+      operationId: "passwordweb/UserForgotPassword.json"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ssoForgotPasswordResource"
+            example:
+              email: "felipe@monkey.exchange"
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        202:
+          description: "Accepted"
+  /forgot-password/{token}:
+    post:
+      tags:
+      - "Password"
+      summary: "Change Password via Token"
+      description: ""
+      operationId: "passwordweb/UserChangePasswordByToken.json"
+      parameters:
+      - name: "token"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: "#/components/schemas/ssoChangePasswordByTokenResource"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        200:
+          description: "OK"
+  /forgot-pass-number:
+    post:
+      tags:
+      - "Pass Number"
+      summary: "Send Pass Number Reset Email"
+      description: ""
+      operationId: "passwnumberweb/UserForgotPassNumber.json"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        202:
+          description: "Accepted"
+  /forgot-pass-number/{token}:
+    post:
+      tags:
+      - "Pass Number"
+      summary: "Change Pass Number via Token"
+      description: ""
+      operationId: "passwnumberweb/UserChangePassNumber.json"
+      parameters:
+      - name: "token"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: "#/components/schemas/ssoChangePassNumberResource"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        200:
+          description: "OK"
+  /change-password:
+    post:
+      tags:
+      - "Password"
+      summary: "Change Logged-in User Password"
+      description: ""
+      operationId: "passwordweb/UserChangePassword.json"
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: "#/components/schemas/ssoChangePasswordResource"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        200:
+          description: "OK"
+  /apis:
+    get:
+      tags:
+      - "API Clients"
+      summary: "List"
+      description: ""
+      operationId: "apiclientweb/ApiClientFindAll.json"
+      parameters:
+      - name: "search"
+        in: "query"
+        required: true
+        schema:
+          $ref: "#/components/schemas/ssoSpecificationApiClient"
+      - name: "pageable"
+        in: "query"
+        required: true
+        schema:
+          $ref: "#/components/schemas/ssoPageable"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ssoPagedModelEntityModelApiClient"
+              example:
+                _embedded:
+                  apis:
+                  - reason: "First API"
+                    clientId: "4rppk2tYoi"
+                    clientSecret: "cb3012ca-d64b-40c5-bc58-bab5bcdef8c9"
+                    createdAt: "2018-12-04T19:30:24Z"
+                    createUserId: "UNKNOWN"
+                    createUserIp: "UNKNOWN"
+                    updatedAt: "2018-12-04T19:30:24Z"
+                    lastUserId: "UNKNOWN"
+                    lastUserIp: "UNKNOWN"
+                    _links:
+                      self:
+                        href: "http://localhost/apis/ORga1sHd6S"
+                        type: "GET"
+                      delete:
+                        href: "http://localhost/apis/ORga1sHd6S"
+                        type: "DELETE"
+                      me:
+                        href: "http://localhost/me"
+                        type: "GET"
+                _links:
+                  self:
+                    href: "http://localhost/apis?page=0&size=20"
+                page:
+                  size: 20
+                  totalElements: 1
+                  totalPages: 1
+                  number: 0
+    post:
+      tags:
+      - "API Clients"
+      summary: "Create"
+      description: ""
+      operationId: "apiclientweb/ApiClientCreate.json"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ssoApiClient"
+            example:
+              reason: "teste api v2"
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        201:
+          description: "Created"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ssoEntityModelApiClient"
+              example:
+                reason: "First API"
+                clientId: "4rppk2tYoi"
+                clientSecret: "cb3012ca-d64b-40c5-bc58-bab5bcdef8c9"
+                createdAt: "2018-12-04T19:30:24Z"
+                createUserId: "UNKNOWN"
+                createUserIp: "UNKNOWN"
+                updatedAt: "2018-12-04T19:30:24Z"
+                lastUserId: "UNKNOWN"
+                lastUserIp: "UNKNOWN"
+                _links:
+                  self:
+                    href: "http://localhost/apis/ORga1sHd6S"
+                    type: "GET"
+                  delete:
+                    href: "http://localhost/apis/ORga1sHd6S"
+                    type: "DELETE"
+                  me:
+                    href: "http://localhost/me"
+                    type: "GET"
+  /v2/profiles:
+    get:
+      tags:
+      - "Profiles"
+      summary: "List"
+      description: ""
+      operationId: "usercompanyweb/UserCompaniesFindAll.json"
+      parameters:
+      - name: "search"
+        in: "query"
+        required: true
+        schema:
+          $ref: "#/components/schemas/ssoSpecificationUserCompany"
+      - name: "pageable"
+        in: "query"
+        required: true
+        schema:
+          $ref: "#/components/schemas/ssoPageable"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ssoPagedModelEntityModelUserCompanyResource"
+              example:
+                _embedded:
+                  companies:
+                  - adhesionTerm: "false"
+                    createdAt: "2018-12-04T19:30:24Z"
+                    governmentId: "12635522000085"
+                    id: "113"
+                    name: "SPONSOR S.A."
+                    programAdmin: "true"
+                    role: "ADMIN"
+                    status: "ACTIVE"
+                    type: "SPONSOR"
+                    _links:
+                      self:
+                        href: "http://localhost/v2/sponsors/113"
+                        type: "GET"
+                      payables:
+                        href: "http://localhost/v2/sponsors/113/payables"
+                        type: "GET"
+                      suppliers:
+                        href: "http://localhost/v2/sponsors/113/suppliers"
+                        type: "GET"
+                      operations:
+                        href: "http://localhost/v2/sponsors/113/operations"
+                        type: "GET"
+                      operation-summaries:
+                        href: "http://localhost/v2/sponsors/113/operation-summaries"
+                        type: "GET"
+                      selling-summaries:
+                        href: "http://localhost/v2/sponsors/113/selling-summaries"
+                        type: "GET"
+                      payables-processes:
+                        href: "http://localhost/v2/sponsors/113/payable-loader-processes"
+                        type: "GET"
+                      signatures:
+                        href: "http://localhost/v2/sponsors/113/signatures"
+                        type: "GET"
+                      dashboards:
+                        href: "http://localhost/v2/sponsors/113/dashboards"
+                        type: "GET"
+                      email-subscriptions:
+                        href: "http://localhost/v2/sponsors/113/subscriptions"
+                        type: "GET"
+                      bank-accounts:
+                        href: "http://localhost/v2/sponsors/113/bank-accounts"
+                        type: "GET"
+                      buyers:
+                        href: "http://localhost/v2/sponsors/113/buyers"
+                        type: "GET"
+                      events:
+                        href: "http://localhost/v2/sponsors/113/events"
+                        type: "GET"
+                      response-files:
+                        href: "http://localhost/v2/sponsors/113/response-files"
+                        type: "GET"
+                      users:
+                        href: "http://localhost/v1/sponsors/113/users"
+                        type: "GET"
+                      market-status:
+                        href: "http://localhost/v2/sponsors/113/markets"
+                        type: "GET"
+                      amendments:
+                        href: "http://localhost/v2/sponsors/113/program-amendments"
+                        type: "GET"
+                  - adhesionTerm: "false"
+                    createdAt: "2018-12-04T19:30:24Z"
+                    governmentId: "12635522000085"
+                    id: "112"
+                    name: "SELLER S.A."
+                    programAdmin: "true"
+                    role: "ADMIN"
+                    status: "ACTIVE"
+                    type: "SELLER"
+                    _links:
+                      self:
+                        href: "http://localhost/v2/sellers/112"
+                        type: "GET"
+                      receivables:
+                        href: "http://localhost/v2/sellers/112/receivables"
+                        type: "GET"
+                      offers:
+                        href: "http://localhost/v2/sellers/112/offers"
+                        type: "GET"
+                      signatures:
+                        href: "http://localhost/v2/sellers/112/signatures"
+                        type: "GET"
+                      dashboards:
+                        href: "http://localhost/v2/sellers/112/dashboards"
+                        type: "GET"
+                      email-subscriptions:
+                        href: "http://localhost/v2/sellers/112/subscriptions"
+                        type: "GET"
+                      bank-accounts:
+                        href: "http://localhost/v2/sellers/112/bank-accounts"
+                        type: "GET"
+                      buyers:
+                        href: "http://localhost/v2/sellers/112/buyers"
+                        type: "GET"
+                      amendments:
+                        href: "http://localhost/v2/sellers/112/program-amendments"
+                        type: "GET"
+                      adhesion-terms:
+                        href: "http://localhost/v2/sellers/112/program-adhesion-terms"
+                        type: "GET"
+                      buyer-adhesion-terms:
+                        href: "http://localhost/v2/sellers/112/adhesion-terms"
+                        type: "GET"
+                      events:
+                        href: "http://localhost/v2/sellers/112/events"
+                        type: "GET"
+                      users:
+                        href: "http://localhost/v1/sellers/112/users"
+                        type: "GET"
+                      selling-summaries:
+                        href: "http://localhost/v2/sellers/112/selling-summaries"
+                        type: "GET"
+                      market-status:
+                        href: "http://localhost/v2/sellers/113/markets"
+                        type: "GET"
+                  - adhesionTerm: "false"
+                    createdAt: "2018-12-04T19:30:24Z"
+                    governmentId: "12635522000085"
+                    id: "111"
+                    name: "BUYER S.A."
+                    programAdmin: "true"
+                    role: "ADMIN"
+                    status: "ACTIVE"
+                    type: "BUYER"
+                    _links:
+                      self:
+                        href: "http://localhost/v2/buyers/111"
+                        type: "GET"
+                      signature-configurations:
+                        href: "http://localhost/v2/buyers/111/signature-configurations"
+                        type: "GET"
+                      auto-approve-configurations:
+                        href: "http://localhost/v2/buyers/111/auto-approve-settings"
+                        type: "GET"
+                      signatures:
+                        href: "http://localhost/v2/buyers/111/signatures"
+                        type: "GET"
+                      dashboards:
+                        href: "http://localhost/v2/buyers/111/dashboards"
+                        type: "GET"
+                      email-subscriptions:
+                        href: "http://localhost/v2/buyers/111/subscriptions"
+                        type: "GET"
+                      payable-processes:
+                        href: "http://localhost/v2/buyers/111/payable-processes"
+                        type: "GET"
+                      sponsors:
+                        href: "http://localhost/v2/buyers/111/sponsors"
+                        type: "GET"
+                      sellers:
+                        href: "http://localhost/v2/buyers/111/sellers"
+                        type: "GET"
+                      bank-accounts:
+                        href: "http://localhost/v2/buyers/111/bank-accounts"
+                        type: "GET"
+                      adhesion-term-configurations:
+                        href: "http://localhost/v2/buyers/111/adhesion-term-configurations"
+                        type: "GET"
+                      tax-files:
+                        href: "http://localhost/v2/buyers/111/buyer-tax-file"
+                        type: "GET"
+                      events:
+                        href: "http://localhost/v2/buyers/112/events"
+                        type: "GET"
+                      purchases:
+                        href: "http://localhost/v2/buyers/111/purchases"
+                        type: "GET"
+                      users:
+                        href: "http://localhost/v1/buyers/111/users"
+                        type: "GET"
+                _links:
+                  self:
+                    href: "http://localhost/v2/profiles?page=0&size=20"
+                page:
+                  size: 20
+                  totalElements: 3
+                  totalPages: 1
+                  number: 0
+  /v2/profiles/{companyId}:
+    get:
+      tags:
+      - "Profiles"
+      summary: "Find"
+      description: ""
+      operationId: "UserCompaniesFindOne"
+      parameters:
+      - name: "companyId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ssoEntityModelUserCompanyResource"
+              examples:
+                x-Buyer:
+                  value:
+                    adhesionTerm: "false"
+                    createdAt: "2018-12-04T19:30:24Z"
+                    governmentId: "12635522000085"
+                    id: "111"
+                    name: "BUYER S.A."
+                    programAdmin: "true"
+                    role: "ADMIN"
+                    status: "ACTIVE"
+                    type: "BUYER"
+                    _links:
+                      self:
+                        href: "http://localhost/v2/buyers/111"
+                        type: "GET"
+                      signature-configurations:
+                        href: "http://localhost/v2/buyers/111/signature-configurations"
+                        type: "GET"
+                      auto-approve-configurations:
+                        href: "http://localhost/v2/buyers/111/auto-approve-settings"
+                        type: "GET"
+                      signatures:
+                        href: "http://localhost/v2/buyers/111/signatures"
+                        type: "GET"
+                      dashboards:
+                        href: "http://localhost/v2/buyers/111/dashboards"
+                        type: "GET"
+                      email-subscriptions:
+                        href: "http://localhost/v2/buyers/111/subscriptions"
+                        type: "GET"
+                      payable-processes:
+                        href: "http://localhost/v2/buyers/111/payable-processes"
+                        type: "GET"
+                      sponsors:
+                        href: "http://localhost/v2/buyers/111/sponsors"
+                        type: "GET"
+                      sellers:
+                        href: "http://localhost/v2/buyers/111/sellers"
+                        type: "GET"
+                      bank-accounts:
+                        href: "http://localhost/v2/buyers/111/bank-accounts"
+                        type: "GET"
+                      adhesion-term-configurations:
+                        href: "http://localhost/v2/buyers/111/adhesion-term-configurations"
+                        type: "GET"
+                      tax-files:
+                        href: "http://localhost/v2/buyers/111/buyer-tax-file"
+                        type: "GET"
+                      events:
+                        href: "http://localhost/v2/buyers/112/events"
+                        type: "GET"
+                      purchases:
+                        href: "http://localhost/v2/buyers/111/purchases"
+                        type: "GET"
+                      users:
+                        href: "http://localhost/v1/buyers/111/users"
+                        type: "GET"
+                x-Sponsor:
+                  value:
+                    adhesionTerm: "false"
+                    createdAt: "2018-12-04T19:30:24Z"
+                    governmentId: "12635522000085"
+                    id: "113"
+                    name: "SPONSOR S.A."
+                    programAdmin: "true"
+                    role: "ADMIN"
+                    status: "ACTIVE"
+                    type: "SPONSOR"
+                    _links:
+                      self:
+                        href: "http://localhost/v2/sponsors/113"
+                        type: "GET"
+                      payables:
+                        href: "http://localhost/v2/sponsors/113/payables"
+                        type: "GET"
+                      suppliers:
+                        href: "http://localhost/v2/sponsors/113/suppliers"
+                        type: "GET"
+                      operations:
+                        href: "http://localhost/v2/sponsors/113/operations"
+                        type: "GET"
+                      operation-summaries:
+                        href: "http://localhost/v2/sponsors/113/operation-summaries"
+                        type: "GET"
+                      selling-summaries:
+                        href: "http://localhost/v2/sponsors/113/selling-summaries"
+                        type: "GET"
+                      payables-processes:
+                        href: "http://localhost/v2/sponsors/113/payable-loader-processes"
+                        type: "GET"
+                      signatures:
+                        href: "http://localhost/v2/sponsors/113/signatures"
+                        type: "GET"
+                      dashboards:
+                        href: "http://localhost/v2/sponsors/113/dashboards"
+                        type: "GET"
+                      email-subscriptions:
+                        href: "http://localhost/v2/sponsors/113/subscriptions"
+                        type: "GET"
+                      bank-accounts:
+                        href: "http://localhost/v2/sponsors/113/bank-accounts"
+                        type: "GET"
+                      buyers:
+                        href: "http://localhost/v2/sponsors/113/buyers"
+                        type: "GET"
+                      events:
+                        href: "http://localhost/v2/sponsors/113/events"
+                        type: "GET"
+                      response-files:
+                        href: "http://localhost/v2/sponsors/113/response-files"
+                        type: "GET"
+                      users:
+                        href: "http://localhost/v1/sponsors/113/users"
+                        type: "GET"
+                      market-status:
+                        href: "http://localhost/v2/sponsors/113/markets"
+                        type: "GET"
+                      amendments:
+                        href: "http://localhost/v2/sponsors/113/program-amendments"
+                        type: "GET"
+                x-Seller:
+                  value:
+                    adhesionTerm: "false"
+                    createdAt: "2018-12-04T19:30:24Z"
+                    governmentId: "12635522000085"
+                    id: "112"
+                    name: "SELLER S.A."
+                    programAdmin: "true"
+                    role: "ADMIN"
+                    status: "ACTIVE"
+                    type: "SELLER"
+                    _links:
+                      self:
+                        href: "http://localhost/v2/sellers/112"
+                        type: "GET"
+                      receivables:
+                        href: "http://localhost/v2/sellers/112/receivables"
+                        type: "GET"
+                      offers:
+                        href: "http://localhost/v2/sellers/112/offers"
+                        type: "GET"
+                      signatures:
+                        href: "http://localhost/v2/sellers/112/signatures"
+                        type: "GET"
+                      dashboards:
+                        href: "http://localhost/v2/sellers/112/dashboards"
+                        type: "GET"
+                      email-subscriptions:
+                        href: "http://localhost/v2/sellers/112/subscriptions"
+                        type: "GET"
+                      bank-accounts:
+                        href: "http://localhost/v2/sellers/112/bank-accounts"
+                        type: "GET"
+                      buyers:
+                        href: "http://localhost/v2/sellers/112/buyers"
+                        type: "GET"
+                      amendments:
+                        href: "http://localhost/v2/sellers/112/program-amendments"
+                        type: "GET"
+                      adhesion-terms:
+                        href: "http://localhost/v2/sellers/112/program-adhesion-terms"
+                        type: "GET"
+                      buyer-adhesion-terms:
+                        href: "http://localhost/v2/sellers/112/adhesion-terms"
+                        type: "GET"
+                      events:
+                        href: "http://localhost/v2/sellers/112/events"
+                        type: "GET"
+                      users:
+                        href: "http://localhost/v1/sellers/112/users"
+                        type: "GET"
+                      selling-summaries:
+                        href: "http://localhost/v2/sellers/112/selling-summaries"
+                        type: "GET"
+                      market-status:
+                        href: "http://localhost/v2/sellers/113/markets"
+                        type: "GET"
+      x-Buyer: "usercompanyweb/UserCompaniesFindOneBuyer.json"
+      x-Sponsor: "usercompanyweb/UserCompaniesFindOneSponsor.json"
+      x-Seller: "usercompanyweb/UserCompaniesFindOneSeller.json"
+  /v2/owners-profile:
+    get:
+      tags:
+      - "Profiles"
+      summary: "List - Owners"
+      description: ""
+      operationId: "ownercompanyweb/OwnerCompaniesFindAll.json"
+      parameters:
+      - name: "search"
+        in: "query"
+        required: true
+        schema:
+          $ref: "#/components/schemas/ssoSpecificationOwnerCompany"
+      - name: "pageable"
+        in: "query"
+        required: true
+        schema:
+          $ref: "#/components/schemas/ssoPageable"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ssoPagedModelEntityModelOwnerCompanyResource"
+              example:
+                _embedded:
+                  companies:
+                  - governmentId: "12635522000085"
+                    name: "SPONSOR S.A."
+                    program: "MONKEYMKT"
+                    role: "ADMIN"
+                    status: "ACTIVE"
+                    type: "SPONSOR"
+                    _links:
+                      self:
+                        href: "http://localhost/v2/sponsors/02635522000195/steps"
+                        type: "GET"
+                      suppliers:
+                        href: "http://localhost/admin/v1/sponsors/02635522000195/suppliers"
+                        type: "GET"
+                  - governmentId: "02635522000195"
+                    name: "BUYER S.A."
+                    program: "PLATFORM"
+                    role: "ADMIN"
+                    status: "ACTIVE"
+                    type: "BUYER"
+                    _links:
+                      self:
+                        href: "http://localhost/v2/buyers/02635522000195/steps"
+                        type: "GET"
+                _links:
+                  self:
+                    href: "http://localhost/v2/owners-profile?page=0&size=20"
+                page:
+                  size: 20
+                  totalElements: 2
+                  totalPages: 1
+                  number: 0
+  /v2/owners-profile/{companyId}:
+    get:
+      tags:
+      - "Profiles"
+      summary: "Find - Owners"
+      description: ""
+      operationId: "OwnerCompaniesFindOne"
+      parameters:
+      - name: "companyId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ssoEntityModelOwnerCompanyResource"
+              examples:
+                x-Buyer:
+                  value:
+                    governmentId: "02635522000195"
+                    name: "BUYER S.A."
+                    program: "PLATFORM"
+                    role: "ADMIN"
+                    status: "ACTIVE"
+                    type: "BUYER"
+                    _links:
+                      self:
+                        href: "http://localhost/v2/buyers/02635522000195/steps"
+                        type: "GET"
+                x-Sponsor:
+                  value:
+                    governmentId: "02635522000195"
+                    name: "SPONSOR S.A."
+                    program: "PINE"
+                    role: "ADMIN"
+                    status: "ACTIVE"
+                    type: "SPONSOR"
+                    _links:
+                      self:
+                        href: "http://localhost/v2/sponsors/02635522000195/steps"
+                        type: "GET"
+                      suppliers:
+                        href: "http://localhost/admin/v1/sponsors/02635522000195/suppliers"
+                        type: "GET"
+      x-Buyer: "ownercompanyweb/OwnerCompaniesFindOneBuyer.json"
+      x-Sponsor: "ownercompanyweb/OwnerCompaniesFindOneSponsor.json"
+  /v2/mfa:
+    get:
+      tags:
+      - "MFA"
+      summary: "View Configuration"
+      description: ""
+      operationId: "mfaweb/MFAGetConfiguration.json"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ssoEntityModelMFAResource"
+              example:
+                _links:
+                  enable-mfa:
+                    href: "http://localhost/v2/mfa/enable"
+                    type: "POST"
+  /v1/programs/{name}/users:
+    get:
+      tags:
+      - "Users"
+      summary: "List"
+      description: ""
+      operationId: "programowneruserweb/ProgramOwnerUserFindAll.json"
+      parameters:
+      - name: "name"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      - name: "pageable"
+        in: "query"
+        required: true
+        schema:
+          $ref: "#/components/schemas/ssoPageable"
+      - name: "search"
+        in: "query"
+        required: false
+        schema:
+          type: "string"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ssoPagedModelEntityModelProgramOwnerUserResponse"
+              example:
+                _embedded:
+                  users:
+                  - name: "Felipe Teste Assinatura"
+                    username: "felipe@monkey.exchange"
+                    createUserId: "monkeyexchangepine@gmail.com"
+                    createdAt: "2018-12-04T19:30:24Z"
+                    _links:
+                      self:
+                        href: "http://localhost/v1/programs/PINE/users/felipe@monkey.exchange"
+                        type: "GET"
+                _links:
+                  self:
+                    href: "http://localhost/v1/programs/pine/users?page=0&size=20"
+                page:
+                  size: 20
+                  totalElements: 1
+                  totalPages: 1
+                  number: 0
+  /v1/programs/{name}/users/{username}:
+    get:
+      tags:
+      - "Users"
+      summary: "Detail"
+      description: ""
+      operationId: "programowneruserweb/ProgramOwnerUserFindOne.json"
+      parameters:
+      - name: "name"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      - name: "username"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ssoCollectionModelEntityModelProgramOwnerUserDetailResponse"
+              example:
+                _embedded:
+                  users:
+                  - email: "felipe@monkey.exchange"
+                    name: "Felipe"
+                    cellPhone: "+5517999999999"
+                    smsNotification: "true"
+                    nickname: "Felipe"
+                    pictureUrl: "https://localhost/pictures.jpeg"
+                    useTerms: "true"
+                    privacyPolicy: "true"
+                    others: ""
+                    status: "CONFIRMED"
+                    locale: "pt-BR"
+                    newsletter: "false"
+                    _links:
+                      self:
+                        href: "http://localhost/v1/programs/PINE/users/felipe@monkey.exchange"
+                        type: "GET"
+                  - email: "felipe@monkey.exchange"
+                    name: "Felipe by Federation"
+                    cellPhone: "+5517999999999"
+                    smsNotification: "false"
+                    nickname: "Federation"
+                    pictureUrl: "https://localhost/pictures.jpeg"
+                    useTerms: "false"
+                    privacyPolicy: "false"
+                    others: ""
+                    status: "EXTERNAL_PROVIDER"
+                    locale: "pt-BR"
+                    newsletter: "false"
+                    _links:
+                      self:
+                        href: "http://localhost/v1/programs/PINE/users/felipe@monkey.exchange"
+                        type: "GET"
+  /v1/programs/{name}/users/{username}/events:
+    get:
+      tags:
+      - "Users"
+      summary: "Event History"
+      description: ""
+      operationId: "programowneruserweb/ProgramOwnerUserEventFindAll.json"
+      parameters:
+      - name: "name"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      - name: "username"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      - name: "requestId"
+        in: "query"
+        required: false
+        schema:
+          type: "string"
+      - name: "paginationToken"
+        in: "query"
+        required: false
+        schema:
+          type: "string"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ssoCollectionModelEntityModelProgramOwnerUserAuthEvent"
+              example:
+                _embedded:
+                  events:
+                  - id: "242e4b0d-e73e-43c1-8af0-3849a915442f"
+                    type: "SignIn"
+                    responseType: "Pass"
+                    riskDecision: "NoRisk"
+                    riskLevel: "Low"
+                    compromisedCredentialsDetected: "false"
+                    occurredOn: "2024-07-01T14:52:03.930+00:00"
+                    ipAddress: "45.228.252.70"
+                    deviceName: "Chrome 126, Mac OS X 10.15.7"
+                    city: "Mogi Guacu"
+                    country: "Brazil"
+                    challengeResponseEvents:
+                    - challengeName: "Password"
+                      challengeResponse: "Success"
+                    _links:
+                      auth-events:
+                        href: "http://localhost/v1/programs/PINE/users/felipe@monkey.exchange/events?requestId=&paginationToken="
+                        type: "GET"
+                      user-detail:
+                        href: "http://localhost/v1/programs/PINE/users/felipe@monkey.exchange"
+                        type: "GET"
+                _links:
+                  next:
+                    href: "http://localhost/v1/programs/program/users/felipe%40monkey.exchange/events?requestId=requestId&paginationToken=nextToken"
+  /apis/{clientId}:
+    get:
+      tags:
+      - "API Clients"
+      summary: "Detail"
+      description: ""
+      operationId: "apiclientweb/ApiClientFindOne.json"
+      parameters:
+      - name: "clientId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ssoEntityModelApiClient"
+              example:
+                reason: "First API"
+                clientId: "4rppk2tYoi"
+                clientSecret: "cb3012ca-d64b-40c5-bc58-bab5bcdef8c9"
+                createdAt: "2018-12-04T19:30:24Z"
+                createUserId: "UNKNOWN"
+                createUserIp: "UNKNOWN"
+                updatedAt: "2018-12-04T19:30:24Z"
+                lastUserId: "UNKNOWN"
+                lastUserIp: "UNKNOWN"
+                _links:
+                  self:
+                    href: "http://localhost/apis/ORga1sHd6S"
+                    type: "GET"
+                  delete:
+                    href: "http://localhost/apis/ORga1sHd6S"
+                    type: "DELETE"
+                  me:
+                    href: "http://localhost/me"
+                    type: "GET"
+    delete:
+      tags:
+      - "API Clients"
+      summary: "Delete"
+      description: ""
+      operationId: "apiclientweb/ApiClientDelete.json"
+      parameters:
+      - name: "clientId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        204:
+          description: "No Content"
+  /v2/mfa/disable:
+    delete:
+      tags:
+      - "MFA"
+      summary: "Disable MFA"
+      description: ""
+      operationId: "mfaweb/MFADisassociateSoftwareToken.json"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        200:
+          description: "OK"
+components:
+  schemas:
+    sellerMessage:
+      type: "object"
+      properties:
+        type:
+          type: "string"
+          description: "Type"
+          enum:
+          - "Invalid_Token"
+          - "Mult_Status_Error"
+          - "No_Content_Error"
+          - "Conflict_Error"
+          - "Parameter_Error"
+          - "Bad_Request_Error"
+          - "Business_Logic_Error"
+          - "Resource_Not_Found"
+          - "Internal_Architecture_Error"
+          - "List_Not_Found"
+          - "Method_Not_Allowed"
+          - "Unsupported_Media_Type"
+          - "Access_Denied"
+          - "mfa_required"
+          - "Integration_Error"
+          - "Automated_Offer_Configuration_Error"
+        description:
+          type: "string"
+          description: "Description"
+        notifications:
+          type: "array"
+          description: "Notifications"
+          items:
+            type: "string"
+    externalSignMessage:
+      type: "object"
+      properties:
+        type:
+          type: "string"
+          description: "Type"
+          enum:
+          - "Invalid_Token"
+          - "Mult_Status_Error"
+          - "No_Content_Error"
+          - "Conflict_Error"
+          - "Parameter_Error"
+          - "Bad_Request_Error"
+          - "Business_Logic_Error"
+          - "Resource_Not_Found"
+          - "Internal_Architecture_Error"
+          - "List_Not_Found"
+          - "Method_Not_Allowed"
+          - "Unsupported_Media_Type"
+          - "Access_Denied"
+          - "mfa_required"
+          - "Integration_Error"
+        description:
+          type: "string"
+          description: "Description"
+        notifications:
+          type: "array"
+          description: "Notifications"
+          items:
+            type: "string"
+    externalSignProgramAdhesionTermConfiguration:
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          description: "Creation Date"
+          format: "date-time"
+        createUserId:
+          type: "string"
+          description: "Record Creator User"
+        createUserIp:
+          type: "string"
+          description: "Creation IP Used"
+        updatedAt:
+          type: "string"
+          description: "Last Update Date"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+          description: "Last Update User"
+        lastUserIp:
+          type: "string"
+          description: "Last Update IP Used"
+        signers:
+          type: "array"
+          description: "Signers"
+          items:
+            $ref: "#/components/schemas/externalSignProgramAdhesionTermSigner"
+    externalSignProgramAdhesionTermSigner:
+      required:
+      - "email"
+      - "governmentId"
+      - "name"
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          description: "Creation Date"
+          format: "date-time"
+        createUserId:
+          type: "string"
+          description: "Record Creator User"
+        createUserIp:
+          type: "string"
+          description: "Creation IP Used"
+        updatedAt:
+          type: "string"
+          description: "Last Update Date"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+          description: "Last Update User"
+        lastUserIp:
+          type: "string"
+          description: "Last Update IP Used"
+        email:
+          type: "string"
+          description: "Email"
+        name:
+          type: "string"
+          description: "Name"
+        governmentId:
+          type: "string"
+          description: "GovernmentId"
+    externalSignEntityModelProgramAdhesionTermConfiguration:
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          description: "Creation Date"
+          format: "date-time"
+        createUserId:
+          type: "string"
+          description: "Record Creator User"
+        createUserIp:
+          type: "string"
+          description: "Creation IP Used"
+        updatedAt:
+          type: "string"
+          description: "Last Update Date"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+          description: "Last Update User"
+        lastUserIp:
+          type: "string"
+          description: "Last Update IP Used"
+        signers:
+          type: "array"
+          description: "Signers"
+          items:
+            $ref: "#/components/schemas/externalSignProgramAdhesionTermSigner"
+        _links:
+          $ref: "#/components/schemas/externalSignLinks"
+    externalSignLinks:
+      type: "object"
+      additionalProperties:
+        $ref: "#/components/schemas/externalSignLink"
+    externalSignLink:
+      type: "object"
+      properties:
+        href:
+          type: "string"
+        hreflang:
+          type: "string"
+        title:
+          type: "string"
+        type:
+          type: "string"
+        deprecation:
+          type: "string"
+        profile:
+          type: "string"
+        name:
+          type: "string"
+        templated:
+          type: "boolean"
+    ssoMessage:
+      type: "object"
+      properties:
+        type:
+          type: "string"
+          enum:
+          - "Invalid_Token"
+          - "Mult_Status_Error"
+          - "No_Content_Error"
+          - "Conflict_Error"
+          - "Parameter_Error"
+          - "Bad_Request_Error"
+          - "Business_Logic_Error"
+          - "Resource_Not_Found"
+          - "Internal_Architecture_Error"
+          - "List_Not_Found"
+          - "Method_Not_Allowed"
+          - "Unsupported_Media_Type"
+          - "Access_Denied"
+          - "mfa_required"
+          - "Integration_Error"
+          - "change_password_required"
+          - "new_device_used"
+          - "user_not_confirmed"
+        description:
+          type: "string"
+        notifications:
+          type: "array"
+          items:
+            type: "string"
+    ssoProgramConfiguration:
+      required:
+      - "closeMarket"
+      - "openMarket"
+      type: "object"
+      properties:
+        resetPayablesDaily:
+          type: "boolean"
+        resetPayablesOnWeekend:
+          type: "boolean"
+        openMarket:
+          type: "integer"
+          format: "int32"
+        closeMarket:
+          type: "integer"
+          format: "int32"
+        supplierApprovedByDefault:
+          type: "boolean"
+        supplierAutomatedOfferByDefault:
+          type: "boolean"
+        supplierConfigureAutomatedOffer:
+          type: "boolean"
+        minimumDaysToOffer:
+          type: "integer"
+          format: "int32"
+        sponsorDefaultFileOutput:
+          type: "boolean"
+        multipleSignatureEnabled:
+          type: "boolean"
+        sellerAutoApprove:
+          type: "boolean"
+        sponsorDefaultTax:
+          type: "number"
+          format: "float"
+        purchaseRegistration:
+          type: "boolean"
+    ssoEntityModelProgramConfiguration:
+      required:
+      - "closeMarket"
+      - "openMarket"
+      type: "object"
+      properties:
+        resetPayablesDaily:
+          type: "boolean"
+        resetPayablesOnWeekend:
+          type: "boolean"
+        openMarket:
+          type: "integer"
+          format: "int32"
+        closeMarket:
+          type: "integer"
+          format: "int32"
+        supplierApprovedByDefault:
+          type: "boolean"
+        supplierAutomatedOfferByDefault:
+          type: "boolean"
+        supplierConfigureAutomatedOffer:
+          type: "boolean"
+        minimumDaysToOffer:
+          type: "integer"
+          format: "int32"
+        sponsorDefaultFileOutput:
+          type: "boolean"
+        multipleSignatureEnabled:
+          type: "boolean"
+        sellerAutoApprove:
+          type: "boolean"
+        sponsorDefaultTax:
+          type: "number"
+          format: "float"
+        purchaseRegistration:
+          type: "boolean"
+        _links:
+          $ref: "#/components/schemas/ssoLinks"
+    ssoLinks:
+      type: "object"
+      additionalProperties:
+        $ref: "#/components/schemas/ssoLink"
+    ssoUpdateUserResource:
+      required:
+      - "name"
+      - "newsletter"
+      - "smsNotification"
+      type: "object"
+      properties:
+        name:
+          type: "string"
+        cellPhone:
+          type: "string"
+        smsNotification:
+          type: "boolean"
+        nickname:
+          type: "string"
+        locale:
+          type: "string"
+        newsletter:
+          type: "boolean"
+        others:
+          type: "string"
+    ssoEntityModelUpdateUserResource:
+      required:
+      - "name"
+      - "newsletter"
+      - "smsNotification"
+      type: "object"
+      properties:
+        name:
+          type: "string"
+        cellPhone:
+          type: "string"
+        smsNotification:
+          type: "boolean"
+        nickname:
+          type: "string"
+        locale:
+          type: "string"
+        newsletter:
+          type: "boolean"
+        others:
+          type: "string"
+        _links:
+          $ref: "#/components/schemas/ssoLinks"
+    ssoUserActivationResource:
+      required:
+      - "token"
+      type: "object"
+      properties:
+        token:
+          type: "string"
+    ssoMFASecretResource:
+      type: "object"
+      properties:
+        secretCode:
+          type: "string"
+    ssoUser:
+      required:
+      - "email"
+      - "name"
+      - "newsletter"
+      - "privacyPolicy"
+      - "smsNotification"
+      - "useTerms"
+      type: "object"
+      properties:
+        email:
+          type: "string"
+        name:
+          type: "string"
+        cellPhone:
+          type: "string"
+        smsNotification:
+          type: "boolean"
+        nickname:
+          type: "string"
+        useTerms:
+          type: "boolean"
+        privacyPolicy:
+          type: "boolean"
+        others:
+          type: "string"
+        locale:
+          type: "string"
+        newsletter:
+          type: "boolean"
+    ssoEntityModelUser:
+      required:
+      - "email"
+      - "name"
+      - "newsletter"
+      - "privacyPolicy"
+      - "smsNotification"
+      - "useTerms"
+      type: "object"
+      properties:
+        email:
+          type: "string"
+        name:
+          type: "string"
+        cellPhone:
+          type: "string"
+        smsNotification:
+          type: "boolean"
+        nickname:
+          type: "string"
+        useTerms:
+          type: "boolean"
+        privacyPolicy:
+          type: "boolean"
+        others:
+          type: "string"
+        locale:
+          type: "string"
+        newsletter:
+          type: "boolean"
+        _links:
+          $ref: "#/components/schemas/ssoLinks"
+    ssoEntityModelUserPicture:
+      type: "object"
+      properties:
+        filename:
+          type: "string"
+        _links:
+          $ref: "#/components/schemas/ssoLinks"
+    ssoUserActivationResendResource:
+      required:
+      - "email"
+      type: "object"
+      properties:
+        email:
+          type: "string"
+    ssoTokenRequest:
+      type: "object"
+      properties:
+        grant_type:
+          type: "string"
+        username:
+          type: "string"
+        password:
+          type: "string"
+        scope:
+          type: "string"
+        client_id:
+          type: "string"
+        client_secret:
+          type: "string"
+        totp_code:
+          type: "string"
+        refresh_token:
+          type: "string"
+        pass_number:
+          type: "string"
+        code:
+          type: "string"
+        clientSecret:
+          type: "string"
+          writeOnly: true
+        clientId:
+          type: "string"
+          writeOnly: true
+    ssoTokenResponse:
+      type: "object"
+      properties:
+        scope:
+          type: "string"
+        access_token:
+          type: "string"
+        token_type:
+          type: "string"
+        refresh_token:
+          type: "string"
+        expires_in:
+          type: "integer"
+          format: "int32"
+    ssoForgotPasswordResource:
+      required:
+      - "email"
+      type: "object"
+      properties:
+        email:
+          type: "string"
+    ssoChangePasswordByTokenResource:
+      required:
+      - "email"
+      - "newPassword"
+      type: "object"
+      properties:
+        email:
+          type: "string"
+        newPassword:
+          type: "string"
+    ssoChangePassNumberResource:
+      required:
+      - "newPassNumber"
+      type: "object"
+      properties:
+        newPassNumber:
+          type: "string"
+    ssoChangePasswordResource:
+      required:
+      - "newPassword"
+      - "oldPassword"
+      type: "object"
+      properties:
+        oldPassword:
+          type: "string"
+        newPassword:
+          type: "string"
+    ssoApiClient:
+      required:
+      - "reason"
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          format: "date-time"
+        createUserId:
+          type: "string"
+        createUserIp:
+          type: "string"
+        updatedAt:
+          type: "string"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+        lastUserIp:
+          type: "string"
+        reason:
+          type: "string"
+    ssoEntityModelApiClient:
+      required:
+      - "reason"
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          format: "date-time"
+        createUserId:
+          type: "string"
+        createUserIp:
+          type: "string"
+        updatedAt:
+          type: "string"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+        lastUserIp:
+          type: "string"
+        reason:
+          type: "string"
+        _links:
+          $ref: "#/components/schemas/ssoLinks"
+    ssoSpecificationUserCompany:
+      type: "object"
+    ssoPageable:
+      type: "object"
+      properties:
+        page:
+          minimum: 0
+          type: "integer"
+          format: "int32"
+        size:
+          minimum: 1
+          type: "integer"
+          format: "int32"
+        sort:
+          type: "array"
+          items:
+            type: "string"
+    ssoEntityModelUserCompanyResource:
+      type: "object"
+      properties:
+        adhesionTerm:
+          type: "boolean"
+        createdAt:
+          type: "string"
+          format: "date-time"
+        governmentId:
+          type: "string"
+        id:
+          type: "integer"
+          format: "int32"
+        userId:
+          type: "integer"
+          format: "int32"
+          deprecated: true
+        companyName:
+          type: "string"
+          deprecated: true
+        name:
+          type: "string"
+        programAdmin:
+          type: "boolean"
+        role:
+          type: "string"
+          enum:
+          - "ADMIN"
+          - "EXECUTE"
+          - "SELECTOR"
+          - "VIEW"
+          - "BACK_OFFICE"
+          - "WHOLESALE"
+          - "RETAIL"
+          - "USER_MANAGER"
+        status:
+          type: "string"
+          enum:
+          - "APPROVAL"
+          - "FRAUD_DETECTED"
+          - "PRE_CHECK"
+          - "ACTIVE"
+          - "INACTIVE"
+          - "FRAUD_CONFIRMED"
+          - "APPROVED"
+        type:
+          type: "string"
+          enum:
+          - "SPONSOR"
+          - "SELLER"
+          - "BUYER"
+        selected:
+          type: "boolean"
+        product:
+          type: "string"
+          enum:
+          - "SUPPLY_CHAIN"
+          - "SALES_FINANCE"
+          - "SPIKE"
+          - "FINANCIAL_MANAGEMENT"
+        _links:
+          $ref: "#/components/schemas/ssoLinks"
+    ssoPageMetadata:
+      type: "object"
+      properties:
+        size:
+          type: "integer"
+          format: "int64"
+        totalElements:
+          type: "integer"
+          format: "int64"
+        totalPages:
+          type: "integer"
+          format: "int64"
+        number:
+          type: "integer"
+          format: "int64"
+    ssoPagedModelEntityModelUserCompanyResource:
+      type: "object"
+      properties:
+        _embedded:
+          type: "object"
+          properties:
+            companies:
+              type: "array"
+              items:
+                $ref: "#/components/schemas/ssoEntityModelUserCompanyResource"
+        _links:
+          $ref: "#/components/schemas/ssoLinks"
+        page:
+          $ref: "#/components/schemas/ssoPageMetadata"
+    ssoSpecificationOwnerCompany:
+      type: "object"
+    ssoEntityModelOwnerCompanyResource:
+      type: "object"
+      properties:
+        governmentId:
+          type: "string"
+        name:
+          type: "string"
+        program:
+          type: "string"
+        role:
+          type: "string"
+          enum:
+          - "ADMIN"
+          - "VIEW"
+        status:
+          type: "string"
+          enum:
+          - "ACTIVE"
+          - "INACTIVE"
+        type:
+          type: "string"
+          enum:
+          - "SPONSOR"
+          - "BUYER"
+        _links:
+          $ref: "#/components/schemas/ssoLinks"
+    ssoPagedModelEntityModelOwnerCompanyResource:
+      type: "object"
+      properties:
+        _embedded:
+          type: "object"
+          properties:
+            companies:
+              type: "array"
+              items:
+                $ref: "#/components/schemas/ssoEntityModelOwnerCompanyResource"
+        _links:
+          $ref: "#/components/schemas/ssoLinks"
+        page:
+          $ref: "#/components/schemas/ssoPageMetadata"
+    ssoEntityModelMFAResource:
+      type: "object"
+      properties:
+        _links:
+          $ref: "#/components/schemas/ssoLinks"
+    ssoEntityModelProgramOwnerUserResponse:
+      type: "object"
+      properties:
+        name:
+          type: "string"
+        username:
+          type: "string"
+        createUserId:
+          type: "string"
+        createdAt:
+          type: "string"
+          format: "date-time"
+        _links:
+          $ref: "#/components/schemas/ssoLinks"
+    ssoPagedModelEntityModelProgramOwnerUserResponse:
+      type: "object"
+      properties:
+        _embedded:
+          type: "object"
+          properties:
+            users:
+              type: "array"
+              items:
+                $ref: "#/components/schemas/ssoEntityModelProgramOwnerUserResponse"
+        _links:
+          $ref: "#/components/schemas/ssoLinks"
+        page:
+          $ref: "#/components/schemas/ssoPageMetadata"
+    ssoCollectionModelEntityModelProgramOwnerUserDetailResponse:
+      type: "object"
+      properties:
+        _embedded:
+          type: "object"
+          properties:
+            users:
+              type: "array"
+              items:
+                $ref: "#/components/schemas/ssoEntityModelProgramOwnerUserDetailResponse"
+        _links:
+          $ref: "#/components/schemas/ssoLinks"
+    ssoEntityModelProgramOwnerUserDetailResponse:
+      type: "object"
+      properties:
+        email:
+          type: "string"
+        name:
+          type: "string"
+        cellPhone:
+          type: "string"
+        smsNotification:
+          type: "boolean"
+        nickname:
+          type: "string"
+        pictureUrl:
+          type: "string"
+        useTerms:
+          type: "boolean"
+        privacyPolicy:
+          type: "boolean"
+        others:
+          type: "string"
+        status:
+          type: "string"
+        locale:
+          type: "string"
+        newsletter:
+          type: "boolean"
+        _links:
+          $ref: "#/components/schemas/ssoLinks"
+    ssoCollectionModelEntityModelProgramOwnerUserAuthEvent:
+      type: "object"
+      properties:
+        _embedded:
+          type: "object"
+          properties:
+            events:
+              type: "array"
+              items:
+                $ref: "#/components/schemas/ssoEntityModelProgramOwnerUserAuthEvent"
+        _links:
+          $ref: "#/components/schemas/ssoLinks"
+    ssoEntityModelProgramOwnerUserAuthEvent:
+      type: "object"
+      properties:
+        id:
+          type: "string"
+        type:
+          type: "string"
+        responseType:
+          type: "string"
+        riskDecision:
+          type: "string"
+        riskLevel:
+          type: "string"
+        compromisedCredentialsDetected:
+          type: "boolean"
+        occurredOn:
+          type: "string"
+          format: "date-time"
+        ipAddress:
+          type: "string"
+        deviceName:
+          type: "string"
+        city:
+          type: "string"
+        country:
+          type: "string"
+        challengeResponseEvents:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/ssoProgramOwnerUserAuthChallengeResponseEvent"
+        _links:
+          $ref: "#/components/schemas/ssoLinks"
+    ssoProgramOwnerUserAuthChallengeResponseEvent:
+      type: "object"
+      properties:
+        challengeName:
+          type: "string"
+        challengeResponse:
+          type: "string"
+    ssoSpecificationApiClient:
+      type: "object"
+    ssoPagedModelEntityModelApiClient:
+      type: "object"
+      properties:
+        _embedded:
+          type: "object"
+          properties:
+            apis:
+              type: "array"
+              items:
+                $ref: "#/components/schemas/ssoEntityModelApiClient"
+        _links:
+          $ref: "#/components/schemas/ssoLinks"
+        page:
+          $ref: "#/components/schemas/ssoPageMetadata"
+    ssoLink:
+      type: "object"
+      properties:
+        href:
+          type: "string"
+        hreflang:
+          type: "string"
+        title:
+          type: "string"
+        type:
+          type: "string"
+        deprecation:
+          type: "string"
+        profile:
+          type: "string"
+        name:
+          type: "string"
+        templated:
+          type: "boolean"
