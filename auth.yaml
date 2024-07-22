@@ -1,264 +1,3659 @@
-openapi: 3.0.0
+openapi: "3.0.1"
 info:
-  description: API for Monkey Exchange
-  version: v1-oas3
-  title: Monkey Exchange - Authentication
-tags:
-  - name: Token e Refresh Token
-    description: Token e Refresh Token
+  title: "Monkey API"
+  version: "1.0"
+servers:
+  - url: "https://hmg-zuul.monkeyecx.com"
+    description: "Staging Server"
+  - url: "https://zuul.monkey.exchange"
+    description: "Production Server"
 paths:
+  /v1/programs/{name}/configurations:
+    get:
+      tags:
+        - Program Configurations
+      summary: Detail
+      description: ''
+      operationId: programconfigurationweb/ProgramConfigurationFindOne.json
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityModelProgramConfiguration'
+              example:
+                createdAt: '2018-12-04T19:30:24Z'
+                createUserId: UNKNOWN
+                createUserIp: UNKNOWN
+                updatedAt: '2018-12-04T19:30:24Z'
+                lastUserId: UNKNOWN
+                lastUserIp: UNKNOWN
+                resetPayablesDaily: 'true'
+                resetPayablesOnWeekend: 'true'
+                openMarket: '8'
+                closeMarket: '18'
+                supplierApprovedByDefault: 'false'
+                supplierAutomatedOfferByDefault: 'false'
+                supplierConfigureAutomatedOffer: 'false'
+                minimumDaysToOffer: '8'
+                sponsorDefaultFileOutput: 'false'
+                multipleSignatureEnabled: 'false'
+                sellerAutoApprove: 'false'
+                sponsorDefaultTax: '1.67'
+                purchaseRegistration: 'false'
+                _links:
+                  self:
+                    href: http://localhost/v1/programs/jallesmachado/configurations
+                    type: GET
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '401':
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '412':
+          description: Precondition Failed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '415':
+          description: Unsupported Media Type
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+    put:
+      tags:
+        - Program Configurations
+      summary: Update
+      description: ''
+      operationId: programconfigurationweb/ProgramConfigurationUpdate.json
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProgramConfiguration'
+            example:
+              resetPayablesDaily: true
+              resetPayablesOnWeekend: true
+              openMarket: 8
+              closeMarket: 18
+              supplierApprovedByDefault: false
+              supplierAutomatedOfferByDefault: false
+              supplierConfigureAutomatedOffer: false
+              minimumDaysToOffer: 7
+              sponsorDefaultFileOutput: false
+              multipleSignatureEnabled: false
+              sellerAutoApprove: false
+              sponsorDefaultTax: 1.67
+              purchaseRegistration: false
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityModelProgramConfiguration'
+              example:
+                createdAt: '2018-12-04T19:30:24Z'
+                createUserId: UNKNOWN
+                createUserIp: UNKNOWN
+                updatedAt: '2018-12-04T19:30:24Z'
+                lastUserId: UNKNOWN
+                lastUserIp: UNKNOWN
+                resetPayablesDaily: 'true'
+                resetPayablesOnWeekend: 'true'
+                openMarket: '8'
+                closeMarket: '18'
+                supplierApprovedByDefault: 'false'
+                supplierAutomatedOfferByDefault: 'false'
+                supplierConfigureAutomatedOffer: 'false'
+                minimumDaysToOffer: '8'
+                sponsorDefaultFileOutput: 'false'
+                multipleSignatureEnabled: 'false'
+                sellerAutoApprove: 'false'
+                sponsorDefaultTax: '1.67'
+                purchaseRegistration: 'false'
+                _links:
+                  self:
+                    href: http://localhost/v1/programs/jallesmachado/configurations
+                    type: GET
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '401':
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '412':
+          description: Precondition Failed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '415':
+          description: Unsupported Media Type
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+  /users:
+    put:
+      tags:
+        - User
+      summary: Update
+      description: ''
+      operationId: userweb/UserUpdate.json
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateUserResource'
+            example:
+              name: teste api v2
+              cellPhone: '+5511981884455'
+              nickname: monkey
+              smsNotification: true
+              newsletter: true
+              others: Other1
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityModelUpdateUserResource'
+              example:
+                name: Felipe Adorno
+                nickname: monkey
+                cellPhone: '+5511981884455'
+                smsNotification: 'true'
+                newsletter: 'true'
+                others: Other1
+                _links:
+                  self:
+                    href: http://localhost/me
+                    type: GET
+                  enable-mfa:
+                    href: http://localhost/v2/mfa/enable
+                    type: POST
+                  change-password:
+                    href: http://localhost/change-password
+                    type: POST
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '401':
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '412':
+          description: Precondition Failed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '415':
+          description: Unsupported Media Type
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+    post:
+      tags:
+        - User
+      summary: Create
+      description: ''
+      operationId: userweb/UserCreate.json
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+            example:
+              name: teste api v2
+              password: '{^8h<EWc'
+              passNumber: '1234'
+              email: monkeyexchange01@gmail.com
+              nickname: monkey
+              cellPhone: '+5511981884455'
+              smsNotification: true
+              useTerms: true
+              privacyPolicy: true
+              others: Other1
+              newsletter: true
+        required: true
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityModelUser'
+              example:
+                name: Felipe Adorno
+                email: monkeyexchange01@gmail.com
+                nickname: monkey
+                cellPhone: '+5511981884455'
+                smsNotification: 'true'
+                useTerms: 'true'
+                privacyPolicy: 'true'
+                others: Other1
+                newsletter: 'true'
+                _links:
+                  self:
+                    href: http://localhost/me
+                    type: GET
+                  update:
+                    href: http://localhost/users
+                    type: PUT
+                  enable-mfa:
+                    href: http://localhost/v2/mfa/enable
+                    type: POST
+                  change-password:
+                    href: http://localhost/change-password
+                    type: POST
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '401':
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '412':
+          description: Precondition Failed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '415':
+          description: Unsupported Media Type
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+    delete:
+      tags:
+        - User
+      summary: Delete
+      description: ''
+      operationId: userweb/UserDelete.json
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '401':
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '412':
+          description: Precondition Failed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '415':
+          description: Unsupported Media Type
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+  /{username}/events/{id}/recognize:
+    post:
+      tags:
+        - User
+      summary: ''
+      description: ''
+      operationId: userweb/UserEventRecognized.json
+      parameters:
+        - name: username
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '202':
+          description: Accepted
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '401':
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '412':
+          description: Precondition Failed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '415':
+          description: Unsupported Media Type
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+  /{username}/activate:
+    post:
+      tags:
+        - User
+      summary: Confirm User Email
+      description: ''
+      operationId: userweb/UserActivate.json
+      parameters:
+        - name: username
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserActivationResource'
+            example:
+              token: '358978'
+        required: true
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '401':
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '412':
+          description: Precondition Failed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '415':
+          description: Unsupported Media Type
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+  /v2/mfa/verify/{code}:
+    post:
+      tags:
+        - MFA
+      summary: Verify MFA Token
+      description: ''
+      operationId: mfaweb/MFAVerifySoftwareToken.json
+      parameters:
+        - name: code
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '401':
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '412':
+          description: Precondition Failed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '415':
+          description: Unsupported Media Type
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+  /v2/mfa/enable:
+    post:
+      tags:
+        - MFA
+      summary: Enable MFA
+      description: ''
+      operationId: mfaweb/MFAAssociateSoftwareToken.json
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MFASecretResource'
+              example:
+                secretCode: KB4XO4GMUMRTR5KIKTA7LD7WYRUSZWIOGWX5SXGFORJUBMG6SONQ
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '401':
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '412':
+          description: Precondition Failed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '415':
+          description: Unsupported Media Type
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+  /user-pictures:
+    post:
+      tags:
+        - User
+      summary: Upload User Picture
+      description: ''
+      operationId: pictureweb/changeUserPicture.json
+      requestBody:
+        content:
+          application/json:
+            schema:
+              required:
+                - picture
+              type: object
+              properties:
+                picture:
+                  type: string
+                  format: binary
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityModelUserPicture'
+              example:
+                filename: profile.png
+                _links:
+                  update:
+                    href: http://localhost/users
+                    type: PUT
+                  picture:
+                    href: http://localhost/user/profile.png
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '401':
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '412':
+          description: Precondition Failed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '415':
+          description: Unsupported Media Type
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+  /resend-mail:
+    post:
+      tags:
+        - User
+      summary: Resend Confirmation Email
+      description: ''
+      operationId: userweb/UserResendActivationCode.json
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserActivationResendResource'
+            example:
+              email: felipe@monkey.exchange
+        required: true
+      responses:
+        '202':
+          description: Accepted
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '401':
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '412':
+          description: Precondition Failed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '415':
+          description: Unsupported Media Type
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
   /oauth/token:
     post:
       tags:
         - Token
-      summary: Token e Refresh Token
+      summary: ''
+      description: ''
+      operationId: Token
+      parameters:
+        - name: request
+          in: query
+          required: true
+          schema:
+            $ref: '#/components/schemas/TokenRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+              examples:
+                x-FirstAccess:
+                  value:
+                    scope: server
+                    access_token: PANC3e3T2TpMulb8WGlZwwVLD7YgiqIobs0B0bhjSxGpKT2ywpQqcRL351whiMn6yPcmVYpQ8pLV9mW1
+                    token_type: Bearer
+                    refresh_token: eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.S0ZCA7SIowCj77eNiQza5f-R9Ppx3WHeV-WENzvf62d6dcupZptS6Im75QsGZaK6ilOCRIWeZuEER05jK0rXUcvTvyIc5M4wSS7ZxCwDcadg06Q4022LayIYEM2aCZKueOsDSdvTXs5TYZq84SzK-eBxxtLUhT8w90PeqjVqilL-TLpeoKLBo7urmvbcqP11s64AGAKCegWTxbmZHGGvfFVs1vAG6o6a8-3gHmKchV5qzSOdUjJ5IX-QCgqXFmIyZlYKtE_7hjQZoZI3Dtihl2RRye53GD2UvXN_CFXEgcWbVq0gNYbsFCnYQm2C4W96E4s2dOygcT6ZNam9FPCK6g.mp6BIR5i2GQxlW2q.ERw-yZEe8KH7mEM4LEzZUjvS9E2792NLt9hG_vYXMczRVNm7s6mOOCDvK_5P5hwmFXKENnA3XO72Qx33aJDEQsNHZ3fUFr9Nx0Tx0dhbrXuccIPwZ74T1gFCAZyOq6vtpthT1fFXj4_XwFQw9RffTZnEiFNS2qKOVBKqnGLFnuHiSHhzzPqoN1etLR1t3ITbjFNBRbAKGip-28UV6PRiGCd7GQcpj6lqBUoj5385lJavWewQIJiwHdIy3TSENAYhqerS_hP6hdfO1rvCqitlb-SpyHw12hawgegvCVT-fNhwVSv11WBxqUR3eiymke9lwCE9hewguPul0331vY2eugQcZ5U-hX-KCq2kYropWVuTDI4dL0zAmAt3i-hEt0Dn9tQ5KLBjiB0olOf7xwklpoIBJ9hFM0MGUJkWqI8zz5bKEWCamKe4HSiUn94-07OaUmsW07IHREVuikm6dq4Sn-ho-QBNcFUIdjtqJOpBf0SMh7R-W-Iphz-fhIwVNogzWQFOOhoWXtYmjHGNRBf54ISSZonBvBygZ7OQ-sDrZApZv_NJ4Jnh7-B9XHDs5-XA9Kag0qMn-7odYSw6nJPSx7s3rZ0IYinF4ddvNokuHTAhSa1-egq5IcD5rf_Rj_0vlVlW8qQmnCrcyL0AJSzs1j_vqJgn35Uzv_Gh4DvFYBZrvEwFvRBLoQ2sF5eaUA0Iap5Ekq0NWtnzT4pigglJxSDJjIxoOZsebKKfN4gVRxgdskDWFSAAfNYYh9udlAf2Epi7gMoFp9fR29WU51seRpf11L50ugdJD55EyrnYoJeHhmFx7OqG2a4Zkyuv5uP3JmOqGJ-_VSIx4QvWN9t58NLuzOZ02988VOtPq81SkNHOdMHXsfrtxqRplNGyqH5Pz4SUlKSSjXToIWWB1wR4Byb3As74AKgtYsr-XmxDUr1DlFYk9MJ3ZT9g-gP3PUsTLBNc-g8Jb51grLKwEbs_gdn7h11baCR2xmMeclOi-Um8GiFuHmxeO35yetMPbFAvpiDZ4zVRarBsYGQGEXLPsIUEarRBPfym9hWyppXtQ6HHL3BdZs6eeAQvjTDAHegPBQtDR63vfGMOq1tDjGWNKJ8ZSUkJx73_Th5wD4OZ0cQ6GyAVfIUBUG1RKWLrricb9W5aBjw0Bo697Z14z4ZMo_Byc65joHSPVh1TcRJSmjWhc4Gme-tifDyU6D-XYtth4dtYyitQrJqtSCjK1cqLkVst03hNUf4J6S-8bGa2sBGYTrf_yk2T4cGsEr2ndb8LUOj02-3LAOGMbecBTeQElkA9CzA10AVsZj0aa0h_jwrJGM1PFgs_sjiWzw.JbHbEtqaO2KOP2wNw3b3FQ
+                    expires_in: '43200'
+                x-MFAChallenge:
+                  value:
+                    scope: server
+                    access_token: PANC3e3T2TpMulb8WGlZwwVLD7YgiqIobs0B0bhjSxGpKT2ywpQqcRL351whiMn6yPcmVYpQ8pLV9mW1
+                    token_type: Bearer
+                    refresh_token: eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.S0ZCA7SIowCj77eNiQza5f-R9Ppx3WHeV-WENzvf62d6dcupZptS6Im75QsGZaK6ilOCRIWeZuEER05jK0rXUcvTvyIc5M4wSS7ZxCwDcadg06Q4022LayIYEM2aCZKueOsDSdvTXs5TYZq84SzK-eBxxtLUhT8w90PeqjVqilL-TLpeoKLBo7urmvbcqP11s64AGAKCegWTxbmZHGGvfFVs1vAG6o6a8-3gHmKchV5qzSOdUjJ5IX-QCgqXFmIyZlYKtE_7hjQZoZI3Dtihl2RRye53GD2UvXN_CFXEgcWbVq0gNYbsFCnYQm2C4W96E4s2dOygcT6ZNam9FPCK6g.mp6BIR5i2GQxlW2q.ERw-yZEe8KH7mEM4LEzZUjvS9E2792NLt9hG_vYXMczRVNm7s6mOOCDvK_5P5hwmFXKENnA3XO72Qx33aJDEQsNHZ3fUFr9Nx0Tx0dhbrXuccIPwZ74T1gFCAZyOq6vtpthT1fFXj4_XwFQw9RffTZnEiFNS2qKOVBKqnGLFnuHiSHhzzPqoN1etLR1t3ITbjFNBRbAKGip-28UV6PRiGCd7GQcpj6lqBUoj5385lJavWewQIJiwHdIy3TSENAYhqerS_hP6hdfO1rvCqitlb-SpyHw12hawgegvCVT-fNhwVSv11WBxqUR3eiymke9lwCE9hewguPul0331vY2eugQcZ5U-hX-KCq2kYropWVuTDI4dL0zAmAt3i-hEt0Dn9tQ5KLBjiB0olOf7xwklpoIBJ9hFM0MGUJkWqI8zz5bKEWCamKe4HSiUn94-07OaUmsW07IHREVuikm6dq4Sn-ho-QBNcFUIdjtqJOpBf0SMh7R-W-Iphz-fhIwVNogzWQFOOhoWXtYmjHGNRBf54ISSZonBvBygZ7OQ-sDrZApZv_NJ4Jnh7-B9XHDs5-XA9Kag0qMn-7odYSw6nJPSx7s3rZ0IYinF4ddvNokuHTAhSa1-egq5IcD5rf_Rj_0vlVlW8qQmnCrcyL0AJSzs1j_vqJgn35Uzv_Gh4DvFYBZrvEwFvRBLoQ2sF5eaUA0Iap5Ekq0NWtnzT4pigglJxSDJjIxoOZsebKKfN4gVRxgdskDWFSAAfNYYh9udlAf2Epi7gMoFp9fR29WU51seRpf11L50ugdJD55EyrnYoJeHhmFx7OqG2a4Zkyuv5uP3JmOqGJ-_VSIx4QvWN9t58NLuzOZ02988VOtPq81SkNHOdMHXsfrtxqRplNGyqH5Pz4SUlKSSjXToIWWB1wR4Byb3As74AKgtYsr-XmxDUr1DlFYk9MJ3ZT9g-gP3PUsTLBNc-g8Jb51grLKwEbs_gdn7h11baCR2xmMeclOi-Um8GiFuHmxeO35yetMPbFAvpiDZ4zVRarBsYGQGEXLPsIUEarRBPfym9hWyppXtQ6HHL3BdZs6eeAQvjTDAHegPBQtDR63vfGMOq1tDjGWNKJ8ZSUkJx73_Th5wD4OZ0cQ6GyAVfIUBUG1RKWLrricb9W5aBjw0Bo697Z14z4ZMo_Byc65joHSPVh1TcRJSmjWhc4Gme-tifDyU6D-XYtth4dtYyitQrJqtSCjK1cqLkVst03hNUf4J6S-8bGa2sBGYTrf_yk2T4cGsEr2ndb8LUOj02-3LAOGMbecBTeQElkA9CzA10AVsZj0aa0h_jwrJGM1PFgs_sjiWzw.JbHbEtqaO2KOP2wNw3b3FQ
+                    expires_in: '43200'
+                x-RefreshToken:
+                  value:
+                    scope: server
+                    access_token: PANC3e3T2TpMulb8WGlZwwVLD7YgiqIobs0B0bhjSxGpKT2ywpQqcRL351whiMn6yPcmVYpQ8pLV9mW1
+                    token_type: Bearer
+                    refresh_token: eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.S0ZCA7SIowCj77eNiQza5f-R9Ppx3WHeV-WENzvf62d6dcupZptS6Im75QsGZaK6ilOCRIWeZuEER05jK0rXUcvTvyIc5M4wSS7ZxCwDcadg06Q4022LayIYEM2aCZKueOsDSdvTXs5TYZq84SzK-eBxxtLUhT8w90PeqjVqilL-TLpeoKLBo7urmvbcqP11s64AGAKCegWTxbmZHGGvfFVs1vAG6o6a8-3gHmKchV5qzSOdUjJ5IX-QCgqXFmIyZlYKtE_7hjQZoZI3Dtihl2RRye53GD2UvXN_CFXEgcWbVq0gNYbsFCnYQm2C4W96E4s2dOygcT6ZNam9FPCK6g.mp6BIR5i2GQxlW2q.ERw-yZEe8KH7mEM4LEzZUjvS9E2792NLt9hG_vYXMczRVNm7s6mOOCDvK_5P5hwmFXKENnA3XO72Qx33aJDEQsNHZ3fUFr9Nx0Tx0dhbrXuccIPwZ74T1gFCAZyOq6vtpthT1fFXj4_XwFQw9RffTZnEiFNS2qKOVBKqnGLFnuHiSHhzzPqoN1etLR1t3ITbjFNBRbAKGip-28UV6PRiGCd7GQcpj6lqBUoj5385lJavWewQIJiwHdIy3TSENAYhqerS_hP6hdfO1rvCqitlb-SpyHw12hawgegvCVT-fNhwVSv11WBxqUR3eiymke9lwCE9hewguPul0331vY2eugQcZ5U-hX-KCq2kYropWVuTDI4dL0zAmAt3i-hEt0Dn9tQ5KLBjiB0olOf7xwklpoIBJ9hFM0MGUJkWqI8zz5bKEWCamKe4HSiUn94-07OaUmsW07IHREVuikm6dq4Sn-ho-QBNcFUIdjtqJOpBf0SMh7R-W-Iphz-fhIwVNogzWQFOOhoWXtYmjHGNRBf54ISSZonBvBygZ7OQ-sDrZApZv_NJ4Jnh7-B9XHDs5-XA9Kag0qMn-7odYSw6nJPSx7s3rZ0IYinF4ddvNokuHTAhSa1-egq5IcD5rf_Rj_0vlVlW8qQmnCrcyL0AJSzs1j_vqJgn35Uzv_Gh4DvFYBZrvEwFvRBLoQ2sF5eaUA0Iap5Ekq0NWtnzT4pigglJxSDJjIxoOZsebKKfN4gVRxgdskDWFSAAfNYYh9udlAf2Epi7gMoFp9fR29WU51seRpf11L50ugdJD55EyrnYoJeHhmFx7OqG2a4Zkyuv5uP3JmOqGJ-_VSIx4QvWN9t58NLuzOZ02988VOtPq81SkNHOdMHXsfrtxqRplNGyqH5Pz4SUlKSSjXToIWWB1wR4Byb3As74AKgtYsr-XmxDUr1DlFYk9MJ3ZT9g-gP3PUsTLBNc-g8Jb51grLKwEbs_gdn7h11baCR2xmMeclOi-Um8GiFuHmxeO35yetMPbFAvpiDZ4zVRarBsYGQGEXLPsIUEarRBPfym9hWyppXtQ6HHL3BdZs6eeAQvjTDAHegPBQtDR63vfGMOq1tDjGWNKJ8ZSUkJx73_Th5wD4OZ0cQ6GyAVfIUBUG1RKWLrricb9W5aBjw0Bo697Z14z4ZMo_Byc65joHSPVh1TcRJSmjWhc4Gme-tifDyU6D-XYtth4dtYyitQrJqtSCjK1cqLkVst03hNUf4J6S-8bGa2sBGYTrf_yk2T4cGsEr2ndb8LUOj02-3LAOGMbecBTeQElkA9CzA10AVsZj0aa0h_jwrJGM1PFgs_sjiWzw.JbHbEtqaO2KOP2wNw3b3FQ
+                    expires_in: '43200'
+                x-AuthorizationCode:
+                  value:
+                    scope: server
+                    access_token: PANC3e3T2TpMulb8WGlZwwVLD7YgiqIobs0B0bhjSxGpKT2ywpQqcRL351whiMn6yPcmVYpQ8pLV9mW1
+                    token_type: Bearer
+                    refresh_token: eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.S0ZCA7SIowCj77eNiQza5f-R9Ppx3WHeV-WENzvf62d6dcupZptS6Im75QsGZaK6ilOCRIWeZuEER05jK0rXUcvTvyIc5M4wSS7ZxCwDcadg06Q4022LayIYEM2aCZKueOsDSdvTXs5TYZq84SzK-eBxxtLUhT8w90PeqjVqilL-TLpeoKLBo7urmvbcqP11s64AGAKCegWTxbmZHGGvfFVs1vAG6o6a8-3gHmKchV5qzSOdUjJ5IX-QCgqXFmIyZlYKtE_7hjQZoZI3Dtihl2RRye53GD2UvXN_CFXEgcWbVq0gNYbsFCnYQm2C4W96E4s2dOygcT6ZNam9FPCK6g.mp6BIR5i2GQxlW2q.ERw-yZEe8KH7mEM4LEzZUjvS9E2792NLt9hG_vYXMczRVNm7s6mOOCDvK_5P5hwmFXKENnA3XO72Qx33aJDEQsNHZ3fUFr9Nx0Tx0dhbrXuccIPwZ74T1gFCAZyOq6vtpthT1fFXj4_XwFQw9RffTZnEiFNS2qKOVBKqnGLFnuHiSHhzzPqoN1etLR1t3ITbjFNBRbAKGip-28UV6PRiGCd7GQcpj6lqBUoj5385lJavWewQIJiwHdIy3TSENAYhqerS_hP6hdfO1rvCqitlb-SpyHw12hawgegvCVT-fNhwVSv11WBxqUR3eiymke9lwCE9hewguPul0331vY2eugQcZ5U-hX-KCq2kYropWVuTDI4dL0zAmAt3i-hEt0Dn9tQ5KLBjiB0olOf7xwklpoIBJ9hFM0MGUJkWqI8zz5bKEWCamKe4HSiUn94-07OaUmsW07IHREVuikm6dq4Sn-ho-QBNcFUIdjtqJOpBf0SMh7R-W-Iphz-fhIwVNogzWQFOOhoWXtYmjHGNRBf54ISSZonBvBygZ7OQ-sDrZApZv_NJ4Jnh7-B9XHDs5-XA9Kag0qMn-7odYSw6nJPSx7s3rZ0IYinF4ddvNokuHTAhSa1-egq5IcD5rf_Rj_0vlVlW8qQmnCrcyL0AJSzs1j_vqJgn35Uzv_Gh4DvFYBZrvEwFvRBLoQ2sF5eaUA0Iap5Ekq0NWtnzT4pigglJxSDJjIxoOZsebKKfN4gVRxgdskDWFSAAfNYYh9udlAf2Epi7gMoFp9fR29WU51seRpf11L50ugdJD55EyrnYoJeHhmFx7OqG2a4Zkyuv5uP3JmOqGJ-_VSIx4QvWN9t58NLuzOZ02988VOtPq81SkNHOdMHXsfrtxqRplNGyqH5Pz4SUlKSSjXToIWWB1wR4Byb3As74AKgtYsr-XmxDUr1DlFYk9MJ3ZT9g-gP3PUsTLBNc-g8Jb51grLKwEbs_gdn7h11baCR2xmMeclOi-Um8GiFuHmxeO35yetMPbFAvpiDZ4zVRarBsYGQGEXLPsIUEarRBPfym9hWyppXtQ6HHL3BdZs6eeAQvjTDAHegPBQtDR63vfGMOq1tDjGWNKJ8ZSUkJx73_Th5wD4OZ0cQ6GyAVfIUBUG1RKWLrricb9W5aBjw0Bo697Z14z4ZMo_Byc65joHSPVh1TcRJSmjWhc4Gme-tifDyU6D-XYtth4dtYyitQrJqtSCjK1cqLkVst03hNUf4J6S-8bGa2sBGYTrf_yk2T4cGsEr2ndb8LUOj02-3LAOGMbecBTeQElkA9CzA10AVsZj0aa0h_jwrJGM1PFgs_sjiWzw.JbHbEtqaO2KOP2wNw3b3FQ
+                    expires_in: '43200'
+                x-SignIn:
+                  value:
+                    scope: server
+                    access_token: PANC3e3T2TpMulb8WGlZwwVLD7YgiqIobs0B0bhjSxGpKT2ywpQqcRL351whiMn6yPcmVYpQ8pLV9mW1
+                    token_type: Bearer
+                    refresh_token: eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.S0ZCA7SIowCj77eNiQza5f-R9Ppx3WHeV-WENzvf62d6dcupZptS6Im75QsGZaK6ilOCRIWeZuEER05jK0rXUcvTvyIc5M4wSS7ZxCwDcadg06Q4022LayIYEM2aCZKueOsDSdvTXs5TYZq84SzK-eBxxtLUhT8w90PeqjVqilL-TLpeoKLBo7urmvbcqP11s64AGAKCegWTxbmZHGGvfFVs1vAG6o6a8-3gHmKchV5qzSOdUjJ5IX-QCgqXFmIyZlYKtE_7hjQZoZI3Dtihl2RRye53GD2UvXN_CFXEgcWbVq0gNYbsFCnYQm2C4W96E4s2dOygcT6ZNam9FPCK6g.mp6BIR5i2GQxlW2q.ERw-yZEe8KH7mEM4LEzZUjvS9E2792NLt9hG_vYXMczRVNm7s6mOOCDvK_5P5hwmFXKENnA3XO72Qx33aJDEQsNHZ3fUFr9Nx0Tx0dhbrXuccIPwZ74T1gFCAZyOq6vtpthT1fFXj4_XwFQw9RffTZnEiFNS2qKOVBKqnGLFnuHiSHhzzPqoN1etLR1t3ITbjFNBRbAKGip-28UV6PRiGCd7GQcpj6lqBUoj5385lJavWewQIJiwHdIy3TSENAYhqerS_hP6hdfO1rvCqitlb-SpyHw12hawgegvCVT-fNhwVSv11WBxqUR3eiymke9lwCE9hewguPul0331vY2eugQcZ5U-hX-KCq2kYropWVuTDI4dL0zAmAt3i-hEt0Dn9tQ5KLBjiB0olOf7xwklpoIBJ9hFM0MGUJkWqI8zz5bKEWCamKe4HSiUn94-07OaUmsW07IHREVuikm6dq4Sn-ho-QBNcFUIdjtqJOpBf0SMh7R-W-Iphz-fhIwVNogzWQFOOhoWXtYmjHGNRBf54ISSZonBvBygZ7OQ-sDrZApZv_NJ4Jnh7-B9XHDs5-XA9Kag0qMn-7odYSw6nJPSx7s3rZ0IYinF4ddvNokuHTAhSa1-egq5IcD5rf_Rj_0vlVlW8qQmnCrcyL0AJSzs1j_vqJgn35Uzv_Gh4DvFYBZrvEwFvRBLoQ2sF5eaUA0Iap5Ekq0NWtnzT4pigglJxSDJjIxoOZsebKKfN4gVRxgdskDWFSAAfNYYh9udlAf2Epi7gMoFp9fR29WU51seRpf11L50ugdJD55EyrnYoJeHhmFx7OqG2a4Zkyuv5uP3JmOqGJ-_VSIx4QvWN9t58NLuzOZ02988VOtPq81SkNHOdMHXsfrtxqRplNGyqH5Pz4SUlKSSjXToIWWB1wR4Byb3As74AKgtYsr-XmxDUr1DlFYk9MJ3ZT9g-gP3PUsTLBNc-g8Jb51grLKwEbs_gdn7h11baCR2xmMeclOi-Um8GiFuHmxeO35yetMPbFAvpiDZ4zVRarBsYGQGEXLPsIUEarRBPfym9hWyppXtQ6HHL3BdZs6eeAQvjTDAHegPBQtDR63vfGMOq1tDjGWNKJ8ZSUkJx73_Th5wD4OZ0cQ6GyAVfIUBUG1RKWLrricb9W5aBjw0Bo697Z14z4ZMo_Byc65joHSPVh1TcRJSmjWhc4Gme-tifDyU6D-XYtth4dtYyitQrJqtSCjK1cqLkVst03hNUf4J6S-8bGa2sBGYTrf_yk2T4cGsEr2ndb8LUOj02-3LAOGMbecBTeQElkA9CzA10AVsZj0aa0h_jwrJGM1PFgs_sjiWzw.JbHbEtqaO2KOP2wNw3b3FQ
+                    expires_in: '43200'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '401':
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '412':
+          description: Precondition Failed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '415':
+          description: Unsupported Media Type
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+      x-FirstAccess: tokenweb/TokenRespondToNewPasswordAuthChallenge.json
+      x-MFAChallenge: tokenweb/TokenRespondToAuthChallenge.json
+      x-RefreshToken: tokenweb/TokenRefresh.json
+      x-AuthorizationCode: tokenweb/TokenAuthorizationCode.json
+      x-SignIn: tokenweb/TokenSignIn.json
+  /forgot-password:
+    post:
+      tags:
+        - Password
+      summary: Send Password Reset Email
+      description: ''
+      operationId: passwordweb/UserForgotPassword.json
       requestBody:
-        description: Retrive token body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ForgotPasswordResource'
+            example:
+              email: felipe@monkey.exchange
         required: true
+      responses:
+        '202':
+          description: Accepted
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '401':
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '412':
+          description: Precondition Failed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '415':
+          description: Unsupported Media Type
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+  /forgot-password/{token}:
+    post:
+      tags:
+        - Password
+      summary: Change Password via Token
+      description: ''
+      operationId: passwordweb/UserChangePasswordByToken.json
+      parameters:
+        - name: token
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
         content:
           application/x-www-form-urlencoded:
             schema:
-              oneOf:
-                - type: object
-                  description: Body para geração do token
-                  required:
-                    - client_id
-                    - client_secrect
-                    - username
-                    - password
-                    - grant_type
-                    - scope
-                  properties:
-                    client_id:
-                      type: string
-                      description: Informado pela Monkey.
-                    client_secret:
-                      type: string
-                      description: Informado pela Monkey.
-                    username:
-                      type: string
-                      description: E-mail do usúario que será utilizado.
-                    password:
-                      type: string
-                      description: Senha do usúario que será utilizado.
-                    grant_type:
-                      type: string
-                      description: Valor padrão "password".
-                    scope:
-                      type: string
-                      description: Valor padrão "server".
-                - type: object
-                  description: Body para geração do token partindo do refresh token
-                  required:
-                    - client_id
-                    - client_secrect
-                    - grant_type
-                    - refresh_token
-                  properties:
-                    client_id:
-                      type: string
-                      description: Informado pela Monkey.
-                    client_secrect:
-                      type: string
-                      description: Informado pela Monkey.
-                    grant_type:
-                      type: string
-                      description: Valor padrão "refresh_token"
-                    refresh_token:
-                      type: string
-                      description: Refresh token retornado na chamada do token.
+              $ref: '#/components/schemas/ChangePasswordByTokenResource'
       responses:
         '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  access_token:
-                    type: string
-                    description: Token que será utilizado em todas as requisições.
-                  token_type:
-                    type: string
-                    description: Tipo do token.
-                    default: bearer
-                  refresh_token:
-                    type: string
-                    description: Token utilizado para revalidação.
-                  expires_in:
-                    type: integer
-                    format: int64
-                    description: Tempo de validade do token em segundos.
-                  scope:
-                    type: string
-                    description: Escopo de utilização do token.
-                    default: server
+          description: OK
         '400':
-          description: Request invalid or malformed.
+          description: Bad Request
           content:
-            application/json:
+            '*/*':
               schema:
-                type: object
-                properties:
-                  error:
-                    type: string
-                    description: Tipo do erro.
-                  error_description:
-                    type: string
-                    description: Descrição do erro.
+                $ref: '#/components/schemas/Message'
         '401':
-          description: Unauthorized.
+          description: Unauthorized
           content:
-            application/json:
+            '*/*':
               schema:
-                type: object
-                properties:
-                  timestamp:
-                    type: integer
-                    format: int64
-                    description: Momento em que aconteceu o erro.
-                  status:
-                    type: integer
-                    description: Status code do erro.
-                  error:
-                    type: string
-                    description: Tipo do erro.
-                  message:
-                    type: string
-                    description: Descrição do erro.
-                  path:
-                    type: string
-                    description: Path da URL.
-  /profiles:
+                $ref: '#/components/schemas/Message'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '412':
+          description: Precondition Failed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '415':
+          description: Unsupported Media Type
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+  /forgot-pass-number:
+    post:
+      tags:
+        - Pass Number
+      summary: Send Pass Number Reset Email
+      description: ''
+      operationId: passwnumberweb/UserForgotPassNumber.json
+      responses:
+        '202':
+          description: Accepted
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '401':
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '412':
+          description: Precondition Failed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '415':
+          description: Unsupported Media Type
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+  /forgot-pass-number/{token}:
+    post:
+      tags:
+        - Pass Number
+      summary: Change Pass Number via Token
+      description: ''
+      operationId: passwnumberweb/UserChangePassNumber.json
+      parameters:
+        - name: token
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ChangePassNumberResource'
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '401':
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '412':
+          description: Precondition Failed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '415':
+          description: Unsupported Media Type
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+  /change-password:
+    post:
+      tags:
+        - Password
+      summary: Change Logged-in User Password
+      description: ''
+      operationId: passwordweb/UserChangePassword.json
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ChangePasswordResource'
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '401':
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '412':
+          description: Precondition Failed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '415':
+          description: Unsupported Media Type
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+  /apis:
     get:
       tags:
-        - Listagem de Perfis
-      summary: Listar perfis de um usuário
-      description: Neste item exemplificamos o endpoint que permite a consulta de todas as empresas de um usuário.
+        - API Clients
+      summary: List
+      description: ''
+      operationId: apiclientweb/ApiClientFindAll.json
       parameters:
-        - name: program
-          in: header
-          description: Identificador do programa a ser acessado. Veja <a href='/authentication#programa' target='_blank'>aqui</a> como funcionam os programas.
+        - name: search
+          in: query
           required: true
           schema:
-            type: string
-        - name: Authorization
-          in: header
-          description: Seu token de acesso. Veja <a href='/authentication#token' target='_blank'>aqui</a> como utilizar o token de acesso.
+            $ref: '#/components/schemas/SpecificationApiClient'
+        - name: pageable
+          in: query
+          required: true
+          schema:
+            $ref: '#/components/schemas/Pageable'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PagedModelEntityModelApiClient'
+              example:
+                _embedded:
+                  apis:
+                    - reason: First API
+                      clientId: 4rppk2tYoi
+                      clientSecret: cb3012ca-d64b-40c5-bc58-bab5bcdef8c9
+                      createdAt: '2018-12-04T19:30:24Z'
+                      createUserId: UNKNOWN
+                      createUserIp: UNKNOWN
+                      updatedAt: '2018-12-04T19:30:24Z'
+                      lastUserId: UNKNOWN
+                      lastUserIp: UNKNOWN
+                      _links:
+                        self:
+                          href: http://localhost/apis/ORga1sHd6S
+                          type: GET
+                        delete:
+                          href: http://localhost/apis/ORga1sHd6S
+                          type: DELETE
+                        me:
+                          href: http://localhost/me
+                          type: GET
+                _links:
+                  self:
+                    href: http://localhost/apis?page=0&size=20
+                page:
+                  size: 20
+                  totalElements: 1
+                  totalPages: 1
+                  number: 0
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '401':
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '412':
+          description: Precondition Failed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '415':
+          description: Unsupported Media Type
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+    post:
+      tags:
+        - API Clients
+      summary: Create
+      description: ''
+      operationId: apiclientweb/ApiClientCreate.json
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiClient'
+            example:
+              reason: teste api v2
+        required: true
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityModelApiClient'
+              example:
+                reason: First API
+                clientId: 4rppk2tYoi
+                clientSecret: cb3012ca-d64b-40c5-bc58-bab5bcdef8c9
+                createdAt: '2018-12-04T19:30:24Z'
+                createUserId: UNKNOWN
+                createUserIp: UNKNOWN
+                updatedAt: '2018-12-04T19:30:24Z'
+                lastUserId: UNKNOWN
+                lastUserIp: UNKNOWN
+                _links:
+                  self:
+                    href: http://localhost/apis/ORga1sHd6S
+                    type: GET
+                  delete:
+                    href: http://localhost/apis/ORga1sHd6S
+                    type: DELETE
+                  me:
+                    href: http://localhost/me
+                    type: GET
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '401':
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '412':
+          description: Precondition Failed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '415':
+          description: Unsupported Media Type
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+  /v2/profiles:
+    get:
+      tags:
+        - Profiles
+      summary: List
+      description: ''
+      operationId: usercompanyweb/UserCompaniesFindAll.json
+      parameters:
+        - name: search
+          in: query
+          required: true
+          schema:
+            $ref: '#/components/schemas/SpecificationUserCompany'
+        - name: pageable
+          in: query
+          required: true
+          schema:
+            $ref: '#/components/schemas/Pageable'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PagedModelEntityModelUserCompanyResource'
+              example:
+                _embedded:
+                  companies:
+                    - adhesionTerm: 'false'
+                      createdAt: '2018-12-04T19:30:24Z'
+                      governmentId: '12635522000085'
+                      id: '113'
+                      name: SPONSOR S.A.
+                      programAdmin: 'true'
+                      role: ADMIN
+                      status: ACTIVE
+                      type: SPONSOR
+                      _links:
+                        self:
+                          href: http://localhost/v2/sponsors/113
+                          type: GET
+                        payables:
+                          href: http://localhost/v2/sponsors/113/payables
+                          type: GET
+                        suppliers:
+                          href: http://localhost/v2/sponsors/113/suppliers
+                          type: GET
+                        operations:
+                          href: http://localhost/v2/sponsors/113/operations
+                          type: GET
+                        operation-summaries:
+                          href: http://localhost/v2/sponsors/113/operation-summaries
+                          type: GET
+                        selling-summaries:
+                          href: http://localhost/v2/sponsors/113/selling-summaries
+                          type: GET
+                        payables-processes:
+                          href: http://localhost/v2/sponsors/113/payable-loader-processes
+                          type: GET
+                        signatures:
+                          href: http://localhost/v2/sponsors/113/signatures
+                          type: GET
+                        dashboards:
+                          href: http://localhost/v2/sponsors/113/dashboards
+                          type: GET
+                        email-subscriptions:
+                          href: http://localhost/v2/sponsors/113/subscriptions
+                          type: GET
+                        bank-accounts:
+                          href: http://localhost/v2/sponsors/113/bank-accounts
+                          type: GET
+                        buyers:
+                          href: http://localhost/v2/sponsors/113/buyers
+                          type: GET
+                        events:
+                          href: http://localhost/v2/sponsors/113/events
+                          type: GET
+                        response-files:
+                          href: http://localhost/v2/sponsors/113/response-files
+                          type: GET
+                        users:
+                          href: http://localhost/v1/sponsors/113/users
+                          type: GET
+                        market-status:
+                          href: http://localhost/v2/sponsors/113/markets
+                          type: GET
+                        amendments:
+                          href: http://localhost/v2/sponsors/113/program-amendments
+                          type: GET
+                    - adhesionTerm: 'false'
+                      createdAt: '2018-12-04T19:30:24Z'
+                      governmentId: '12635522000085'
+                      id: '112'
+                      name: SELLER S.A.
+                      programAdmin: 'true'
+                      role: ADMIN
+                      status: ACTIVE
+                      type: SELLER
+                      _links:
+                        self:
+                          href: http://localhost/v2/sellers/112
+                          type: GET
+                        receivables:
+                          href: http://localhost/v2/sellers/112/receivables
+                          type: GET
+                        offers:
+                          href: http://localhost/v2/sellers/112/offers
+                          type: GET
+                        signatures:
+                          href: http://localhost/v2/sellers/112/signatures
+                          type: GET
+                        dashboards:
+                          href: http://localhost/v2/sellers/112/dashboards
+                          type: GET
+                        email-subscriptions:
+                          href: http://localhost/v2/sellers/112/subscriptions
+                          type: GET
+                        bank-accounts:
+                          href: http://localhost/v2/sellers/112/bank-accounts
+                          type: GET
+                        buyers:
+                          href: http://localhost/v2/sellers/112/buyers
+                          type: GET
+                        amendments:
+                          href: http://localhost/v2/sellers/112/program-amendments
+                          type: GET
+                        adhesion-terms:
+                          href: http://localhost/v2/sellers/112/program-adhesion-terms
+                          type: GET
+                        buyer-adhesion-terms:
+                          href: http://localhost/v2/sellers/112/adhesion-terms
+                          type: GET
+                        events:
+                          href: http://localhost/v2/sellers/112/events
+                          type: GET
+                        users:
+                          href: http://localhost/v1/sellers/112/users
+                          type: GET
+                        selling-summaries:
+                          href: http://localhost/v2/sellers/112/selling-summaries
+                          type: GET
+                        market-status:
+                          href: http://localhost/v2/sellers/113/markets
+                          type: GET
+                    - adhesionTerm: 'false'
+                      createdAt: '2018-12-04T19:30:24Z'
+                      governmentId: '12635522000085'
+                      id: '111'
+                      name: BUYER S.A.
+                      programAdmin: 'true'
+                      role: ADMIN
+                      status: ACTIVE
+                      type: BUYER
+                      _links:
+                        self:
+                          href: http://localhost/v2/buyers/111
+                          type: GET
+                        signature-configurations:
+                          href: http://localhost/v2/buyers/111/signature-configurations
+                          type: GET
+                        auto-approve-configurations:
+                          href: http://localhost/v2/buyers/111/auto-approve-settings
+                          type: GET
+                        signatures:
+                          href: http://localhost/v2/buyers/111/signatures
+                          type: GET
+                        dashboards:
+                          href: http://localhost/v2/buyers/111/dashboards
+                          type: GET
+                        email-subscriptions:
+                          href: http://localhost/v2/buyers/111/subscriptions
+                          type: GET
+                        payable-processes:
+                          href: http://localhost/v2/buyers/111/payable-processes
+                          type: GET
+                        sponsors:
+                          href: http://localhost/v2/buyers/111/sponsors
+                          type: GET
+                        sellers:
+                          href: http://localhost/v2/buyers/111/sellers
+                          type: GET
+                        bank-accounts:
+                          href: http://localhost/v2/buyers/111/bank-accounts
+                          type: GET
+                        adhesion-term-configurations:
+                          href: http://localhost/v2/buyers/111/adhesion-term-configurations
+                          type: GET
+                        tax-files:
+                          href: http://localhost/v2/buyers/111/buyer-tax-file
+                          type: GET
+                        events:
+                          href: http://localhost/v2/buyers/112/events
+                          type: GET
+                        purchases:
+                          href: http://localhost/v2/buyers/111/purchases
+                          type: GET
+                        users:
+                          href: http://localhost/v1/buyers/111/users
+                          type: GET
+                _links:
+                  self:
+                    href: http://localhost/v2/profiles?page=0&size=20
+                page:
+                  size: 20
+                  totalElements: 3
+                  totalPages: 1
+                  number: 0
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '401':
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '412':
+          description: Precondition Failed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '415':
+          description: Unsupported Media Type
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+  /v2/profiles/{companyId}:
+    get:
+      tags:
+        - Profiles
+      summary: Find
+      description: ''
+      operationId: UserCompaniesFindOne
+      parameters:
+        - name: companyId
+          in: path
           required: true
           schema:
             type: string
       responses:
         '200':
-          description: '200 - OK: A chamada foi bem sucedida.'
+          description: OK
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  companies:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        id:
-                          type: integer
-                          description: Identificador da empresa.
-                        userId:
-                          type: integer
-                          description: Identificador do usuário.
-                        status:
-                          type: string
-                          description: Status da empresa. Valores possíveis são `ACTIVE` - Empresa ativa ou `INACTIVE` - Empresa inativa.
-                        type:
-                          type: string
-                          description: Tipo do perfil da empresa. Valores possíveis são `SPONSOR` - Sacado ou `SELLER` - Cedente ou `BUYER` - Investidor.
-                        name:
-                          type: string
-                          description: Razão social da empresa.
-                        companyName:
-                          type: string
-                          description: Razão social da empresa.
-                        governmentId:
-                          type: string
-                          description: CNPJ ou CPF da empresa.
-                        role:
-                          type: string
-                          description: Nível de permissão.</br>`ADMIN` - Administrador</br>`EXECUTE` - Execução</br>`SELECTOR` - Seleção</br>`VIEW` - Visualização</br>`BACK_OFFICE` - Backoffice.
-                        adhesionTerm:
-                          type: boolean
-                          description: Empresa exige termo de adesão.
-                        programAdmin:
-                          type: boolean
-                          description: Usuário é administrador nesta empresa.
-                        createdAt:
-                          description: Data de criação do recurso.
-                          type: string
-                          format: date-time
-                          readOnly: true
-                        _links:
-                          type: array
-                          description: Recursos disponíveis através de HATEOAS.<br>Para saber mais clique <a href='/api#hypermedia-hateoas' target='_blank'>aqui</a>.
-                          items:
-                            type: object
-                            properties:
-                              href:
-                                type: string
-                              rel:
-                                type: string
-                              templated:
-                                type: boolean
+                $ref: '#/components/schemas/EntityModelUserCompanyResource'
+              examples:
+                x-Buyer:
+                  value:
+                    adhesionTerm: 'false'
+                    createdAt: '2018-12-04T19:30:24Z'
+                    governmentId: '12635522000085'
+                    id: '111'
+                    name: BUYER S.A.
+                    programAdmin: 'true'
+                    role: ADMIN
+                    status: ACTIVE
+                    type: BUYER
+                    _links:
+                      self:
+                        href: http://localhost/v2/buyers/111
+                        type: GET
+                      signature-configurations:
+                        href: http://localhost/v2/buyers/111/signature-configurations
+                        type: GET
+                      auto-approve-configurations:
+                        href: http://localhost/v2/buyers/111/auto-approve-settings
+                        type: GET
+                      signatures:
+                        href: http://localhost/v2/buyers/111/signatures
+                        type: GET
+                      dashboards:
+                        href: http://localhost/v2/buyers/111/dashboards
+                        type: GET
+                      email-subscriptions:
+                        href: http://localhost/v2/buyers/111/subscriptions
+                        type: GET
+                      payable-processes:
+                        href: http://localhost/v2/buyers/111/payable-processes
+                        type: GET
+                      sponsors:
+                        href: http://localhost/v2/buyers/111/sponsors
+                        type: GET
+                      sellers:
+                        href: http://localhost/v2/buyers/111/sellers
+                        type: GET
+                      bank-accounts:
+                        href: http://localhost/v2/buyers/111/bank-accounts
+                        type: GET
+                      adhesion-term-configurations:
+                        href: http://localhost/v2/buyers/111/adhesion-term-configurations
+                        type: GET
+                      tax-files:
+                        href: http://localhost/v2/buyers/111/buyer-tax-file
+                        type: GET
+                      events:
+                        href: http://localhost/v2/buyers/112/events
+                        type: GET
+                      purchases:
+                        href: http://localhost/v2/buyers/111/purchases
+                        type: GET
+                      users:
+                        href: http://localhost/v1/buyers/111/users
+                        type: GET
+                x-Sponsor:
+                  value:
+                    adhesionTerm: 'false'
+                    createdAt: '2018-12-04T19:30:24Z'
+                    governmentId: '12635522000085'
+                    id: '113'
+                    name: SPONSOR S.A.
+                    programAdmin: 'true'
+                    role: ADMIN
+                    status: ACTIVE
+                    type: SPONSOR
+                    _links:
+                      self:
+                        href: http://localhost/v2/sponsors/113
+                        type: GET
+                      payables:
+                        href: http://localhost/v2/sponsors/113/payables
+                        type: GET
+                      suppliers:
+                        href: http://localhost/v2/sponsors/113/suppliers
+                        type: GET
+                      operations:
+                        href: http://localhost/v2/sponsors/113/operations
+                        type: GET
+                      operation-summaries:
+                        href: http://localhost/v2/sponsors/113/operation-summaries
+                        type: GET
+                      selling-summaries:
+                        href: http://localhost/v2/sponsors/113/selling-summaries
+                        type: GET
+                      payables-processes:
+                        href: http://localhost/v2/sponsors/113/payable-loader-processes
+                        type: GET
+                      signatures:
+                        href: http://localhost/v2/sponsors/113/signatures
+                        type: GET
+                      dashboards:
+                        href: http://localhost/v2/sponsors/113/dashboards
+                        type: GET
+                      email-subscriptions:
+                        href: http://localhost/v2/sponsors/113/subscriptions
+                        type: GET
+                      bank-accounts:
+                        href: http://localhost/v2/sponsors/113/bank-accounts
+                        type: GET
+                      buyers:
+                        href: http://localhost/v2/sponsors/113/buyers
+                        type: GET
+                      events:
+                        href: http://localhost/v2/sponsors/113/events
+                        type: GET
+                      response-files:
+                        href: http://localhost/v2/sponsors/113/response-files
+                        type: GET
+                      users:
+                        href: http://localhost/v1/sponsors/113/users
+                        type: GET
+                      market-status:
+                        href: http://localhost/v2/sponsors/113/markets
+                        type: GET
+                      amendments:
+                        href: http://localhost/v2/sponsors/113/program-amendments
+                        type: GET
+                x-Seller:
+                  value:
+                    adhesionTerm: 'false'
+                    createdAt: '2018-12-04T19:30:24Z'
+                    governmentId: '12635522000085'
+                    id: '112'
+                    name: SELLER S.A.
+                    programAdmin: 'true'
+                    role: ADMIN
+                    status: ACTIVE
+                    type: SELLER
+                    _links:
+                      self:
+                        href: http://localhost/v2/sellers/112
+                        type: GET
+                      receivables:
+                        href: http://localhost/v2/sellers/112/receivables
+                        type: GET
+                      offers:
+                        href: http://localhost/v2/sellers/112/offers
+                        type: GET
+                      signatures:
+                        href: http://localhost/v2/sellers/112/signatures
+                        type: GET
+                      dashboards:
+                        href: http://localhost/v2/sellers/112/dashboards
+                        type: GET
+                      email-subscriptions:
+                        href: http://localhost/v2/sellers/112/subscriptions
+                        type: GET
+                      bank-accounts:
+                        href: http://localhost/v2/sellers/112/bank-accounts
+                        type: GET
+                      buyers:
+                        href: http://localhost/v2/sellers/112/buyers
+                        type: GET
+                      amendments:
+                        href: http://localhost/v2/sellers/112/program-amendments
+                        type: GET
+                      adhesion-terms:
+                        href: http://localhost/v2/sellers/112/program-adhesion-terms
+                        type: GET
+                      buyer-adhesion-terms:
+                        href: http://localhost/v2/sellers/112/adhesion-terms
+                        type: GET
+                      events:
+                        href: http://localhost/v2/sellers/112/events
+                        type: GET
+                      users:
+                        href: http://localhost/v1/sellers/112/users
+                        type: GET
+                      selling-summaries:
+                        href: http://localhost/v2/sellers/112/selling-summaries
+                        type: GET
+                      market-status:
+                        href: http://localhost/v2/sellers/113/markets
+                        type: GET
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
         '401':
-          description: '401 - Unauthorized: O usuário e senha ou token de acesso são inválidos. Veja <a href=''/authentication#token'' target=''_blank''>aqui</a> como utilizar o token de acesso.'
+          description: Unauthorized
           content:
-            application/json:
+            '*/*':
               schema:
-                type: object
-                properties:
-                  error:
-                    type: string
-                    description: Tipo do erro.
-                  error_description:
-                    type: string
-                    description: Descrição do erro.
+                $ref: '#/components/schemas/Message'
         '403':
-          description: '403 - Forbidden: O acesso à API não é permitido ou usuário está bloqueado.'
+          description: Forbidden
           content:
-            application/json:
+            '*/*':
               schema:
-                type: object
-                properties:
-                  type:
-                    type: string
-                    description: Tipo do erro.
-                  description:
-                    type: string
-                    description: Descrição do erro.
-                  notifications:
-                    type: array
-                    items:
-                      type: string
-                      description: Detalhes do erro.
+                $ref: '#/components/schemas/Message'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '412':
+          description: Precondition Failed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '415':
+          description: Unsupported Media Type
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
         '500':
-          description: '500 - Internal Server Error: Houve um erro interno do servidor ao processar a requisição. <a href=''https://monkeyexchange.statuspage.io/'' target=''_blank''>Consulte o status dos servidores</a>.'
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+      x-Buyer: usercompanyweb/UserCompaniesFindOneBuyer.json
+      x-Sponsor: usercompanyweb/UserCompaniesFindOneSponsor.json
+      x-Seller: usercompanyweb/UserCompaniesFindOneSeller.json
+  /v2/owners-profile:
+    get:
+      tags:
+        - Profiles
+      summary: List - Owners
+      description: ''
+      operationId: ownercompanyweb/OwnerCompaniesFindAll.json
+      parameters:
+        - name: search
+          in: query
+          required: true
+          schema:
+            $ref: '#/components/schemas/SpecificationOwnerCompany'
+        - name: pageable
+          in: query
+          required: true
+          schema:
+            $ref: '#/components/schemas/Pageable'
+      responses:
+        '200':
+          description: OK
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  type:
-                    type: string
-                    description: Tipo do erro.
-                  description:
-                    type: string
-                    description: Descrição do erro.
-                  notifications:
-                    type: array
-                    items:
-                      type: string
-                      description: Detalhes do erro.
-servers:
-  - url: https://hmg-zuul.monkeyecx.com/uaa
-    description: Stagin Server
-  - url: https://zuul.monkey.exchange/uaa
-    description: Production Server
+                $ref: '#/components/schemas/PagedModelEntityModelOwnerCompanyResource'
+              example:
+                _embedded:
+                  companies:
+                    - governmentId: '12635522000085'
+                      name: SPONSOR S.A.
+                      program: MONKEYMKT
+                      role: ADMIN
+                      status: ACTIVE
+                      type: SPONSOR
+                      _links:
+                        self:
+                          href: http://localhost/v2/sponsors/02635522000195/steps
+                          type: GET
+                        suppliers:
+                          href: http://localhost/admin/v1/sponsors/02635522000195/suppliers
+                          type: GET
+                    - governmentId: '02635522000195'
+                      name: BUYER S.A.
+                      program: PLATFORM
+                      role: ADMIN
+                      status: ACTIVE
+                      type: BUYER
+                      _links:
+                        self:
+                          href: http://localhost/v2/buyers/02635522000195/steps
+                          type: GET
+                _links:
+                  self:
+                    href: http://localhost/v2/owners-profile?page=0&size=20
+                page:
+                  size: 20
+                  totalElements: 2
+                  totalPages: 1
+                  number: 0
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '401':
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '412':
+          description: Precondition Failed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '415':
+          description: Unsupported Media Type
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+  /v2/owners-profile/{companyId}:
+    get:
+      tags:
+        - Profiles
+      summary: Find - Owners
+      description: ''
+      operationId: OwnerCompaniesFindOne
+      parameters:
+        - name: companyId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityModelOwnerCompanyResource'
+              examples:
+                x-Buyer:
+                  value:
+                    governmentId: '02635522000195'
+                    name: BUYER S.A.
+                    program: PLATFORM
+                    role: ADMIN
+                    status: ACTIVE
+                    type: BUYER
+                    _links:
+                      self:
+                        href: http://localhost/v2/buyers/02635522000195/steps
+                        type: GET
+                x-Sponsor:
+                  value:
+                    governmentId: '02635522000195'
+                    name: SPONSOR S.A.
+                    program: PINE
+                    role: ADMIN
+                    status: ACTIVE
+                    type: SPONSOR
+                    _links:
+                      self:
+                        href: http://localhost/v2/sponsors/02635522000195/steps
+                        type: GET
+                      suppliers:
+                        href: http://localhost/admin/v1/sponsors/02635522000195/suppliers
+                        type: GET
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '401':
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '412':
+          description: Precondition Failed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '415':
+          description: Unsupported Media Type
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+      x-Buyer: ownercompanyweb/OwnerCompaniesFindOneBuyer.json
+      x-Sponsor: ownercompanyweb/OwnerCompaniesFindOneSponsor.json
+  /v2/mfa:
+    get:
+      tags:
+        - MFA
+      summary: View Configuration
+      description: ''
+      operationId: mfaweb/MFAGetConfiguration.json
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityModelMFAResource'
+              example:
+                _links:
+                  enable-mfa:
+                    href: http://localhost/v2/mfa/enable
+                    type: POST
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '401':
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '412':
+          description: Precondition Failed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '415':
+          description: Unsupported Media Type
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+  /v1/programs/{name}/users:
+    get:
+      tags:
+        - Users
+      summary: List
+      description: ''
+      operationId: programowneruserweb/ProgramOwnerUserFindAll.json
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: pageable
+          in: query
+          required: true
+          schema:
+            $ref: '#/components/schemas/Pageable'
+        - name: search
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PagedModelEntityModelProgramOwnerUserResponse'
+              example:
+                _embedded:
+                  users:
+                    - name: Felipe Teste Assinatura
+                      username: felipe@monkey.exchange
+                      createUserId: monkeyexchangepine@gmail.com
+                      createdAt: '2018-12-04T19:30:24Z'
+                      _links:
+                        self:
+                          href: http://localhost/v1/programs/PINE/users/felipe@monkey.exchange
+                          type: GET
+                _links:
+                  self:
+                    href: http://localhost/v1/programs/pine/users?page=0&size=20
+                page:
+                  size: 20
+                  totalElements: 1
+                  totalPages: 1
+                  number: 0
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '401':
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '412':
+          description: Precondition Failed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '415':
+          description: Unsupported Media Type
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+  /v1/programs/{name}/users/{username}:
+    get:
+      tags:
+        - Users
+      summary: Detail
+      description: ''
+      operationId: programowneruserweb/ProgramOwnerUserFindOne.json
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: username
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollectionModelEntityModelProgramOwnerUserDetailResponse'
+              example:
+                _embedded:
+                  users:
+                    - email: felipe@monkey.exchange
+                      name: Felipe
+                      cellPhone: '+5517999999999'
+                      smsNotification: 'true'
+                      nickname: Felipe
+                      pictureUrl: https://localhost/pictures.jpeg
+                      useTerms: 'true'
+                      privacyPolicy: 'true'
+                      others: ''
+                      status: CONFIRMED
+                      locale: pt-BR
+                      newsletter: 'false'
+                      _links:
+                        self:
+                          href: http://localhost/v1/programs/PINE/users/felipe@monkey.exchange
+                          type: GET
+                    - email: felipe@monkey.exchange
+                      name: Felipe by Federation
+                      cellPhone: '+5517999999999'
+                      smsNotification: 'false'
+                      nickname: Federation
+                      pictureUrl: https://localhost/pictures.jpeg
+                      useTerms: 'false'
+                      privacyPolicy: 'false'
+                      others: ''
+                      status: EXTERNAL_PROVIDER
+                      locale: pt-BR
+                      newsletter: 'false'
+                      _links:
+                        self:
+                          href: http://localhost/v1/programs/PINE/users/felipe@monkey.exchange
+                          type: GET
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '401':
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '412':
+          description: Precondition Failed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '415':
+          description: Unsupported Media Type
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+  /v1/programs/{name}/users/{username}/events:
+    get:
+      tags:
+        - Users
+      summary: Event History
+      description: ''
+      operationId: programowneruserweb/ProgramOwnerUserEventFindAll.json
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: username
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: requestId
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: paginationToken
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollectionModelEntityModelProgramOwnerUserAuthEvent'
+              example:
+                _embedded:
+                  events:
+                    - id: 242e4b0d-e73e-43c1-8af0-3849a915442f
+                      type: SignIn
+                      responseType: Pass
+                      riskDecision: NoRisk
+                      riskLevel: Low
+                      compromisedCredentialsDetected: 'false'
+                      occurredOn: '2024-07-01T14:52:03.930+00:00'
+                      ipAddress: 45.228.252.70
+                      deviceName: Chrome 126, Mac OS X 10.15.7
+                      city: Mogi Guacu
+                      country: Brazil
+                      challengeResponseEvents:
+                        - challengeName: Password
+                          challengeResponse: Success
+                      _links:
+                        auth-events:
+                          href: http://localhost/v1/programs/PINE/users/felipe@monkey.exchange/events?requestId=&paginationToken=
+                          type: GET
+                        user-detail:
+                          href: http://localhost/v1/programs/PINE/users/felipe@monkey.exchange
+                          type: GET
+                _links:
+                  next:
+                    href: http://localhost/v1/programs/program/users/felipe%40monkey.exchange/events?requestId=requestId&paginationToken=nextToken
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '401':
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '412':
+          description: Precondition Failed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '415':
+          description: Unsupported Media Type
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+  /apis/{clientId}:
+    get:
+      tags:
+        - API Clients
+      summary: Detail
+      description: ''
+      operationId: apiclientweb/ApiClientFindOne.json
+      parameters:
+        - name: clientId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityModelApiClient'
+              example:
+                reason: First API
+                clientId: 4rppk2tYoi
+                clientSecret: cb3012ca-d64b-40c5-bc58-bab5bcdef8c9
+                createdAt: '2018-12-04T19:30:24Z'
+                createUserId: UNKNOWN
+                createUserIp: UNKNOWN
+                updatedAt: '2018-12-04T19:30:24Z'
+                lastUserId: UNKNOWN
+                lastUserIp: UNKNOWN
+                _links:
+                  self:
+                    href: http://localhost/apis/ORga1sHd6S
+                    type: GET
+                  delete:
+                    href: http://localhost/apis/ORga1sHd6S
+                    type: DELETE
+                  me:
+                    href: http://localhost/me
+                    type: GET
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '401':
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '412':
+          description: Precondition Failed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '415':
+          description: Unsupported Media Type
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+    delete:
+      tags:
+        - API Clients
+      summary: Delete
+      description: ''
+      operationId: apiclientweb/ApiClientDelete.json
+      parameters:
+        - name: clientId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '401':
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '412':
+          description: Precondition Failed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '415':
+          description: Unsupported Media Type
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+  /v2/mfa/disable:
+    delete:
+      tags:
+        - MFA
+      summary: Disable MFA
+      description: ''
+      operationId: mfaweb/MFADisassociateSoftwareToken.json
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '401':
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '412':
+          description: Precondition Failed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '415':
+          description: Unsupported Media Type
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Message'
+components:
+  schemas:
+    Message:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+            - Invalid_Token
+            - Mult_Status_Error
+            - No_Content_Error
+            - Conflict_Error
+            - Parameter_Error
+            - Bad_Request_Error
+            - Business_Logic_Error
+            - Resource_Not_Found
+            - Internal_Architecture_Error
+            - List_Not_Found
+            - Method_Not_Allowed
+            - Unsupported_Media_Type
+            - Access_Denied
+            - mfa_required
+            - Integration_Error
+            - change_password_required
+            - new_device_used
+            - user_not_confirmed
+        description:
+          type: string
+        notifications:
+          type: array
+          items:
+            type: string
+    ProgramConfiguration:
+      required:
+        - closeMarket
+        - openMarket
+      type: object
+      properties:
+        resetPayablesDaily:
+          type: boolean
+        resetPayablesOnWeekend:
+          type: boolean
+        openMarket:
+          type: integer
+          format: int32
+        closeMarket:
+          type: integer
+          format: int32
+        supplierApprovedByDefault:
+          type: boolean
+        supplierAutomatedOfferByDefault:
+          type: boolean
+        supplierConfigureAutomatedOffer:
+          type: boolean
+        minimumDaysToOffer:
+          type: integer
+          format: int32
+        sponsorDefaultFileOutput:
+          type: boolean
+        multipleSignatureEnabled:
+          type: boolean
+        sellerAutoApprove:
+          type: boolean
+        sponsorDefaultTax:
+          type: number
+          format: float
+        purchaseRegistration:
+          type: boolean
+    EntityModelProgramConfiguration:
+      required:
+        - closeMarket
+        - openMarket
+      type: object
+      properties:
+        resetPayablesDaily:
+          type: boolean
+        resetPayablesOnWeekend:
+          type: boolean
+        openMarket:
+          type: integer
+          format: int32
+        closeMarket:
+          type: integer
+          format: int32
+        supplierApprovedByDefault:
+          type: boolean
+        supplierAutomatedOfferByDefault:
+          type: boolean
+        supplierConfigureAutomatedOffer:
+          type: boolean
+        minimumDaysToOffer:
+          type: integer
+          format: int32
+        sponsorDefaultFileOutput:
+          type: boolean
+        multipleSignatureEnabled:
+          type: boolean
+        sellerAutoApprove:
+          type: boolean
+        sponsorDefaultTax:
+          type: number
+          format: float
+        purchaseRegistration:
+          type: boolean
+        _links:
+          $ref: '#/components/schemas/Links'
+    Links:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/Link'
+    UpdateUserResource:
+      required:
+        - name
+        - newsletter
+        - smsNotification
+      type: object
+      properties:
+        name:
+          type: string
+        cellPhone:
+          type: string
+        smsNotification:
+          type: boolean
+        nickname:
+          type: string
+        locale:
+          type: string
+        newsletter:
+          type: boolean
+        others:
+          type: string
+    EntityModelUpdateUserResource:
+      required:
+        - name
+        - newsletter
+        - smsNotification
+      type: object
+      properties:
+        name:
+          type: string
+        cellPhone:
+          type: string
+        smsNotification:
+          type: boolean
+        nickname:
+          type: string
+        locale:
+          type: string
+        newsletter:
+          type: boolean
+        others:
+          type: string
+        _links:
+          $ref: '#/components/schemas/Links'
+    UserActivationResource:
+      required:
+        - token
+      type: object
+      properties:
+        token:
+          type: string
+    MFASecretResource:
+      type: object
+      properties:
+        secretCode:
+          type: string
+    User:
+      required:
+        - email
+        - name
+        - newsletter
+        - privacyPolicy
+        - smsNotification
+        - useTerms
+      type: object
+      properties:
+        email:
+          type: string
+        name:
+          type: string
+        cellPhone:
+          type: string
+        smsNotification:
+          type: boolean
+        nickname:
+          type: string
+        useTerms:
+          type: boolean
+        privacyPolicy:
+          type: boolean
+        others:
+          type: string
+        locale:
+          type: string
+        newsletter:
+          type: boolean
+    EntityModelUser:
+      required:
+        - email
+        - name
+        - newsletter
+        - privacyPolicy
+        - smsNotification
+        - useTerms
+      type: object
+      properties:
+        email:
+          type: string
+        name:
+          type: string
+        cellPhone:
+          type: string
+        smsNotification:
+          type: boolean
+        nickname:
+          type: string
+        useTerms:
+          type: boolean
+        privacyPolicy:
+          type: boolean
+        others:
+          type: string
+        locale:
+          type: string
+        newsletter:
+          type: boolean
+        _links:
+          $ref: '#/components/schemas/Links'
+    EntityModelUserPicture:
+      type: object
+      properties:
+        filename:
+          type: string
+        _links:
+          $ref: '#/components/schemas/Links'
+    UserActivationResendResource:
+      required:
+        - email
+      type: object
+      properties:
+        email:
+          type: string
+    TokenRequest:
+      type: object
+      properties:
+        grant_type:
+          type: string
+        username:
+          type: string
+        password:
+          type: string
+        scope:
+          type: string
+        client_id:
+          type: string
+        client_secret:
+          type: string
+        totp_code:
+          type: string
+        refresh_token:
+          type: string
+        pass_number:
+          type: string
+        code:
+          type: string
+        clientSecret:
+          type: string
+          writeOnly: true
+        clientId:
+          type: string
+          writeOnly: true
+    TokenResponse:
+      type: object
+      properties:
+        scope:
+          type: string
+        access_token:
+          type: string
+        token_type:
+          type: string
+        refresh_token:
+          type: string
+        expires_in:
+          type: integer
+          format: int32
+    ForgotPasswordResource:
+      required:
+        - email
+      type: object
+      properties:
+        email:
+          type: string
+    ChangePasswordByTokenResource:
+      required:
+        - email
+        - newPassword
+      type: object
+      properties:
+        email:
+          type: string
+        newPassword:
+          type: string
+    ChangePassNumberResource:
+      required:
+        - newPassNumber
+      type: object
+      properties:
+        newPassNumber:
+          type: string
+    ChangePasswordResource:
+      required:
+        - newPassword
+        - oldPassword
+      type: object
+      properties:
+        oldPassword:
+          type: string
+        newPassword:
+          type: string
+    ApiClient:
+      required:
+        - reason
+      type: object
+      properties:
+        createdAt:
+          type: string
+          format: date-time
+        createUserId:
+          type: string
+        createUserIp:
+          type: string
+        updatedAt:
+          type: string
+          format: date-time
+        lastUserId:
+          type: string
+        lastUserIp:
+          type: string
+        reason:
+          type: string
+    EntityModelApiClient:
+      required:
+        - reason
+      type: object
+      properties:
+        createdAt:
+          type: string
+          format: date-time
+        createUserId:
+          type: string
+        createUserIp:
+          type: string
+        updatedAt:
+          type: string
+          format: date-time
+        lastUserId:
+          type: string
+        lastUserIp:
+          type: string
+        reason:
+          type: string
+        _links:
+          $ref: '#/components/schemas/Links'
+    SpecificationUserCompany:
+      type: object
+    Pageable:
+      type: object
+      properties:
+        page:
+          minimum: 0
+          type: integer
+          format: int32
+        size:
+          minimum: 1
+          type: integer
+          format: int32
+        sort:
+          type: array
+          items:
+            type: string
+    EntityModelUserCompanyResource:
+      type: object
+      properties:
+        adhesionTerm:
+          type: boolean
+        createdAt:
+          type: string
+          format: date-time
+        governmentId:
+          type: string
+        id:
+          type: integer
+          format: int32
+        userId:
+          type: integer
+          format: int32
+          deprecated: true
+        companyName:
+          type: string
+          deprecated: true
+        name:
+          type: string
+        programAdmin:
+          type: boolean
+        role:
+          type: string
+          enum:
+            - ADMIN
+            - EXECUTE
+            - SELECTOR
+            - VIEW
+            - BACK_OFFICE
+            - WHOLESALE
+            - RETAIL
+            - USER_MANAGER
+        status:
+          type: string
+          enum:
+            - APPROVAL
+            - FRAUD_DETECTED
+            - PRE_CHECK
+            - ACTIVE
+            - INACTIVE
+            - FRAUD_CONFIRMED
+            - APPROVED
+        type:
+          type: string
+          enum:
+            - SPONSOR
+            - SELLER
+            - BUYER
+        selected:
+          type: boolean
+        product:
+          type: string
+          enum:
+            - SUPPLY_CHAIN
+            - SALES_FINANCE
+            - SPIKE
+            - FINANCIAL_MANAGEMENT
+        _links:
+          $ref: '#/components/schemas/Links'
+    PageMetadata:
+      type: object
+      properties:
+        size:
+          type: integer
+          format: int64
+        totalElements:
+          type: integer
+          format: int64
+        totalPages:
+          type: integer
+          format: int64
+        number:
+          type: integer
+          format: int64
+    PagedModelEntityModelUserCompanyResource:
+      type: object
+      properties:
+        _embedded:
+          type: object
+          properties:
+            companies:
+              type: array
+              items:
+                $ref: '#/components/schemas/EntityModelUserCompanyResource'
+        _links:
+          $ref: '#/components/schemas/Links'
+        page:
+          $ref: '#/components/schemas/PageMetadata'
+    SpecificationOwnerCompany:
+      type: object
+    EntityModelOwnerCompanyResource:
+      type: object
+      properties:
+        governmentId:
+          type: string
+        name:
+          type: string
+        program:
+          type: string
+        role:
+          type: string
+          enum:
+            - ADMIN
+            - VIEW
+        status:
+          type: string
+          enum:
+            - ACTIVE
+            - INACTIVE
+        type:
+          type: string
+          enum:
+            - SPONSOR
+            - BUYER
+        _links:
+          $ref: '#/components/schemas/Links'
+    PagedModelEntityModelOwnerCompanyResource:
+      type: object
+      properties:
+        _embedded:
+          type: object
+          properties:
+            companies:
+              type: array
+              items:
+                $ref: '#/components/schemas/EntityModelOwnerCompanyResource'
+        _links:
+          $ref: '#/components/schemas/Links'
+        page:
+          $ref: '#/components/schemas/PageMetadata'
+    EntityModelMFAResource:
+      type: object
+      properties:
+        _links:
+          $ref: '#/components/schemas/Links'
+    EntityModelProgramOwnerUserResponse:
+      type: object
+      properties:
+        name:
+          type: string
+        username:
+          type: string
+        createUserId:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        _links:
+          $ref: '#/components/schemas/Links'
+    PagedModelEntityModelProgramOwnerUserResponse:
+      type: object
+      properties:
+        _embedded:
+          type: object
+          properties:
+            users:
+              type: array
+              items:
+                $ref: '#/components/schemas/EntityModelProgramOwnerUserResponse'
+        _links:
+          $ref: '#/components/schemas/Links'
+        page:
+          $ref: '#/components/schemas/PageMetadata'
+    CollectionModelEntityModelProgramOwnerUserDetailResponse:
+      type: object
+      properties:
+        _embedded:
+          type: object
+          properties:
+            users:
+              type: array
+              items:
+                $ref: '#/components/schemas/EntityModelProgramOwnerUserDetailResponse'
+        _links:
+          $ref: '#/components/schemas/Links'
+    EntityModelProgramOwnerUserDetailResponse:
+      type: object
+      properties:
+        email:
+          type: string
+        name:
+          type: string
+        cellPhone:
+          type: string
+        smsNotification:
+          type: boolean
+        nickname:
+          type: string
+        pictureUrl:
+          type: string
+        useTerms:
+          type: boolean
+        privacyPolicy:
+          type: boolean
+        others:
+          type: string
+        status:
+          type: string
+        locale:
+          type: string
+        newsletter:
+          type: boolean
+        _links:
+          $ref: '#/components/schemas/Links'
+    CollectionModelEntityModelProgramOwnerUserAuthEvent:
+      type: object
+      properties:
+        _embedded:
+          type: object
+          properties:
+            events:
+              type: array
+              items:
+                $ref: '#/components/schemas/EntityModelProgramOwnerUserAuthEvent'
+        _links:
+          $ref: '#/components/schemas/Links'
+    EntityModelProgramOwnerUserAuthEvent:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+        responseType:
+          type: string
+        riskDecision:
+          type: string
+        riskLevel:
+          type: string
+        compromisedCredentialsDetected:
+          type: boolean
+        occurredOn:
+          type: string
+          format: date-time
+        ipAddress:
+          type: string
+        deviceName:
+          type: string
+        city:
+          type: string
+        country:
+          type: string
+        challengeResponseEvents:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProgramOwnerUserAuthChallengeResponseEvent'
+        _links:
+          $ref: '#/components/schemas/Links'
+    ProgramOwnerUserAuthChallengeResponseEvent:
+      type: object
+      properties:
+        challengeName:
+          type: string
+        challengeResponse:
+          type: string
+    SpecificationApiClient:
+      type: object
+    PagedModelEntityModelApiClient:
+      type: object
+      properties:
+        _embedded:
+          type: object
+          properties:
+            apis:
+              type: array
+              items:
+                $ref: '#/components/schemas/EntityModelApiClient'
+        _links:
+          $ref: '#/components/schemas/Links'
+        page:
+          $ref: '#/components/schemas/PageMetadata'
+    Link:
+      type: object
+      properties:
+        href:
+          type: string
+        hreflang:
+          type: string
+        title:
+          type: string
+        type:
+          type: string
+        deprecation:
+          type: string
+        profile:
+          type: string
+        name:
+          type: string
+        templated:
+          type: boolean
