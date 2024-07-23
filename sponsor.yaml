@@ -7996,8 +7996,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        500:
-          description: "Internal Server Error"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -8032,14 +8032,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        409:
-          description: "Conflict"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        405:
-          description: "Method Not Allowed"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
@@ -8098,9 +8098,9 @@ paths:
     put:
       tags:
       - "Configuration For Dynamic Reports"
-      summary: "Update Current Configuration"
+      summary: ""
       description: ""
-      operationId: "sponsorconfigurationweb/UpdateSponsorConfigurationContract.json"
+      operationId: "sponsorconfigurationweb/UpdateSponsorReportConfigurationContract.json"
       parameters:
       - name: "id"
         in: "path"
@@ -8138,8 +8138,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        500:
-          description: "Internal Server Error"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -8174,14 +8174,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        409:
-          description: "Conflict"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        405:
-          description: "Method Not Allowed"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
@@ -8234,9 +8234,9 @@ paths:
     post:
       tags:
       - "Configuration For Dynamic Reports"
-      summary: "Create New Configuration"
+      summary: ""
       description: ""
-      operationId: "sponsorconfigurationweb/CreateSponsorConfigurationContract.json"
+      operationId: "sponsorconfigurationweb/CreateSponsorReportConfigurationContract.json"
       parameters:
       - name: "id"
         in: "path"
@@ -8274,8 +8274,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        500:
-          description: "Internal Server Error"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -8310,14 +8310,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        409:
-          description: "Conflict"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        405:
-          description: "Method Not Allowed"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
@@ -8370,9 +8370,9 @@ paths:
     delete:
       tags:
       - "Configuration For Dynamic Reports"
-      summary: "Delete Current Configuration"
+      summary: ""
       description: ""
-      operationId: "sponsorconfigurationweb/DeleteSponsorConfigurationContract.json"
+      operationId: "sponsorconfigurationweb/DeleteSponsorReportConfigurationContract.json"
       parameters:
       - name: "id"
         in: "path"
@@ -8398,8 +8398,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        500:
-          description: "Internal Server Error"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -8434,14 +8434,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        409:
-          description: "Conflict"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        405:
-          description: "Method Not Allowed"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
@@ -8484,8 +8484,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        500:
-          description: "Internal Server Error"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -8520,14 +8520,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        409:
-          description: "Conflict"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        405:
-          description: "Method Not Allowed"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
@@ -8584,8 +8584,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        500:
-          description: "Internal Server Error"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -8620,14 +8620,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        409:
-          description: "Conflict"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        405:
-          description: "Method Not Allowed"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
@@ -8687,8 +8687,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        500:
-          description: "Internal Server Error"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -8723,14 +8723,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        409:
-          description: "Conflict"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        405:
-          description: "Method Not Allowed"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
@@ -8774,8 +8774,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        500:
-          description: "Internal Server Error"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -8810,14 +8810,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        409:
-          description: "Conflict"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        405:
-          description: "Method Not Allowed"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
@@ -8873,8 +8873,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        500:
-          description: "Internal Server Error"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -8909,14 +8909,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        409:
-          description: "Conflict"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        405:
-          description: "Method Not Allowed"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
