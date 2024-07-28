@@ -1139,14 +1139,26 @@ paths:
           type: "integer"
           format: "int32"
       responses:
-        400:
-          description: "Bad Request"
+        415:
+          description: "Unsupported Media Type"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sellerMessage"
-        405:
-          description: "Method Not Allowed"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sellerMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sellerMessage"
+        403:
+          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -1169,26 +1181,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sellerMessage"
-        415:
-          description: "Unsupported Media Type"
+        400:
+          description: "Bad Request"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sellerMessage"
-        404:
-          description: "Not Found"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sellerMessage"
-        401:
-          description: "Unauthorized"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sellerMessage"
-        403:
-          description: "Forbidden"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -1243,14 +1243,26 @@ paths:
               bankAccountApprovalByLegalResponsibles: false
         required: true
       responses:
-        400:
-          description: "Bad Request"
+        415:
+          description: "Unsupported Media Type"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sellerMessage"
-        405:
-          description: "Method Not Allowed"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sellerMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sellerMessage"
+        403:
+          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -1273,26 +1285,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sellerMessage"
-        415:
-          description: "Unsupported Media Type"
+        400:
+          description: "Bad Request"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sellerMessage"
-        404:
-          description: "Not Found"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sellerMessage"
-        401:
-          description: "Unauthorized"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sellerMessage"
-        403:
-          description: "Forbidden"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -1347,14 +1347,26 @@ paths:
               bankAccountApprovalByLegalResponsibles: false
         required: true
       responses:
-        400:
-          description: "Bad Request"
+        415:
+          description: "Unsupported Media Type"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sellerMessage"
-        405:
-          description: "Method Not Allowed"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sellerMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sellerMessage"
+        403:
+          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -1377,26 +1389,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sellerMessage"
-        415:
-          description: "Unsupported Media Type"
+        400:
+          description: "Bad Request"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sellerMessage"
-        404:
-          description: "Not Found"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sellerMessage"
-        401:
-          description: "Unauthorized"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sellerMessage"
-        403:
-          description: "Forbidden"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -1451,19 +1451,33 @@ paths:
         required: true
         schema:
           $ref: "#/components/schemas/sellerPageable"
-      - name: "'type'"
+      - name: "Type"
         in: "query"
         required: true
+        schema:
+          type: "string"
         example: "BANK_ACCOUNT"
       responses:
-        400:
-          description: "Bad Request"
+        415:
+          description: "Unsupported Media Type"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sellerMessage"
-        405:
-          description: "Method Not Allowed"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sellerMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sellerMessage"
+        403:
+          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -1486,26 +1500,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sellerMessage"
-        415:
-          description: "Unsupported Media Type"
+        400:
+          description: "Bad Request"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sellerMessage"
-        404:
-          description: "Not Found"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sellerMessage"
-        401:
-          description: "Unauthorized"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sellerMessage"
-        403:
-          description: "Forbidden"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -1572,9 +1574,11 @@ paths:
         schema:
           type: "integer"
           format: "int32"
-      - name: "'type'"
+      - name: "Type"
         in: "query"
         required: true
+        schema:
+          type: "string"
         example: "BANK_ACCOUNT"
       requestBody:
         content:
@@ -1590,14 +1594,26 @@ paths:
               accountDigit: "6"
         required: true
       responses:
-        400:
-          description: "Bad Request"
+        415:
+          description: "Unsupported Media Type"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sellerMessage"
-        405:
-          description: "Method Not Allowed"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sellerMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sellerMessage"
+        403:
+          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -1620,26 +1636,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sellerMessage"
-        415:
-          description: "Unsupported Media Type"
+        400:
+          description: "Bad Request"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sellerMessage"
-        404:
-          description: "Not Found"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sellerMessage"
-        401:
-          description: "Unauthorized"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sellerMessage"
-        403:
-          description: "Forbidden"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -1703,14 +1707,26 @@ paths:
         schema:
           $ref: "#/components/schemas/sellerPageable"
       responses:
-        400:
-          description: "Bad Request"
+        415:
+          description: "Unsupported Media Type"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sellerMessage"
-        405:
-          description: "Method Not Allowed"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sellerMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sellerMessage"
+        403:
+          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -1733,26 +1749,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sellerMessage"
-        415:
-          description: "Unsupported Media Type"
+        400:
+          description: "Bad Request"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sellerMessage"
-        404:
-          description: "Not Found"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sellerMessage"
-        401:
-          description: "Unauthorized"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sellerMessage"
-        403:
-          description: "Forbidden"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -1831,14 +1835,26 @@ paths:
               main: true
         required: true
       responses:
-        400:
-          description: "Bad Request"
+        415:
+          description: "Unsupported Media Type"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sellerMessage"
-        405:
-          description: "Method Not Allowed"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sellerMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sellerMessage"
+        403:
+          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -1861,26 +1877,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sellerMessage"
-        415:
-          description: "Unsupported Media Type"
+        400:
+          description: "Bad Request"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sellerMessage"
-        404:
-          description: "Not Found"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sellerMessage"
-        401:
-          description: "Unauthorized"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sellerMessage"
-        403:
-          description: "Forbidden"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -1939,14 +1943,26 @@ paths:
           type: "integer"
           format: "int32"
       responses:
-        400:
-          description: "Bad Request"
+        415:
+          description: "Unsupported Media Type"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sellerMessage"
-        405:
-          description: "Method Not Allowed"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sellerMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sellerMessage"
+        403:
+          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -1969,26 +1985,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sellerMessage"
-        415:
-          description: "Unsupported Media Type"
+        400:
+          description: "Bad Request"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sellerMessage"
-        404:
-          description: "Not Found"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sellerMessage"
-        401:
-          description: "Unauthorized"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sellerMessage"
-        403:
-          description: "Forbidden"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -2046,14 +2050,26 @@ paths:
           type: "integer"
           format: "int32"
       responses:
-        400:
-          description: "Bad Request"
+        415:
+          description: "Unsupported Media Type"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sellerMessage"
-        405:
-          description: "Method Not Allowed"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sellerMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sellerMessage"
+        403:
+          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -2076,26 +2092,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sellerMessage"
-        415:
-          description: "Unsupported Media Type"
+        400:
+          description: "Bad Request"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sellerMessage"
-        404:
-          description: "Not Found"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sellerMessage"
-        401:
-          description: "Unauthorized"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sellerMessage"
-        403:
-          description: "Forbidden"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -2136,14 +2140,26 @@ paths:
               main: true
         required: true
       responses:
-        400:
-          description: "Bad Request"
+        415:
+          description: "Unsupported Media Type"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sellerMessage"
-        405:
-          description: "Method Not Allowed"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sellerMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sellerMessage"
+        403:
+          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -2166,26 +2182,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sellerMessage"
-        415:
-          description: "Unsupported Media Type"
+        400:
+          description: "Bad Request"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sellerMessage"
-        404:
-          description: "Not Found"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sellerMessage"
-        401:
-          description: "Unauthorized"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sellerMessage"
-        403:
-          description: "Forbidden"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -2211,19 +2215,33 @@ paths:
         required: true
         schema:
           type: "string"
-      - name: "'type'"
+      - name: "Type"
         in: "query"
         required: true
+        schema:
+          type: "string"
         example: "BANK_ACCOUNT"
       responses:
-        400:
-          description: "Bad Request"
+        415:
+          description: "Unsupported Media Type"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sellerMessage"
-        405:
-          description: "Method Not Allowed"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sellerMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sellerMessage"
+        403:
+          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -2246,26 +2264,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sellerMessage"
-        415:
-          description: "Unsupported Media Type"
+        400:
+          description: "Bad Request"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sellerMessage"
-        404:
-          description: "Not Found"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sellerMessage"
-        401:
-          description: "Unauthorized"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sellerMessage"
-        403:
-          description: "Forbidden"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -2329,14 +2335,26 @@ paths:
         schema:
           $ref: "#/components/schemas/sellerPageable"
       responses:
-        400:
-          description: "Bad Request"
+        415:
+          description: "Unsupported Media Type"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sellerMessage"
-        405:
-          description: "Method Not Allowed"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sellerMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sellerMessage"
+        403:
+          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -2359,26 +2377,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sellerMessage"
-        415:
-          description: "Unsupported Media Type"
+        400:
+          description: "Bad Request"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sellerMessage"
-        404:
-          description: "Not Found"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sellerMessage"
-        401:
-          description: "Unauthorized"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sellerMessage"
-        403:
-          description: "Forbidden"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -4313,6 +4319,30 @@ paths:
         schema:
           type: "string"
       responses:
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
         400:
           description: "Bad Request"
           content:
@@ -4325,32 +4355,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/ssoMessage"
-        403:
-          description: "Forbidden"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        500:
-          description: "Internal Server Error"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
         412:
           description: "Precondition Failed"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        409:
-          description: "Conflict"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        404:
-          description: "Not Found"
           content:
             '*/*':
               schema:
@@ -4431,6 +4437,30 @@ paths:
               role: "VIEW"
         required: true
       responses:
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
         400:
           description: "Bad Request"
           content:
@@ -4443,32 +4473,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/ssoMessage"
-        403:
-          description: "Forbidden"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        500:
-          description: "Internal Server Error"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
         412:
           description: "Precondition Failed"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        409:
-          description: "Conflict"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        404:
-          description: "Not Found"
           content:
             '*/*':
               schema:
@@ -4541,6 +4547,30 @@ paths:
         schema:
           type: "string"
       responses:
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
         400:
           description: "Bad Request"
           content:
@@ -4553,32 +4583,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/ssoMessage"
-        403:
-          description: "Forbidden"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        500:
-          description: "Internal Server Error"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
         412:
           description: "Precondition Failed"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        409:
-          description: "Conflict"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        404:
-          description: "Not Found"
           content:
             '*/*':
               schema:
@@ -4621,6 +4627,30 @@ paths:
         schema:
           $ref: "#/components/schemas/ssoPageable"
       responses:
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
         400:
           description: "Bad Request"
           content:
@@ -4633,32 +4663,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/ssoMessage"
-        403:
-          description: "Forbidden"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        500:
-          description: "Internal Server Error"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
         412:
           description: "Precondition Failed"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        409:
-          description: "Conflict"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        404:
-          description: "Not Found"
           content:
             '*/*':
               schema:
@@ -4745,6 +4751,30 @@ paths:
               role: "ADMIN"
         required: true
       responses:
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
         400:
           description: "Bad Request"
           content:
@@ -4757,32 +4787,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/ssoMessage"
-        403:
-          description: "Forbidden"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        500:
-          description: "Internal Server Error"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
         412:
           description: "Precondition Failed"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        409:
-          description: "Conflict"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        404:
-          description: "Not Found"
           content:
             '*/*':
               schema:

@@ -1616,8 +1616,8 @@ paths:
                     type: "GET"
     get:
       tags:
-      - "Titles"
-      summary: "List Titles"
+      - "Invoices"
+      summary: "List"
       description: ""
       operationId: "payableweb/FindAllPayableContract.json"
       parameters:
@@ -1753,8 +1753,8 @@ paths:
                   number: 0
     delete:
       tags:
-      - "Titles"
-      summary: "Delete Titles"
+      - "Invoices"
+      summary: "Delete All"
       description: ""
       operationId: "payableweb/DeleteAllPayablesContract.json"
       parameters:
@@ -4730,6 +4730,30 @@ paths:
         schema:
           type: "string"
       responses:
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
         400:
           description: "Bad Request"
           content:
@@ -4742,32 +4766,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/ssoMessage"
-        403:
-          description: "Forbidden"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        500:
-          description: "Internal Server Error"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
         412:
           description: "Precondition Failed"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        409:
-          description: "Conflict"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        404:
-          description: "Not Found"
           content:
             '*/*':
               schema:
@@ -4848,6 +4848,30 @@ paths:
               role: "VIEW"
         required: true
       responses:
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
         400:
           description: "Bad Request"
           content:
@@ -4860,32 +4884,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/ssoMessage"
-        403:
-          description: "Forbidden"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        500:
-          description: "Internal Server Error"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
         412:
           description: "Precondition Failed"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        409:
-          description: "Conflict"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        404:
-          description: "Not Found"
           content:
             '*/*':
               schema:
@@ -4958,6 +4958,30 @@ paths:
         schema:
           type: "string"
       responses:
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
         400:
           description: "Bad Request"
           content:
@@ -4970,32 +4994,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/ssoMessage"
-        403:
-          description: "Forbidden"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        500:
-          description: "Internal Server Error"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
         412:
           description: "Precondition Failed"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        409:
-          description: "Conflict"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        404:
-          description: "Not Found"
           content:
             '*/*':
               schema:
@@ -5038,6 +5038,30 @@ paths:
         schema:
           $ref: "#/components/schemas/ssoPageable"
       responses:
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
         400:
           description: "Bad Request"
           content:
@@ -5050,32 +5074,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/ssoMessage"
-        403:
-          description: "Forbidden"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        500:
-          description: "Internal Server Error"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
         412:
           description: "Precondition Failed"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        409:
-          description: "Conflict"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        404:
-          description: "Not Found"
           content:
             '*/*':
               schema:
@@ -5162,6 +5162,30 @@ paths:
               role: "ADMIN"
         required: true
       responses:
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
         400:
           description: "Bad Request"
           content:
@@ -5174,32 +5198,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/ssoMessage"
-        403:
-          description: "Forbidden"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        500:
-          description: "Internal Server Error"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
         412:
           description: "Precondition Failed"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        409:
-          description: "Conflict"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        404:
-          description: "Not Found"
           content:
             '*/*':
               schema:
@@ -6546,7 +6546,6 @@ paths:
                   - name: "Amentment 1"
                     sellerName: "Seller Company"
                     sellerGovernmentId: "36603564000166"
-                    expirationDate: "2021-08-28"
                     status: "WAITING"
                     createdAt: "2000-01-09T16:36:49.364+0000"
                     createUserId: "felipe@monkey.exchange"
@@ -6658,7 +6657,6 @@ paths:
                 name: "Amentment 1"
                 sellerName: "Seller Company"
                 sellerGovernmentId: "36603564000166"
-                expirationDate: "2021-08-28"
                 status: "WAITING"
                 createdAt: "2000-01-09T16:36:49.364+0000"
                 createUserId: "felipe@monkey.exchange"
@@ -7208,7 +7206,6 @@ paths:
                     name: "Amendment 1"
                     sellerName: "SELLER S/A"
                     sellerGovernmentId: "62144175000120"
-                    expirationDate: "2028-11-09"
                     status: "SIGNED"
                     _links:
                       self:
@@ -7333,8 +7330,8 @@ paths:
   /v2/sponsors/{id}/payables/{uuid}:
     get:
       tags:
-      - "Titles"
-      summary: "Search Title"
+      - "Invoices"
+      summary: "Detail"
       description: ""
       operationId: "payableweb/FindOnePayableContract.json"
       parameters:
@@ -7455,8 +7452,8 @@ paths:
                     href: "http://localhost/v2/sponsors/10/signatures/ORga1sHd6S/documents{?type}"
     delete:
       tags:
-      - "Titles"
-      summary: "Delete Title"
+      - "Invoices"
+      summary: "Delete"
       description: ""
       operationId: "payableweb/DeletePayableContract.json"
       parameters:
@@ -10837,15 +10834,15 @@ components:
           type: "string"
         lastUserIp:
           type: "string"
+        quantity:
+          type: "integer"
+          format: "int32"
         status:
           type: "string"
           enum:
           - "WAITING"
           - "PROCESSED"
           - "ERROR"
-        quantity:
-          type: "integer"
-          format: "int32"
         amount:
           type: "number"
         _links:

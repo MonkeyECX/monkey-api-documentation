@@ -4,26 +4,26 @@ info:
   version: v1-oas3
   title: Monkey Exchange - Authentication
 tags:
-  - name: Token and Refresh Token
-    description: Token and Refresh Token
+  - name: Token e Refresh Token
+    description: Token e Refresh Token
 paths:
   /oauth/token:
     post:
       tags:
         - Token
-      summary: Token and Refresh Token
+      summary: Token e Refresh Token
       requestBody:
-        description: Retrieve token body
+        description: Retrive token body
         required: true
         content:
           application/x-www-form-urlencoded:
             schema:
               oneOf:
                 - type: object
-                  description: Body for token generation
+                  description: Body para geração do token
                   required:
                     - client_id
-                    - client_secret
+                    - client_secrect
                     - username
                     - password
                     - grant_type
@@ -31,42 +31,42 @@ paths:
                   properties:
                     client_id:
                       type: string
-                      description: Provided by Monkey.
+                      description: Informado pela Monkey.
                     client_secret:
                       type: string
-                      description: Provided by Monkey.
+                      description: Informado pela Monkey.
                     username:
                       type: string
-                      description: User's email to be used.
+                      description: E-mail do usúario que será utilizado.
                     password:
                       type: string
-                      description: User's password to be used.
+                      description: Senha do usúario que será utilizado.
                     grant_type:
                       type: string
-                      description: Default value "password".
+                      description: Valor padrão "password".
                     scope:
                       type: string
-                      description: Default value "server".
+                      description: Valor padrão "server".
                 - type: object
-                  description: Body for token generation using the refresh token
+                  description: Body para geração do token partindo do refresh token
                   required:
                     - client_id
-                    - client_secret
+                    - client_secrect
                     - grant_type
                     - refresh_token
                   properties:
                     client_id:
                       type: string
-                      description: Provided by Monkey.
-                    client_secret:
+                      description: Informado pela Monkey.
+                    client_secrect:
                       type: string
-                      description: Provided by Monkey.
+                      description: Informado pela Monkey.
                     grant_type:
                       type: string
-                      description: Default value "refresh_token"
+                      description: Valor padrão "refresh_token"
                     refresh_token:
                       type: string
-                      description: Refresh token returned in the token call.
+                      description: Refresh token retornado na chamada do token.
       responses:
         '200':
           description: Success
@@ -77,21 +77,21 @@ paths:
                 properties:
                   access_token:
                     type: string
-                    description: Token to be used in all requests.
+                    description: Token que será utilizado em todas as requisições.
                   token_type:
                     type: string
-                    description: Token type.
+                    description: Tipo do token.
                     default: bearer
                   refresh_token:
                     type: string
-                    description: Token used for revalidation.
+                    description: Token utilizado para revalidação.
                   expires_in:
                     type: integer
                     format: int64
-                    description: Token validity time in seconds.
+                    description: Tempo de validade do token em segundos.
                   scope:
                     type: string
-                    description: Token usage scope.
+                    description: Escopo de utilização do token.
                     default: server
         '400':
           description: Request invalid or malformed.
@@ -102,10 +102,10 @@ paths:
                 properties:
                   error:
                     type: string
-                    description: Error type.
+                    description: Tipo do erro.
                   error_description:
                     type: string
-                    description: Error description.
+                    description: Descrição do erro.
         '401':
           description: Unauthorized.
           content:
@@ -116,41 +116,41 @@ paths:
                   timestamp:
                     type: integer
                     format: int64
-                    description: Time when the error occurred.
+                    description: Momento em que aconteceu o erro.
                   status:
                     type: integer
-                    description: Error status code.
+                    description: Status code do erro.
                   error:
                     type: string
-                    description: Error type.
+                    description: Tipo do erro.
                   message:
                     type: string
-                    description: Error description.
+                    description: Descrição do erro.
                   path:
                     type: string
-                    description: URL path.
+                    description: Path da URL.
   /profiles:
     get:
       tags:
-        - Profile Listing
-      summary: List user profiles
-      description: This item exemplifies the endpoint that allows querying all companies of a user.
+        - Listagem de Perfis
+      summary: Listar perfis de um usuário
+      description: Neste item exemplificamos o endpoint que permite a consulta de todas as empresas de um usuário.
       parameters:
         - name: program
           in: header
-          description: Identifier of the program to be accessed. See <a href='/authentication#program' target='_blank'>here</a> for how programs work.
+          description: Identificador do programa a ser acessado. Veja <a href='/authentication#programa' target='_blank'>aqui</a> como funcionam os programas.
           required: true
           schema:
             type: string
         - name: Authorization
           in: header
-          description: Your access token. See <a href='/authentication#token' target='_blank'>here</a> for how to use the access token.
+          description: Seu token de acesso. Veja <a href='/authentication#token' target='_blank'>aqui</a> como utilizar o token de acesso.
           required: true
           schema:
             type: string
       responses:
         '200':
-          description: '200 - OK: The call was successful.'
+          description: '200 - OK: A chamada foi bem sucedida.'
           content:
             application/json:
               schema:
@@ -163,42 +163,42 @@ paths:
                       properties:
                         id:
                           type: integer
-                          description: Company identifier.
+                          description: Identificador da empresa.
                         userId:
                           type: integer
-                          description: User identifier.
+                          description: Identificador do usuário.
                         status:
                           type: string
-                          description: Company status. Possible values are `ACTIVE` - Active company or `INACTIVE` - Inactive company.
+                          description: Status da empresa. Valores possíveis são `ACTIVE` - Empresa ativa ou `INACTIVE` - Empresa inativa.
                         type:
                           type: string
-                          description: Company profile type. Possible values are `SPONSOR` - Payer or `SELLER` - Assignor or `BUYER` - Investor.
+                          description: Tipo do perfil da empresa. Valores possíveis são `SPONSOR` - Sacado ou `SELLER` - Cedente ou `BUYER` - Investidor.
                         name:
                           type: string
-                          description: Company trade name.
+                          description: Razão social da empresa.
                         companyName:
                           type: string
-                          description: Company trade name.
+                          description: Razão social da empresa.
                         governmentId:
                           type: string
-                          description: Company CNPJ or CPF.
+                          description: CNPJ ou CPF da empresa.
                         role:
                           type: string
-                          description: Permission level.</br>`ADMIN` - Administrator</br>`EXECUTE` - Execution</br>`SELECTOR` - Selector</br>`VIEW` - Viewer</br>`BACK_OFFICE` - Backoffice.
+                          description: Nível de permissão.</br>`ADMIN` - Administrador</br>`EXECUTE` - Execução</br>`SELECTOR` - Seleção</br>`VIEW` - Visualização</br>`BACK_OFFICE` - Backoffice.
                         adhesionTerm:
                           type: boolean
-                          description: Company requires adhesion term.
+                          description: Empresa exige termo de adesão.
                         programAdmin:
                           type: boolean
-                          description: User is an administrator in this company.
+                          description: Usuário é administrador nesta empresa.
                         createdAt:
-                          description: Resource creation date.
+                          description: Data de criação do recurso.
                           type: string
                           format: date-time
                           readOnly: true
                         _links:
                           type: array
-                          description: Resources available through HATEOAS.<br>To learn more click <a href='/api#hypermedia-hateoas' target='_blank'>here</a>.
+                          description: Recursos disponíveis através de HATEOAS.<br>Para saber mais clique <a href='/api#hypermedia-hateoas' target='_blank'>aqui</a>.
                           items:
                             type: object
                             properties:
@@ -209,7 +209,7 @@ paths:
                               templated:
                                 type: boolean
         '401':
-          description: '401 - Unauthorized: The user and password or access token are invalid. See <a href=''/authentication#token'' target=''_blank''>here</a> for how to use the access token.'
+          description: '401 - Unauthorized: O usuário e senha ou token de acesso são inválidos. Veja <a href=''/authentication#token'' target=''_blank''>aqui</a> como utilizar o token de acesso.'
           content:
             application/json:
               schema:
@@ -217,12 +217,12 @@ paths:
                 properties:
                   error:
                     type: string
-                    description: Error type.
+                    description: Tipo do erro.
                   error_description:
                     type: string
-                    description: Error description.
+                    description: Descrição do erro.
         '403':
-          description: '403 - Forbidden: API access is not allowed or user is blocked.'
+          description: '403 - Forbidden: O acesso à API não é permitido ou usuário está bloqueado.'
           content:
             application/json:
               schema:
@@ -230,17 +230,17 @@ paths:
                 properties:
                   type:
                     type: string
-                    description: Error type.
+                    description: Tipo do erro.
                   description:
                     type: string
-                    description: Error description.
+                    description: Descrição do erro.
                   notifications:
                     type: array
                     items:
                       type: string
-                      description: Error details.
+                      description: Detalhes do erro.
         '500':
-          description: '500 - Internal Server Error: There was an internal server error processing the request. <a href=''https://monkeyexchange.statuspage.io/'' target=''_blank''>Check server status</a>.'
+          description: '500 - Internal Server Error: Houve um erro interno do servidor ao processar a requisição. <a href=''https://monkeyexchange.statuspage.io/'' target=''_blank''>Consulte o status dos servidores</a>.'
           content:
             application/json:
               schema:
@@ -248,17 +248,17 @@ paths:
                 properties:
                   type:
                     type: string
-                    description: Error type.
+                    description: Tipo do erro.
                   description:
                     type: string
-                    description: Error description.
+                    description: Descrição do erro.
                   notifications:
                     type: array
                     items:
                       type: string
-                      description: Error details.
+                      description: Detalhes do erro.
 servers:
   - url: https://hmg-zuul.monkeyecx.com/uaa
-    description: Staging Server
+    description: Stagin Server
   - url: https://zuul.monkey.exchange/uaa
     description: Production Server
