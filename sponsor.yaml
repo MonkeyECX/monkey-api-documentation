@@ -24,12 +24,6 @@ paths:
           type: "integer"
           format: "int32"
       responses:
-        415:
-          description: "Unsupported Media Type"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
         404:
           description: "Not Found"
           content:
@@ -38,18 +32,6 @@ paths:
                 $ref: "#/components/schemas/sponsorMessage"
         401:
           description: "Unauthorized"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
-        412:
-          description: "Precondition Failed"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
-        403:
-          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -72,8 +54,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sponsorMessage"
-        405:
-          description: "Method Not Allowed"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sponsorMessage"
+        412:
+          description: "Precondition Failed"
           content:
             '*/*':
               schema:
@@ -83,7 +71,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/sponsorSponsorConfiguration"
+                $ref: "#/components/schemas/sponsorEntityModelSponsorConfiguration"
               example:
                 schedulePurchase: "true"
                 _links:
@@ -118,12 +106,6 @@ paths:
               schedulePurchase: true
         required: true
       responses:
-        415:
-          description: "Unsupported Media Type"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
         404:
           description: "Not Found"
           content:
@@ -132,18 +114,6 @@ paths:
                 $ref: "#/components/schemas/sponsorMessage"
         401:
           description: "Unauthorized"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
-        412:
-          description: "Precondition Failed"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
-        403:
-          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -166,8 +136,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sponsorMessage"
-        405:
-          description: "Method Not Allowed"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sponsorMessage"
+        412:
+          description: "Precondition Failed"
           content:
             '*/*':
               schema:
@@ -177,7 +153,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/sponsorSponsorConfiguration"
+                $ref: "#/components/schemas/sponsorEntityModelSponsorConfiguration"
               example:
                 schedulePurchase: "true"
                 _links:
@@ -212,12 +188,6 @@ paths:
               schedulePurchase: true
         required: true
       responses:
-        415:
-          description: "Unsupported Media Type"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
         404:
           description: "Not Found"
           content:
@@ -226,18 +196,6 @@ paths:
                 $ref: "#/components/schemas/sponsorMessage"
         401:
           description: "Unauthorized"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
-        412:
-          description: "Precondition Failed"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
-        403:
-          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -260,8 +218,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sponsorMessage"
-        405:
-          description: "Method Not Allowed"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sponsorMessage"
+        412:
+          description: "Precondition Failed"
           content:
             '*/*':
               schema:
@@ -271,7 +235,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/sponsorSponsorConfiguration"
+                $ref: "#/components/schemas/sponsorEntityModelSponsorConfiguration"
               example:
                 schedulePurchase: "true"
                 _links:
@@ -284,6 +248,80 @@ paths:
                   sponsor:
                     href: "http://localhost/v2/sponsors/10"
                     type: "GET"
+  /v2/sponsors/{sponsorId}/suppliers:
+    post:
+      tags:
+      - "Suppliers"
+      summary: "Upload"
+      description: ""
+      operationId: "upload"
+      parameters:
+      - name: "sponsorId"
+        in: "path"
+        required: true
+        schema:
+          type: "integer"
+          format: "int32"
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              required:
+              - "file"
+              type: "object"
+              properties:
+                file:
+                  type: "string"
+                  format: "binary"
+      responses:
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sponsorMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sponsorMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sponsorMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sponsorMessage"
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sponsorMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sponsorMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sponsorMessage"
+        202:
+          description: "Accepted"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/sponsorEntityModelProcessLinkResponse"
   /v2/sponsors/{sponsorId}/buyers/{buyerId}/agreements:
     get:
       tags:
@@ -315,12 +353,6 @@ paths:
         schema:
           $ref: "#/components/schemas/sponsorPageable"
       responses:
-        415:
-          description: "Unsupported Media Type"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
         404:
           description: "Not Found"
           content:
@@ -329,18 +361,6 @@ paths:
                 $ref: "#/components/schemas/sponsorMessage"
         401:
           description: "Unauthorized"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
-        412:
-          description: "Precondition Failed"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
-        403:
-          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -363,8 +383,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sponsorMessage"
-        405:
-          description: "Method Not Allowed"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sponsorMessage"
+        412:
+          description: "Precondition Failed"
           content:
             '*/*':
               schema:
@@ -391,16 +417,19 @@ paths:
                         href: "http://localhost/v2/sponsors/10"
                         type: "GET"
                       delete:
-                        href: "http://localhost/v2/sponsors/10/buyers/123/agreements/a7sW83nc10"
+                        href: "http://localhost/v2/sponsors/10/buyers/20/agreements/a7sW83nc10"
                         type: "DELETE"
                       download:
-                        href: "http://localhost/v2/sponsors/10/buyers/123/agreements/file?filename=teste.pdf"
+                        href: "http://localhost/v2/sponsors/10/buyers/20/agreements/file?filename=teste.pdf"
+                        type: "GET"
+                      buyer:
+                        href: "http://localhost/v2/sponsors/10/buyers/20"
                         type: "GET"
                 _links:
                   self:
-                    href: "http://localhost/v2/sponsors/10/buyers/123/agreements?page=0&size=20"
+                    href: "http://localhost/v2/sponsors/10/buyers/20/agreements?page=0&size=20"
                 page:
-                  size: 20
+                  size: 10
                   totalElements: 1
                   totalPages: 1
                   number: 0
@@ -435,12 +464,6 @@ paths:
                   type: "string"
                   format: "binary"
       responses:
-        415:
-          description: "Unsupported Media Type"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
         404:
           description: "Not Found"
           content:
@@ -449,18 +472,6 @@ paths:
                 $ref: "#/components/schemas/sponsorMessage"
         401:
           description: "Unauthorized"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
-        412:
-          description: "Precondition Failed"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
-        403:
-          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -483,8 +494,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sponsorMessage"
-        405:
-          description: "Method Not Allowed"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sponsorMessage"
+        412:
+          description: "Precondition Failed"
           content:
             '*/*':
               schema:
@@ -508,6 +525,15 @@ paths:
                   sponsor:
                     href: "http://localhost/v2/sponsors/10"
                     type: "GET"
+                  delete:
+                    href: "http://localhost/v2/sponsors/10/buyers/20/agreements/a7sW83nc10"
+                    type: "DELETE"
+                  download:
+                    href: "http://localhost/v2/sponsors/10/buyers/20/agreements/file?filename=teste.pdf"
+                    type: "GET"
+                  buyer:
+                    href: "http://localhost/v2/sponsors/10/buyers/20"
+                    type: "GET"
   /v2/sponsors/{id}/buyers/{buyerId}/unapprove:
     post:
       tags:
@@ -529,12 +555,6 @@ paths:
           type: "integer"
           format: "int32"
       responses:
-        415:
-          description: "Unsupported Media Type"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
         404:
           description: "Not Found"
           content:
@@ -543,18 +563,6 @@ paths:
                 $ref: "#/components/schemas/sponsorMessage"
         401:
           description: "Unauthorized"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
-        412:
-          description: "Precondition Failed"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
-        403:
-          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -577,8 +585,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sponsorMessage"
-        405:
-          description: "Method Not Allowed"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sponsorMessage"
+        412:
+          description: "Precondition Failed"
           content:
             '*/*':
               schema:
@@ -588,7 +602,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/sponsorSponsorBuyer"
+                $ref: "#/components/schemas/sponsorEntityModelSponsorBuyer"
               example:
                 createdAt: "2008-11-09T16:36:49.364+0000"
                 createUserId: "guilherme@monkey.exchange"
@@ -633,12 +647,6 @@ paths:
           type: "integer"
           format: "int32"
       responses:
-        415:
-          description: "Unsupported Media Type"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
         404:
           description: "Not Found"
           content:
@@ -647,18 +655,6 @@ paths:
                 $ref: "#/components/schemas/sponsorMessage"
         401:
           description: "Unauthorized"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
-        412:
-          description: "Precondition Failed"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
-        403:
-          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -681,8 +677,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sponsorMessage"
-        405:
-          description: "Method Not Allowed"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sponsorMessage"
+        412:
+          description: "Precondition Failed"
           content:
             '*/*':
               schema:
@@ -692,7 +694,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/sponsorSponsorBuyer"
+                $ref: "#/components/schemas/sponsorEntityModelSponsorBuyer"
               example:
                 createdAt: "2008-11-09T16:36:49.364+0000"
                 createUserId: "guilherme@monkey.exchange"
@@ -741,12 +743,6 @@ paths:
         schema:
           $ref: "#/components/schemas/sponsorPageable"
       responses:
-        415:
-          description: "Unsupported Media Type"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
         404:
           description: "Not Found"
           content:
@@ -755,18 +751,6 @@ paths:
                 $ref: "#/components/schemas/sponsorMessage"
         401:
           description: "Unauthorized"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
-        412:
-          description: "Precondition Failed"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
-        403:
-          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -789,8 +773,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sponsorMessage"
-        405:
-          description: "Method Not Allowed"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sponsorMessage"
+        412:
+          description: "Precondition Failed"
           content:
             '*/*':
               schema:
@@ -800,7 +790,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/sponsorPagedModelBankAccount"
+                $ref: "#/components/schemas/sponsorPagedModelEntityModelBankAccount"
               example:
                 _embedded:
                   bank-accounts:
@@ -861,12 +851,6 @@ paths:
               accountDigit: "6"
         required: true
       responses:
-        415:
-          description: "Unsupported Media Type"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
         404:
           description: "Not Found"
           content:
@@ -875,18 +859,6 @@ paths:
                 $ref: "#/components/schemas/sponsorMessage"
         401:
           description: "Unauthorized"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
-        412:
-          description: "Precondition Failed"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
-        403:
-          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -909,8 +881,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sponsorMessage"
-        405:
-          description: "Method Not Allowed"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sponsorMessage"
+        412:
+          description: "Precondition Failed"
           content:
             '*/*':
               schema:
@@ -920,7 +898,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/sponsorBankAccount"
+                $ref: "#/components/schemas/sponsorEntityModelBankAccount"
               example:
                 alias: "Conta buyer 10"
                 bank: "033"
@@ -970,12 +948,6 @@ paths:
         schema:
           type: "string"
       responses:
-        415:
-          description: "Unsupported Media Type"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
         404:
           description: "Not Found"
           content:
@@ -984,18 +956,6 @@ paths:
                 $ref: "#/components/schemas/sponsorMessage"
         401:
           description: "Unauthorized"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
-        412:
-          description: "Precondition Failed"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
-        403:
-          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -1018,8 +978,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sponsorMessage"
-        405:
-          description: "Method Not Allowed"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sponsorMessage"
+        412:
+          description: "Precondition Failed"
           content:
             '*/*':
               schema:
@@ -1031,6 +997,208 @@ paths:
               schema:
                 type: "string"
                 format: "binary"
+  /v2/sponsors/{id}/processes/{type}/{processId}:
+    get:
+      tags:
+      - "Processes"
+      summary: "Process"
+      description: ""
+      operationId: "processweb/findOneProcessContract.json"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        schema:
+          type: "integer"
+          format: "int32"
+      - name: "type"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      - name: "processId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sponsorMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sponsorMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sponsorMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sponsorMessage"
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sponsorMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sponsorMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sponsorMessage"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/sponsorEntityModelProcess"
+              example:
+                type: "SUPPLIER_UPLOAD"
+                status: "PROCESSING"
+                step: "15"
+                steps: "20"
+                createdAt: "2012-04-23T18:25:43.511Z"
+                createUserId: "monkey_tester@monkey.com"
+                createUserIp: "10.0.0.1"
+                updatedAt: "2012-04-23T18:25:43.511Z"
+                lastUserId: "monkey_tester@monkey.com"
+                lastUserIp: "10.0.0.1"
+                _links:
+                  self:
+                    href: "http://localhost/v2/sponsors/10/processes/supplier/ouL1BKaAmh"
+                    type: "GET"
+                  steps:
+                    href: "http://localhost/v2/sponsors/10/processes/supplier/ouL1BKaAmh/steps"
+                    type: "GET"
+                  sponsor:
+                    href: "http://localhost/v2/sponsors/10"
+                    type: "GET"
+  /v2/sponsors/{id}/processes/{type}/{processId}/steps:
+    get:
+      tags:
+      - "Processes"
+      summary: "Steps"
+      description: ""
+      operationId: "processstepweb/findAllProcessStepContract.json"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        schema:
+          type: "integer"
+          format: "int32"
+      - name: "type"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      - name: "processId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      - name: "pageable"
+        in: "query"
+        required: true
+        schema:
+          $ref: "#/components/schemas/sponsorPageable"
+      responses:
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sponsorMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sponsorMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sponsorMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sponsorMessage"
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sponsorMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sponsorMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sponsorMessage"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/sponsorPagedModelEntityModelProcessStep"
+              example:
+                _embedded:
+                  steps:
+                  - status: "COMPLETED"
+                    relationId: "39561533000188"
+                    detail: ""
+                    createdAt: "2012-04-23T18:25:43.511Z"
+                    createUserId: "monkey_tester@monkey.com"
+                    createUserIp: "10.0.0.1"
+                    updatedAt: "2012-04-23T18:25:43.511Z"
+                    lastUserId: "monkey_tester@monkey.com"
+                    lastUserIp: "10.0.0.1"
+                    _links:
+                      process:
+                        href: "http://localhost/v2/sponsors/10/processes/supplier/ouL1BKaAmh"
+                        type: "GET"
+                      supplier:
+                        href: "http://localhost/v2/sponsors/10/suppliers/39561533000188"
+                        type: "GET"
+                      sponsor:
+                        href: "http://localhost/v2/sponsors/10"
+                        type: "GET"
+                _links:
+                  self:
+                    href: "http://localhost/v2/sponsors/10/processes/supplier/ouL1BKaAmh/steps?page=0&size=20"
+                page:
+                  size: 10
+                  totalElements: 1
+                  totalPages: 1
+                  number: 0
   /v2/sponsors/{id}/buyers:
     get:
       tags:
@@ -1056,12 +1224,6 @@ paths:
         schema:
           $ref: "#/components/schemas/sponsorPageable"
       responses:
-        415:
-          description: "Unsupported Media Type"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
         404:
           description: "Not Found"
           content:
@@ -1070,18 +1232,6 @@ paths:
                 $ref: "#/components/schemas/sponsorMessage"
         401:
           description: "Unauthorized"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
-        412:
-          description: "Precondition Failed"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
-        403:
-          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -1104,8 +1254,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sponsorMessage"
-        405:
-          description: "Method Not Allowed"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sponsorMessage"
+        412:
+          description: "Precondition Failed"
           content:
             '*/*':
               schema:
@@ -1115,7 +1271,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/sponsorPagedModelSponsorBuyer"
+                $ref: "#/components/schemas/sponsorPagedModelEntityModelSponsorBuyer"
               example:
                 _embedded:
                   buyers:
@@ -1173,12 +1329,6 @@ paths:
           type: "integer"
           format: "int32"
       responses:
-        415:
-          description: "Unsupported Media Type"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
         404:
           description: "Not Found"
           content:
@@ -1187,18 +1337,6 @@ paths:
                 $ref: "#/components/schemas/sponsorMessage"
         401:
           description: "Unauthorized"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
-        412:
-          description: "Precondition Failed"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
-        403:
-          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -1221,8 +1359,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sponsorMessage"
-        405:
-          description: "Method Not Allowed"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sponsorMessage"
+        412:
+          description: "Precondition Failed"
           content:
             '*/*':
               schema:
@@ -1232,7 +1376,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/sponsorSponsorBuyer"
+                $ref: "#/components/schemas/sponsorEntityModelSponsorBuyer"
               example:
                 createdAt: "2008-11-09T16:36:49.364+0000"
                 createUserId: "guilherme@monkey.exchange"
@@ -1276,12 +1420,6 @@ paths:
         schema:
           type: "string"
       responses:
-        415:
-          description: "Unsupported Media Type"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
         404:
           description: "Not Found"
           content:
@@ -1290,18 +1428,6 @@ paths:
                 $ref: "#/components/schemas/sponsorMessage"
         401:
           description: "Unauthorized"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
-        412:
-          description: "Precondition Failed"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
-        403:
-          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -1324,8 +1450,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sponsorMessage"
-        405:
-          description: "Method Not Allowed"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sponsorMessage"
+        412:
+          description: "Precondition Failed"
           content:
             '*/*':
               schema:
@@ -1335,7 +1467,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/sponsorBankAccount"
+                $ref: "#/components/schemas/sponsorEntityModelBankAccount"
               example:
                 alias: "Conta buyer 10"
                 bank: "033"
@@ -1378,12 +1510,6 @@ paths:
         schema:
           type: "string"
       responses:
-        415:
-          description: "Unsupported Media Type"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
         404:
           description: "Not Found"
           content:
@@ -1392,18 +1518,6 @@ paths:
                 $ref: "#/components/schemas/sponsorMessage"
         401:
           description: "Unauthorized"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
-        412:
-          description: "Precondition Failed"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
-        403:
-          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -1426,8 +1540,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sponsorMessage"
-        405:
-          description: "Method Not Allowed"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sponsorMessage"
+        412:
+          description: "Precondition Failed"
           content:
             '*/*':
               schema:
@@ -1460,12 +1580,6 @@ paths:
         schema:
           type: "string"
       responses:
-        415:
-          description: "Unsupported Media Type"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
         404:
           description: "Not Found"
           content:
@@ -1474,18 +1588,6 @@ paths:
                 $ref: "#/components/schemas/sponsorMessage"
         401:
           description: "Unauthorized"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
-        412:
-          description: "Precondition Failed"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/sponsorMessage"
-        403:
-          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -1508,8 +1610,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/sponsorMessage"
-        405:
-          description: "Method Not Allowed"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/sponsorMessage"
+        412:
+          description: "Precondition Failed"
           content:
             '*/*':
               schema:
@@ -1650,14 +1758,12 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        412:
-          description: "Precondition Failed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
-                oneOf:
-                - $ref: "#/components/schemas/operationMessage"
-                - $ref: "#/components/schemas/operationEntityModelMessage"
+                $ref: "#/components/schemas/operationMessage"
         415:
           description: "Unsupported Media Type"
           content:
@@ -1676,14 +1782,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        403:
-          description: "Forbidden"
+        412:
+          description: "Precondition Failed"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        500:
-          description: "Internal Server Error"
+        403:
+          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -1782,14 +1888,12 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        412:
-          description: "Precondition Failed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
-                oneOf:
-                - $ref: "#/components/schemas/operationMessage"
-                - $ref: "#/components/schemas/operationEntityModelMessage"
+                $ref: "#/components/schemas/operationMessage"
         415:
           description: "Unsupported Media Type"
           content:
@@ -1808,14 +1912,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        403:
-          description: "Forbidden"
+        412:
+          description: "Precondition Failed"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        500:
-          description: "Internal Server Error"
+        403:
+          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -2301,8 +2405,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -2337,14 +2441,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -2410,8 +2514,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -2446,14 +2550,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -2552,8 +2656,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -2588,14 +2692,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -2677,8 +2781,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -2713,14 +2817,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -2792,8 +2896,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -2828,14 +2932,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -4047,6 +4151,12 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/spyrosMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/spyrosMessage"
         415:
           description: "Unsupported Media Type"
           content:
@@ -4073,12 +4183,6 @@ paths:
                 $ref: "#/components/schemas/spyrosMessage"
         403:
           description: "Forbidden"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/spyrosMessage"
-        500:
-          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -4153,6 +4257,12 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/spyrosMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/spyrosMessage"
         415:
           description: "Unsupported Media Type"
           content:
@@ -4179,12 +4289,6 @@ paths:
                 $ref: "#/components/schemas/spyrosMessage"
         403:
           description: "Forbidden"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/spyrosMessage"
-        500:
-          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -4254,6 +4358,12 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/spyrosMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/spyrosMessage"
         415:
           description: "Unsupported Media Type"
           content:
@@ -4280,12 +4390,6 @@ paths:
                 $ref: "#/components/schemas/spyrosMessage"
         403:
           description: "Forbidden"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/spyrosMessage"
-        500:
-          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -4730,30 +4834,6 @@ paths:
         schema:
           type: "string"
       responses:
-        500:
-          description: "Internal Server Error"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        404:
-          description: "Not Found"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        403:
-          description: "Forbidden"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        409:
-          description: "Conflict"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
         400:
           description: "Bad Request"
           content:
@@ -4766,8 +4846,32 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
         412:
           description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
           content:
             '*/*':
               schema:
@@ -4848,30 +4952,6 @@ paths:
               role: "VIEW"
         required: true
       responses:
-        500:
-          description: "Internal Server Error"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        404:
-          description: "Not Found"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        403:
-          description: "Forbidden"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        409:
-          description: "Conflict"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
         400:
           description: "Bad Request"
           content:
@@ -4884,8 +4964,32 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
         412:
           description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
           content:
             '*/*':
               schema:
@@ -4958,30 +5062,6 @@ paths:
         schema:
           type: "string"
       responses:
-        500:
-          description: "Internal Server Error"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        404:
-          description: "Not Found"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        403:
-          description: "Forbidden"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        409:
-          description: "Conflict"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
         400:
           description: "Bad Request"
           content:
@@ -4994,8 +5074,32 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
         412:
           description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
           content:
             '*/*':
               schema:
@@ -5038,30 +5142,6 @@ paths:
         schema:
           $ref: "#/components/schemas/ssoPageable"
       responses:
-        500:
-          description: "Internal Server Error"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        404:
-          description: "Not Found"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        403:
-          description: "Forbidden"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        409:
-          description: "Conflict"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
         400:
           description: "Bad Request"
           content:
@@ -5074,8 +5154,32 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
         412:
           description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
           content:
             '*/*':
               schema:
@@ -5162,30 +5266,6 @@ paths:
               role: "ADMIN"
         required: true
       responses:
-        500:
-          description: "Internal Server Error"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        404:
-          description: "Not Found"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        403:
-          description: "Forbidden"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        409:
-          description: "Conflict"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
         400:
           description: "Bad Request"
           content:
@@ -5198,8 +5278,32 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
         412:
           description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
           content:
             '*/*':
               schema:
@@ -5291,14 +5395,12 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        412:
-          description: "Precondition Failed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
-                oneOf:
-                - $ref: "#/components/schemas/operationMessage"
-                - $ref: "#/components/schemas/operationEntityModelMessage"
+                $ref: "#/components/schemas/operationMessage"
         415:
           description: "Unsupported Media Type"
           content:
@@ -5317,14 +5419,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        403:
-          description: "Forbidden"
+        412:
+          description: "Precondition Failed"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        500:
-          description: "Internal Server Error"
+        403:
+          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -5391,6 +5493,9 @@ paths:
                   update:
                     href: "http://localhost/v2/sponsors/10/suppliers"
                     type: "PUT"
+                  upload:
+                    href: "http://localhost/v2/sponsors/10/suppliers"
+                    type: "POST"
                 page:
                   size: 20
                   totalElements: 1
@@ -5430,14 +5535,12 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        412:
-          description: "Precondition Failed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
-                oneOf:
-                - $ref: "#/components/schemas/operationMessage"
-                - $ref: "#/components/schemas/operationEntityModelMessage"
+                $ref: "#/components/schemas/operationMessage"
         415:
           description: "Unsupported Media Type"
           content:
@@ -5456,14 +5559,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        403:
-          description: "Forbidden"
+        412:
+          description: "Precondition Failed"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        500:
-          description: "Internal Server Error"
+        403:
+          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -5508,14 +5611,12 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        412:
-          description: "Precondition Failed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
-                oneOf:
-                - $ref: "#/components/schemas/operationMessage"
-                - $ref: "#/components/schemas/operationEntityModelMessage"
+                $ref: "#/components/schemas/operationMessage"
         415:
           description: "Unsupported Media Type"
           content:
@@ -5534,14 +5635,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        403:
-          description: "Forbidden"
+        412:
+          description: "Precondition Failed"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        500:
-          description: "Internal Server Error"
+        403:
+          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -5638,14 +5739,12 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        412:
-          description: "Precondition Failed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
-                oneOf:
-                - $ref: "#/components/schemas/operationMessage"
-                - $ref: "#/components/schemas/operationEntityModelMessage"
+                $ref: "#/components/schemas/operationMessage"
         415:
           description: "Unsupported Media Type"
           content:
@@ -5664,14 +5763,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        403:
-          description: "Forbidden"
+        412:
+          description: "Precondition Failed"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        500:
-          description: "Internal Server Error"
+        403:
+          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -5684,6 +5783,218 @@ paths:
                 $ref: "#/components/schemas/operationMessage"
         204:
           description: "No Content"
+  /v2/sponsors/{id}/suppliers/{governmentId}/bank-accounts:
+    get:
+      tags:
+      - "Suppliers"
+      summary: "List Bank Accounts"
+      description: ""
+      operationId: "supplierbankaccountweb/findAllBankAccountContract.json"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        schema:
+          type: "integer"
+          format: "int32"
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      - name: "pageable"
+        in: "query"
+        required: true
+        schema:
+          $ref: "#/components/schemas/operationPageable"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/operationPagedModelEntityModelSponsorSupplierBankAccount"
+              example:
+                _embedded:
+                  bank-accounts:
+                  - alias: "Conta buyer 10"
+                    bank: "033"
+                    bankName: "Santander"
+                    agency: "3333"
+                    account: "66666666"
+                    accountDigit: "6"
+                    createdAt: "2009-11-09T16:36:49.364+0000"
+                    createUserId: "monkey_tester@monkey.com"
+                    createUserIp: "10.0.0.1"
+                    updatedAt: "2009-11-09T16:36:49.364+0000"
+                    lastUserId: "monkey_tester@monkey.com"
+                    lastUserIp: "10.0.0.1"
+                    _links:
+                      self:
+                        href: "http://localhost/v2/sponsors/20/suppliers/25628265000160/bank-accounts/w3cnidgf3b"
+                        type: "GET"
+                      delete:
+                        href: "http://localhost/v2/sponsors/20/suppliers/25628265000160/bank-accounts/w3cnidgf3b"
+                        type: "DELETE"
+                      sponsor:
+                        href: "http://localhost/v2/sponsors/20"
+                        type: "GET"
+                      supplier:
+                        href: "http://localhost/v2/sponsors/20/suppliers/25628265000160"
+                        type: "GET"
+                _links:
+                  self:
+                    href: "http://localhost/v2/sponsors/20/suppliers/25628265000160/bank-accounts?page=0&size=20"
+                  create:
+                    href: "http://localhost/v2/sponsors/20/suppliers/25628265000160/bank-accounts"
+                    type: "POST"
+                page:
+                  size: 20
+                  totalElements: 1
+                  totalPages: 1
+                  number: 0
+    post:
+      tags:
+      - "Suppliers"
+      summary: "Add Bank Account"
+      description: ""
+      operationId: "supplierbankaccountweb/createBankAccountContract.json"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        schema:
+          type: "integer"
+          format: "int32"
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/operationSponsorSupplierBankAccount"
+            example:
+              alias: "Bank Account"
+              bank: "033"
+              bankName: "Santander"
+              agency: "3333"
+              account: "66666666"
+              accountDigit: "6"
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        202:
+          description: "Accepted"
   /v2/sponsors/{id}/suppliers/enable:
     post:
       tags:
@@ -5711,14 +6022,12 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        412:
-          description: "Precondition Failed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
-                oneOf:
-                - $ref: "#/components/schemas/operationMessage"
-                - $ref: "#/components/schemas/operationEntityModelMessage"
+                $ref: "#/components/schemas/operationMessage"
         415:
           description: "Unsupported Media Type"
           content:
@@ -5737,14 +6046,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        403:
-          description: "Forbidden"
+        412:
+          description: "Precondition Failed"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        500:
-          description: "Internal Server Error"
+        403:
+          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -5784,14 +6093,12 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        412:
-          description: "Precondition Failed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
-                oneOf:
-                - $ref: "#/components/schemas/operationMessage"
-                - $ref: "#/components/schemas/operationEntityModelMessage"
+                $ref: "#/components/schemas/operationMessage"
         415:
           description: "Unsupported Media Type"
           content:
@@ -5810,14 +6117,403 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
         403:
           description: "Forbidden"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        202:
+          description: "Accepted"
+  /v2/sponsors/{id}/sellers/{governmentId}/bank-accounts:
+    get:
+      tags:
+      - "Supplier Registration Details"
+      summary: "List Bank Accounts"
+      description: ""
+      operationId: "sellerbankaccountweb/findAllBankAccountContract.json"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        schema:
+          type: "integer"
+          format: "int32"
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      - name: "search"
+        in: "query"
+        required: true
+        schema:
+          $ref: "#/components/schemas/operationSpecificationSellerBankAccount"
+      - name: "pageable"
+        in: "query"
+        required: true
+        schema:
+          $ref: "#/components/schemas/operationPageable"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
         500:
           description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/operationPagedModelEntityModelSellerBankAccount"
+              example:
+                _embedded:
+                  bank-accounts:
+                  - alias: "Conta buyer 10"
+                    bank: "033"
+                    bankName: "Santander"
+                    agency: "3333"
+                    account: "66666666"
+                    accountDigit: "6"
+                    main: "true"
+                    status: "CREATED_BY_SELLER"
+                    createdAt: "2009-11-09T16:36:49.364+0000"
+                    createUserId: "monkey_tester@monkey.com"
+                    createUserIp: "10.0.0.1"
+                    updatedAt: "2009-11-09T16:36:49.364+0000"
+                    lastUserId: "monkey_tester@monkey.com"
+                    lastUserIp: "10.0.0.1"
+                    _links:
+                      self:
+                        href: "http://localhost/v2/sponsors/20/sellers/25628265000160/bank-accounts/99"
+                        type: "GET"
+                      approve:
+                        href: "http://localhost/v2/sponsors/20/sellers/25628265000160/bank-accounts/99/approve"
+                        type: "POST"
+                      unapprove:
+                        href: "http://localhost/v2/sponsors/20/sellers/25628265000160/bank-accounts/99/unapprove"
+                        type: "POST"
+                      seller:
+                        href: "http://localhost/v2/sponsors/20/sellers/25628265000160"
+                        type: "GET"
+                      sponsor:
+                        href: "http://localhost/v2/sponsors/20"
+                        type: "GET"
+                      supplier:
+                        href: "http://localhost/v2/sponsors/20/suppliers/25628265000160"
+                        type: "GET"
+                _links:
+                  self:
+                    href: "http://localhost/v2/sponsors/20/sellers/25628265000160/bank-accounts?page=0&size=20"
+                  create:
+                    href: "http://localhost/v2/sponsors/20/sellers/25628265000160/bank-accounts"
+                    type: "POST"
+                page:
+                  size: 20
+                  totalElements: 1
+                  totalPages: 1
+                  number: 0
+    post:
+      tags:
+      - "Supplier Registration Details"
+      summary: "Add Bank Account"
+      description: ""
+      operationId: "sellerbankaccountweb/createBankAccountContract.json"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        schema:
+          type: "integer"
+          format: "int32"
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/operationSellerBankAccount"
+            example:
+              alias: "Bank Account"
+              bank: "033"
+              bankName: "Santander"
+              agency: "3333"
+              account: "66666666"
+              accountDigit: "6"
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        202:
+          description: "Accepted"
+  /v2/sponsors/{id}/sellers/{governmentId}/bank-accounts/{bankAccountId}/unapprove:
+    post:
+      tags:
+      - "Supplier Registration Details"
+      summary: "Unapprove Bank Account"
+      description: ""
+      operationId: "sellerbankaccountweb/unapproveBankAccountContract.json"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        schema:
+          type: "integer"
+          format: "int32"
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      - name: "bankAccountId"
+        in: "path"
+        required: true
+        schema:
+          type: "integer"
+          format: "int32"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        202:
+          description: "Accepted"
+  /v2/sponsors/{id}/sellers/{governmentId}/bank-accounts/{bankAccountId}/approve:
+    post:
+      tags:
+      - "Supplier Registration Details"
+      summary: "Approve Bank Account"
+      description: ""
+      operationId: "sellerbankaccountweb/approveBankAccountContract.json"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        schema:
+          type: "integer"
+          format: "int32"
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      - name: "bankAccountId"
+        in: "path"
+        required: true
+        schema:
+          type: "integer"
+          format: "int32"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        403:
+          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -5867,14 +6563,12 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        412:
-          description: "Precondition Failed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
-                oneOf:
-                - $ref: "#/components/schemas/operationMessage"
-                - $ref: "#/components/schemas/operationEntityModelMessage"
+                $ref: "#/components/schemas/operationMessage"
         415:
           description: "Unsupported Media Type"
           content:
@@ -5893,14 +6587,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        403:
-          description: "Forbidden"
+        412:
+          description: "Precondition Failed"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        500:
-          description: "Internal Server Error"
+        403:
+          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -5986,14 +6680,12 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        412:
-          description: "Precondition Failed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
-                oneOf:
-                - $ref: "#/components/schemas/operationMessage"
-                - $ref: "#/components/schemas/operationEntityModelMessage"
+                $ref: "#/components/schemas/operationMessage"
         415:
           description: "Unsupported Media Type"
           content:
@@ -6012,14 +6704,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        403:
-          description: "Forbidden"
+        412:
+          description: "Precondition Failed"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        500:
-          description: "Internal Server Error"
+        403:
+          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -6088,14 +6780,12 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        412:
-          description: "Precondition Failed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
-                oneOf:
-                - $ref: "#/components/schemas/operationMessage"
-                - $ref: "#/components/schemas/operationEntityModelMessage"
+                $ref: "#/components/schemas/operationMessage"
         415:
           description: "Unsupported Media Type"
           content:
@@ -6114,14 +6804,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        403:
-          description: "Forbidden"
+        412:
+          description: "Precondition Failed"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        500:
-          description: "Internal Server Error"
+        403:
+          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -6229,14 +6919,12 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        412:
-          description: "Precondition Failed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
-                oneOf:
-                - $ref: "#/components/schemas/operationMessage"
-                - $ref: "#/components/schemas/operationEntityModelMessage"
+                $ref: "#/components/schemas/operationMessage"
         415:
           description: "Unsupported Media Type"
           content:
@@ -6255,14 +6943,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        403:
-          description: "Forbidden"
+        412:
+          description: "Precondition Failed"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        500:
-          description: "Internal Server Error"
+        403:
+          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -6307,14 +6995,12 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        412:
-          description: "Precondition Failed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
-                oneOf:
-                - $ref: "#/components/schemas/operationMessage"
-                - $ref: "#/components/schemas/operationEntityModelMessage"
+                $ref: "#/components/schemas/operationMessage"
         415:
           description: "Unsupported Media Type"
           content:
@@ -6333,14 +7019,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        403:
-          description: "Forbidden"
+        412:
+          description: "Precondition Failed"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        500:
-          description: "Internal Server Error"
+        403:
+          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -6371,6 +7057,197 @@ paths:
                   sponsor:
                     href: "http://localhost/v2/sponsors/10"
                     type: "GET"
+  /v2/sponsors/{id}/suppliers/{governmentId}/bank-accounts/{accountId}:
+    get:
+      tags:
+      - "Suppliers"
+      summary: "Bank Account Detail"
+      description: ""
+      operationId: "supplierbankaccountweb/findOneBankAccountContract.json"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        schema:
+          type: "integer"
+          format: "int32"
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      - name: "accountId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/operationEntityModelSponsorSupplierBankAccount"
+              example:
+                alias: "Conta buyer 10"
+                bank: "033"
+                bankName: "Santander"
+                agency: "3333"
+                account: "66666666"
+                accountDigit: "6"
+                createdAt: "2009-11-09T16:36:49.364+0000"
+                createUserId: "monkey_tester@monkey.com"
+                createUserIp: "10.0.0.1"
+                updatedAt: "2009-11-09T16:36:49.364+0000"
+                lastUserId: "monkey_tester@monkey.com"
+                lastUserIp: "10.0.0.1"
+                _links:
+                  self:
+                    href: "http://localhost/v2/sponsors/20/suppliers/25628265000160/bank-accounts/w3cnidgf3b"
+                    type: "GET"
+                  delete:
+                    href: "http://localhost/v2/sponsors/20/suppliers/25628265000160/bank-accounts/w3cnidgf3b"
+                    type: "DELETE"
+                  sponsor:
+                    href: "http://localhost/v2/sponsors/20"
+                    type: "GET"
+                  supplier:
+                    href: "http://localhost/v2/sponsors/20/suppliers/25628265000160"
+                    type: "GET"
+    delete:
+      tags:
+      - "Suppliers"
+      summary: "Delete Bank Account"
+      description: ""
+      operationId: "supplierbankaccountweb/deleteBankAccountContract.json"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        schema:
+          type: "integer"
+          format: "int32"
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      - name: "accountId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        202:
+          description: "Accepted"
   /v2/sponsors/{id}/selling-summaries:
     get:
       tags:
@@ -6398,14 +7275,12 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        412:
-          description: "Precondition Failed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
-                oneOf:
-                - $ref: "#/components/schemas/operationMessage"
-                - $ref: "#/components/schemas/operationEntityModelMessage"
+                $ref: "#/components/schemas/operationMessage"
         415:
           description: "Unsupported Media Type"
           content:
@@ -6424,14 +7299,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        403:
-          description: "Forbidden"
+        412:
+          description: "Precondition Failed"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        500:
-          description: "Internal Server Error"
+        403:
+          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -6490,14 +7365,12 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        412:
-          description: "Precondition Failed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
-                oneOf:
-                - $ref: "#/components/schemas/operationMessage"
-                - $ref: "#/components/schemas/operationEntityModelMessage"
+                $ref: "#/components/schemas/operationMessage"
         415:
           description: "Unsupported Media Type"
           content:
@@ -6516,14 +7389,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        403:
-          description: "Forbidden"
+        412:
+          description: "Precondition Failed"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        500:
-          description: "Internal Server Error"
+        403:
+          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -6603,14 +7476,12 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        412:
-          description: "Precondition Failed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
-                oneOf:
-                - $ref: "#/components/schemas/operationMessage"
-                - $ref: "#/components/schemas/operationEntityModelMessage"
+                $ref: "#/components/schemas/operationMessage"
         415:
           description: "Unsupported Media Type"
           content:
@@ -6629,14 +7500,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        403:
-          description: "Forbidden"
+        412:
+          description: "Precondition Failed"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        500:
-          description: "Internal Server Error"
+        403:
+          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -6677,6 +7548,126 @@ paths:
                   supplier:
                     href: "http://localhost/v2/sponsors/10/suppliers/36603564000166"
                     type: "GET"
+  /v2/sponsors/{id}/sellers/{governmentId}/bank-accounts/{bankAccountId}:
+    get:
+      tags:
+      - "Supplier Registration Details"
+      summary: "Bank Account Detail"
+      description: ""
+      operationId: "sellerbankaccountweb/findOneBankAccountContract.json"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        schema:
+          type: "integer"
+          format: "int32"
+      - name: "governmentId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      - name: "bankAccountId"
+        in: "path"
+        required: true
+        schema:
+          type: "integer"
+          format: "int32"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/operationEntityModelSellerBankAccount"
+              example:
+                alias: "Conta buyer 10"
+                bank: "033"
+                bankName: "Santander"
+                agency: "3333"
+                account: "66666666"
+                accountDigit: "6"
+                main: "true"
+                status: "CREATED_BY_SELLER"
+                createdAt: "2009-11-09T16:36:49.364+0000"
+                createUserId: "monkey_tester@monkey.com"
+                createUserIp: "10.0.0.1"
+                updatedAt: "2009-11-09T16:36:49.364+0000"
+                lastUserId: "monkey_tester@monkey.com"
+                lastUserIp: "10.0.0.1"
+                _links:
+                  self:
+                    href: "http://localhost/v2/sponsors/20/sellers/25628265000160/bank-accounts/99"
+                    type: "GET"
+                  approve:
+                    href: "http://localhost/v2/sponsors/20/sellers/25628265000160/bank-accounts/99/approve"
+                    type: "POST"
+                  unapprove:
+                    href: "http://localhost/v2/sponsors/20/sellers/25628265000160/bank-accounts/99/unapprove"
+                    type: "POST"
+                  seller:
+                    href: "http://localhost/v2/sponsors/20/sellers/25628265000160"
+                    type: "GET"
+                  sponsor:
+                    href: "http://localhost/v2/sponsors/20"
+                    type: "GET"
+                  supplier:
+                    href: "http://localhost/v2/sponsors/29/suppliers/25628265000160"
+                    type: "GET"
   /v2/sponsors/{id}/sellers/{governmentId}/adhesion-terms:
     get:
       tags:
@@ -6709,14 +7700,12 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        412:
-          description: "Precondition Failed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
-                oneOf:
-                - $ref: "#/components/schemas/operationMessage"
-                - $ref: "#/components/schemas/operationEntityModelMessage"
+                $ref: "#/components/schemas/operationMessage"
         415:
           description: "Unsupported Media Type"
           content:
@@ -6735,14 +7724,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        403:
-          description: "Forbidden"
+        412:
+          description: "Precondition Failed"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        500:
-          description: "Internal Server Error"
+        403:
+          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -6823,14 +7812,12 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        412:
-          description: "Precondition Failed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
-                oneOf:
-                - $ref: "#/components/schemas/operationMessage"
-                - $ref: "#/components/schemas/operationEntityModelMessage"
+                $ref: "#/components/schemas/operationMessage"
         415:
           description: "Unsupported Media Type"
           content:
@@ -6849,14 +7836,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        403:
-          description: "Forbidden"
+        412:
+          description: "Precondition Failed"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        500:
-          description: "Internal Server Error"
+        403:
+          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -6930,14 +7917,12 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        412:
-          description: "Precondition Failed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
-                oneOf:
-                - $ref: "#/components/schemas/operationMessage"
-                - $ref: "#/components/schemas/operationEntityModelMessage"
+                $ref: "#/components/schemas/operationMessage"
         415:
           description: "Unsupported Media Type"
           content:
@@ -6956,14 +7941,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        403:
-          description: "Forbidden"
+        412:
+          description: "Precondition Failed"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        500:
-          description: "Internal Server Error"
+        403:
+          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -7037,14 +8022,12 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        412:
-          description: "Precondition Failed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
-                oneOf:
-                - $ref: "#/components/schemas/operationMessage"
-                - $ref: "#/components/schemas/operationEntityModelMessage"
+                $ref: "#/components/schemas/operationMessage"
         415:
           description: "Unsupported Media Type"
           content:
@@ -7063,14 +8046,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        403:
-          description: "Forbidden"
+        412:
+          description: "Precondition Failed"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        500:
-          description: "Internal Server Error"
+        403:
+          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -7144,14 +8127,12 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        412:
-          description: "Precondition Failed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
-                oneOf:
-                - $ref: "#/components/schemas/operationMessage"
-                - $ref: "#/components/schemas/operationEntityModelMessage"
+                $ref: "#/components/schemas/operationMessage"
         415:
           description: "Unsupported Media Type"
           content:
@@ -7170,14 +8151,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        403:
-          description: "Forbidden"
+        412:
+          description: "Precondition Failed"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        500:
-          description: "Internal Server Error"
+        403:
+          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -7260,14 +8241,12 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        412:
-          description: "Precondition Failed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
-                oneOf:
-                - $ref: "#/components/schemas/operationMessage"
-                - $ref: "#/components/schemas/operationEntityModelMessage"
+                $ref: "#/components/schemas/operationMessage"
         415:
           description: "Unsupported Media Type"
           content:
@@ -7286,14 +8265,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        403:
-          description: "Forbidden"
+        412:
+          description: "Precondition Failed"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        500:
-          description: "Internal Server Error"
+        403:
+          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -7359,14 +8338,12 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        412:
-          description: "Precondition Failed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
-                oneOf:
-                - $ref: "#/components/schemas/operationMessage"
-                - $ref: "#/components/schemas/operationEntityModelMessage"
+                $ref: "#/components/schemas/operationMessage"
         415:
           description: "Unsupported Media Type"
           content:
@@ -7385,14 +8362,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        403:
-          description: "Forbidden"
+        412:
+          description: "Precondition Failed"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        500:
-          description: "Internal Server Error"
+        403:
+          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -7481,14 +8458,12 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        412:
-          description: "Precondition Failed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
-                oneOf:
-                - $ref: "#/components/schemas/operationMessage"
-                - $ref: "#/components/schemas/operationEntityModelMessage"
+                $ref: "#/components/schemas/operationMessage"
         415:
           description: "Unsupported Media Type"
           content:
@@ -7507,14 +8482,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        403:
-          description: "Forbidden"
+        412:
+          description: "Precondition Failed"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        500:
-          description: "Internal Server Error"
+        403:
+          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -7559,14 +8534,12 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        412:
-          description: "Precondition Failed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
-                oneOf:
-                - $ref: "#/components/schemas/operationMessage"
-                - $ref: "#/components/schemas/operationEntityModelMessage"
+                $ref: "#/components/schemas/operationMessage"
         415:
           description: "Unsupported Media Type"
           content:
@@ -7585,14 +8558,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        403:
-          description: "Forbidden"
+        412:
+          description: "Precondition Failed"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        500:
-          description: "Internal Server Error"
+        403:
+          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -7671,14 +8644,12 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        412:
-          description: "Precondition Failed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
-                oneOf:
-                - $ref: "#/components/schemas/operationMessage"
-                - $ref: "#/components/schemas/operationEntityModelMessage"
+                $ref: "#/components/schemas/operationMessage"
         415:
           description: "Unsupported Media Type"
           content:
@@ -7697,14 +8668,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        403:
-          description: "Forbidden"
+        412:
+          description: "Precondition Failed"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        500:
-          description: "Internal Server Error"
+        403:
+          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -7790,14 +8761,12 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        412:
-          description: "Precondition Failed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
-                oneOf:
-                - $ref: "#/components/schemas/operationMessage"
-                - $ref: "#/components/schemas/operationEntityModelMessage"
+                $ref: "#/components/schemas/operationMessage"
         415:
           description: "Unsupported Media Type"
           content:
@@ -7816,14 +8785,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        403:
-          description: "Forbidden"
+        412:
+          description: "Precondition Failed"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        500:
-          description: "Internal Server Error"
+        403:
+          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -7889,14 +8858,12 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        412:
-          description: "Precondition Failed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
-                oneOf:
-                - $ref: "#/components/schemas/operationMessage"
-                - $ref: "#/components/schemas/operationEntityModelMessage"
+                $ref: "#/components/schemas/operationMessage"
         415:
           description: "Unsupported Media Type"
           content:
@@ -7915,14 +8882,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        403:
-          description: "Forbidden"
+        412:
+          description: "Precondition Failed"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        500:
-          description: "Internal Server Error"
+        403:
+          description: "Forbidden"
           content:
             '*/*':
               schema:
@@ -7993,8 +8960,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -8029,14 +8996,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -8135,8 +9102,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -8171,14 +9138,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -8271,8 +9238,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -8307,14 +9274,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -8395,8 +9362,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -8431,14 +9398,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -8473,6 +9440,7 @@ paths:
               startDate: "2020-05-05"
               endDate: "2020-06-06"
               type: "PAYABLE"
+              fileType: "CSV"
         required: true
       responses:
         400:
@@ -8481,8 +9449,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -8517,14 +9485,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -8539,6 +9507,7 @@ paths:
                 startDate: "2021-06-05"
                 endDate: "2021-07-06"
                 type: "PAYABLE"
+                fileType: "CSV"
                 createdAt: "202021-07-09T16:36:49.364+0000"
                 createUserId: "email@monkey.exchange"
                 createUserIp: "127.0.0.1"
@@ -8581,8 +9550,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -8617,14 +9586,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -8639,6 +9608,7 @@ paths:
                 startDate: "2021-04-01"
                 endDate: "2021-05-30"
                 type: "PAYABLE"
+                fileType: "CSV"
                 createdAt: "2021-07-09T16:36:49.364+0000"
                 createUserId: "EMAIL@monkey.exchange"
                 createUserIp: "127.0.0.1"
@@ -8684,8 +9654,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -8720,14 +9690,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -8771,8 +9741,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -8807,14 +9777,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -8870,8 +9840,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -8906,14 +9876,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -8968,6 +9938,7 @@ components:
           - "Method_Not_Allowed"
           - "Unsupported_Media_Type"
           - "Access_Denied"
+          - "mfa_required"
           - "Integration_Error"
         description:
           type: "string"
@@ -8977,10 +9948,6 @@ components:
           description: "Notifications"
           items:
             type: "string"
-    sponsorLinks:
-      type: "object"
-      additionalProperties:
-        $ref: "#/components/schemas/sponsorLink"
     sponsorSponsorConfiguration:
       type: "object"
       properties:
@@ -9007,6 +9974,41 @@ components:
         schedulePurchase:
           type: "boolean"
           description: "Schedule Purchases"
+    sponsorEntityModelSponsorConfiguration:
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          description: "Creation Date"
+          format: "date-time"
+        createUserId:
+          type: "string"
+          description: "Record Creator User"
+        createUserIp:
+          type: "string"
+          description: "Creation IP Used"
+        updatedAt:
+          type: "string"
+          description: "Last Update Date"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+          description: "Last Update User"
+        lastUserIp:
+          type: "string"
+          description: "Last Update IP Used"
+        schedulePurchase:
+          type: "boolean"
+          description: "Schedule Purchases"
+        _links:
+          $ref: "#/components/schemas/sponsorLinks"
+    sponsorLinks:
+      type: "object"
+      additionalProperties:
+        $ref: "#/components/schemas/sponsorLink"
+    sponsorEntityModelProcessLinkResponse:
+      type: "object"
+      properties:
         _links:
           $ref: "#/components/schemas/sponsorLinks"
     sponsorEntityModelSponsorBuyerAgreement:
@@ -9040,7 +10042,7 @@ components:
           description: "File Name"
         _links:
           $ref: "#/components/schemas/sponsorLinks"
-    sponsorSponsorBuyer:
+    sponsorEntityModelSponsorBuyer:
       required:
       - "status"
       type: "object"
@@ -9065,16 +10067,13 @@ components:
         lastUserIp:
           type: "string"
           description: "Last Update IP Used"
-        name:
-          type: "string"
-          description: "Name"
-        governmentId:
-          type: "string"
-          description: "Government ID"
         status:
-          pattern: "APPROVED|UNAPPROVED|INACTIVE"
           type: "string"
           description: "Status"
+          enum:
+          - "APPROVED"
+          - "UNAPPROVED"
+          - "INACTIVE"
         _links:
           $ref: "#/components/schemas/sponsorLinks"
     sponsorBankAccount:
@@ -9107,6 +10106,60 @@ components:
         lastUserIp:
           type: "string"
           description: "Last Update IP Used"
+        id:
+          type: "string"
+          description: "ID"
+        alias:
+          type: "string"
+          description: "Alias"
+        bank:
+          type: "string"
+          description: "Bank Code"
+        bankName:
+          type: "string"
+          description: "Bank Name"
+        agency:
+          type: "string"
+          description: "Bank Account Agency"
+        account:
+          type: "string"
+          description: "Bank Account"
+        accountDigit:
+          type: "string"
+          description: "Account Digit"
+    sponsorEntityModelBankAccount:
+      required:
+      - "account"
+      - "accountDigit"
+      - "agency"
+      - "alias"
+      - "bank"
+      - "bankName"
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          description: "Creation Date"
+          format: "date-time"
+        createUserId:
+          type: "string"
+          description: "Record Creator User"
+        createUserIp:
+          type: "string"
+          description: "Creation IP Used"
+        updatedAt:
+          type: "string"
+          description: "Last Update Date"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+          description: "Last Update User"
+        lastUserIp:
+          type: "string"
+          description: "Last Update IP Used"
+        id:
+          type: "string"
+          description: "ID"
         alias:
           type: "string"
           description: "Alias"
@@ -9178,9 +10231,102 @@ components:
           $ref: "#/components/schemas/sponsorLinks"
         page:
           $ref: "#/components/schemas/sponsorPageMetadata"
+    sponsorEntityModelProcess:
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          description: "Creation Date"
+          format: "date-time"
+        createUserId:
+          type: "string"
+          description: "Record Creator User"
+        createUserIp:
+          type: "string"
+          description: "Creation IP Used"
+        updatedAt:
+          type: "string"
+          description: "Last Update Date"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+          description: "Last Update User"
+        lastUserIp:
+          type: "string"
+          description: "Last Update IP Used"
+        type:
+          type: "string"
+          description: "Type"
+          enum:
+          - "SUPPLIER_UPLOAD"
+        status:
+          type: "string"
+          description: "Status"
+          enum:
+          - "PROCESSING"
+          - "COMPLETED"
+          - "COMPLETED_WITH_ERROR"
+        step:
+          type: "integer"
+          format: "int64"
+        steps:
+          type: "integer"
+          format: "int64"
+        _links:
+          $ref: "#/components/schemas/sponsorLinks"
+    sponsorEntityModelProcessStep:
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          description: "Creation Date"
+          format: "date-time"
+        createUserId:
+          type: "string"
+          description: "Record Creator User"
+        createUserIp:
+          type: "string"
+          description: "Creation IP Used"
+        updatedAt:
+          type: "string"
+          description: "Last Update Date"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+          description: "Last Update User"
+        lastUserIp:
+          type: "string"
+          description: "Last Update IP Used"
+        status:
+          type: "string"
+          description: "Status"
+          enum:
+          - "PROCESSING"
+          - "COMPLETED"
+          - "COMPLETED_WITH_ERROR"
+        relationId:
+          type: "string"
+        detail:
+          type: "string"
+        _links:
+          $ref: "#/components/schemas/sponsorLinks"
+    sponsorPagedModelEntityModelProcessStep:
+      type: "object"
+      properties:
+        _embedded:
+          type: "object"
+          properties:
+            steps:
+              type: "array"
+              items:
+                $ref: "#/components/schemas/sponsorEntityModelProcessStep"
+        _links:
+          $ref: "#/components/schemas/sponsorLinks"
+        page:
+          $ref: "#/components/schemas/sponsorPageMetadata"
     sponsorSpecificationSponsorBuyer:
       type: "object"
-    sponsorPagedModelSponsorBuyer:
+    sponsorPagedModelEntityModelSponsorBuyer:
       type: "object"
       properties:
         _embedded:
@@ -9189,14 +10335,14 @@ components:
             buyers:
               type: "array"
               items:
-                $ref: "#/components/schemas/sponsorSponsorBuyer"
+                $ref: "#/components/schemas/sponsorEntityModelSponsorBuyer"
         _links:
           $ref: "#/components/schemas/sponsorLinks"
         page:
           $ref: "#/components/schemas/sponsorPageMetadata"
     sponsorSpecificationBankAccount:
       type: "object"
-    sponsorPagedModelBankAccount:
+    sponsorPagedModelEntityModelBankAccount:
       type: "object"
       properties:
         _embedded:
@@ -9205,7 +10351,7 @@ components:
             bank-accounts:
               type: "array"
               items:
-                $ref: "#/components/schemas/sponsorBankAccount"
+                $ref: "#/components/schemas/sponsorEntityModelBankAccount"
         _links:
           $ref: "#/components/schemas/sponsorLinks"
         page:
@@ -9221,12 +10367,14 @@ components:
           type: "string"
         type:
           type: "string"
+          description: "Type"
         deprecation:
           type: "string"
         profile:
           type: "string"
         name:
           type: "string"
+          description: "Name"
         templated:
           type: "boolean"
     payableLoaderV2Message:
@@ -10598,6 +11746,8 @@ components:
           - "ACTIVE"
           - "INACTIVE"
           - "FRAUD_CONFIRMED"
+          - "BANK_ACCOUNT_CHANGED"
+          - "BIOMETRIC_VERIFICATION"
           - "APPROVED"
         companyId:
           type: "string"
@@ -10741,43 +11891,6 @@ components:
           type: "array"
           items:
             type: "string"
-    operationEntityModelMessage:
-      type: "object"
-      properties:
-        type:
-          type: "string"
-          enum:
-          - "Invalid_Token"
-          - "Mult_Status_Error"
-          - "No_Content_Error"
-          - "Conflict_Error"
-          - "Parameter_Error"
-          - "Bad_Request_Error"
-          - "Business_Logic_Error"
-          - "Resource_Not_Found"
-          - "Internal_Architecture_Error"
-          - "List_Not_Found"
-          - "Method_Not_Allowed"
-          - "Unsupported_Media_Type"
-          - "Access_Denied"
-          - "Integration_Error"
-          - "Adhesion_Term_Not_Signed"
-          - "Order_Expired"
-          - "Invoice_Date_Challenge"
-          - "Invoice_Payment_Date_Challenge"
-          - "Invoice_Payment_Value_Challenge"
-        description:
-          type: "string"
-        notifications:
-          type: "array"
-          items:
-            type: "string"
-        _links:
-          $ref: "#/components/schemas/operationLinks"
-    operationLinks:
-      type: "object"
-      additionalProperties:
-        $ref: "#/components/schemas/operationLink"
     operationSponsorTaxRequest:
       type: "object"
       properties:
@@ -10803,6 +11916,92 @@ components:
           format: "float"
         sponsorCanOffer:
           type: "boolean"
+    operationSponsorSupplierBankAccount:
+      required:
+      - "account"
+      - "accountDigit"
+      - "agency"
+      - "alias"
+      - "bank"
+      - "bankName"
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          format: "date-time"
+        createUserId:
+          type: "string"
+        createUserIp:
+          type: "string"
+        updatedAt:
+          type: "string"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+        lastUserIp:
+          type: "string"
+        alias:
+          type: "string"
+        bank:
+          type: "string"
+        bankName:
+          type: "string"
+        agency:
+          type: "string"
+        account:
+          type: "string"
+        accountDigit:
+          type: "string"
+    operationSellerBankAccount:
+      required:
+      - "account"
+      - "accountDigit"
+      - "agency"
+      - "alias"
+      - "bank"
+      - "bankName"
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          format: "date-time"
+        createUserId:
+          type: "string"
+        createUserIp:
+          type: "string"
+        updatedAt:
+          type: "string"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+        lastUserIp:
+          type: "string"
+        alias:
+          type: "string"
+        bank:
+          type: "string"
+        bankName:
+          type: "string"
+        agency:
+          type: "string"
+        account:
+          type: "string"
+        accountDigit:
+          type: "string"
+        main:
+          type: "boolean"
+          readOnly: true
+        status:
+          type: "string"
+          readOnly: true
+          enum:
+          - "CREATED_BY_SELLER"
+          - "CREATED_BY_SPONSOR"
+          - "INACTIVE"
+          - "APPROVAL"
+          - "APPROVED_BY_SPONSOR"
+          - "UNAPPROVED_BY_SPONSOR"
+          - "WAITING_SPONSOR_APPROVAL"
     operationSponsorOperationCreatorDTO:
       required:
       - "buyers"
@@ -10834,9 +12033,6 @@ components:
           type: "string"
         lastUserIp:
           type: "string"
-        quantity:
-          type: "integer"
-          format: "int32"
         status:
           type: "string"
           enum:
@@ -10845,8 +12041,15 @@ components:
           - "ERROR"
         amount:
           type: "number"
+        quantity:
+          type: "integer"
+          format: "int32"
         _links:
           $ref: "#/components/schemas/operationLinks"
+    operationLinks:
+      type: "object"
+      additionalProperties:
+        $ref: "#/components/schemas/operationLink"
     operationEntityModelSeller:
       type: "object"
       properties:
@@ -11083,6 +12286,58 @@ components:
           $ref: "#/components/schemas/operationLinks"
         page:
           $ref: "#/components/schemas/operationPageMetadata"
+    operationEntityModelSponsorSupplierBankAccount:
+      required:
+      - "account"
+      - "accountDigit"
+      - "agency"
+      - "alias"
+      - "bank"
+      - "bankName"
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          format: "date-time"
+        createUserId:
+          type: "string"
+        createUserIp:
+          type: "string"
+        updatedAt:
+          type: "string"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+        lastUserIp:
+          type: "string"
+        alias:
+          type: "string"
+        bank:
+          type: "string"
+        bankName:
+          type: "string"
+        agency:
+          type: "string"
+        account:
+          type: "string"
+        accountDigit:
+          type: "string"
+        _links:
+          $ref: "#/components/schemas/operationLinks"
+    operationPagedModelEntityModelSponsorSupplierBankAccount:
+      type: "object"
+      properties:
+        _embedded:
+          type: "object"
+          properties:
+            bank-accounts:
+              type: "array"
+              items:
+                $ref: "#/components/schemas/operationEntityModelSponsorSupplierBankAccount"
+        _links:
+          $ref: "#/components/schemas/operationLinks"
+        page:
+          $ref: "#/components/schemas/operationPageMetadata"
     operationEntityModelSponsorSummaryDTO:
       type: "object"
       properties:
@@ -11138,6 +12393,74 @@ components:
           - "EXPIRED"
         _links:
           $ref: "#/components/schemas/operationLinks"
+    operationSpecificationSellerBankAccount:
+      type: "object"
+    operationEntityModelSellerBankAccount:
+      required:
+      - "account"
+      - "accountDigit"
+      - "agency"
+      - "alias"
+      - "bank"
+      - "bankName"
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          format: "date-time"
+        createUserId:
+          type: "string"
+        createUserIp:
+          type: "string"
+        updatedAt:
+          type: "string"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+        lastUserIp:
+          type: "string"
+        alias:
+          type: "string"
+        bank:
+          type: "string"
+        bankName:
+          type: "string"
+        agency:
+          type: "string"
+        account:
+          type: "string"
+        accountDigit:
+          type: "string"
+        main:
+          type: "boolean"
+          readOnly: true
+        status:
+          type: "string"
+          readOnly: true
+          enum:
+          - "CREATED_BY_SELLER"
+          - "CREATED_BY_SPONSOR"
+          - "INACTIVE"
+          - "APPROVAL"
+          - "APPROVED_BY_SPONSOR"
+          - "UNAPPROVED_BY_SPONSOR"
+          - "WAITING_SPONSOR_APPROVAL"
+        _links:
+          $ref: "#/components/schemas/operationLinks"
+    operationPagedModelEntityModelSellerBankAccount:
+      type: "object"
+      properties:
+        _embedded:
+          type: "object"
+          properties:
+            bank-accounts:
+              type: "array"
+              items:
+                $ref: "#/components/schemas/operationEntityModelSellerBankAccount"
+        _links:
+          $ref: "#/components/schemas/operationLinks"
+        page:
+          $ref: "#/components/schemas/operationPageMetadata"
     operationCollectionModelEntityModelBuyerAdhesionTerm:
       type: "object"
       properties:
@@ -11638,6 +12961,11 @@ components:
           - "BUYERSELLER"
           - "PURCHASE"
           - "AUDIT"
+        fileType:
+          type: "string"
+          enum:
+          - "CSV"
+          - "PDF"
         documentHash:
           type: "string"
     reportEntityModelReport:
@@ -11671,6 +12999,11 @@ components:
           - "BUYERSELLER"
           - "PURCHASE"
           - "AUDIT"
+        fileType:
+          type: "string"
+          enum:
+          - "CSV"
+          - "PDF"
         documentHash:
           type: "string"
         _links:
