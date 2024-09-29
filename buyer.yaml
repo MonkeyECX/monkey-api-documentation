@@ -30,8 +30,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -66,14 +66,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -135,8 +135,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -171,14 +171,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -240,8 +240,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -276,14 +276,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -333,8 +333,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -369,14 +369,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -404,8 +404,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -440,14 +440,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -505,8 +505,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -541,14 +541,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -581,8 +581,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -617,14 +617,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -694,8 +694,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -730,14 +730,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -840,8 +840,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -876,14 +876,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -969,8 +969,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -1005,14 +1005,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -1087,8 +1087,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -1123,14 +1123,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/signMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -2273,8 +2273,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -2309,14 +2309,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -2432,8 +2432,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -2468,14 +2468,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -2581,8 +2581,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -2617,14 +2617,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -2691,8 +2691,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -2727,14 +2727,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -2801,8 +2801,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -2837,14 +2837,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -2902,8 +2902,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -2938,14 +2938,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -2980,6 +2980,8 @@ paths:
                 buyerAdhesionTermSignatureStatus: "SIGNED"
                 programAdhesionTermStatus: "SIGNED"
                 digitalCertificate: "VALID"
+                biometricVerificationStatus: "WAITING_VALIDATION"
+                bankAccountReviewedBySponsor: "true"
                 legalResponsibles:
                 - name: "Felipe Adorno"
                   governmentId: "18717537000132"
@@ -3039,6 +3041,9 @@ paths:
                   document-types:
                     href: "http://localhost/v1/buyers/45493745000178/sellers/50851124000159/document-types"
                     type: "GET"
+                  adhesion-term:
+                    href: "http://localhost/v2/buyers/10/adhesion-terms/94/regenerate"
+                    type: "POST"
     put:
       tags:
       - "Assignments"
@@ -3074,8 +3079,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -3110,14 +3115,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -3152,6 +3157,8 @@ paths:
                 buyerAdhesionTermSignatureStatus: "SIGNED"
                 programAdhesionTermStatus: "SIGNED"
                 digitalCertificate: "VALID"
+                biometricVerificationStatus: "WAITING_VALIDATION"
+                bankAccountReviewedBySponsor: "true"
                 legalResponsibles:
                 - name: "Felipe Adorno"
                   governmentId: "18717537000132"
@@ -3207,6 +3214,9 @@ paths:
                   document-types:
                     href: "http://localhost/v1/buyers/45493745000178/sellers/50851124000159/document-types"
                     type: "GET"
+                  adhesion-term:
+                    href: "http://localhost/v2/buyers/10/adhesion-terms/94/regenerate"
+                    type: "POST"
   /v2/buyers/{id}/configurations:
     get:
       tags:
@@ -3228,8 +3238,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -3264,14 +3274,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -3322,8 +3332,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -3358,14 +3368,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -3416,8 +3426,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -3452,14 +3462,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -3509,8 +3519,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -3545,14 +3555,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -3632,8 +3642,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -3668,14 +3678,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -3708,8 +3718,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -3744,14 +3754,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -3785,8 +3795,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -3821,14 +3831,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -3937,8 +3947,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -3973,14 +3983,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -4088,8 +4098,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -4124,14 +4134,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -4164,8 +4174,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -4200,14 +4210,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -4234,6 +4244,13 @@ paths:
         schema:
           type: "integer"
           format: "int32"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/buyerBuyerSellerRequest"
+            example:
+              detail: "Some description here"
       responses:
         400:
           description: "Bad Request"
@@ -4241,8 +4258,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -4277,14 +4294,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -4319,6 +4336,8 @@ paths:
                 buyerAdhesionTermSignatureStatus: "SIGNED"
                 programAdhesionTermStatus: "SIGNED"
                 digitalCertificate: "VALID"
+                biometricVerificationStatus: "WAITING_VALIDATION"
+                bankAccountReviewedBySponsor: "true"
                 legalResponsibles:
                 - name: "Felipe Adorno"
                   governmentId: "18717537000132"
@@ -4374,6 +4393,9 @@ paths:
                   document-types:
                     href: "http://localhost/v1/buyers/45493745000178/sellers/50851124000159/document-types"
                     type: "GET"
+                  adhesion-term:
+                    href: "http://localhost/v2/buyers/10/adhesion-terms/94/regenerate"
+                    type: "POST"
   /v2/buyers/{id}/sellers/{sellerId}/approve:
     post:
       tags:
@@ -4401,8 +4423,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -4437,14 +4459,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -4479,6 +4501,8 @@ paths:
                 buyerAdhesionTermSignatureStatus: "SIGNED"
                 programAdhesionTermStatus: "SIGNED"
                 digitalCertificate: "VALID"
+                biometricVerificationStatus: "WAITING_VALIDATION"
+                bankAccountReviewedBySponsor: "true"
                 legalResponsibles:
                 - name: "Felipe Adorno"
                   governmentId: "18717537000132"
@@ -4534,6 +4558,9 @@ paths:
                   document-types:
                     href: "http://localhost/v1/buyers/45493745000178/sellers/50851124000159/document-types"
                     type: "GET"
+                  adhesion-term:
+                    href: "http://localhost/v2/buyers/10/adhesion-terms/94/regenerate"
+                    type: "POST"
   /v2/buyers/{id}/scheduled-purchases/{purchaseId}/refuse:
     post:
       tags:
@@ -4560,8 +4587,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -4596,14 +4623,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -4636,8 +4663,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -4672,14 +4699,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -4712,8 +4739,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -4748,14 +4775,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -4839,8 +4866,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -4875,14 +4902,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -4921,13 +4948,13 @@ paths:
                   buyer:
                     href: "http://localhost/v2/buyers/10"
                     type: "GET"
-  /v2/buyers/{id}/sponsors:
-    get:
+  /v2/buyers/{id}/adhesion-terms/{sellerId}/regenerate:
+    post:
       tags:
-      - "Sponsors"
-      summary: "List"
+      - "Adhesion Term/Investor Contracts"
+      summary: "Regenerate Buyer Adhesion Term"
       description: ""
-      operationId: "buyersponsorweb/findAllSponsorsContract.json"
+      operationId: "buyeradhesiontermweb/regenerateContract.json"
       parameters:
       - name: "id"
         in: "path"
@@ -4935,16 +4962,12 @@ paths:
         schema:
           type: "integer"
           format: "int32"
-      - name: "search"
-        in: "query"
+      - name: "sellerId"
+        in: "path"
         required: true
         schema:
-          $ref: "#/components/schemas/buyerSpecificationBuyerSponsor"
-      - name: "pageable"
-        in: "query"
-        required: true
-        schema:
-          $ref: "#/components/schemas/buyerPageable"
+          type: "integer"
+          format: "int32"
       responses:
         400:
           description: "Bad Request"
@@ -4952,8 +4975,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -4988,14 +5011,95 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/buyerMessage"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/buyerMessage"
+        202:
+          description: "Accepted"
+  /v2/buyers/{id}/sponsors:
+    get:
+      tags:
+      - "Sponsors"
+      summary: "List"
+      description: ""
+      operationId: "buyersponsorweb/findAllSponsorsContract.json"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        schema:
+          type: "integer"
+          format: "int32"
+      - name: "search"
+        in: "query"
+        required: true
+        schema:
+          $ref: "#/components/schemas/buyerSpecificationBuyerSponsor"
+      - name: "pageable"
+        in: "query"
+        required: true
+        schema:
+          $ref: "#/components/schemas/buyerPageable"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/buyerMessage"
         500:
           description: "Internal Server Error"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/buyerMessage"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/buyerMessage"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/buyerMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/buyerMessage"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/buyerMessage"
         409:
           description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/buyerMessage"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -5120,8 +5224,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -5156,14 +5260,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -5206,8 +5310,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -5242,14 +5346,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -5286,6 +5390,8 @@ paths:
                     buyerAdhesionTermSignatureStatus: "SIGNED"
                     programAdhesionTermStatus: "SIGNED"
                     digitalCertificate: "VALID"
+                    biometricVerificationStatus: "WAITING_VALIDATION"
+                    bankAccountReviewedBySponsor: "true"
                     legalResponsibles:
                     - name: "Felipe Adorno"
                       governmentId: "18717537000132"
@@ -5348,6 +5454,9 @@ paths:
                       document-types:
                         href: "http://localhost/v1/buyers/45493745000178/sellers/50851124000159/document-types"
                         type: "GET"
+                      adhesion-term:
+                        href: "http://localhost/v2/buyers/10/adhesion-terms/94/regenerate"
+                        type: "POST"
                 _links:
                   self:
                     href: "http://localhost/v2/buyers/10/sellers?page=0&size=20"
@@ -5393,8 +5502,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -5429,14 +5538,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -5504,8 +5613,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -5540,14 +5649,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -5591,8 +5700,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -5627,14 +5736,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -5656,6 +5765,8 @@ paths:
                     accountDigit: "1"
                     sellerGovernmentId: "18717537000132"
                     sellerName: "SELLER TESTE"
+                    main: "true"
+                    status: "CREATED_BY_SELLER"
                     _links:
                       self:
                         href: "http://localhost/v2/buyers/10/sellers/54/bank-accounts/4ixXuunoWj"
@@ -5712,8 +5823,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -5748,14 +5859,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -5775,6 +5886,8 @@ paths:
                 accountDigit: "6"
                 sellerGovernmentId: "18717537000132"
                 sellerName: "SELLER TESTE"
+                main: "true"
+                status: "CREATED_BY_SELLER"
                 createdAt: "2009-11-09T16:36:49.364+0000"
                 createUserId: "monkey_tester@monkey.com"
                 createUserIp: "10.0.0.1"
@@ -5834,8 +5947,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -5870,14 +5983,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -5945,8 +6058,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -5981,14 +6094,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -6074,8 +6187,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -6110,14 +6223,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/buyerMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -7440,6 +7553,12 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/spyrosMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/spyrosMessage"
         415:
           description: "Unsupported Media Type"
           content:
@@ -7466,12 +7585,6 @@ paths:
                 $ref: "#/components/schemas/spyrosMessage"
         403:
           description: "Forbidden"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/spyrosMessage"
-        500:
-          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -7546,6 +7659,12 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/spyrosMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/spyrosMessage"
         415:
           description: "Unsupported Media Type"
           content:
@@ -7572,12 +7691,6 @@ paths:
                 $ref: "#/components/schemas/spyrosMessage"
         403:
           description: "Forbidden"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/spyrosMessage"
-        500:
-          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -7647,6 +7760,12 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/spyrosMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/spyrosMessage"
         415:
           description: "Unsupported Media Type"
           content:
@@ -7673,12 +7792,6 @@ paths:
                 $ref: "#/components/schemas/spyrosMessage"
         403:
           description: "Forbidden"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/spyrosMessage"
-        500:
-          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -7941,30 +8054,6 @@ paths:
         schema:
           type: "string"
       responses:
-        500:
-          description: "Internal Server Error"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        404:
-          description: "Not Found"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        403:
-          description: "Forbidden"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        409:
-          description: "Conflict"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
         400:
           description: "Bad Request"
           content:
@@ -7977,8 +8066,32 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
         412:
           description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
           content:
             '*/*':
               schema:
@@ -8059,30 +8172,6 @@ paths:
               role: "VIEW"
         required: true
       responses:
-        500:
-          description: "Internal Server Error"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        404:
-          description: "Not Found"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        403:
-          description: "Forbidden"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        409:
-          description: "Conflict"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
         400:
           description: "Bad Request"
           content:
@@ -8095,8 +8184,32 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
         412:
           description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
           content:
             '*/*':
               schema:
@@ -8169,30 +8282,6 @@ paths:
         schema:
           type: "string"
       responses:
-        500:
-          description: "Internal Server Error"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        404:
-          description: "Not Found"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        403:
-          description: "Forbidden"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        409:
-          description: "Conflict"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
         400:
           description: "Bad Request"
           content:
@@ -8205,8 +8294,32 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
         412:
           description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
           content:
             '*/*':
               schema:
@@ -8249,30 +8362,6 @@ paths:
         schema:
           $ref: "#/components/schemas/ssoPageable"
       responses:
-        500:
-          description: "Internal Server Error"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        404:
-          description: "Not Found"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        403:
-          description: "Forbidden"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        409:
-          description: "Conflict"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
         400:
           description: "Bad Request"
           content:
@@ -8285,8 +8374,32 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
         412:
           description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
           content:
             '*/*':
               schema:
@@ -8373,30 +8486,6 @@ paths:
               role: "ADMIN"
         required: true
       responses:
-        500:
-          description: "Internal Server Error"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        404:
-          description: "Not Found"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        403:
-          description: "Forbidden"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
-        409:
-          description: "Conflict"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/ssoMessage"
         400:
           description: "Bad Request"
           content:
@@ -8409,8 +8498,32 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/ssoMessage"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
         412:
           description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ssoMessage"
+        404:
+          description: "Not Found"
           content:
             '*/*':
               schema:
@@ -8495,28 +8608,16 @@ paths:
         schema:
           $ref: "#/components/schemas/operationPageable"
       responses:
-        400:
-          description: "Bad Request"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/operationMessage"
-        405:
-          description: "Method Not Allowed"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/operationMessage"
         412:
           description: "Precondition Failed"
           content:
             '*/*':
               schema:
                 oneOf:
-                - $ref: "#/components/schemas/operationMessage"
                 - $ref: "#/components/schemas/operationEntityModelMessage"
-        415:
-          description: "Unsupported Media Type"
+                - $ref: "#/components/schemas/operationMessage"
+        401:
+          description: "Unauthorized"
           content:
             '*/*':
               schema:
@@ -8527,14 +8628,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        401:
-          description: "Unauthorized"
+        415:
+          description: "Unsupported Media Type"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        403:
-          description: "Forbidden"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
@@ -8545,8 +8646,20 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        409:
-          description: "Conflict"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -8626,28 +8739,16 @@ paths:
         schema:
           type: "string"
       responses:
-        400:
-          description: "Bad Request"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/operationMessage"
-        405:
-          description: "Method Not Allowed"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/operationMessage"
         412:
           description: "Precondition Failed"
           content:
             '*/*':
               schema:
                 oneOf:
-                - $ref: "#/components/schemas/operationMessage"
                 - $ref: "#/components/schemas/operationEntityModelMessage"
-        415:
-          description: "Unsupported Media Type"
+                - $ref: "#/components/schemas/operationMessage"
+        401:
+          description: "Unauthorized"
           content:
             '*/*':
               schema:
@@ -8658,14 +8759,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        401:
-          description: "Unauthorized"
+        415:
+          description: "Unsupported Media Type"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        403:
-          description: "Forbidden"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
@@ -8676,8 +8777,20 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        409:
-          description: "Conflict"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -8749,28 +8862,16 @@ paths:
         schema:
           $ref: "#/components/schemas/operationPageable"
       responses:
-        400:
-          description: "Bad Request"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/operationMessage"
-        405:
-          description: "Method Not Allowed"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/operationMessage"
         412:
           description: "Precondition Failed"
           content:
             '*/*':
               schema:
                 oneOf:
-                - $ref: "#/components/schemas/operationMessage"
                 - $ref: "#/components/schemas/operationEntityModelMessage"
-        415:
-          description: "Unsupported Media Type"
+                - $ref: "#/components/schemas/operationMessage"
+        401:
+          description: "Unauthorized"
           content:
             '*/*':
               schema:
@@ -8781,14 +8882,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        401:
-          description: "Unauthorized"
+        415:
+          description: "Unsupported Media Type"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        403:
-          description: "Forbidden"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
@@ -8799,8 +8900,20 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        409:
-          description: "Conflict"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -8907,28 +9020,16 @@ paths:
         schema:
           type: "string"
       responses:
-        400:
-          description: "Bad Request"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/operationMessage"
-        405:
-          description: "Method Not Allowed"
-          content:
-            '*/*':
-              schema:
-                $ref: "#/components/schemas/operationMessage"
         412:
           description: "Precondition Failed"
           content:
             '*/*':
               schema:
                 oneOf:
-                - $ref: "#/components/schemas/operationMessage"
                 - $ref: "#/components/schemas/operationEntityModelMessage"
-        415:
-          description: "Unsupported Media Type"
+                - $ref: "#/components/schemas/operationMessage"
+        401:
+          description: "Unauthorized"
           content:
             '*/*':
               schema:
@@ -8939,14 +9040,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        401:
-          description: "Unauthorized"
+        415:
+          description: "Unsupported Media Type"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        403:
-          description: "Forbidden"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
@@ -8957,8 +9058,20 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/operationMessage"
-        409:
-          description: "Conflict"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/operationMessage"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -9067,8 +9180,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -9103,14 +9216,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -9209,8 +9322,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -9245,14 +9358,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -9345,8 +9458,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -9381,14 +9494,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -9469,8 +9582,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -9505,14 +9618,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -9547,6 +9660,7 @@ paths:
               startDate: "2020-05-05"
               endDate: "2020-06-06"
               type: "PURCHASE"
+              fileType: "CSV"
         required: true
       responses:
         400:
@@ -9555,8 +9669,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -9591,14 +9705,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -9613,6 +9727,7 @@ paths:
                 startDate: "2021-05-05"
                 endDate: "2021-06-06"
                 type: "RECEIVABLE"
+                fileType: "CSV"
                 createdAt: "202021-07-09T16:36:49.364+0000"
                 createUserId: "email@monkey.exchange"
                 createUserIp: "127.0.0.1"
@@ -9655,8 +9770,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -9691,14 +9806,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -9713,6 +9828,7 @@ paths:
                 startDate: "2021-06-01"
                 endDate: "2021-06-30"
                 type: "RECEIVABLE"
+                fileType: "CSV"
                 createdAt: "2021-07-09T16:36:49.364+0000"
                 createUserId: "EMAIL@monkey.exchange"
                 createUserIp: "127.0.0.1"
@@ -9758,8 +9874,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -9794,14 +9910,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -9845,8 +9961,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -9881,14 +9997,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -9944,8 +10060,8 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        405:
-          description: "Method Not Allowed"
+        500:
+          description: "Internal Server Error"
           content:
             '*/*':
               schema:
@@ -9980,14 +10096,14 @@ paths:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        500:
-          description: "Internal Server Error"
+        409:
+          description: "Conflict"
           content:
             '*/*':
               schema:
                 $ref: "#/components/schemas/reportMessage"
-        409:
-          description: "Conflict"
+        405:
+          description: "Method Not Allowed"
           content:
             '*/*':
               schema:
@@ -10020,6 +10136,1320 @@ paths:
                   file:
                     href: "http://localhost/v2/buyers/95/reports/asd123fgh4/file"
                     type: "GET"
+  /v1/buyers/{id}/webhooks/{webHookId}:
+    get:
+      tags:
+      - "Configuração de Webhook"
+      summary: "Detalhar"
+      description: ""
+      operationId: "webhookbuyerconfigurationweb/GETBuyerWebHookConfigurationContract.json"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        schema:
+          type: "integer"
+          format: "int32"
+      - name: "webHookId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/notificationV2EntityModelWebHookConfiguration"
+              example:
+                createdAt: "2021-10-15T12:16:30.364+0000"
+                createUserId: "monkey_contract@monkey.exchange"
+                createUserIp: "0:0:0:0:0:0:0:1"
+                updatedAt: "2021-10-15T12:16:30.364+0000"
+                lastUserId: "monkey_contract@monkey.exchange"
+                lastUserIp: "0:0:0:0:0:0:0:1"
+                url: "https://monkey.exchange/webhook"
+                token: "token1234monkey"
+                tokenType: "Bearer"
+                authorizationHeader: "1a9f37f8-6130-4ee5-a068-7ce8ca62b9e9"
+                notifications:
+                - "PURCHASE, BUYER_SIGNED, BUYER_NOT_SIGNED"
+                _links:
+                  self:
+                    href: "http://localhost/v1/buyers/10/webhooks/3486f5ba-28d2-4f08-a2fc-055b290e88c3"
+                    type: "GET"
+                  update:
+                    href: "http://localhost/v1/buyers/10/webhooks/3486f5ba-28d2-4f08-a2fc-055b290e88c3"
+                    type: "PUT"
+                  delete:
+                    href: "http://localhost/v1/buyers/10/webhooks/3486f5ba-28d2-4f08-a2fc-055b290e88c3"
+                    type: "DELETE"
+                  buyer:
+                    href: "http://localhost/v1/buyers/10"
+                    type: "GET"
+    put:
+      tags:
+      - "Configuração de Webhook"
+      summary: "Atualizar"
+      description: ""
+      operationId: "webhookbuyerconfigurationweb/PUTBuyerWebHookConfigurationContract.json"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        schema:
+          type: "integer"
+          format: "int32"
+      - name: "webHookId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/notificationV2BuyerWebHookConfigurationResource"
+            example:
+              url: "https://monkey.exchange/webhook"
+              token: "token1234monkey"
+              tokenType: "Bearer"
+              authorizationHeader: "1a9f37f8-6130-4ee5-a068-7ce8ca62b9e9"
+              notifications:
+              - "PURCHASE"
+              - "BUYER_SIGNED"
+              - "BUYER_NOT_SIGNED"
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/notificationV2EntityModelWebHookConfiguration"
+              example:
+                createdAt: "2021-10-15T12:16:30.364+0000"
+                createUserId: "monkey_contract@monkey.exchange"
+                createUserIp: "0:0:0:0:0:0:0:1"
+                updatedAt: "2021-10-15T12:16:30.364+0000"
+                lastUserId: "monkey_contract@monkey.exchange"
+                lastUserIp: "0:0:0:0:0:0:0:1"
+                url: "https://monkey.exchange/webhook"
+                token: "token1234monkey"
+                tokenType: "Bearer"
+                authorizationHeader: "1a9f37f8-6130-4ee5-a068-7ce8ca62b9e9"
+                notifications:
+                - "PURCHASE, BUYER_SIGNED, BUYER_NOT_SIGNED"
+                _links:
+                  self:
+                    href: "http://localhost/v1/buyers/10/webhooks/3486f5ba-28d2-4f08-a2fc-055b290e88c3"
+                    type: "GET"
+                  update:
+                    href: "http://localhost/v1/buyers/10/webhooks/3486f5ba-28d2-4f08-a2fc-055b290e88c3"
+                    type: "PUT"
+                  delete:
+                    href: "http://localhost/v1/buyers/10/webhooks/3486f5ba-28d2-4f08-a2fc-055b290e88c3"
+                    type: "DELETE"
+                  buyer:
+                    href: "http://localhost/v1/buyers/10"
+                    type: "GET"
+    delete:
+      tags:
+      - "Configuração de Webhook"
+      summary: "Deletar"
+      description: ""
+      operationId: "webhookbuyerconfigurationweb/DELETEBuyerWebHookConfigurationContract.json"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        schema:
+          type: "integer"
+          format: "int32"
+      - name: "webHookId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        204:
+          description: "No Content"
+  /v1/buyers/{id}/webhooks-deliveries:
+    get:
+      tags:
+      - "Webhook Deliveries"
+      summary: "Listar"
+      description: ""
+      operationId: "buyerwebhookdeliveryweb/GETAllBuyerWebHookDeliveryContract.json"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        schema:
+          type: "integer"
+          format: "int32"
+      - name: "search"
+        in: "query"
+        required: true
+        schema:
+          $ref: "#/components/schemas/notificationV2Query"
+      - name: "pageable"
+        in: "query"
+        required: true
+        schema:
+          $ref: "#/components/schemas/notificationV2Pageable"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/notificationV2PagedModelEntityModelWebHookDelivery"
+              example:
+                _embedded:
+                  webhook-deliveries:
+                  - createdAt: "2022-05-05T20:33:14.828Z"
+                    createUserId: "caio.merotti@monkey.exchange"
+                    createUserIp: "0:0:0:0:0:0:0:1"
+                    updatedAt: "2022-05-05T20:33:14.828Z"
+                    lastUserId: "caio.merotti@monkey.exchange"
+                    lastUserIp: "0:0:0:0:0:0:0:1"
+                    webHookConfigurationId: "274343f0013a23c"
+                    webHookId: "43482f466530335d"
+                    eventType: "SellerDocumentUpdatedEvent"
+                    url: "https://monkey.exchange/webhook"
+                    requestHeaders:
+                      Authorization: "Bearer ca038596-6498-4ec3-8990-63850a85aa64"
+                      Access-Control-Allow-Origin: "*"
+                      Content-Type: "application/json;charset=UTF-8"
+                      Date: "Thu, 02 May 2019 14:38:15 GMT"
+                      Accept: "text/plain, application/json, application/*+json, */*"
+                    requestPayload:
+                      sponsorId: "32212283"
+                      sponsorName: "Teste Sponsor"
+                      sponsorGovernmentId: "55139118173"
+                      paymentDate: "2022-04-27T03:00:00.000+00:00"
+                      paymentValue: "10"
+                      invoiceNumber: "0322001"
+                      installment: "1"
+                      totalInstallment: "1"
+                    responseHeaders:
+                      Authorization: "Bearer ca038596-6498-4ec3-8990-63850a85aa64"
+                      Access-Control-Allow-Origin: "*"
+                      Content-Type: "application/json;charset=UTF-8"
+                      Date: "Thu, 02 May 2019 14:38:15 GMT"
+                      Accept: "text/plain, application/json, application/*+json, */*"
+                    responseBody: "[msg:Hello World.]"
+                    statusCode: "200"
+                    reasonPhrase: "OK"
+                    attempts: "1"
+                    delivered: "true"
+                    program: "monkey"
+                    _links:
+                      self:
+                        href: "http://localhost/v1/buyers/10/webhooks-deliveries/3486f5ba-28d2-4f08-a2fc-055b290e88c3"
+                        type: "GET"
+                      buyer:
+                        href: "http://localhost/v1/buyers/10"
+                        type: "GET"
+                      webhook-redeliver:
+                        href: "http://localhost/v1/buyers/10/webhooks-deliveries/3486f5ba-28d2-4f08-a2fc-055b290e88c3/redeliver"
+                        type: "POST"
+                _links:
+                  self:
+                    href: "http://localhost/v1/buyers/10/webhooks-deliveries?page=0&size=10"
+                page:
+                  size: 10
+                  totalElements: 2
+                  totalPages: 1
+                  number: 0
+    put:
+      tags:
+      - "Webhook Deliveries"
+      summary: "Redelivery Massivo"
+      description: ""
+      operationId: "buyerwebhookdeliveryweb/PUTBuyerWebHookDelivery.json"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        schema:
+          type: "integer"
+          format: "int32"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/notificationV2WebHookRedeliveriesDTO"
+            example:
+              items:
+              - identification: "3x432159945x3"
+                eventType: "PurchaseIntegratedEvent"
+                date: "2022-09-27"
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        202:
+          description: "Accepted"
+  /v1/buyers/{id}/webhooks:
+    get:
+      tags:
+      - "Configuração de Webhook"
+      summary: "Listar"
+      description: ""
+      operationId: "webhookbuyerconfigurationweb/GETAllBuyerWebHookConfigurationContract.json"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        schema:
+          type: "integer"
+          format: "int32"
+      - name: "pageable"
+        in: "query"
+        required: true
+        schema:
+          $ref: "#/components/schemas/notificationV2Pageable"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/notificationV2PagedModelEntityModelWebHookConfiguration"
+              example:
+                _embedded:
+                  webhooks:
+                  - createdAt: "2021-10-15T12:16:30.364+0000"
+                    createUserId: "monkey_contract@monkey.exchange"
+                    createUserIp: "0:0:0:0:0:0:0:1"
+                    updatedAt: "2021-10-15T12:16:30.364+0000"
+                    lastUserId: "monkey_contract@monkey.exchange"
+                    lastUserIp: "0:0:0:0:0:0:0:1"
+                    url: "https://monkey.exchange/webhook"
+                    token: "token1234monkey"
+                    tokenType: "Bearer"
+                    authorizationHeader: "1a9f37f8-6130-4ee5-a068-7ce8ca62b9e9"
+                    notifications:
+                    - "PURCHASE, BUYER_SIGNED, BUYER_NOT_SIGNED"
+                    _links:
+                      self:
+                        href: "http://localhost/v1/buyers/10/webhooks/3486f5ba-28d2-4f08-a2fc-055b290e88c3"
+                        type: "GET"
+                      update:
+                        href: "http://localhost/v1/buyers/10/webhooks/3486f5ba-28d2-4f08-a2fc-055b290e88c3"
+                        type: "PUT"
+                      delete:
+                        href: "http://localhost/v1/buyers/10/webhooks/3486f5ba-28d2-4f08-a2fc-055b290e88c3"
+                        type: "DELETE"
+                      buyer:
+                        href: "http://localhost/v1/buyers/10"
+                        type: "GET"
+                _links:
+                  self:
+                    href: "http://localhost/v1/buyers/10/webhooks?page=0&size=10"
+                page:
+                  size: 10
+                  totalElements: 1
+                  totalPages: 1
+                  number: 0
+    post:
+      tags:
+      - "Configuração de Webhook"
+      summary: "Cadastrar"
+      description: ""
+      operationId: "webhookbuyerconfigurationweb/CREATEBuyerWebHookConfigurationContract.json"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        schema:
+          type: "integer"
+          format: "int32"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/notificationV2BuyerWebHookConfigurationResource"
+            example:
+              url: "https://monkey.exchange/webhook"
+              token: "token1234monkey"
+              tokenType: "Bearer"
+              authorizationHeader: "1a9f37f8-6130-4ee5-a068-7ce8ca62b9e9"
+              notifications:
+              - "PURCHASE"
+              - "BUYER_SIGNED"
+              - "BUYER_NOT_SIGNED"
+        required: true
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        201:
+          description: "Created"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/notificationV2EntityModelWebHookConfiguration"
+              example:
+                createdAt: "2021-10-15T12:16:30.364+0000"
+                createUserId: "monkey_contract@monkey.exchange"
+                createUserIp: "0:0:0:0:0:0:0:1"
+                updatedAt: "2021-10-15T12:16:30.364+0000"
+                lastUserId: "monkey_contract@monkey.exchange"
+                lastUserIp: "0:0:0:0:0:0:0:1"
+                url: "https://monkey.exchange/webhook"
+                token: "token1234monkey"
+                tokenType: "Bearer"
+                authorizationHeader: "1a9f37f8-6130-4ee5-a068-7ce8ca62b9e9"
+                notifications:
+                - "PURCHASE, BUYER_SIGNED, BUYER_NOT_SIGNED"
+                _links:
+                  self:
+                    href: "http://localhost/v1/buyers/10/webhooks/3486f5ba-28d2-4f08-a2fc-055b290e88c3"
+                    type: "GET"
+                  update:
+                    href: "http://localhost/v1/buyers/10/webhooks/3486f5ba-28d2-4f08-a2fc-055b290e88c3"
+                    type: "PUT"
+                  delete:
+                    href: "http://localhost/v1/buyers/10/webhooks/3486f5ba-28d2-4f08-a2fc-055b290e88c3"
+                    type: "DELETE"
+                  buyer:
+                    href: "http://localhost/v1/buyers/10"
+                    type: "GET"
+  /v1/buyers/{id}/webhooks-deliveries/{deliveryId}/redeliver:
+    post:
+      tags:
+      - "Webhook Deliveries"
+      summary: "Redelivery"
+      description: ""
+      operationId: "buyerwebhookdeliveryweb/POSTBuyerWebHookDeliveryRedeliver.json"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        schema:
+          type: "integer"
+          format: "int32"
+      - name: "deliveryId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        202:
+          description: "Accepted"
+  /v1/buyers/{id}/webhooks-deliveries/{deliveryId}:
+    get:
+      tags:
+      - "Webhook Deliveries"
+      summary: "Detalhar"
+      description: ""
+      operationId: "buyerwebhookdeliveryweb/GETBuyerWebHookDeliveryContract.json"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        schema:
+          type: "integer"
+          format: "int32"
+      - name: "deliveryId"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/notificationV2EntityModelWebHookDelivery"
+              example:
+                createdAt: "2022-05-05T20:33:14.828Z"
+                createUserId: "caio.merotti@monkey.exchange"
+                createUserIp: "0:0:0:0:0:0:0:1"
+                updatedAt: "2022-05-05T20:33:14.828Z"
+                lastUserId: "caio.merotti@monkey.exchange"
+                lastUserIp: "0:0:0:0:0:0:0:1"
+                webHookConfigurationId: "274343f0013a23c"
+                webHookId: "43482f466530335d"
+                eventType: "SellerDocumentUpdatedEvent"
+                url: "https://monkey.exchange/webhook"
+                requestHeaders:
+                  Authorization: "Bearer ca038596-6498-4ec3-8990-63850a85aa64"
+                  Access-Control-Allow-Origin: "*"
+                  Content-Type: "application/json;charset=UTF-8"
+                  Date: "Thu, 02 May 2019 14:38:15 GMT"
+                  Accept: "text/plain, application/json, application/*+json, */*"
+                requestPayload:
+                  sponsorId: "32212283"
+                  sponsorName: "Teste Sponsor"
+                  sponsorGovernmentId: "55139118173"
+                  paymentDate: "2022-04-27T03:00:00.000+00:00"
+                  paymentValue: "10"
+                  invoiceNumber: "0322001"
+                  installment: "1"
+                  totalInstallment: "1"
+                responseHeaders:
+                  Authorization: "Bearer ca038596-6498-4ec3-8990-63850a85aa64"
+                  Access-Control-Allow-Origin: "*"
+                  Content-Type: "application/json;charset=UTF-8"
+                  Date: "Thu, 02 May 2019 14:38:15 GMT"
+                  Accept: "text/plain, application/json, application/*+json, */*"
+                responseBody: "[msg:Hello World.]"
+                statusCode: "200"
+                reasonPhrase: "OK"
+                attempts: "1"
+                delivered: "true"
+                program: "monkey"
+                _links:
+                  self:
+                    href: "http://localhost/v1/buyers/10/webhooks-deliveries/3486f5ba-28d2-4f08-a2fc-055b290e88c3"
+                    type: "GET"
+                  buyer:
+                    href: "http://localhost/v1/buyers/10"
+                    type: "GET"
+                  webhook-redeliver:
+                    href: "http://localhost/v1/buyers/10/webhooks-deliveries/3486f5ba-28d2-4f08-a2fc-055b290e88c3/redeliver"
+                    type: "POST"
+  /v1/buyers/{companyId}/notifications:
+    get:
+      tags:
+      - "Notificações"
+      summary: "Listar"
+      description: ""
+      operationId: "buyernotificationweb/GETAllBuyerNotifications.json"
+      parameters:
+      - name: "companyId"
+        in: "path"
+        required: true
+        schema:
+          type: "integer"
+          format: "int32"
+      - name: "predicate"
+        in: "query"
+        required: true
+        schema:
+          $ref: "#/components/schemas/notificationV2Query"
+      - name: "pageable"
+        in: "query"
+        required: true
+        schema:
+          $ref: "#/components/schemas/notificationV2Pageable"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/notificationV2PagedModelEntityModelNotification"
+              example:
+                _embedded:
+                  notifications:
+                  - createdAt: "2021-04-12T15:42:26.879Z"
+                    createUserId: "monkeyexchangefiat@gmail.com"
+                    createUserIp: "UNKNOWN"
+                    updatedAt: "2021-07-13T19:25:10.976Z"
+                    lastUserId: "monkeyexchangefiat@gmail.com"
+                    lastUserIp: "0:0:0:0:0:0:0:1"
+                    type: "SponsorNotSignedEvent"
+                    read: "false"
+                    notification-items:
+                    - "Compra 123/00117 foi recusada pelo sacado."
+                    _links:
+                      self:
+                        href: "http://localhost/v1/buyers/10/notifications/3486f5ba-28d2-4f08-a2fc-055b290e88c3"
+                        type: "GET"
+                      read:
+                        href: "http://localhost/v1/buyers/10/notifications/3486f5ba-28d2-4f08-a2fc-055b290e88c3"
+                        type: "DELETE"
+                page:
+                  size: 10
+                  totalElements: 3
+                  totalPages: 1
+                  number: 0
+    delete:
+      tags:
+      - "Notificações"
+      summary: "Marcar todas como Lida"
+      description: ""
+      operationId: "buyernotificationweb/DELETEAllBuyerNotifications.json"
+      parameters:
+      - name: "companyId"
+        in: "path"
+        required: true
+        schema:
+          type: "integer"
+          format: "int32"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        202:
+          description: "Accepted"
+  /v1/buyers/{companyId}/notifications/{id}:
+    get:
+      tags:
+      - "Notificações"
+      summary: "Detalhar"
+      description: ""
+      operationId: "buyernotificationweb/GETBuyerNotificationById.json"
+      parameters:
+      - name: "companyId"
+        in: "path"
+        required: true
+        schema:
+          type: "integer"
+          format: "int32"
+      - name: "id"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/notificationV2EntityModelNotification"
+              example:
+                createdAt: "2021-04-12T15:42:26.879Z"
+                createUserId: "monkeyexchangefiat@gmail.com"
+                createUserIp: "UNKNOWN"
+                updatedAt: "2021-07-13T19:25:10.976Z"
+                lastUserId: "monkeyexchangefiat@gmail.com"
+                lastUserIp: "0:0:0:0:0:0:0:1"
+                type: "WebHookExhaustedFail"
+                read: "false"
+                notification-items:
+                - "Recebemos erros para todas as tentativas de entrega do webhook\
+                  \ de id: 5fec7444c02dc3217c758ae8."
+                _links:
+                  self:
+                    href: "http://localhost/v1/buyers/10/notifications/3486f5ba-28d2-4f08-a2fc-055b290e88c3"
+                    type: "GET"
+                  read:
+                    href: "http://localhost/v1/buyers/10/notifications/3486f5ba-28d2-4f08-a2fc-055b290e88c3"
+                    type: "DELETE"
+    delete:
+      tags:
+      - "Notificações"
+      summary: "Marcar como Lida"
+      description: ""
+      operationId: "buyernotificationweb/DELETEBuyerNotificationById.json"
+      parameters:
+      - name: "companyId"
+        in: "path"
+        required: true
+        schema:
+          type: "integer"
+          format: "int32"
+      - name: "id"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        400:
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        500:
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        415:
+          description: "Unsupported Media Type"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        404:
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        401:
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        403:
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        412:
+          description: "Precondition Failed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        409:
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        405:
+          description: "Method Not Allowed"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/notificationV2Message"
+        204:
+          description: "No Content"
 components:
   schemas:
     signMessage:
@@ -11042,20 +12472,20 @@ components:
         externalCode:
           type: "string"
           description: "External Code"
-        sponsorLastUserId:
-          type: "string"
-          description: "Last Update IP Used"
-        sponsorUpdatedAt:
-          type: "string"
-          description: "Last Update Date"
-          format: "date-time"
-        sponsorCreateUserId:
-          type: "string"
-          description: "Record Creator User"
         sponsorCreatedAt:
           type: "string"
           description: "Creation Date"
           format: "date-time"
+        sponsorCreateUserId:
+          type: "string"
+          description: "Record Creator User"
+        sponsorUpdatedAt:
+          type: "string"
+          description: "Last Update Date"
+          format: "date-time"
+        sponsorLastUserId:
+          type: "string"
+          description: "Last Update IP Used"
     buyerSponsorLegalResponsible:
       type: "object"
       properties:
@@ -11198,20 +12628,20 @@ components:
         externalCode:
           type: "string"
           description: "External Code"
-        sponsorLastUserId:
-          type: "string"
-          description: "Last Update IP Used"
-        sponsorUpdatedAt:
-          type: "string"
-          description: "Last Update Date"
-          format: "date-time"
-        sponsorCreateUserId:
-          type: "string"
-          description: "Record Creator User"
         sponsorCreatedAt:
           type: "string"
           description: "Creation Date"
           format: "date-time"
+        sponsorCreateUserId:
+          type: "string"
+          description: "Record Creator User"
+        sponsorUpdatedAt:
+          type: "string"
+          description: "Last Update Date"
+          format: "date-time"
+        sponsorLastUserId:
+          type: "string"
+          description: "Last Update IP Used"
         _links:
           $ref: "#/components/schemas/buyerLinks"
     buyerLinks:
@@ -11386,9 +12816,27 @@ components:
           type: "string"
           description: "Image URL"
         status:
-          pattern: "APPROVED|UNAPPROVED|WAITING_APPROVAL"
+          pattern: "APPROVED|UNAPPROVED|WAITING_APPROVAL|REANALYSIS"
           type: "string"
           description: "Status"
+        digitalCertificate:
+          type: "string"
+          description: "Digital Certificate"
+          deprecated: true
+          enum:
+          - "WAITING"
+          - "VALID"
+          - "EXPIRED"
+        biometricVerificationStatus:
+          type: "string"
+          deprecated: true
+          enum:
+          - "WAITING_VALIDATION"
+          - "MATCHED"
+          - "MISMATCHED"
+        bankAccountReviewedBySponsor:
+          type: "boolean"
+          deprecated: true
         legalResponsibles:
           type: "array"
           description: "Legal Representatives"
@@ -11397,13 +12845,6 @@ components:
         risk:
           type: "string"
           description: "Risk"
-        digitalCertificate:
-          type: "string"
-          description: "Digital Certificate"
-          enum:
-          - "WAITING"
-          - "VALID"
-          - "EXPIRED"
         buyerAdhesionTermSignatureStatus:
           type: "string"
           description: "Buyer Adhesion Term Signature Status"
@@ -11420,20 +12861,23 @@ components:
           - "WAITING"
           - "SIGNED"
           - "DECLINED"
-        sellerUpdatedAt:
+        detail:
           type: "string"
-          description: "Last Update Date"
-          format: "date-time"
-        sellerCreateUserId:
-          type: "string"
-          description: "Record Creator User"
-        sellerLastUserId:
-          type: "string"
-          description: "Last Update IP Used"
+          description: "Message Detail"
         sellerCreatedAt:
           type: "string"
           description: "Creation Date"
           format: "date-time"
+        sellerCreateUserId:
+          type: "string"
+          description: "Record Creator User"
+        sellerUpdatedAt:
+          type: "string"
+          description: "Last Update Date"
+          format: "date-time"
+        sellerLastUserId:
+          type: "string"
+          description: "Last Update IP Used"
     buyerSellerLegalResponsible:
       type: "object"
       properties:
@@ -11596,9 +13040,27 @@ components:
           type: "string"
           description: "Image URL"
         status:
-          pattern: "APPROVED|UNAPPROVED|WAITING_APPROVAL"
+          pattern: "APPROVED|UNAPPROVED|WAITING_APPROVAL|REANALYSIS"
           type: "string"
           description: "Status"
+        digitalCertificate:
+          type: "string"
+          description: "Digital Certificate"
+          deprecated: true
+          enum:
+          - "WAITING"
+          - "VALID"
+          - "EXPIRED"
+        biometricVerificationStatus:
+          type: "string"
+          deprecated: true
+          enum:
+          - "WAITING_VALIDATION"
+          - "MATCHED"
+          - "MISMATCHED"
+        bankAccountReviewedBySponsor:
+          type: "boolean"
+          deprecated: true
         legalResponsibles:
           type: "array"
           description: "Legal Representatives"
@@ -11607,13 +13069,6 @@ components:
         risk:
           type: "string"
           description: "Risk"
-        digitalCertificate:
-          type: "string"
-          description: "Digital Certificate"
-          enum:
-          - "WAITING"
-          - "VALID"
-          - "EXPIRED"
         buyerAdhesionTermSignatureStatus:
           type: "string"
           description: "Buyer Adhesion Term Signature Status"
@@ -11630,20 +13085,23 @@ components:
           - "WAITING"
           - "SIGNED"
           - "DECLINED"
-        sellerUpdatedAt:
+        detail:
           type: "string"
-          description: "Last Update Date"
-          format: "date-time"
-        sellerCreateUserId:
-          type: "string"
-          description: "Record Creator User"
-        sellerLastUserId:
-          type: "string"
-          description: "Last Update IP Used"
+          description: "Message Detail"
         sellerCreatedAt:
           type: "string"
           description: "Creation Date"
           format: "date-time"
+        sellerCreateUserId:
+          type: "string"
+          description: "Record Creator User"
+        sellerUpdatedAt:
+          type: "string"
+          description: "Last Update Date"
+          format: "date-time"
+        sellerLastUserId:
+          type: "string"
+          description: "Last Update IP Used"
         _links:
           $ref: "#/components/schemas/buyerLinks"
     buyerBuyerConfiguration:
@@ -11760,6 +13218,12 @@ components:
           description: "Type"
     buyerSpecificationBuyerSponsor:
       type: "object"
+    buyerBuyerSellerRequest:
+      type: "object"
+      properties:
+        detail:
+          type: "string"
+          description: "Message Detail"
     buyerEntityModelBankAccount:
       required:
       - "account"
@@ -11994,6 +13458,20 @@ components:
         sellerName:
           type: "string"
           description: "Supplier Name"
+        status:
+          type: "string"
+          description: "Status"
+          enum:
+          - "CREATED_BY_SELLER"
+          - "CREATED_BY_SPONSOR"
+          - "INACTIVE"
+          - "APPROVAL"
+          - "APPROVED_BY_SPONSOR"
+          - "UNAPPROVED_BY_SPONSOR"
+          - "WAITING_SPONSOR_APPROVAL"
+        main:
+          type: "boolean"
+          description: "Primary"
         _links:
           $ref: "#/components/schemas/buyerLinks"
     buyerPagedModelEntityModelSellerBankAccount:
@@ -13026,6 +14504,8 @@ components:
           - "ACTIVE"
           - "INACTIVE"
           - "FRAUD_CONFIRMED"
+          - "BANK_ACCOUNT_CHANGED"
+          - "BIOMETRIC_VERIFICATION"
           - "APPROVED"
         companyId:
           type: "string"
@@ -13596,6 +15076,11 @@ components:
           - "BUYERSELLER"
           - "PURCHASE"
           - "AUDIT"
+        fileType:
+          type: "string"
+          enum:
+          - "CSV"
+          - "PDF"
         documentHash:
           type: "string"
     reportEntityModelReport:
@@ -13629,6 +15114,11 @@ components:
           - "BUYERSELLER"
           - "PURCHASE"
           - "AUDIT"
+        fileType:
+          type: "string"
+          enum:
+          - "CSV"
+          - "PDF"
         documentHash:
           type: "string"
         _links:
@@ -13684,6 +15174,427 @@ components:
         _links:
           $ref: "#/components/schemas/reportLinks"
     reportLink:
+      type: "object"
+      properties:
+        href:
+          type: "string"
+        hreflang:
+          type: "string"
+        title:
+          type: "string"
+        type:
+          type: "string"
+        deprecation:
+          type: "string"
+        profile:
+          type: "string"
+        name:
+          type: "string"
+        templated:
+          type: "boolean"
+    notificationV2Message:
+      type: "object"
+      properties:
+        type:
+          type: "string"
+          enum:
+          - "Invalid_Token"
+          - "Mult_Status_Error"
+          - "No_Content_Error"
+          - "Conflict_Error"
+          - "Parameter_Error"
+          - "Bad_Request_Error"
+          - "Business_Logic_Error"
+          - "Resource_Not_Found"
+          - "Internal_Architecture_Error"
+          - "List_Not_Found"
+          - "Method_Not_Allowed"
+          - "Unsupported_Media_Type"
+          - "Access_Denied"
+          - "mfa_required"
+          - "Integration_Error"
+        description:
+          type: "string"
+        notifications:
+          type: "array"
+          items:
+            type: "string"
+    notificationV2BuyerWebHookConfigurationResource:
+      required:
+      - "notifications"
+      - "token"
+      - "url"
+      type: "object"
+      properties:
+        url:
+          type: "string"
+        token:
+          type: "string"
+        tokenType:
+          type: "string"
+        authorizationHeader:
+          type: "string"
+        clientId:
+          type: "string"
+        clientSecret:
+          type: "string"
+        tokenUrl:
+          type: "string"
+        contentType:
+          type: "string"
+        certificate:
+          type: "string"
+        certificatePassword:
+          type: "string"
+        customParameters:
+          type: "object"
+          additionalProperties:
+            type: "string"
+        customHeaders:
+          type: "object"
+          additionalProperties:
+            type: "string"
+        notifications:
+          type: "array"
+          items:
+            type: "string"
+    notificationV2EntityModelWebHookConfiguration:
+      required:
+      - "notifications"
+      - "token"
+      - "url"
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          format: "date-time"
+        createUserId:
+          type: "string"
+        createUserIp:
+          type: "string"
+        updatedAt:
+          type: "string"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+        lastUserIp:
+          type: "string"
+        url:
+          type: "string"
+        token:
+          type: "string"
+        tokenType:
+          type: "string"
+        authorizationHeader:
+          type: "string"
+        clientId:
+          type: "string"
+        clientSecret:
+          type: "string"
+        tokenUrl:
+          type: "string"
+        contentType:
+          type: "string"
+        encryptedCertificate:
+          type: "string"
+        encryptedCertificatePassword:
+          type: "string"
+        customParameters:
+          type: "object"
+          additionalProperties:
+            type: "string"
+        customHeaders:
+          type: "object"
+          additionalProperties:
+            type: "string"
+        notifications:
+          type: "array"
+          items:
+            type: "string"
+        _links:
+          $ref: "#/components/schemas/notificationV2Links"
+    notificationV2Links:
+      type: "object"
+      additionalProperties:
+        $ref: "#/components/schemas/notificationV2Link"
+    notificationV2WebHookRedeliveriesDTO:
+      required:
+      - "items"
+      type: "object"
+      properties:
+        items:
+          maxItems: 100
+          minItems: 1
+          type: "array"
+          items:
+            $ref: "#/components/schemas/notificationV2WebHookRedeliveryDTO"
+    notificationV2WebHookRedeliveryDTO:
+      required:
+      - "date"
+      - "eventType"
+      - "identification"
+      type: "object"
+      properties:
+        identification:
+          type: "string"
+        eventType:
+          type: "string"
+        date:
+          type: "string"
+          format: "date"
+    notificationV2Pageable:
+      type: "object"
+      properties:
+        page:
+          minimum: 0
+          type: "integer"
+          format: "int32"
+        size:
+          minimum: 1
+          type: "integer"
+          format: "int32"
+        sort:
+          type: "array"
+          items:
+            type: "string"
+    notificationV2PageMetadata:
+      type: "object"
+      properties:
+        size:
+          type: "integer"
+          format: "int64"
+        totalElements:
+          type: "integer"
+          format: "int64"
+        totalPages:
+          type: "integer"
+          format: "int64"
+        number:
+          type: "integer"
+          format: "int64"
+    notificationV2PagedModelEntityModelWebHookConfiguration:
+      type: "object"
+      properties:
+        _embedded:
+          type: "object"
+          properties:
+            webhooks:
+              type: "array"
+              items:
+                $ref: "#/components/schemas/notificationV2EntityModelWebHookConfiguration"
+        _links:
+          $ref: "#/components/schemas/notificationV2Links"
+        page:
+          $ref: "#/components/schemas/notificationV2PageMetadata"
+    notificationV2Collation:
+      type: "object"
+    notificationV2Meta:
+      type: "object"
+      properties:
+        flags:
+          uniqueItems: true
+          type: "array"
+          items:
+            type: "string"
+            enum:
+            - "NO_TIMEOUT"
+            - "EXHAUST"
+            - "SLAVE_OK"
+            - "SECONDARY_READS"
+            - "PARTIAL"
+        cursorBatchSize:
+          type: "integer"
+          format: "int32"
+        allowDiskUse:
+          type: "boolean"
+        comment:
+          type: "string"
+        maxTimeMsec:
+          type: "integer"
+          format: "int64"
+        maxTime:
+          type: "object"
+          properties:
+            seconds:
+              type: "integer"
+              format: "int64"
+            zero:
+              type: "boolean"
+            nano:
+              type: "integer"
+              format: "int32"
+            negative:
+              type: "boolean"
+            units:
+              type: "array"
+              items:
+                type: "object"
+                properties:
+                  durationEstimated:
+                    type: "boolean"
+                  timeBased:
+                    type: "boolean"
+                  dateBased:
+                    type: "boolean"
+          writeOnly: true
+    notificationV2Query:
+      type: "object"
+      properties:
+        skip:
+          type: "integer"
+          format: "int64"
+        limit:
+          type: "integer"
+          format: "int32"
+        hint:
+          type: "string"
+        meta:
+          $ref: "#/components/schemas/notificationV2Meta"
+        collation:
+          $ref: "#/components/schemas/notificationV2Collation"
+        queryObject:
+          type: "object"
+          properties:
+            empty:
+              type: "boolean"
+          additionalProperties:
+            type: "object"
+        fieldsObject:
+          type: "object"
+          properties:
+            empty:
+              type: "boolean"
+          additionalProperties:
+            type: "object"
+        sortObject:
+          type: "object"
+          properties:
+            empty:
+              type: "boolean"
+          additionalProperties:
+            type: "object"
+        sorted:
+          type: "boolean"
+    notificationV2EntityModelWebHookDelivery:
+      required:
+      - "eventType"
+      - "reasonPhrase"
+      - "requestHeaders"
+      - "requestPayload"
+      - "responseBody"
+      - "responseHeaders"
+      - "statusCode"
+      - "url"
+      - "webHookConfigurationId"
+      - "webHookId"
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          format: "date-time"
+        createUserId:
+          type: "string"
+        createUserIp:
+          type: "string"
+        updatedAt:
+          type: "string"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+        lastUserIp:
+          type: "string"
+        webHookConfigurationId:
+          type: "string"
+        webHookId:
+          type: "string"
+        eventType:
+          type: "string"
+        url:
+          type: "string"
+        requestHeaders:
+          type: "object"
+          additionalProperties:
+            type: "string"
+        requestPayload:
+          type: "object"
+        responseHeaders:
+          type: "object"
+          additionalProperties:
+            type: "string"
+        responseBody:
+          type: "string"
+        statusCode:
+          type: "integer"
+          format: "int32"
+        reasonPhrase:
+          type: "string"
+        attempts:
+          type: "integer"
+          format: "int32"
+        delivered:
+          type: "boolean"
+        program:
+          type: "string"
+        _links:
+          $ref: "#/components/schemas/notificationV2Links"
+    notificationV2PagedModelEntityModelWebHookDelivery:
+      type: "object"
+      properties:
+        _embedded:
+          type: "object"
+          properties:
+            webhook-deliveries:
+              type: "array"
+              items:
+                $ref: "#/components/schemas/notificationV2EntityModelWebHookDelivery"
+        _links:
+          $ref: "#/components/schemas/notificationV2Links"
+        page:
+          $ref: "#/components/schemas/notificationV2PageMetadata"
+    notificationV2EntityModelNotification:
+      type: "object"
+      properties:
+        createdAt:
+          type: "string"
+          format: "date-time"
+        createUserId:
+          type: "string"
+        createUserIp:
+          type: "string"
+        updatedAt:
+          type: "string"
+          format: "date-time"
+        lastUserId:
+          type: "string"
+        lastUserIp:
+          type: "string"
+        type:
+          type: "string"
+        read:
+          type: "boolean"
+        uuid:
+          type: "string"
+        notification-items:
+          type: "array"
+          items:
+            type: "string"
+        _links:
+          $ref: "#/components/schemas/notificationV2Links"
+    notificationV2PagedModelEntityModelNotification:
+      type: "object"
+      properties:
+        _embedded:
+          type: "object"
+          properties:
+            notifications:
+              type: "array"
+              items:
+                $ref: "#/components/schemas/notificationV2EntityModelNotification"
+        _links:
+          $ref: "#/components/schemas/notificationV2Links"
+        page:
+          $ref: "#/components/schemas/notificationV2PageMetadata"
+    notificationV2Link:
       type: "object"
       properties:
         href:
